@@ -9,7 +9,7 @@
 	
 	<title>
 	
-		categories | 
+		创建应用桌面图标 | 
 	 
 	Harvey&#39;s Notes
 	</title>
@@ -270,7 +270,7 @@
 									</a>
 									
 							<ul>
-								<li class="file">
+								<li class="file active">
 									<a href="/2023/11/25/05%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8%E6%A1%8C%E9%9D%A2%E5%9B%BE%E6%A0%87/">
                      
 										    创建应用桌面图标
@@ -328,18 +328,92 @@
 	<!-- 引入正文 -->
 	<div id="content" class="content">
 		<h1 id="article-title">
-	<i class="fa fa-folder-open" aria-hidden="true"></i>分类
+	创建应用桌面图标
 </h1>
-<h2 id="article-title">
-	目前共计  个分类
-</h2>
 
-<div id="article-content">
-	<ul>
+<!-- meta -->
+<div class="article-meta">
+	
+
+	<span>Harvey Xie</span>
+	<span>2023-11-25 12:54:44</span>
+
+  <div id="article-categories">
+    
+		  <span>Categories：</span>
       
-	</ul>
+          
+              <span>
+                  <i class="fa fa-folder" aria-hidden="true">
+                  <a href="/categories/Ubuntu/">Ubuntu</a>
+                  </i>
+                
+              </span>
+          
+      
+    
+
+    
+		    <span>Tags：</span>
+        
+    
+  </div>
+
 </div>
 
+<!-- content -->
+<div id="article-content">
+	<p>以创建 IntellIJ IDEA 应用图标为例，演示在 Ubuntu 系统上创建应用桌面图标。</p>
+<h2 id="操作步骤"><a class="markdownIt-Anchor" href="#操作步骤"></a> 操作步骤</h2>
+<ol>
+<li>下载 IntellIJ IDEA 的压缩包并解压；</li>
+<li>在指定路径新建一个文件；</li>
+<li>编辑文件内容，填写 IntellIJ IDEA 的路径；</li>
+<li>修改权限。</li>
+</ol>
+<h2 id="具体步骤"><a class="markdownIt-Anchor" href="#具体步骤"></a> 具体步骤</h2>
+<p><strong>Step 1：下载 IntellIJ IDEA 的压缩包并解压；</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.jetbrains.com/zh-cn/idea/download/#section=linux">https://www.jetbrains.com/zh-cn/idea/download/#section=linux</a></p>
+<p><strong>Step 2：在指定路径新建一个文件；</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/share/applications</span><br><span class="line">sudo touch idea.desktop</span><br></pre></td></tr></table></figure>
+<p><strong>Step 3：编辑文件内容，填写 IntellIJ IDEA 的路径。</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Name=IdeaIU</span><br><span class="line">Comment=IdeaIU</span><br><span class="line">Exec=/home/&lt;your_path&gt;/bin/idea.sh</span><br><span class="line">Icon=/home/&lt;your_path&gt;/bin/idea.png </span><br><span class="line">Terminal=true</span><br><span class="line">Type=Application</span><br><span class="line">Categories=Application;Gnome;</span><br></pre></td></tr></table></figure>
+<p><strong>Step 4：修改权限</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod u+x idea.desktop</span><br></pre></td></tr></table></figure>
+</div>
+
+<!-- post-guide -->
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2023/11/25/12%20%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E4%B8%BA%E4%BB%80%E4%B9%88%E7%B2%BE%E8%8B%B1%E9%83%BD%E6%98%AF%E6%97%B6%E9%97%B4%E6%8E%A7/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  读《为什么精英都是时间控》笔记
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2023/11/25/05%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E6%9B%B4%E6%96%B0%E8%BD%AF%E4%BB%B6%E6%BA%90/">
+                更新软件源
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+<!-- comment - giscus -->
+
+
+<!-- comment - valine -->
+
+
+<script>
+	
+	
+</script>
 	</div>
 	<div id="footer">
 	<p>
