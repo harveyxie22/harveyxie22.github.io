@@ -71,7 +71,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"><link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 <body>
 	<header id="header">
@@ -774,39 +774,7 @@ C 语言的编译过程一般包括以下几个步骤：
 					C 语言中的指针是一种非常重要的概念，它提供了直接访问和操作内存地址的能力。指针是一个变量，其值为另一个变量的地址，也就是说指针存储了内存地址，可以用来访问内存中的数据。
  定义
 在 C 语言中，指针的定义使用 * 符号来标识一个变量是指针类型。指针变量声明的一般形式为：
-123type *var_
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2023-12-10</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/C/">C</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2023/12/10/02%20C/05%20%E5%AE%8F%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%B8%B8%E9%87%8F/">
-				<h2 class="index-title">
-					宏定义与常量
-				</h2>
-				<div class="index-brief">
-					 宏
- 定义
-在C语言中，宏定义分两种：无参数宏定义和有参数宏定义。宏定义是常见的预处理指令，使用“标识符”来表示“替换列表”中的内容，标识符称为宏名。在编译过程中的预处理阶段，编译器会把源代码中的宏定义替换成列表中内容。
- 无参宏定义
-无参宏定义的格式为：
-1#define 标识符 替换列表
-替换
+type *var_nam
 					...
 				</div>
 			</a>
@@ -854,6 +822,39 @@ C 语言的编译过程一般包括以下几个步骤：
 		</div>	
 	
 		<div class="index-li">
+			<a href="/2023/12/10/02%20C/05%20%E5%AE%8F%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%B8%B8%E9%87%8F/">
+				<h2 class="index-title">
+					宏定义与常量
+				</h2>
+				<div class="index-brief">
+					 宏
+ 定义
+在C语言中，宏定义分两种：无参数宏定义和有参数宏定义。宏定义是常见的预处理指令，使用“标识符”来表示“替换列表”中的内容，标识符称为宏名。在编译过程中的预处理阶段，编译器会把源代码中的宏定义替换成列表中内容。
+ 无参宏定义
+无参宏定义的格式为：
+#define 标识符 替换列表
+
+替换
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2023-12-10</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/C/">C</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/2023/12/10/02%20C/07%20%E5%AD%97%E7%AC%A6%E4%B8%B2/">
 				<h2 class="index-title">
 					字符串
@@ -865,7 +866,7 @@ C 语言的编译过程一般包括以下几个步骤：
 
 
 声明并初始化字符串数组；
-1char str[] = &quot;Hello, World!&quot
+char str[] = &quot;Hello, World!&quot;
 					...
 				</div>
 			</a>
@@ -917,14 +918,20 @@ C 语言的编译过程一般包括以下几个步骤：
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2023/11/26/02%20C/01%20%E5%85%A5%E9%97%A8%E4%BB%8B%E7%BB%8D/">
+			<a href="/2023/11/26/02%20C/02%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6/">
 				<h2 class="index-title">
-					入门介绍
+					数据类型与运算符
 				</h2>
 				<div class="index-brief">
-					 发展简史
-编程语言发展到今天，很多语言由于其独特的优势还依旧受到大家的青睐，C 语言就是其中之一。C 语言是很多语言的“鼻祖”，因为从其他语言诸如 Object-C、C++ 和 C# 等，都可以看到 C 语言的身影。
-C 语言诞生与 1970 年代初的贝尔实验室（Bell Labs）。Dennis
+					C 语言是一种静态类型语言，数据类型定义了变量能够存储的数据种类。C 语言中有以下几种数据类型：
+
+基本数据类型。例如：整型、浮点型、字符型和布尔型；
+复合数据类型。例如：数组、结构体、指针数据类型、枚举数据类型。
+
+ 基本数据类型
+C 语言提供了 4 种基本数据类型，分别是：
+
+整型（Intege
 					...
 				</div>
 			</a>
@@ -945,20 +952,14 @@ C 语言诞生与 1970 年代初的贝尔实验室（Bell Labs）。Dennis
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2023/11/26/02%20C/02%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6/">
+			<a href="/2023/11/26/02%20C/01%20%E5%85%A5%E9%97%A8%E4%BB%8B%E7%BB%8D/">
 				<h2 class="index-title">
-					数据类型与运算符
+					入门介绍
 				</h2>
 				<div class="index-brief">
-					C 语言是一种静态类型语言，数据类型定义了变量能够存储的数据种类。C 语言中有以下几种数据类型：
-
-基本数据类型。例如：整型、浮点型、字符型和布尔型；
-复合数据类型。例如：数组、结构体、指针数据类型、枚举数据类型。
-
- 基本数据类型
-C 语言提供了 4 种基本数据类型，分别是：
-
-整型（Intege
+					 发展简史
+编程语言发展到今天，很多语言由于其独特的优势还依旧受到大家的青睐，C 语言就是其中之一。C 语言是很多语言的“鼻祖”，因为从其他语言诸如 Object-C、C++ 和 C# 等，都可以看到 C 语言的身影。
+C 语言诞生与 1970 年代初的贝尔实验室（Bell Labs）。Dennis
 					...
 				</div>
 			</a>

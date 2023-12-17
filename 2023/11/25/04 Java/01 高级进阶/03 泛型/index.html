@@ -73,7 +73,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"><link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 <body>
 	<header id="header">
@@ -727,9 +727,29 @@
 <p>所谓的“参数化类型”其实可以拆成两句话来理解：它是一种类型，这种类型是参数化的。在 Java 语言中，像 int、long、double等 ，这些属于基本数据类型，String、对象等属于引用数据类型，所以泛型也和它们一样是一种类型。方法的参数有形参和实参，形参定义在方法上，实参由实际的调用者传递给方法，那么参数化指的就是泛型可以像形参那样定义在方法上，具体使用的时候由调用者来决定。</p>
 <h1 id="假设没有泛型"><a class="markdownIt-Anchor" href="#假设没有泛型"></a> 假设没有泛型</h1>
 <p>在 JDK 1.5 之前没有泛型的时候，我们可以向容器类中添加任意类型的对象。这就存在安全隐患，比如向容器添加字符串类型的数据，但是不小心强转成了其他类型，此时就会报 <code>ClassCastException</code> 错误。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">List</span> <span class="variable">list</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line">    list.add(<span class="number">1</span>);</span><br><span class="line">    list.add(<span class="number">2</span>);</span><br><span class="line">    list.add(<span class="string">&quot;abc&quot;</span>);</span><br><span class="line">    list.add(<span class="number">3</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; list.size(); i++) &#123;</span><br><span class="line">        System.out.println(((Integer) list.get(i)));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;
+    <span class="hljs-type">List</span> <span class="hljs-variable">list</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>();
+    list.add(<span class="hljs-number">1</span>);
+    list.add(<span class="hljs-number">2</span>);
+    list.add(<span class="hljs-string">&quot;abc&quot;</span>);
+    list.add(<span class="hljs-number">3</span>);
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; list.size(); i++) &#123;
+        System.out.println(((Integer) list.get(i)));
+    &#125;
+&#125;
+</code></pre>
 <p>消除上述安全隐患的方法是让添加到容器类中的对象只有一种类型。此时，泛型的出现就可以很好的规避这个问题：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    List&lt;Integer&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    list.add(<span class="number">1</span>);</span><br><span class="line">    list.add(<span class="number">2</span>);</span><br><span class="line">    <span class="comment">//list.add(&quot;abc&quot;); 在编译的时候，就会报错。</span></span><br><span class="line">    list.add(<span class="number">3</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; list.size(); i++) &#123;</span><br><span class="line">        System.out.println(((Integer) list.get(i)));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;
+    List&lt;Integer&gt; list = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+    list.add(<span class="hljs-number">1</span>);
+    list.add(<span class="hljs-number">2</span>);
+    <span class="hljs-comment">//list.add(&quot;abc&quot;); 在编译的时候，就会报错。</span>
+    list.add(<span class="hljs-number">3</span>);
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; list.size(); i++) &#123;
+        System.out.println(((Integer) list.get(i)));
+    &#125;
+&#125;
+</code></pre>
 <p>第 5 行代码想要向 Integer 类型的容器中添加一个字符串类型的时候，编译器就会提示错误。泛型将原本发生在运行时的错误提前到了编译期，让开发者可以更快的发现错误，提高代码的安全性。</p>
 <h1 id="泛型擦除"><a class="markdownIt-Anchor" href="#泛型擦除"></a> 泛型擦除</h1>
 <p>泛型是 JDK 1.5 版本引入的概念。为了向前保持兼容，泛型只会存在编译阶段，当进行运行时，与泛型相关的信息会被虚拟机擦除。该过程我们称为泛型擦除。泛型擦除的目的之一是为了实现兼容。</p>
@@ -776,27 +796,75 @@
 </blockquote>
 <h2 id="泛型方法"><a class="markdownIt-Anchor" href="#泛型方法"></a> 泛型方法</h2>
 <p>泛型方法需要定义在返回值之前，形如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> &lt;泛型标识,泛型标识,泛型标识,...&gt; <span class="keyword">void</span> <span class="title function_">fun</span><span class="params">()</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> &lt;泛型标识,泛型标识,泛型标识,...&gt; <span class="hljs-keyword">void</span> <span class="hljs-title function_">fun</span><span class="hljs-params">()</span> &#123;
+&#125;
+</code></pre>
 <p>泛型方法在调用该方法时需要传递具体的泛型参数。泛型方法可以独立与泛型类而存在，也就是说一个泛型方法可以在一个不是泛型类中。</p>
 <h2 id="泛型类"><a class="markdownIt-Anchor" href="#泛型类"></a> 泛型类</h2>
 <p>泛型类的泛型需要定义在类名后，形如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">className</span> &lt;泛型标识,泛型标识,泛型标识,...&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> 泛型标识 变量名;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">className</span> &lt;泛型标识,泛型标识,泛型标识,...&gt; &#123;
+    <span class="hljs-keyword">private</span> 泛型标识 变量名;
+&#125;
+</code></pre>
 <p>如下是使用示例：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">GenericClass</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> T t;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">GenericClass</span><span class="params">(T t)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.t = t;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        GenericClass&lt;String&gt; stringGenericClass = <span class="keyword">new</span> <span class="title class_">GenericClass</span>&lt;&gt;(<span class="string">&quot;Hello Generic&quot;</span>);</span><br><span class="line">        GenericClass&lt;Integer&gt; integerGenericClass = <span class="keyword">new</span> <span class="title class_">GenericClass</span>&lt;&gt;(<span class="number">100</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">GenericClass</span>&lt;T&gt; &#123;
+    <span class="hljs-keyword">private</span> T t;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">GenericClass</span><span class="hljs-params">(T t)</span> &#123;
+        <span class="hljs-built_in">this</span>.t = t;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;
+        GenericClass&lt;String&gt; stringGenericClass = <span class="hljs-keyword">new</span> <span class="hljs-title class_">GenericClass</span>&lt;&gt;(<span class="hljs-string">&quot;Hello Generic&quot;</span>);
+        GenericClass&lt;Integer&gt; integerGenericClass = <span class="hljs-keyword">new</span> <span class="hljs-title class_">GenericClass</span>&lt;&gt;(<span class="hljs-number">100</span>);
+    &#125;
+&#125;
+</code></pre>
 <p>泛型类在继承关系中需要注意以下几点：</p>
 <ol>
 <li>
 <p>子类的类型参数必须与父类的类型参数相同或是其子类型；</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyBaseClass</span>&lt;T&gt; &#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass1</span>&lt;T&gt; <span class="keyword">extends</span> <span class="title class_">MyBaseClass</span>&lt;T&gt; &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass2</span>&lt;T <span class="keyword">extends</span> <span class="title class_">MyBaseClass</span>&gt; <span class="keyword">extends</span> <span class="title class_">MyBaseClass</span>&lt;T&gt; &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyBaseClass</span>&lt;T&gt; &#123;
+	
+&#125;
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass1</span>&lt;T&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title class_">MyBaseClass</span>&lt;T&gt; &#123;
+
+&#125;
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass2</span>&lt;T <span class="hljs-keyword">extends</span> <span class="hljs-title class_">MyBaseClass</span>&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title class_">MyBaseClass</span>&lt;T&gt; &#123;
+
+&#125;
+</code></pre>
 </li>
 <li>
 <p>子类可以增加自己的类型参数，但是不能减少或修改父类的类型参数；</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyBaseClass</span>&lt;T,U&gt; &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass1</span>&lt;T&gt; <span class="keyword">extends</span> <span class="title class_">MyBaseClass</span>&lt;T&gt; &#123;</span><br><span class="line">	<span class="comment">//此处会编译报错：Incorrect number of arguments for type MyBaseClass&lt;T,U&gt;; </span></span><br><span class="line">    <span class="comment">// it cannot be parameterized with arguments &lt;T&gt;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass2</span>&lt;U&gt; <span class="keyword">extends</span> <span class="title class_">MyBaseClass</span>&lt;T&gt; &#123;</span><br><span class="line">	<span class="comment">//此处会编译报错：T cannot be resolved to a type</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyBaseClass</span>&lt;T,U&gt; &#123;
+
+&#125;
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass1</span>&lt;T&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title class_">MyBaseClass</span>&lt;T&gt; &#123;
+	<span class="hljs-comment">//此处会编译报错：Incorrect number of arguments for type MyBaseClass&lt;T,U&gt;; </span>
+    <span class="hljs-comment">// it cannot be parameterized with arguments &lt;T&gt;</span>
+&#125;
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass2</span>&lt;U&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title class_">MyBaseClass</span>&lt;T&gt; &#123;
+	<span class="hljs-comment">//此处会编译报错：T cannot be resolved to a type</span>
+&#125;
+</code></pre>
 </li>
 <li>
 <p>子类可以覆盖父类的泛型方法，但是覆盖后的方法的类型参数必须与父类的方法类型参数相同；</p>
 <p>当覆盖父类的泛型方法时，子类的中方法必须与父类方法具有相同的方法签名，包括方法名、参数类型和数量。因此，子类不可以通过改变泛型参数的类型范围来覆写父类的泛型方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyBaseClass</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> &lt;T&gt; <span class="keyword">void</span> <span class="title function_">print</span><span class="params">(T t)</span> &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ChildClass</span> <span class="keyword">extends</span> <span class="title class_">ParentClass</span> &#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> &lt;T&gt; <span class="keyword">void</span> <span class="title function_">print</span><span class="params">(T t)</span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyBaseClass</span> &#123;
+	<span class="hljs-keyword">public</span> &lt;T&gt; <span class="hljs-keyword">void</span> <span class="hljs-title function_">print</span><span class="hljs-params">(T t)</span> &#123;&#125;
+&#125;
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">ChildClass</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">ParentClass</span> &#123;
+	<span class="hljs-meta">@Override</span>
+	<span class="hljs-keyword">public</span> &lt;T&gt; <span class="hljs-keyword">void</span> <span class="hljs-title function_">print</span><span class="hljs-params">(T t)</span>&#123;&#125;
+&#125;
+</code></pre>
 </li>
 <li>
 <p>泛型继承关系不能用于静态方法或是静态变量，因为它们在编译时就已被解析；</p>
@@ -807,19 +875,151 @@
 </ol>
 <h2 id="泛型接口"><a class="markdownIt-Anchor" href="#泛型接口"></a> 泛型接口</h2>
 <p>泛型接口和泛型类一样，泛型接口定义在接口名后，形如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">className</span> &lt;泛型标识,泛型标识,泛型标识,...&gt; &#123;</span><br><span class="line">    泛型标识 fun();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">className</span> &lt;泛型标识,泛型标识,泛型标识,...&gt; &#123;
+    泛型标识 fun();
+&#125;
+</code></pre>
 <p>在泛型接口中，没有明确指定类型时，默认是 Object 类型。实现类不是泛型类，接口应该明确数据类型；实现类也是泛型类，实现类和接口的泛型需要保持一致。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">Action</span>&lt;T&gt; &#123;</span><br><span class="line">	T <span class="title function_">get</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//默认是 Object 类型</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass1</span> <span class="keyword">implements</span> <span class="title class_">Action</span> &#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> Object <span class="title function_">get</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//实现类不是泛型类，接口要明确数据类型</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass2</span> <span class="keyword">implements</span> <span class="title class_">Action</span>&lt;String&gt; &#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> Object <span class="title function_">get</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//实现类也是泛型类，实现类和接口的泛型需要保持一致</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass3</span>&lt;T&gt; <span class="keyword">implements</span> <span class="title class_">Action</span>&lt;T&gt; &#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> T <span class="title function_">get</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Action</span>&lt;T&gt; &#123;
+	T <span class="hljs-title function_">get</span><span class="hljs-params">()</span>;
+&#125;
+
+<span class="hljs-comment">//默认是 Object 类型</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass1</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Action</span> &#123;
+	<span class="hljs-meta">@Override</span>
+	<span class="hljs-keyword">public</span> Object <span class="hljs-title function_">get</span><span class="hljs-params">()</span> &#123;
+		<span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+	&#125;
+&#125;
+
+<span class="hljs-comment">//实现类不是泛型类，接口要明确数据类型</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass2</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Action</span>&lt;String&gt; &#123;
+	<span class="hljs-meta">@Override</span>
+	<span class="hljs-keyword">public</span> Object <span class="hljs-title function_">get</span><span class="hljs-params">()</span> &#123;
+		<span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+	&#125;
+&#125;
+
+<span class="hljs-comment">//实现类也是泛型类，实现类和接口的泛型需要保持一致</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass3</span>&lt;T&gt; <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Action</span>&lt;T&gt; &#123;
+	<span class="hljs-meta">@Override</span>
+	<span class="hljs-keyword">public</span> T <span class="hljs-title function_">get</span><span class="hljs-params">()</span> &#123;
+		<span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+	&#125;
+&#125;
+</code></pre>
 <h1 id="边界"><a class="markdownIt-Anchor" href="#边界"></a> 边界</h1>
 <h2 id="无界通配符"><a class="markdownIt-Anchor" href="#无界通配符"></a> 无界通配符</h2>
 <p>当泛型的类型不明确时，可以使用无界通配符 <code>?</code> 声明泛型类型。使用无界通配符通配符声明的泛型，由于不明确其具体类型，因此只能读操作，不可以写操作，且读到对象是 Object 类型。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        List&lt;String&gt; strings = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        strings.add(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">        strings.add(<span class="string">&quot;b&quot;</span>);</span><br><span class="line">        strings.add(<span class="string">&quot;c&quot;</span>);</span><br><span class="line">        </span><br><span class="line">        List&lt;Integer&gt; integers = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        integers.add(<span class="number">1</span>);</span><br><span class="line">        integers.add(<span class="number">2</span>);</span><br><span class="line">        integers.add(<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">        <span class="type">Main</span> <span class="variable">main</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Main</span>();</span><br><span class="line">        main.addToList(strings);</span><br><span class="line">        main.addToList(integers);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addToList</span><span class="params">(List&lt;?&gt; list)</span> &#123;</span><br><span class="line">        <span class="comment">// list.add(&quot;a&quot;); 此处编译报错</span></span><br><span class="line">        <span class="comment">// list.add(1); 此处编译也会报错</span></span><br><span class="line">        <span class="keyword">for</span> (Object o : list) &#123;</span><br><span class="line">            <span class="comment">// 只能读，不能写</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;
+        List&lt;String&gt; strings = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+        strings.add(<span class="hljs-string">&quot;a&quot;</span>);
+        strings.add(<span class="hljs-string">&quot;b&quot;</span>);
+        strings.add(<span class="hljs-string">&quot;c&quot;</span>);
+        
+        List&lt;Integer&gt; integers = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+        integers.add(<span class="hljs-number">1</span>);
+        integers.add(<span class="hljs-number">2</span>);
+        integers.add(<span class="hljs-number">3</span>);
+
+        <span class="hljs-type">Main</span> <span class="hljs-variable">main</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Main</span>();
+        main.addToList(strings);
+        main.addToList(integers);
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">addToList</span><span class="hljs-params">(List&lt;?&gt; list)</span> &#123;
+        <span class="hljs-comment">// list.add(&quot;a&quot;); 此处编译报错</span>
+        <span class="hljs-comment">// list.add(1); 此处编译也会报错</span>
+        <span class="hljs-keyword">for</span> (Object o : list) &#123;
+            <span class="hljs-comment">// 只能读，不能写</span>
+        &#125;
+    &#125;
+&#125;
+</code></pre>
 <h2 id="上界"><a class="markdownIt-Anchor" href="#上界"></a> 上界</h2>
 <p>使用 <code>extends</code> 关键字对泛型进行上界的限定。对泛型的类型进行上界限定后，限定传递的参数只能是实参类型或者泛型的子类型。无界通配符默认是 Object 类型，因此无界通配符也可以认为是最大的上界。做了上界限定后，因为不知道其具体的子类型，其子类型可能存在无数多个，因此也只能进行读操作，而无法对其写操作，读到类型为泛型上界的类型。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">start</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        List&lt;DragonLi&gt; dragonLis = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        dragonLis.add(<span class="keyword">new</span> <span class="title class_">DragonLi</span>());</span><br><span class="line">        dragonLis.add(<span class="keyword">new</span> <span class="title class_">DragonLi</span>());</span><br><span class="line"></span><br><span class="line">        List&lt;Ragdoll&gt; ragdolls = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        ragdolls.add(<span class="keyword">new</span> <span class="title class_">Ragdoll</span>());</span><br><span class="line">        ragdolls.add(<span class="keyword">new</span> <span class="title class_">Ragdoll</span>());</span><br><span class="line"></span><br><span class="line">        addToList(dragonLis);</span><br><span class="line">        addToList(ragdolls);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addToList</span><span class="params">(List&lt;? extends Cat&gt; animals)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (Object o : animals) &#123;</span><br><span class="line">            <span class="comment">// 只能读，不能写</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// animals.add(new Ragdoll()) 会报错</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Cat</span> <span class="keyword">extends</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">DragonLi</span> <span class="keyword">extends</span> <span class="title class_">Cat</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Ragdoll</span> <span class="keyword">extends</span> <span class="title class_">Cat</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">start</span><span class="hljs-params">(String[] args)</span> &#123;
+        List&lt;DragonLi&gt; dragonLis = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+        dragonLis.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">DragonLi</span>());
+        dragonLis.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">DragonLi</span>());
+
+        List&lt;Ragdoll&gt; ragdolls = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+        ragdolls.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Ragdoll</span>());
+        ragdolls.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Ragdoll</span>());
+
+        addToList(dragonLis);
+        addToList(ragdolls);
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">addToList</span><span class="hljs-params">(List&lt;? extends Cat&gt; animals)</span> &#123;
+        <span class="hljs-keyword">for</span> (Object o : animals) &#123;
+            <span class="hljs-comment">// 只能读，不能写</span>
+        &#125;
+        <span class="hljs-comment">// animals.add(new Ragdoll()) 会报错</span>
+    &#125;
+
+    <span class="hljs-keyword">class</span> <span class="hljs-title class_">Animal</span> &#123;
+    &#125;
+
+    <span class="hljs-keyword">class</span> <span class="hljs-title class_">Cat</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Animal</span> &#123;
+    &#125;
+
+    <span class="hljs-keyword">class</span> <span class="hljs-title class_">DragonLi</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Cat</span> &#123;
+    &#125;
+
+    <span class="hljs-keyword">class</span> <span class="hljs-title class_">Ragdoll</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Cat</span> &#123;
+    &#125;
+&#125;
+</code></pre>
 <h2 id="下界"><a class="markdownIt-Anchor" href="#下界"></a> 下界</h2>
 <p>使用 <code>supers</code> 关键字对泛型进行下界的限定。对泛型的类型进行下界限定后，限定传递参数只能是实参类型或者泛型的父类型。做了下界限定的泛型可以进行读和写操作，读到的是一个 Object 类型。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">start</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        List&lt;Cat&gt; cats = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        cats.add(<span class="keyword">new</span> <span class="title class_">Cat</span>());</span><br><span class="line">        cats.add(<span class="keyword">new</span> <span class="title class_">DragonLi</span>()); <span class="comment">// 里氏替换法</span></span><br><span class="line">        cats.add(<span class="keyword">new</span> <span class="title class_">Ragdoll</span>()); <span class="comment">// 里氏替换法</span></span><br><span class="line"></span><br><span class="line">        List&lt;Dog&gt; dogs = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        dogs.add(<span class="keyword">new</span> <span class="title class_">Dog</span>());</span><br><span class="line">        dogs.add(<span class="keyword">new</span> <span class="title class_">Golden</span>());</span><br><span class="line">        dogs.add(<span class="keyword">new</span> <span class="title class_">Labrador</span>());</span><br><span class="line"></span><br><span class="line">        addToList(cats);</span><br><span class="line">        <span class="comment">// addToList(dogs); 无法传递，因为上界限定只能是 Cat 或是 Cat 的子类型</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addToList</span><span class="params">(List&lt;? <span class="built_in">super</span> Cat&gt; likeCat)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (Object cat : likeCat) &#123;</span><br><span class="line">            <span class="comment">// 可以读，但是读到是一个 Object 类型</span></span><br><span class="line">        &#125;</span><br><span class="line">        likeCat.add(<span class="keyword">new</span> <span class="title class_">Cat</span>()); <span class="comment">// 可以进行写操作</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Cat</span> <span class="keyword">extends</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Dog</span> <span class="keyword">extends</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">DragonLi</span> <span class="keyword">extends</span> <span class="title class_">Cat</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Ragdoll</span> <span class="keyword">extends</span> <span class="title class_">Cat</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Golden</span> <span class="keyword">extends</span> <span class="title class_">Dog</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Labrador</span> <span class="keyword">extends</span> <span class="title class_">Dog</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">start</span><span class="hljs-params">(String[] args)</span> &#123;
+        List&lt;Cat&gt; cats = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+        cats.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Cat</span>());
+        cats.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">DragonLi</span>()); <span class="hljs-comment">// 里氏替换法</span>
+        cats.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Ragdoll</span>()); <span class="hljs-comment">// 里氏替换法</span>
+
+        List&lt;Dog&gt; dogs = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+        dogs.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Dog</span>());
+        dogs.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Golden</span>());
+        dogs.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Labrador</span>());
+
+        addToList(cats);
+        <span class="hljs-comment">// addToList(dogs); 无法传递，因为上界限定只能是 Cat 或是 Cat 的子类型</span>
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">addToList</span><span class="hljs-params">(List&lt;? <span class="hljs-built_in">super</span> Cat&gt; likeCat)</span> &#123;
+        <span class="hljs-keyword">for</span> (Object cat : likeCat) &#123;
+            <span class="hljs-comment">// 可以读，但是读到是一个 Object 类型</span>
+        &#125;
+        likeCat.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Cat</span>()); <span class="hljs-comment">// 可以进行写操作</span>
+    &#125;
+
+    <span class="hljs-keyword">class</span> <span class="hljs-title class_">Animal</span> &#123;
+    &#125;
+
+    <span class="hljs-keyword">class</span> <span class="hljs-title class_">Cat</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Animal</span> &#123;
+    &#125;
+
+    <span class="hljs-keyword">class</span> <span class="hljs-title class_">Dog</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Animal</span> &#123;
+    &#125;
+
+    <span class="hljs-keyword">class</span> <span class="hljs-title class_">DragonLi</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Cat</span> &#123;
+    &#125;
+
+    <span class="hljs-keyword">class</span> <span class="hljs-title class_">Ragdoll</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Cat</span> &#123;
+    &#125;
+
+    <span class="hljs-keyword">class</span> <span class="hljs-title class_">Golden</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Dog</span> &#123;
+    &#125;
+
+    <span class="hljs-keyword">class</span> <span class="hljs-title class_">Labrador</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Dog</span> &#123;
+    &#125;
+&#125;
+</code></pre>
 <blockquote>
 <p>里氏替换法则告诉我们，父类出现的地方可以使用子类代替（或者也可以理解成初始化子类之前必须先初始化父类），因此向其插入子类是安全的。</p>
 </blockquote>

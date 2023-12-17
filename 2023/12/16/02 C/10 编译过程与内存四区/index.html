@@ -73,7 +73,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"><link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 <body>
 	<header id="header">
@@ -736,27 +736,40 @@
 <h2 id="命令"><a class="markdownIt-Anchor" href="#命令"></a> 命令</h2>
 <p>C语言的每一个编译过程使用的命令是不一样的。</p>
 <h3 id="预处理阶段"><a class="markdownIt-Anchor" href="#预处理阶段"></a> 预处理阶段</h3>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -E HelloWorld.c -o HelloWorld.i</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">gcc -E HelloWorld.c -o HelloWorld.i
+</code></pre>
 <p>参数<code>-E</code>只进行预处理。参数<code>-o</code>指定输出文件名。</p>
 <h3 id="编译阶段"><a class="markdownIt-Anchor" href="#编译阶段"></a> 编译阶段</h3>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -S HelloWorld.i -o HelloWorld.s</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">gcc -S HelloWorld.i -o HelloWorld.s
+</code></pre>
 <p>参数<code>-S</code>只进行预处理和编译。参数<code>-o</code>指定输出文件名。</p>
 <h3 id="汇编阶段"><a class="markdownIt-Anchor" href="#汇编阶段"></a> 汇编阶段</h3>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -c HelloWorld.s -o HelloWorld.o</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">gcc -c HelloWorld.s -o HelloWorld.o
+</code></pre>
 <p>参数<code>-c</code>只进行预处理、编译和汇编。参数<code>-o</code>指定输出文件名。</p>
 <h3 id="链接阶段"><a class="markdownIt-Anchor" href="#链接阶段"></a> 链接阶段</h3>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc HelloWorld.o -o HelloWorld</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">gcc HelloWorld.o -o HelloWorld
+</code></pre>
 <h2 id="实际开发"><a class="markdownIt-Anchor" href="#实际开发"></a> 实际开发</h2>
 <p>实际的开发中，我们可以使用：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc HelloWorld.c -o HelloWorld</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c">gcc HelloWorld.c -o HelloWorld
+</code></pre>
 <p>一步到位完成上述四个阶段的全部操作。</p>
 <h1 id="内存四区"><a class="markdownIt-Anchor" href="#内存四区"></a> 内存四区</h1>
 <p>C 语言经过预处理、编译、汇编和链接四个步骤后可以生成一个可执行文件。在操作系统下，可以查询到该执行文件的基本情况。假设存在一个 HelloWorld.c 的文件，那么：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc HelloWorld.c -o helloworld.exe</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">gcc HelloWorld.c -o helloworld.exe
+</code></pre>
 <p>得到一个可执行文件后，执行：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">file helloworld.exe</span><br><span class="line">helloworld.exe: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically</span><br><span class="line">linked, interpreter /lib64/ld-linux-x86-64.so.2, </span><br><span class="line">BuildID[sha1]=e2c48a9abae67a215e8c98a7765a67792c0bd1b1, for GNU/Linux 3.2.0, not stripped</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">file helloworld.exe
+helloworld.exe: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically
+linked, interpreter /lib64/ld-linux-x86-64.so.2, 
+BuildID[sha1]=e2c48a9abae67a215e8c98a7765a67792c0bd1b1, for GNU/Linux 3.2.0, not stripped
+</code></pre>
 <p>最后，通过 size 查看可执行文件的结构情况：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">size helloworld.exe</span><br><span class="line">   text	   data	    bss	    dec	    hex	filename</span><br><span class="line">   1623	    600	      8	   2231	    8b7	helloworld.exe</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">size helloworld.exe
+   text	   data	    bss	    dec	    hex	filename
+   1623	    600	      8	   2231	    8b7	helloworld.exe
+</code></pre>
 <p>上述字段的含义如下表所示：</p>
 <table>
 <thead>
@@ -878,17 +891,134 @@
 </li>
 </ol>
 <p>以下是一个在堆内存中申请内存的例子：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 1.向堆申请一块10个大小的int类型的空间</span></span><br><span class="line">    <span class="type">int</span> *<span class="built_in">array</span> = (<span class="type">int</span> *)<span class="built_in">malloc</span>(<span class="number">10</span> * <span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">array</span> == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;ERROR!&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.把申请到的内存空间清0</span></span><br><span class="line">    <span class="built_in">memset</span>(<span class="built_in">array</span>, <span class="number">0</span>, <span class="keyword">sizeof</span>(<span class="type">int</span>) * <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.向申请到的数据添加数据</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">array</span>[i] = i;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4.打印数据</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, <span class="built_in">array</span>[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5.释放申请的空间</span></span><br><span class="line">    <span class="built_in">free</span>(<span class="built_in">array</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string.h&gt;</span></span>
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>
+&#123;
+    <span class="hljs-comment">// 1.向堆申请一块10个大小的int类型的空间</span>
+    <span class="hljs-type">int</span> *<span class="hljs-built_in">array</span> = (<span class="hljs-type">int</span> *)<span class="hljs-built_in">malloc</span>(<span class="hljs-number">10</span> * <span class="hljs-keyword">sizeof</span>(<span class="hljs-type">int</span>));
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">array</span> == <span class="hljs-literal">NULL</span>)
+    &#123;
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;ERROR!&quot;</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+    &#125;
+
+    <span class="hljs-comment">// 2.把申请到的内存空间清0</span>
+    <span class="hljs-built_in">memset</span>(<span class="hljs-built_in">array</span>, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span>(<span class="hljs-type">int</span>) * <span class="hljs-number">10</span>);
+
+    <span class="hljs-comment">// 3.向申请到的数据添加数据</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">size_t</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++)
+    &#123;
+        <span class="hljs-built_in">array</span>[i] = i;
+    &#125;
+
+    <span class="hljs-comment">// 4.打印数据</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">size_t</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++)
+    &#123;
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, <span class="hljs-built_in">array</span>[i]);
+    &#125;
+
+    <span class="hljs-comment">// 5.释放申请的空间</span>
+    <span class="hljs-built_in">free</span>(<span class="hljs-built_in">array</span>);
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+</code></pre>
 <h2 id="内存分区与代码分析"><a class="markdownIt-Anchor" href="#内存分区与代码分析"></a> 内存分区与代码分析</h2>
 <h3 id="返回栈区地址"><a class="markdownIt-Anchor" href="#返回栈区地址"></a> 返回栈区地址</h3>
 <p>当函数返回栈区中的地址时，会报错。这是因为栈区当函数执行完毕后会被释放。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> *<span class="title function_">fun</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> &amp;a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> *p = <span class="literal">NULL</span>;</span><br><span class="line">    p = fun();</span><br><span class="line">    *p = <span class="number">100</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-type">int</span> *<span class="hljs-title function_">fun</span><span class="hljs-params">()</span>&#123;
+    <span class="hljs-type">int</span> a = <span class="hljs-number">10</span>;
+    <span class="hljs-keyword">return</span> &amp;a;
+&#125;
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>
+&#123;
+    <span class="hljs-type">int</span> *p = <span class="hljs-literal">NULL</span>;
+    p = fun();
+    *p = <span class="hljs-number">100</span>;
+&#125;
+</code></pre>
 <h3 id="返回data区地址"><a class="markdownIt-Anchor" href="#返回data区地址"></a> 返回data区地址</h3>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> *<span class="title function_">fun</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">static</span> <span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">return</span> &amp;a; <span class="comment">//函数调用完毕，a不释放</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> *p = <span class="literal">NULL</span>;</span><br><span class="line">	p = fun();</span><br><span class="line">	*p = <span class="number">100</span>; <span class="comment">//ok</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;*p = %d\n&quot;</span>, *p);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-type">int</span> *<span class="hljs-title function_">fun</span><span class="hljs-params">()</span>
+&#123;
+	<span class="hljs-type">static</span> <span class="hljs-type">int</span> a = <span class="hljs-number">10</span>;
+	<span class="hljs-keyword">return</span> &amp;a; <span class="hljs-comment">//函数调用完毕，a不释放</span>
+&#125;
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">int</span> argc, <span class="hljs-type">char</span> *argv[])</span>
+&#123;
+	<span class="hljs-type">int</span> *p = <span class="hljs-literal">NULL</span>;
+	p = fun();
+	*p = <span class="hljs-number">100</span>; <span class="hljs-comment">//ok</span>
+	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;*p = %d\n&quot;</span>, *p);
+
+	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+</code></pre>
 <h3 id="返回堆区地址"><a class="markdownIt-Anchor" href="#返回堆区地址"></a> 返回堆区地址</h3>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> *<span class="title function_">fun</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> *tmp = <span class="literal">NULL</span>;</span><br><span class="line">	tmp = (<span class="type">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">	*tmp = <span class="number">100</span>;</span><br><span class="line">	<span class="keyword">return</span> tmp;<span class="comment">//返回堆区地址，函数调用完毕，不释放</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> *p = <span class="literal">NULL</span>;</span><br><span class="line">	p = fun();</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;*p = %d\n&quot;</span>, *p);<span class="comment">//ok</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//堆区空间，使用完毕，手动释放</span></span><br><span class="line">	<span class="keyword">if</span> (p != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">free</span>(p);</span><br><span class="line">		p = <span class="literal">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span>
+
+<span class="hljs-type">int</span> *<span class="hljs-title function_">fun</span><span class="hljs-params">()</span>
+&#123;
+	<span class="hljs-type">int</span> *tmp = <span class="hljs-literal">NULL</span>;
+	tmp = (<span class="hljs-type">int</span> *)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(<span class="hljs-type">int</span>));
+	*tmp = <span class="hljs-number">100</span>;
+	<span class="hljs-keyword">return</span> tmp;<span class="hljs-comment">//返回堆区地址，函数调用完毕，不释放</span>
+&#125;
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">int</span> argc, <span class="hljs-type">char</span> *argv[])</span>
+&#123;
+	<span class="hljs-type">int</span> *p = <span class="hljs-literal">NULL</span>;
+	p = fun();
+	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;*p = %d\n&quot;</span>, *p);<span class="hljs-comment">//ok</span>
+
+	<span class="hljs-comment">//堆区空间，使用完毕，手动释放</span>
+	<span class="hljs-keyword">if</span> (p != <span class="hljs-literal">NULL</span>)
+	&#123;
+		<span class="hljs-built_in">free</span>(p);
+		p = <span class="hljs-literal">NULL</span>;
+	&#125;
+
+	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+</code></pre>
 <h3 id="值传递"><a class="markdownIt-Anchor" href="#值传递"></a> 值传递</h3>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">fun1</span><span class="params">(<span class="type">int</span> *tmp)</span></span><br><span class="line">&#123;</span><br><span class="line">    *tmp = <span class="number">100</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">fun2</span><span class="params">(<span class="type">int</span> *tmp)</span></span><br><span class="line">&#123;</span><br><span class="line">    tmp = (<span class="type">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">    *tmp = <span class="number">100</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> *p = <span class="literal">NULL</span>;</span><br><span class="line">    p = (<span class="type">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line"></span><br><span class="line">    fun1(p);                 <span class="comment">//值传递</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;*p = %d\n&quot;</span>, *p); <span class="comment">// ok，*p为100</span></span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> *q = <span class="literal">NULL</span>;</span><br><span class="line">    fun2(q);                 <span class="comment">//值传递，形参修改不会影响实参</span></span><br><span class="line">    <span class="comment">//printf(&quot;*p = %d\n&quot;, *q); // ERROR，操作空指针指向的内存</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span>
+
+<span class="hljs-type">void</span> <span class="hljs-title function_">fun1</span><span class="hljs-params">(<span class="hljs-type">int</span> *tmp)</span>
+&#123;
+    *tmp = <span class="hljs-number">100</span>;
+&#125;
+
+<span class="hljs-type">void</span> <span class="hljs-title function_">fun2</span><span class="hljs-params">(<span class="hljs-type">int</span> *tmp)</span>
+&#123;
+    tmp = (<span class="hljs-type">int</span> *)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(<span class="hljs-type">int</span>));
+    *tmp = <span class="hljs-number">100</span>;
+&#125;
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">int</span> argc, <span class="hljs-type">char</span> *argv[])</span>
+&#123;
+    <span class="hljs-type">int</span> *p = <span class="hljs-literal">NULL</span>;
+    p = (<span class="hljs-type">int</span> *)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(<span class="hljs-type">int</span>));
+
+    fun1(p);                 <span class="hljs-comment">//值传递</span>
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;*p = %d\n&quot;</span>, *p); <span class="hljs-comment">// ok，*p为100</span>
+
+    <span class="hljs-type">int</span> *q = <span class="hljs-literal">NULL</span>;
+    fun2(q);                 <span class="hljs-comment">//值传递，形参修改不会影响实参</span>
+    <span class="hljs-comment">//printf(&quot;*p = %d\n&quot;, *q); // ERROR，操作空指针指向的内存</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+</code></pre>
 <h2 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h2>
 <p>在理解 C/C++ 内存分区时，常会碰到如下术语：数据区，堆，栈，静态区，常量区，全局区，字符串常量区，文字常量区，代码区等等，初学者被搞得云里雾里。在这里，尝试捋清楚以上分区的关系：</p>
 <ul>

@@ -73,7 +73,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"><link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 <body>
 	<header id="header">
@@ -738,7 +738,11 @@
 </ul>
 <h1 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义</h1>
 <p>在 C 语言中，定义一个函数的一般形式如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">return_type function_name( parameter list )</span><br><span class="line">&#123;</span><br><span class="line">   body of the function</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">return_type function_name( parameter list )
+&#123;
+   body of the function
+&#125;
+</code></pre>
 <p>函数由一个函数头和一个函数主体组成。下面列出一个函数的所有组成部分：</p>
 <ul>
 <li>返回类型：一个函数可以返回一个值。return_type 是函数返回的值的数据类型。有些函数执行所需的操作而不返回值，在这种情况下，return_type 是关键字 void。函数返回类型决定返回值的类型，对于数值数据，编译器会隐式转换。若隐式转换失败，则报异常。</li>
@@ -748,7 +752,27 @@
 </ul>
 <h1 id="声明"><a class="markdownIt-Anchor" href="#声明"></a> 声明</h1>
 <p>与其他编程语言有区别的是，C 语言中，如果使用自定义的函数，并且该函数与主函数不在同一个文件中，或者函数定义的位置在主函数以后，那么必须在调用此函数之前对被调用的函数进行声明。所谓函数声明，就是在函数尚在未定义的情况下，事先将该函数的有关信息通知编译系统，相当于告诉编译器，函数在后面定义，以便使编译能正常进行。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//这里就是函数的声明</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">sub</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;sum:%d\n&quot;</span>, add(<span class="number">5</span>, <span class="number">3</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;value:%d\n&quot;</span>, sub(<span class="number">5</span>, <span class="number">3</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">sub</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-comment">//这里就是函数的声明</span>
+<span class="hljs-type">int</span> <span class="hljs-title function_">sub</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span>;
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">add</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span>
+&#123;
+    <span class="hljs-keyword">return</span> a + b;
+&#125;
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>
+&#123;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;sum:%d\n&quot;</span>, add(<span class="hljs-number">5</span>, <span class="hljs-number">3</span>));
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;value:%d\n&quot;</span>, sub(<span class="hljs-number">5</span>, <span class="hljs-number">3</span>));
+&#125;
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">sub</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span>
+&#123;
+    <span class="hljs-keyword">return</span> a - b;
+&#125;
+</code></pre>
 <blockquote>
 <p>一个函数只能被定义一次，但是可以声明多次。</p>
 </blockquote>
@@ -759,25 +783,60 @@
 </ol>
 <h1 id="调用"><a class="markdownIt-Anchor" href="#调用"></a> 调用</h1>
 <p>函数定义完成后，可以在程序适当的位置进行函数的调用。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;sum:%d\n&quot;</span>, add(<span class="number">5</span>, <span class="number">3</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">add</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span>
+&#123;
+    <span class="hljs-keyword">return</span> a + b;
+&#125;
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>
+&#123;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;sum:%d\n&quot;</span>, add(<span class="hljs-number">5</span>, <span class="hljs-number">3</span>));
+&#125;
+</code></pre>
 <h1 id="头文件"><a class="markdownIt-Anchor" href="#头文件"></a> 头文件</h1>
 <p>当函数很多时候，需要把一个文件拆分成多个文件，那么此时就需要引用其他函数的头文件。例如：</p>
 <p>头文件 <code>methods.h</code>：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;methods.c&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">max</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span>;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;methods.c&quot;</span></span>
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">max</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span>;
+</code></pre>
 <p>函数实现文件 <code>methods.c</code>：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">max</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> x &gt; y ? x : y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-type">int</span> <span class="hljs-title function_">max</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span>
+&#123;
+    <span class="hljs-keyword">return</span> x &gt; y ? x : y;
+&#125;
+</code></pre>
 <p>主函数文件 <code>Max.c</code>：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;methods.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, max(<span class="number">5</span>, <span class="number">10</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;methods.h&quot;</span></span>
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>
+&#123;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>, max(<span class="hljs-number">5</span>, <span class="hljs-number">10</span>));
+&#125;
+
+</code></pre>
 <p>当一个项目比较大时，往往都是分文件，这时候有可能不小心把同一个头文件 include 多次，或者头文件嵌套包含。此时编译的时候，就会报错。因此，为了避免同一个文件被 include 多次，有两种方式解决该问题：第一种是<code>#ifndef</code> 方式，另外一种是 <code>#pragma once</code> 方式。</p>
 <ol>
 <li>
 <p><code>#ifndef</code></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> YOUR_HEADER_FILE_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> YOUR_HEADER_FILE_H</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 声明语句</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> YOUR_HEADER_FILE_H</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> YOUR_HEADER_FILE_H</span>
+
+<span class="hljs-comment">// 声明语句</span>
+
+<span class="hljs-meta">#<span class="hljs-keyword">endif</span></span>
+</code></pre>
 <p>这种方式利用了条件编译预处理指令，当 <code>YOUR_HEADER_FILE_H</code> 未定义时，执行 <code>#define</code> 定义该标识符，并包含头文件内容；当 <code>YOUR_HEADER_FILE_H</code> 已经定义时，跳过头文件内容。这样可以避免同一个头文件被多次包含。</p>
 </li>
 <li>
 <p><code>#pragma once</code></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> once</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 声明语句</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">pragma</span> once</span>
+
+<span class="hljs-comment">// 声明语句</span>
+</code></pre>
 <p>使用 #pragma once 可以简化防止头文件被多次包含的操作，但是需要注意的是，它并非标准的 C/C++ 语法，因此在跨平台开发时可能会存在兼容性问题。</p>
 </li>
 </ol>
@@ -790,10 +849,25 @@
 <p>C语言中常见的输入输出函数有：<code>putchar</code>、<code>getchar</code>、<code>printf</code> 和 <code>scanf</code>。</p>
 <h2 id="putchar"><a class="markdownIt-Anchor" href="#putchar"></a> putchar</h2>
 <p><code>putchar</code> 函数是字符输出函数，其作用是在终端控制台输出单个字符。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">&#x27;A&#x27;</span>);</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">&#x27;B&#x27;</span>);</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>
+&#123;
+    <span class="hljs-built_in">putchar</span>(<span class="hljs-string">&#x27;A&#x27;</span>);
+    <span class="hljs-built_in">putchar</span>(<span class="hljs-string">&#x27;B&#x27;</span>);
+    <span class="hljs-built_in">putchar</span>(<span class="hljs-string">&#x27;\n&#x27;</span>);
+&#125;
+</code></pre>
 <h2 id="getchar"><a class="markdownIt-Anchor" href="#getchar"></a> getchar</h2>
 <p><code>getchar</code>函数的功能是接收用户从键盘上输入的一个字符。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> input = getchar();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%c\n&quot;</span>, input);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>
+&#123;
+    <span class="hljs-type">char</span> input = getchar();
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%c\n&quot;</span>, input);
+&#125;
+</code></pre>
 <h2 id="printf"><a class="markdownIt-Anchor" href="#printf"></a> printf</h2>
 <p><code>printf</code>函数也叫做格式输出函数，其作用是按照指定的格式输出数据到终端控制台。</p>
 <table>
@@ -869,22 +943,68 @@
 <li>long类型数据使用<code>%ld</code>，double类型的数据使用<code>%lf</code>或<code>%le</code>。</li>
 </ol>
 <p>其输入的格式与<code>printf</code>类似。<code>scanf</code>函数还可以与正则表达式一起使用。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> a;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%c&quot;</span>, &amp;a);</span><br><span class="line"></span><br><span class="line">    <span class="type">double</span> b;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%lf&quot;</span>, &amp;b);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;a = %c\n&quot;</span>, a);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;b = %f\n&quot;</span>, b);</span><br><span class="line">    </span><br><span class="line">    <span class="type">char</span> str[<span class="number">5</span>];</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%[^\n]&quot;</span>,str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>
+&#123;
+    <span class="hljs-type">char</span> a;
+    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%c&quot;</span>, &amp;a);
+
+    <span class="hljs-type">double</span> b;
+    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%lf&quot;</span>, &amp;b);
+
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;a = %c\n&quot;</span>, a);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;b = %f\n&quot;</span>, b);
+    
+    <span class="hljs-type">char</span> str[<span class="hljs-number">5</span>];
+    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%[^\n]&quot;</span>,str);
+&#125;
+</code></pre>
 <blockquote>
 <p>使用<code>scanf</code>函数获取字符串的时候，需要保证字符串的空间足够大，避免溢出。</p>
 </blockquote>
 <h2 id="gets"><a class="markdownIt-Anchor" href="#gets"></a> gets</h2>
 <p><code>gets</code>函数从键盘获取一个字符串，返回字符串的首地址，该函数可以获取带有空格的字符串。不推荐使用<code>gets</code>函数，因为该函数存在越界的风险。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> str[<span class="number">5</span>];</span><br><span class="line">    gets(str);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Input:%s&quot;</span>, str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>
+&#123;
+    <span class="hljs-type">char</span> str[<span class="hljs-number">5</span>];
+    gets(str);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Input:%s&quot;</span>, str);
+&#125;
+</code></pre>
 <h2 id="fgets"><a class="markdownIt-Anchor" href="#fgets"></a> fgets</h2>
 <p><code>fgets</code>函数从标准输入<code>stdin</code>中获取一个字符串，预留<code>\0</code>的存储空间，当空间足够的时候，读取输入最后的换行符<code>\n</code>，空间不足的时候舍弃<code>\n</code>。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> str[<span class="number">5</span>];</span><br><span class="line">    fgets(str, <span class="number">5</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Input:%s&quot;</span>, str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>
+&#123;
+    <span class="hljs-type">char</span> str[<span class="hljs-number">5</span>];
+    fgets(str, <span class="hljs-number">5</span>, <span class="hljs-built_in">stdin</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Input:%s&quot;</span>, str);
+&#125;
+</code></pre>
 <h2 id="puts"><a class="markdownIt-Anchor" href="#puts"></a> puts</h2>
 <p><code>puts</code>函数将一个字符串写到屏幕，输出的字符串会自动添加换行符<code>\n</code>。</p>
- <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> str[<span class="number">6</span>] = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">    <span class="built_in">puts</span>(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>
+&#123;
+   <span class="hljs-type">char</span> str[<span class="hljs-number">6</span>] = <span class="hljs-string">&quot;hello&quot;</span>;
+   <span class="hljs-built_in">puts</span>(str);
+&#125;
+</code></pre>
 <h2 id="fputs"><a class="markdownIt-Anchor" href="#fputs"></a> fputs</h2>
 <p><code>fputs</code>函数将一个字符串写到标准出<code>stdout</code>中，输出的字符串不会自动添加换行符<code>\n</code>。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> str[<span class="number">6</span>] = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">    <span class="built_in">fputs</span>(str, <span class="built_in">stdout</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>
+&#123;
+    <span class="hljs-type">char</span> str[<span class="hljs-number">6</span>] = <span class="hljs-string">&quot;hello&quot;</span>;
+    <span class="hljs-built_in">fputs</span>(str, <span class="hljs-built_in">stdout</span>);
+&#125;
+</code></pre>
 
 </div>
 
@@ -893,16 +1013,16 @@
     <div class="post-guide">
         <div class="item left">
             
-              <a href="/2023/12/10/02%20C/05%20%E5%AE%8F%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%B8%B8%E9%87%8F/">
+              <a href="/2023/12/10/02%20C/04%20%E6%8C%87%E9%92%88/">
                   <i class="fa fa-angle-left" aria-hidden="true"></i>
-                  宏定义与常量
+                  指针
               </a>
             
         </div>
         <div class="item right">
             
-              <a href="/2023/12/10/02%20C/07%20%E5%AD%97%E7%AC%A6%E4%B8%B2/">
-                字符串
+              <a href="/2023/12/10/02%20C/05%20%E5%AE%8F%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%B8%B8%E9%87%8F/">
+                宏定义与常量
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
               </a>
             

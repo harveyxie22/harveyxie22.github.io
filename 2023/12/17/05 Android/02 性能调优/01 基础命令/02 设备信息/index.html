@@ -73,7 +73,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"><link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 <body>
 	<header id="header">
@@ -804,98 +804,132 @@
 <ol>
 <li>
 <p>查看CPU的核数</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /sys/devices/system/cpu/present</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="adb">cat /sys/devices/system/cpu/present
+</code></pre>
 </li>
 <li>
 <p>查看CPU开核数</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /sys/devices/system/cpu/online</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="adb">cat /sys/devices/system/cpu/online
+</code></pre>
 </li>
 <li>
 <p>开核命令（依次打开编号为1、2和3的CPU）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo 1 &gt; /sys/devices/system/cpu/cpu1/online</span><br><span class="line">echo 1 &gt; /sys/devices/system/cpu/cpu2/online</span><br><span class="line">echo 1 &gt; /sys/devices/system/cpu/cpu3/online</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="adb">echo 1 &gt; /sys/devices/system/cpu/cpu1/online
+echo 1 &gt; /sys/devices/system/cpu/cpu2/online
+echo 1 &gt; /sys/devices/system/cpu/cpu3/online
+</code></pre>
 </li>
 <li>
 <p>关核命令（依次关闭编号为1、2和3的CPU）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo 0 &gt; /sys/devices/system/cpu/cpu1/online</span><br><span class="line">echo 0 &gt; /sys/devices/system/cpu/cpu2/online</span><br><span class="line">echo 0 &gt; /sys/devices/system/cpu/cpu3/online</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="adb">echo 0 &gt; /sys/devices/system/cpu/cpu1/online
+echo 0 &gt; /sys/devices/system/cpu/cpu2/online
+echo 0 &gt; /sys/devices/system/cpu/cpu3/online
+</code></pre>
 </li>
 </ol>
 <h2 id="频率"><a class="markdownIt-Anchor" href="#频率"></a> 频率</h2>
 <ol>
 <li>
 <p>查看编号为０的CPU正在运行工作频率（单位：千赫兹）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="adb">cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq
+</code></pre>
 </li>
 <li>
 <p>查看编号为0的CPU最高工作频率（单位：千赫兹）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="adb">cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq
+</code></pre>
 </li>
 <li>
 <p>查看编号为0的CPU最低工作频率（单位：千赫兹）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_min_freq</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="adb">cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_min_freq
+</code></pre>
 </li>
 <li>
 <p>查看编号为0的CPU所支持全部主频率列表（单位：千赫兹）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="adb">cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies
+</code></pre>
 </li>
 <li>
 <p>查看编号为0的CPU在两个不同频率之间切换时所需要的时间（单位：纳秒）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_transition_latency</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="adb">cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_transition_latency
+</code></pre>
 </li>
 <li>
 <p>查看编号为0的CPU的厂家</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_driver</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="adb">cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_driver
+</code></pre>
 </li>
 <li>
 <p>设置编号为0的CPU频率到该CPU支持的最高频率</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//1. 先查看编号为0的CPU支持的频率</span><br><span class="line">cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies</span><br><span class="line">768000 884000 1000000 1100000 1200000</span><br><span class="line"></span><br><span class="line">//2. 把支持频率的最高频率设置给编号为0的CPU</span><br><span class="line">echo 416000  &gt; /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq</span><br><span class="line">echo 416000  &gt; /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq</span><br><span class="line"></span><br><span class="line">//3. 查看结果</span><br><span class="line">cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="adb">//1. 先查看编号为0的CPU支持的频率
+cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies
+768000 884000 1000000 1100000 1200000
+
+//2. 把支持频率的最高频率设置给编号为0的CPU
+echo 416000  &gt; /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+echo 416000  &gt; /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+
+//3. 查看结果
+cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq
+</code></pre>
 </li>
 </ol>
 <h2 id="governor"><a class="markdownIt-Anchor" href="#governor"></a> Governor</h2>
 <ol>
 <li>
 <p>查看编号为0的CPU支持的Governor</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="adb"> cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors
+</code></pre>
 </li>
 <li>
 <p>查看编号为0的CPU实际运行的Governor</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="adb"> cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+</code></pre>
 </li>
 <li>
 <p>设置编号为0的CPU的Governor为userspace</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;userspace&quot; &gt; /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="adb">echo &quot;userspace&quot; &gt; /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+</code></pre>
 </li>
 </ol>
 <h1 id="ddr"><a class="markdownIt-Anchor" href="#ddr"></a> DDR</h1>
 <ol>
 <li>
 <p>查看 DDR 的当前运行频率</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat sys/class/devfreq/scene-frequency/sprd-governor/ddrinfo_cur_freq</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">cat sys/class/devfreq/scene-frequency/sprd-governor/ddrinfo_cur_freq
+</code></pre>
 </li>
 <li>
 <p>查看设备支持的 DDR 运行频率</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat sys/class/devfreq/scene-frequency/sprd-governor/ddrinfo_freq_table</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">cat sys/class/devfreq/scene-frequency/sprd-governor/ddrinfo_freq_table
+</code></pre>
 </li>
 <li>
 <p>固定设备的 DDR 到某个频率</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo 0 &gt; /sys/class/devfreq/scene-frequency/sprd_governor/auto_dfs_on_off</span><br><span class="line">echo xxx &gt; /sys/class/devfreq/scene-frequency/sprd_governor/scaling_force_ddr_freq</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">echo 0 &gt; /sys/class/devfreq/scene-frequency/sprd_governor/auto_dfs_on_off
+echo xxx &gt; /sys/class/devfreq/scene-frequency/sprd_governor/scaling_force_ddr_freq
+</code></pre>
 <blockquote>
 <p><code>xxx </code>表示当前设备支持的DDR运行频率中的任意一个。</p>
 </blockquote>
 </li>
 <li>
 <p>查看 DDR 的策略</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /sys/class/devfreq/scene-frequency/sprd-governor</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="adb">cat /sys/class/devfreq/scene-frequency/sprd-governor
+</code></pre>
 </li>
 </ol>
 <h1 id="gpu"><a class="markdownIt-Anchor" href="#gpu"></a> GPU</h1>
 <ol>
 <li>
 <p>查看 GPU 的可用频率</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat  sys/class/devfreq/60000000.gpu/available_frequencies</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="adb">cat  sys/class/devfreq/60000000.gpu/available_frequencies
+</code></pre>
 </li>
 <li>
 <p>查看 GPU 的当前频率</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /sys/class/devfreq/60000000.gpu/cur_fre</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="adb">cat /sys/class/devfreq/60000000.gpu/cur_fre
+</code></pre>
 </li>
 </ol>
 <h1 id="编译方式"><a class="markdownIt-Anchor" href="#编译方式"></a> 编译方式</h1>
@@ -903,28 +937,42 @@
 <ol>
 <li>
 <p>先查看应用的包名(如已知包名可以跳过此步骤)：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell pm list packages</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="adb">adb shell pm list packages
+</code></pre>
 <p>或者，</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell pm list packages | adb shell grep youtube</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="abd">adb shell pm list packages | adb shell grep youtube
+</code></pre>
 <p>以模糊查询<code>youtube</code>的包名为例。</p>
 </li>
 <li>
 <p>查看相关信息：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys package com.google.android.youtube</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="adb">adb shell dumpsys package com.google.android.youtube
+</code></pre>
 <p>将滑动条滚到到信息的<code>Dexopt state:</code>位置，就可以看到<code>youtube</code>的编译方式是：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Dexopt state:</span><br><span class="line">  [com.google.android.youtube]</span><br><span class="line">    path: /product/app/YouTube/YouTube.apk</span><br><span class="line">      arm64: [status=verify] [reason=prebuilt]</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">Dexopt state:
+  [com.google.android.youtube]
+    path: /product/app/YouTube/YouTube.apk
+      arm64: [status=verify] [reason=prebuilt]
+</code></pre>
 </li>
 </ol>
 <p>需要修改应用的编译方式，可以使用如下的命令(案例：修改 calculator 的编译方式为 quicken )：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; adb shell cmd package compile -m quicken com.google.android.calculator</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="adb">&gt; adb shell cmd package compile -m quicken com.google.android.calculator
+</code></pre>
 <h1 id="跳过开机向导"><a class="markdownIt-Anchor" href="#跳过开机向导"></a> 跳过开机向导</h1>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb shell settings put secure user_setup_complete 1</span><br><span class="line">adb shell settings put global device_provisioned 1</span><br><span class="line">adb reboot</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="adb">adb shell settings put secure user_setup_complete 1
+adb shell settings put global device_provisioned 1
+adb reboot
+</code></pre>
 <h1 id="dumpsys"><a class="markdownIt-Anchor" href="#dumpsys"></a> Dumpsys</h1>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys gfxinfo &lt;PACKAGE_NAME&gt;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="adb">adb shell dumpsys gfxinfo &lt;PACKAGE_NAME&gt;
+</code></pre>
 <h1 id="查看窗口信息"><a class="markdownIt-Anchor" href="#查看窗口信息"></a> 查看窗口信息</h1>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dumpsys window windows | grep &quot;Window #&quot;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="adb">dumpsys window windows | grep &quot;Window #&quot;
+</code></pre>
 <h1 id="获取应用-apk"><a class="markdownIt-Anchor" href="#获取应用-apk"></a> 获取应用 APK</h1>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell pm path &lt;PACKAGE_NAME&gt;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="adb">adb shell pm path &lt;PACKAGE_NAME&gt;
+</code></pre>
 
 </div>
 

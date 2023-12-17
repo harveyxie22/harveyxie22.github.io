@@ -73,7 +73,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"><link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 <body>
 	<header id="header">
@@ -726,7 +726,14 @@
 	<p>注解（Annotation）也叫元数据、标注，本质是接口。注解是 JDK 1.5 以后引入的一个特性，与类、接口、枚举是同一个层次。它可以声明在包、类、字段、方法、局部变量、方法参数等前面，用来对元素进行说明、注释。</p>
 <h1 id="本质是接口"><a class="markdownIt-Anchor" href="#本质是接口"></a> 本质是接口</h1>
 <p>可以通过反编译字节码文件的方式证明注解的本质是接口。先定义一个注解类，然后通过 <code>javac</code> 生成字节码文件，再通过 <code>javap</code> 进行反编译。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnnotation &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 反编译字节码得到的输出</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Annotation</span> <span class="keyword">extends</span> <span class="title class_">java</span>.lang.annotation.Annotation &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-comment">// 定义一个接口</span>
+<span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> MyAnnotation &#123;
+&#125;
+
+<span class="hljs-comment">// 反编译字节码得到的输出</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Annotation</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">java</span>.lang.annotation.Annotation &#123;
+&#125;
+</code></pre>
 <h1 id="注解的作用"><a class="markdownIt-Anchor" href="#注解的作用"></a> 注解的作用</h1>
 <p>注解的作用包括但不限于：</p>
 <ol>
@@ -841,17 +848,51 @@
 </table>
 <h1 id="注解的定义"><a class="markdownIt-Anchor" href="#注解的定义"></a> 注解的定义</h1>
 <p>在 Java 中，可以使用 <code>@interface</code> 关键字来定义注解。注解的定义类似于接口的定义，但以 <code>@interface</code> 关键字开头。以下是一个简单的注解定义的示例：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnnotation &#123;</span><br><span class="line">    <span class="comment">// 定义注解的成员变量</span></span><br><span class="line">    String <span class="title function_">value</span><span class="params">()</span> <span class="keyword">default</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="type">int</span> <span class="title function_">count</span><span class="params">()</span> <span class="keyword">default</span> <span class="number">0</span>;</span><br><span class="line">    <span class="type">boolean</span> <span class="title function_">enabled</span><span class="params">()</span> <span class="keyword">default</span> <span class="literal">true</span>;</span><br><span class="line">    String[] strings();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> MyAnnotation &#123;
+    <span class="hljs-comment">// 定义注解的成员变量</span>
+    String <span class="hljs-title function_">value</span><span class="hljs-params">()</span> <span class="hljs-keyword">default</span> <span class="hljs-string">&quot;&quot;</span>;
+    <span class="hljs-type">int</span> <span class="hljs-title function_">count</span><span class="hljs-params">()</span> <span class="hljs-keyword">default</span> <span class="hljs-number">0</span>;
+    <span class="hljs-type">boolean</span> <span class="hljs-title function_">enabled</span><span class="hljs-params">()</span> <span class="hljs-keyword">default</span> <span class="hljs-literal">true</span>;
+    String[] strings();
+&#125;
+</code></pre>
 <p>在上面的示例中，<code>MyAnnotation</code> 就是一个自定义的注解。它定义了三个成员变量：<code>value</code>、<code>count</code> 和 <code>enabled</code>，并为它们提供了默认值。注解的成员变量可以有不同的数据类型，包括基本类型、枚举类型、String 类型、Class 类型、其他注解类型和数组类型等。在定义注解时，可以为成员变量提供默认值，使用 <code>default</code> 关键字。这样，在使用注解时，如果没有显式地为成员变量赋值，就会使用默认值。</p>
 <p>定义好注解之后，就可以在代码中使用该注解了。例如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@MyAnnotation(value = &quot;Hello&quot;, count = 5, enabled = false, strings = &#123;&quot;a&quot;, &quot;b&quot;&#125;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line">    <span class="comment">// 类的定义...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-meta">@MyAnnotation(value = &quot;Hello&quot;, count = 5, enabled = false, strings = &#123;&quot;a&quot;, &quot;b&quot;&#125;)</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass</span> &#123;
+    <span class="hljs-comment">// 类的定义...</span>
+&#125;
+</code></pre>
 <blockquote>
 <p>如果注解的属性只有一个，且这个属性的方法名是<code>value()</code>的时候，使用的地方可以不写属性名。</p>
 </blockquote>
 <p>通过 <code>@MyAnnotation</code> 的方式，可以将注解应用到类、字段、方法等程序元素上。然后，可以使用反射等机制来读取和处理这些注解，实现相应的逻辑。</p>
 <h1 id="解析注解"><a class="markdownIt-Anchor" href="#解析注解"></a> 解析注解</h1>
 <p>在 Java 中，可以使用反射机制来解析注解。通过反射可以获取类、字段、方法等程序元素上的注解，并读取注解中定义的成员变量值。以下是一个简单的示例，演示如何解析注解：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.annotation.*;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.*;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Target(ElementType.TYPE)</span></span><br><span class="line"><span class="meta">@interface</span> MyAnnotation &#123;</span><br><span class="line">    String <span class="title function_">value</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@MyAnnotation(&quot;Hello&quot;)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line">    <span class="comment">// 类的定义...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AnnotationParser</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        Class&lt;MyClass&gt; clazz = MyClass.class;</span><br><span class="line">        <span class="keyword">if</span> (clazz.isAnnotationPresent(MyAnnotation.class)) &#123;</span><br><span class="line">            <span class="type">MyAnnotation</span> <span class="variable">annotation</span> <span class="operator">=</span> clazz.getAnnotation(MyAnnotation.class);</span><br><span class="line">            System.out.println(<span class="string">&quot;Value: &quot;</span> + annotation.value());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">import</span> java.lang.annotation.*;
+<span class="hljs-keyword">import</span> java.lang.reflect.*;
+
+<span class="hljs-meta">@Retention(RetentionPolicy.RUNTIME)</span>
+<span class="hljs-meta">@Target(ElementType.TYPE)</span>
+<span class="hljs-meta">@interface</span> MyAnnotation &#123;
+    String <span class="hljs-title function_">value</span><span class="hljs-params">()</span>;
+&#125;
+
+<span class="hljs-meta">@MyAnnotation(&quot;Hello&quot;)</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass</span> &#123;
+    <span class="hljs-comment">// 类的定义...</span>
+&#125;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AnnotationParser</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;
+        Class&lt;MyClass&gt; clazz = MyClass.class;
+        <span class="hljs-keyword">if</span> (clazz.isAnnotationPresent(MyAnnotation.class)) &#123;
+            <span class="hljs-type">MyAnnotation</span> <span class="hljs-variable">annotation</span> <span class="hljs-operator">=</span> clazz.getAnnotation(MyAnnotation.class);
+            System.out.println(<span class="hljs-string">&quot;Value: &quot;</span> + annotation.value());
+        &#125;
+    &#125;
+&#125;
+</code></pre>
 <p>在上面的示例中，定义了一个 <code>MyAnnotation</code> 注解，并将其应用到 <code>MyClass</code> 类上。然后，在 <code>AnnotationParser</code> 类中，通过反射获取 <code>MyClass</code> 类的 <code>Class</code> 对象，并判断该类是否被 <code>MyAnnotation</code> 注解标记。如果有，则使用 <code>getAnnotation()</code> 方法获取注解对象，并读取其中的成员变量值。</p>
 <p>通过运行 <code>AnnotationParser</code> 类，输出注解中的值：<code>Value: Hello</code>。</p>
 <p>需要注意的是，为了让注解在运行时可见，需要在注解定义上添加 <code>@Retention(RetentionPolicy.RUNTIME)</code> 注解，表示注解在运行时仍然可用。通过 <code>@Target</code> 注解指定注解的目标类型，这里使用 <code>ElementType.TYPE</code> 表示注解可以应用于类上。</p>

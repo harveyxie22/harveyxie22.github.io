@@ -73,7 +73,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"><link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 <body>
 	<header id="header">
@@ -762,11 +762,24 @@
 </tbody>
 </table>
 <p>如果按照二进制文件形式存储，则把数据 123 看成整型数，如果该系统中整型数占 4 个字节，则数据 123 二进制存储形式的 4 个字节如下：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0000</span> <span class="number">0000</span> <span class="number">0000</span> <span class="number">0000</span> <span class="number">0000</span> <span class="number">0000</span> <span class="number">0111</span> <span class="number">1011</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0111</span> <span class="hljs-number">1011</span>
+</code></pre>
 <h1 id="指针"><a class="markdownIt-Anchor" href="#指针"></a> 指针</h1>
 <h2 id="文件指针"><a class="markdownIt-Anchor" href="#文件指针"></a> 文件指针</h2>
 <p>C语言中，用一个指针变量指向一个文件，这个指针称为文件指针。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="type">short</span>           level;	<span class="comment">//缓冲区&quot;满&quot;或者&quot;空&quot;的程度 </span></span><br><span class="line">	<span class="type">unsigned</span>        flags;	<span class="comment">//文件状态标志 </span></span><br><span class="line">	<span class="type">char</span>            fd;		<span class="comment">//文件描述符</span></span><br><span class="line">	<span class="type">unsigned</span> <span class="type">char</span>   hold;	<span class="comment">//如无缓冲区不读取字符</span></span><br><span class="line">	<span class="type">short</span>           bsize;	<span class="comment">//缓冲区的大小</span></span><br><span class="line">	<span class="type">unsigned</span> <span class="type">char</span>   *buffer;<span class="comment">//数据缓冲区的位置 </span></span><br><span class="line">	<span class="type">unsigned</span>        ar;	 <span class="comment">//指针，当前的指向 </span></span><br><span class="line">	<span class="type">unsigned</span>        istemp;	<span class="comment">//临时文件，指示器</span></span><br><span class="line">	<span class="type">short</span>           token;	<span class="comment">//用于有效性的检查 </span></span><br><span class="line">&#125;FILE;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span>
+&#123;</span>
+	<span class="hljs-type">short</span>           level;	<span class="hljs-comment">//缓冲区&quot;满&quot;或者&quot;空&quot;的程度 </span>
+	<span class="hljs-type">unsigned</span>        flags;	<span class="hljs-comment">//文件状态标志 </span>
+	<span class="hljs-type">char</span>            fd;		<span class="hljs-comment">//文件描述符</span>
+	<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span>   hold;	<span class="hljs-comment">//如无缓冲区不读取字符</span>
+	<span class="hljs-type">short</span>           bsize;	<span class="hljs-comment">//缓冲区的大小</span>
+	<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span>   *buffer;<span class="hljs-comment">//数据缓冲区的位置 </span>
+	<span class="hljs-type">unsigned</span>        ar;	 <span class="hljs-comment">//指针，当前的指向 </span>
+	<span class="hljs-type">unsigned</span>        istemp;	<span class="hljs-comment">//临时文件，指示器</span>
+	<span class="hljs-type">short</span>           token;	<span class="hljs-comment">//用于有效性的检查 </span>
+&#125;FILE;
+</code></pre>
 <p><code>FILE</code> 是系统使用 <code>typedef</code> 定义的有关文件信息的一个结构体，结构体中包含文件的基本元数据信息。声明文件指针结构体的头文件是在 <code>#include &lt;stdio.h&gt;</code> 中。在程序开发过程中，一般会声明和初始化一个文件指针，该指针指向系统中的某个文件。通过文件指针的方式，来对文件进行读、写或追加等操作。</p>
 <p>C 语言中，有三个特殊的文件指针由系统默认打开，用户无需定义就可以直接使用。</p>
 <table>
@@ -793,19 +806,49 @@
 </table>
 <h2 id="文件状态指针"><a class="markdownIt-Anchor" href="#文件状态指针"></a> 文件状态指针</h2>
 <p>想要获取文件的状态，可以借助结构体 <code>stat</code>，该结构的结构如下：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">stat</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">dev_t</span> st_dev;             <span class="comment">//文件的设备编号</span></span><br><span class="line">    <span class="type">ino_t</span> st_ino;             <span class="comment">//节点</span></span><br><span class="line">    <span class="type">mode_t</span> st_mode;           <span class="comment">//文件的类型和存取的权限</span></span><br><span class="line">    <span class="type">nlink_t</span> st_nlink;         <span class="comment">//连到该文件的硬连接数目，刚建立的文件值为1</span></span><br><span class="line">    <span class="type">uid_t</span> st_uid;             <span class="comment">//用户ID</span></span><br><span class="line">    <span class="type">gid_t</span> st_gid;             <span class="comment">//组ID</span></span><br><span class="line">    <span class="type">dev_t</span> st_rdev;            <span class="comment">//(设备类型)若此文件为设备文件，则为其设备编号</span></span><br><span class="line">    <span class="type">off_t</span> st_size;            <span class="comment">//文件字节数(文件大小)</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">long</span> st_blksize; <span class="comment">//块大小(文件系统的I/O 缓冲区大小)</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">long</span> st_blocks;  <span class="comment">//块数</span></span><br><span class="line">    <span class="type">time_t</span> st_atime;          <span class="comment">//最后一次访问时间</span></span><br><span class="line">    <span class="type">time_t</span> st_mtime;          <span class="comment">//最后一次修改时间</span></span><br><span class="line">    <span class="type">time_t</span> st_ctime;          <span class="comment">//最后一次改变时间(指属性)</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">stat</span>
+&#123;</span>
+    <span class="hljs-type">dev_t</span> st_dev;             <span class="hljs-comment">//文件的设备编号</span>
+    <span class="hljs-type">ino_t</span> st_ino;             <span class="hljs-comment">//节点</span>
+    <span class="hljs-type">mode_t</span> st_mode;           <span class="hljs-comment">//文件的类型和存取的权限</span>
+    <span class="hljs-type">nlink_t</span> st_nlink;         <span class="hljs-comment">//连到该文件的硬连接数目，刚建立的文件值为1</span>
+    <span class="hljs-type">uid_t</span> st_uid;             <span class="hljs-comment">//用户ID</span>
+    <span class="hljs-type">gid_t</span> st_gid;             <span class="hljs-comment">//组ID</span>
+    <span class="hljs-type">dev_t</span> st_rdev;            <span class="hljs-comment">//(设备类型)若此文件为设备文件，则为其设备编号</span>
+    <span class="hljs-type">off_t</span> st_size;            <span class="hljs-comment">//文件字节数(文件大小)</span>
+    <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> st_blksize; <span class="hljs-comment">//块大小(文件系统的I/O 缓冲区大小)</span>
+    <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> st_blocks;  <span class="hljs-comment">//块数</span>
+    <span class="hljs-type">time_t</span> st_atime;          <span class="hljs-comment">//最后一次访问时间</span>
+    <span class="hljs-type">time_t</span> st_mtime;          <span class="hljs-comment">//最后一次修改时间</span>
+    <span class="hljs-type">time_t</span> st_ctime;          <span class="hljs-comment">//最后一次改变时间(指属性)</span>
+&#125;;
+</code></pre>
 <p>以下是一个获取文件的大小的例子：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/stat.h&gt;</span> <span class="comment">//导入该头文件</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">stat</span> <span class="title">st</span>;</span></span><br><span class="line">    stat(<span class="string">&quot;HelloWorld.txt&quot;</span>, &amp;st);</span><br><span class="line">    <span class="comment">// rename(&quot;f.txt&quot;, &quot;f_new.txt&quot;); 重命名文件</span></span><br><span class="line">    <span class="comment">// remove(&quot;f_new.txt&quot;); 删除文件</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%ld&quot;</span>, st.st_size);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;sys/stat.h&gt;</span> <span class="hljs-comment">//导入该头文件</span></span>
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>
+&#123;
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">stat</span> <span class="hljs-title">st</span>;</span>
+    stat(<span class="hljs-string">&quot;HelloWorld.txt&quot;</span>, &amp;st);
+    <span class="hljs-comment">// rename(&quot;f.txt&quot;, &quot;f_new.txt&quot;); 重命名文件</span>
+    <span class="hljs-comment">// remove(&quot;f_new.txt&quot;); 删除文件</span>
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%ld&quot;</span>, st.st_size);
+&#125;
+</code></pre>
 <h1 id="文件结束标志"><a class="markdownIt-Anchor" href="#文件结束标志"></a> 文件结束标志</h1>
 <p>对于文本文件而言，<code>EOF</code> 表示文件的结束符 (end of file)。因为在文本文件中，数据以字符的 ASCII 码值的形式进行存放，ASCII 码值的范围是 0~127，因此不会出现 -1 的情况，而此时使用让 <code>EOF</code> 等于-1，就可以让其表示文件结束。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> EOF (-1)</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">define</span> EOF (-1)</span>
+</code></pre>
 <p>但是当文件是二进制文件的时候，就无法使用 EOF 的模式判断文件的结束，而是使用 <code>feof</code> 函数来判断文件是否结束。当然，在设计 <code>feof</code> 函数的时候，若只针对二进制文件会显得比较险隘，因此该函数同样可以使用在文本文件上。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">feof</span><span class="params">(FILE * stream)</span>;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-type">int</span> <span class="hljs-title function_">feof</span><span class="hljs-params">(FILE * stream)</span>;
+</code></pre>
 <p>该函数的返回值若是非 0 值，表示已经到文件结束。0 值表示还没有到文件结尾。</p>
 <h1 id="文件操作"><a class="markdownIt-Anchor" href="#文件操作"></a> 文件操作</h1>
 <h2 id="打开和关闭"><a class="markdownIt-Anchor" href="#打开和关闭"></a> 打开和关闭</h2>
 <p>文件在使用之前需要先执行打开操作，打开后的文件需要及时关闭。打开函数的声明：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FILE * <span class="title function_">fopen</span><span class="params">(<span class="type">const</span> <span class="type">char</span> * filename, <span class="type">const</span> <span class="type">char</span> * mode)</span>;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c">FILE * <span class="hljs-title function_">fopen</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">char</span> * filename, <span class="hljs-type">const</span> <span class="hljs-type">char</span> * mode)</span>;
+</code></pre>
 <p>其中：</p>
 <ol>
 <li>
@@ -893,43 +936,284 @@
   4. 在 Unix 和 Linux 平台下，文本与二进制模式没有区别，`\r\n` 作为字符原样输入和输出。
 </code></pre>
 <p>关闭文件使用 <code>fclose</code> 方法，其声明如下：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">fclose</span><span class="params">(FILE * stream)</span>;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-type">int</span> <span class="hljs-title function_">fclose</span><span class="hljs-params">(FILE * stream)</span>;
+</code></pre>
 <p>其中参数为一个文件指针，返回值若成功则返回 0，失败返回 -1。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    FILE *file = <span class="literal">NULL</span>;</span><br><span class="line">    file = fopen(<span class="string">&quot;../HelloWorld.txt&quot;</span>, <span class="string">&quot;w+&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (file == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">&quot;Open failed.&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Open a file successfully.\n&quot;</span>);</span><br><span class="line">    fclose(file);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>
+&#123;
+    FILE *file = <span class="hljs-literal">NULL</span>;
+    file = fopen(<span class="hljs-string">&quot;../HelloWorld.txt&quot;</span>, <span class="hljs-string">&quot;w+&quot;</span>);
+
+    <span class="hljs-keyword">if</span> (file == <span class="hljs-literal">NULL</span>)
+    &#123;
+        perror(<span class="hljs-string">&quot;Open failed.&quot;</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+    &#125;
+
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Open a file successfully.\n&quot;</span>);
+    fclose(file);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+</code></pre>
 <h2 id="按字符读写"><a class="markdownIt-Anchor" href="#按字符读写"></a> 按字符读写</h2>
 <h3 id="读"><a class="markdownIt-Anchor" href="#读"></a> 读</h3>
 <p>按照字符的方式读文件，可以使用 <code>fgetc</code> 函数。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    FILE *file = <span class="literal">NULL</span>;</span><br><span class="line">    file = fopen(<span class="string">&quot;HelloWorld.txt&quot;</span>, <span class="string">&quot;w+&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (file == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">&quot;Open failed.&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">char</span> ch;</span><br><span class="line">    <span class="keyword">while</span> ((ch = fgetc(file) != EOF))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>, ch);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (feof(file))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;The file has reached the end.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fclose(file);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>
+&#123;
+    FILE *file = <span class="hljs-literal">NULL</span>;
+    file = fopen(<span class="hljs-string">&quot;HelloWorld.txt&quot;</span>, <span class="hljs-string">&quot;w+&quot;</span>);
+
+    <span class="hljs-keyword">if</span> (file == <span class="hljs-literal">NULL</span>)
+    &#123;
+        perror(<span class="hljs-string">&quot;Open failed.&quot;</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+    &#125;
+
+    <span class="hljs-type">char</span> ch;
+    <span class="hljs-keyword">while</span> ((ch = fgetc(file) != EOF))
+    &#123;
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%c&quot;</span>, ch);
+    &#125;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);
+
+    <span class="hljs-keyword">if</span> (feof(file))
+    &#123;
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;The file has reached the end.&quot;</span>);
+    &#125;
+
+    fclose(file);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+</code></pre>
 <h3 id="写"><a class="markdownIt-Anchor" href="#写"></a> 写</h3>
 <p>按照字符的方式写文件，可以使用 <code>fputc</code> 函数。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    FILE *file = <span class="literal">NULL</span>;</span><br><span class="line">    file = fopen(<span class="string">&quot;HelloWorld.txt&quot;</span>, <span class="string">&quot;w+&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (file == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">&quot;Open failed.&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">char</span> ch = <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        fputc(ch, file);</span><br><span class="line">        ch++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fclose(file);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>
+&#123;
+    FILE *file = <span class="hljs-literal">NULL</span>;
+    file = fopen(<span class="hljs-string">&quot;HelloWorld.txt&quot;</span>, <span class="hljs-string">&quot;w+&quot;</span>);
+
+    <span class="hljs-keyword">if</span> (file == <span class="hljs-literal">NULL</span>)
+    &#123;
+        perror(<span class="hljs-string">&quot;Open failed.&quot;</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+    &#125;
+
+    <span class="hljs-type">char</span> ch = <span class="hljs-string">&#x27;a&#x27;</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">26</span>; i++)
+    &#123;
+        fputc(ch, file);
+        ch++;
+    &#125;
+
+    fclose(file);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+</code></pre>
 <h2 id="按行读写"><a class="markdownIt-Anchor" href="#按行读写"></a> 按行读写</h2>
 <h3 id="读-2"><a class="markdownIt-Anchor" href="#读-2"></a> 读</h3>
 <p>按照字符的方式读文件，可以使用 <code>fgets</code> 函数。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">  FILE *file = <span class="literal">NULL</span>;</span><br><span class="line">  file = fopen(<span class="string">&quot;helloc.txt&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (file == <span class="literal">NULL</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    perror(<span class="string">&quot;Open failed.&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Open a file successfully.\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="type">char</span> buff[<span class="number">100</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">  <span class="keyword">while</span> (!feof(file))</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="type">char</span> *p = fgets(buff, <span class="keyword">sizeof</span>(buff), file);</span><br><span class="line">    <span class="keyword">if</span> (p != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="built_in">printf</span>(<span class="string">&quot;buff=%s&quot;</span>, buff);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  fclose(file);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>
+&#123;
+  FILE *file = <span class="hljs-literal">NULL</span>;
+  file = fopen(<span class="hljs-string">&quot;helloc.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>);
+  <span class="hljs-keyword">if</span> (file == <span class="hljs-literal">NULL</span>)
+  &#123;
+    perror(<span class="hljs-string">&quot;Open failed.&quot;</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+  &#125;
+
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Open a file successfully.\n&quot;</span>);
+
+  <span class="hljs-type">char</span> buff[<span class="hljs-number">100</span>] = &#123;<span class="hljs-number">0</span>&#125;;
+  <span class="hljs-keyword">while</span> (!feof(file))
+  &#123;
+    <span class="hljs-type">char</span> *p = fgets(buff, <span class="hljs-keyword">sizeof</span>(buff), file);
+    <span class="hljs-keyword">if</span> (p != <span class="hljs-literal">NULL</span>)
+    &#123;
+      <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;buff=%s&quot;</span>, buff);
+    &#125;
+  &#125;
+
+  fclose(file);
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+</code></pre>
 <h3 id="写-2"><a class="markdownIt-Anchor" href="#写-2"></a> 写</h3>
 <p>按照字符的方式写文件，可以使用 <code>fputs</code> 函数。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">  FILE *file = <span class="literal">NULL</span>;</span><br><span class="line">  file = fopen(<span class="string">&quot;helloc.txt&quot;</span>, <span class="string">&quot;w+&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (file == <span class="literal">NULL</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    perror(<span class="string">&quot;Open failed.&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Open a file successfully.\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="type">char</span> *<span class="built_in">string</span>[] = &#123;</span><br><span class="line">      <span class="string">&quot;Hello&quot;</span>,</span><br><span class="line">      <span class="string">&quot;World&quot;</span>,</span><br><span class="line">      <span class="string">&quot;C&quot;</span>,</span><br><span class="line">      <span class="string">&quot;\0&quot;</span>&#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">fputs</span>(<span class="built_in">string</span>[i], file);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  fclose(file);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>
+&#123;
+  FILE *file = <span class="hljs-literal">NULL</span>;
+  file = fopen(<span class="hljs-string">&quot;helloc.txt&quot;</span>, <span class="hljs-string">&quot;w+&quot;</span>);
+  <span class="hljs-keyword">if</span> (file == <span class="hljs-literal">NULL</span>)
+  &#123;
+    perror(<span class="hljs-string">&quot;Open failed.&quot;</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+  &#125;
+
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Open a file successfully.\n&quot;</span>);
+
+  <span class="hljs-type">char</span> *<span class="hljs-built_in">string</span>[] = &#123;
+      <span class="hljs-string">&quot;Hello&quot;</span>,
+      <span class="hljs-string">&quot;World&quot;</span>,
+      <span class="hljs-string">&quot;C&quot;</span>,
+      <span class="hljs-string">&quot;\0&quot;</span>&#125;;
+
+  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++)
+  &#123;
+    <span class="hljs-built_in">fputs</span>(<span class="hljs-built_in">string</span>[i], file);
+  &#125;
+
+  fclose(file);
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+</code></pre>
 <h2 id="按块读写"><a class="markdownIt-Anchor" href="#按块读写"></a> 按块读写</h2>
 <h3 id="读-3"><a class="markdownIt-Anchor" href="#读-3"></a> 读</h3>
 <p>按照字符的方式读文件，可以使用 <code>fread</code> 函数。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Student</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">char</span> name[<span class="number">50</span>];</span><br><span class="line">    <span class="type">int</span> id;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    FILE *file = <span class="literal">NULL</span>;</span><br><span class="line">    file = fopen(<span class="string">&quot;HelloWorld.txt&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (file == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">&quot;Open failed.&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Student</span> <span class="title">students</span>[3];</span></span><br><span class="line">    </span><br><span class="line">    fread(students, <span class="keyword">sizeof</span>(<span class="keyword">struct</span> Student), <span class="number">3</span>, file);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;My name is %s and my id is %d.\n&quot;</span>, students[i].name, students[i].id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fclose(file);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Student</span>
+&#123;</span>
+    <span class="hljs-type">char</span> name[<span class="hljs-number">50</span>];
+    <span class="hljs-type">int</span> id;
+&#125;;
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>
+&#123;
+    FILE *file = <span class="hljs-literal">NULL</span>;
+    file = fopen(<span class="hljs-string">&quot;HelloWorld.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>);
+
+    <span class="hljs-keyword">if</span> (file == <span class="hljs-literal">NULL</span>)
+    &#123;
+        perror(<span class="hljs-string">&quot;Open failed.&quot;</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+    &#125;
+
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Student</span> <span class="hljs-title">students</span>[3];</span>
+    
+    fread(students, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">struct</span> Student), <span class="hljs-number">3</span>, file);
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">3</span>; i++)
+    &#123;
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;My name is %s and my id is %d.\n&quot;</span>, students[i].name, students[i].id);
+    &#125;
+
+    fclose(file);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+</code></pre>
 <h3 id="写-3"><a class="markdownIt-Anchor" href="#写-3"></a> 写</h3>
 <p>按照字符的方式写文件，可以使用 <code>fwrite</code> 函数。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Student</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">char</span> name[<span class="number">50</span>];</span><br><span class="line">    <span class="type">int</span> id;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    FILE *file = <span class="literal">NULL</span>;</span><br><span class="line">    file = fopen(<span class="string">&quot;students.txt&quot;</span>, <span class="string">&quot;w&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (file == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">&quot;Open failed&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Student</span> <span class="title">students</span>[3];</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">sprintf</span>(students[i].name, <span class="string">&quot;stu#%d,&quot;</span>, i);</span><br><span class="line">        students[i].id = i + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fwrite(students, <span class="keyword">sizeof</span>(<span class="keyword">struct</span> Student), <span class="number">3</span>, file);</span><br><span class="line"></span><br><span class="line">    fclose(file);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Student</span>
+&#123;</span>
+    <span class="hljs-type">char</span> name[<span class="hljs-number">50</span>];
+    <span class="hljs-type">int</span> id;
+&#125;;
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>
+&#123;
+    FILE *file = <span class="hljs-literal">NULL</span>;
+    file = fopen(<span class="hljs-string">&quot;students.txt&quot;</span>, <span class="hljs-string">&quot;w&quot;</span>);
+
+    <span class="hljs-keyword">if</span> (file == <span class="hljs-literal">NULL</span>)
+    &#123;
+        perror(<span class="hljs-string">&quot;Open failed&quot;</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+    &#125;
+
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Student</span> <span class="hljs-title">students</span>[3];</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">3</span>; i++)
+    &#123;
+        <span class="hljs-built_in">sprintf</span>(students[i].name, <span class="hljs-string">&quot;stu#%d,&quot;</span>, i);
+        students[i].id = i + <span class="hljs-number">1</span>;
+    &#125;
+
+    fwrite(students, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">struct</span> Student), <span class="hljs-number">3</span>, file);
+
+    fclose(file);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+</code></pre>
 <h2 id="格式化读写"><a class="markdownIt-Anchor" href="#格式化读写"></a> 格式化读写</h2>
 <h3 id="读-4"><a class="markdownIt-Anchor" href="#读-4"></a> 读</h3>
 <p>按照字符的方式写文件，可以使用 <code>fprintf</code> 函数。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    FILE *file = <span class="literal">NULL</span>;</span><br><span class="line">    file = fopen(<span class="string">&quot;f.txt&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (file == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">&quot;Open failed.&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> num2;</span><br><span class="line">    <span class="type">float</span> pi2;</span><br><span class="line">    <span class="type">char</span> str2[<span class="number">100</span>];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">fscanf</span>(file, <span class="string">&quot;Number:%d\n&quot;</span>, &amp;num2);</span><br><span class="line">    <span class="built_in">fscanf</span>(file, <span class="string">&quot;Pi:%f\n&quot;</span>, &amp;pi2);</span><br><span class="line">    <span class="built_in">fscanf</span>(file, <span class="string">&quot;String:%s\n&quot;</span>, str2);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Number:%d\n&quot;</span>, num2);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Pi:%.2f\n&quot;</span>, pi2);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;String:%s\n&quot;</span>, str2);</span><br><span class="line"></span><br><span class="line">    fclose(file);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>
+&#123;
+    FILE *file = <span class="hljs-literal">NULL</span>;
+    file = fopen(<span class="hljs-string">&quot;f.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>);
+
+    <span class="hljs-keyword">if</span> (file == <span class="hljs-literal">NULL</span>)
+    &#123;
+        perror(<span class="hljs-string">&quot;Open failed.&quot;</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+    &#125;
+
+    <span class="hljs-type">int</span> num2;
+    <span class="hljs-type">float</span> pi2;
+    <span class="hljs-type">char</span> str2[<span class="hljs-number">100</span>];
+
+    <span class="hljs-built_in">fscanf</span>(file, <span class="hljs-string">&quot;Number:%d\n&quot;</span>, &amp;num2);
+    <span class="hljs-built_in">fscanf</span>(file, <span class="hljs-string">&quot;Pi:%f\n&quot;</span>, &amp;pi2);
+    <span class="hljs-built_in">fscanf</span>(file, <span class="hljs-string">&quot;String:%s\n&quot;</span>, str2);
+
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Number:%d\n&quot;</span>, num2);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Pi:%.2f\n&quot;</span>, pi2);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;String:%s\n&quot;</span>, str2);
+
+    fclose(file);
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+</code></pre>
 <h3 id="写-4"><a class="markdownIt-Anchor" href="#写-4"></a> 写</h3>
 <p>按照字符的方式写文件，可以使用 <code>fprintf</code> 函数。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    FILE *file = <span class="literal">NULL</span>;</span><br><span class="line">    file = fopen(<span class="string">&quot;f.txt&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (file == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">&quot;Open failed.&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> num = <span class="number">10</span>;</span><br><span class="line">    <span class="type">float</span> pi = <span class="number">3.1415926</span>;</span><br><span class="line">    <span class="type">char</span> str[] = <span class="string">&quot;Hello,World!&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">fprintf</span>(file, <span class="string">&quot;Number:%d\n&quot;</span>, num);</span><br><span class="line">    <span class="built_in">fprintf</span>(file, <span class="string">&quot;Pi:%.2f\n&quot;</span>, pi);</span><br><span class="line">    <span class="built_in">fprintf</span>(file, <span class="string">&quot;String:%s\n&quot;</span>, str);</span><br><span class="line">    </span><br><span class="line">    fclose(file);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>
+&#123;
+    FILE *file = <span class="hljs-literal">NULL</span>;
+    file = fopen(<span class="hljs-string">&quot;f.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>);
+
+    <span class="hljs-keyword">if</span> (file == <span class="hljs-literal">NULL</span>)
+    &#123;
+        perror(<span class="hljs-string">&quot;Open failed.&quot;</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+    &#125;
+
+    <span class="hljs-type">int</span> num = <span class="hljs-number">10</span>;
+    <span class="hljs-type">float</span> pi = <span class="hljs-number">3.1415926</span>;
+    <span class="hljs-type">char</span> str[] = <span class="hljs-string">&quot;Hello,World!&quot;</span>;
+
+    <span class="hljs-built_in">fprintf</span>(file, <span class="hljs-string">&quot;Number:%d\n&quot;</span>, num);
+    <span class="hljs-built_in">fprintf</span>(file, <span class="hljs-string">&quot;Pi:%.2f\n&quot;</span>, pi);
+    <span class="hljs-built_in">fprintf</span>(file, <span class="hljs-string">&quot;String:%s\n&quot;</span>, str);
+    
+    fclose(file);
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+</code></pre>
 <h2 id="随机读写"><a class="markdownIt-Anchor" href="#随机读写"></a> 随机读写</h2>
 <p>文件的随机读写常用的三个函数是：<code>fseek</code>、<code>ftell</code> 和 <code>rewind</code>。</p>
 <ol>
 <li>
 <p>fseek</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">fseek</span><span class="params">(FILE *stream, <span class="type">long</span> offset, <span class="type">int</span> whence)</span>;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-type">int</span> <span class="hljs-title function_">fseek</span><span class="hljs-params">(FILE *stream, <span class="hljs-type">long</span> offset, <span class="hljs-type">int</span> whence)</span>;
+</code></pre>
 <p>该函数的功能是移动文件流（文件光标）的读写位置，成功返回0，失败返回-1。参数 <code>stream</code> 是一个需要操作的文件指针。参数 <code>offset</code> 是根据 <code>whence</code> 为参考坐标的偏移量。<code>offset</code> 的值为正，则相对于 <code>whence</code> 右移动。<code>offset</code> 的值为负，则相对于 <code>whence</code> 左移动。若向前移动的字节数超过了文件开头则出错，若向后移动超过了文件末尾，再次写入时会增大文件尺寸。</p>
 <p><code>Whence</code>的取值：</p>
 <ul>
@@ -940,17 +1224,61 @@
 </li>
 <li>
 <p>ftell</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">long</span> <span class="title function_">ftell</span><span class="params">(FILE *stream)</span>;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-type">long</span> <span class="hljs-title function_">ftell</span><span class="hljs-params">(FILE *stream)</span>;
+</code></pre>
 <p>该函数的功能是获取文件流（文件光标）的读写位置，成功返回当前（文件光标）的读写位置，失败返回-1。</p>
 </li>
 <li>
 <p>rewind</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">rewind</span><span class="params">(FILE *stream)</span>;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-type">void</span> <span class="hljs-title function_">rewind</span><span class="hljs-params">(FILE *stream)</span>;
+</code></pre>
 <p>该函数的功能是把文件流（文件光标）的读写位置移动到文件开头。</p>
 </li>
 </ol>
 <p>以下是一个随机读写的例子：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Student</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">char</span> name[<span class="number">50</span>];</span><br><span class="line">    <span class="type">int</span> id;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    FILE *file = <span class="literal">NULL</span>;</span><br><span class="line">    file = fopen(<span class="string">&quot;HelloWorld.txt&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (file == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">&quot;Open failed.&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Student</span> <span class="title">students</span>[3];</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//...假设已经有3个对象被写入到文件中</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//跳过前2个元素</span></span><br><span class="line">    fseek(file, <span class="number">2</span> * <span class="keyword">sizeof</span>(<span class="keyword">struct</span> Student), SEEK_SET);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//直接访问第3个元素</span></span><br><span class="line">    fread(students, <span class="keyword">sizeof</span>(<span class="keyword">struct</span> Student) * <span class="number">1</span>, <span class="number">1</span>, file);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;My name is %s and my id is %d.\n&quot;</span>, students[<span class="number">0</span>].name, students[<span class="number">0</span>].id);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//在把光标移动到文件开头</span></span><br><span class="line">    rewind(file); <span class="comment">//等同于fseek(file,0,SEEK_SET);</span></span><br><span class="line"></span><br><span class="line">    fread(students,<span class="keyword">sizeof</span>(<span class="keyword">struct</span> Student) * <span class="number">3</span>, <span class="number">3</span>,file);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;My name is %s and my id is %d.\n&quot;</span>, students[i].name, students[i].id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fclose(file);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Student</span>
+&#123;</span>
+    <span class="hljs-type">char</span> name[<span class="hljs-number">50</span>];
+    <span class="hljs-type">int</span> id;
+&#125;;
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>
+&#123;
+    FILE *file = <span class="hljs-literal">NULL</span>;
+    file = fopen(<span class="hljs-string">&quot;HelloWorld.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>);
+
+    <span class="hljs-keyword">if</span> (file == <span class="hljs-literal">NULL</span>)
+    &#123;
+        perror(<span class="hljs-string">&quot;Open failed.&quot;</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+    &#125;
+
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Student</span> <span class="hljs-title">students</span>[3];</span>
+
+    <span class="hljs-comment">//...假设已经有3个对象被写入到文件中</span>
+    
+    <span class="hljs-comment">//跳过前2个元素</span>
+    fseek(file, <span class="hljs-number">2</span> * <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">struct</span> Student), SEEK_SET);
+
+    <span class="hljs-comment">//直接访问第3个元素</span>
+    fread(students, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">struct</span> Student) * <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, file);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;My name is %s and my id is %d.\n&quot;</span>, students[<span class="hljs-number">0</span>].name, students[<span class="hljs-number">0</span>].id);
+
+    <span class="hljs-comment">//在把光标移动到文件开头</span>
+    rewind(file); <span class="hljs-comment">//等同于fseek(file,0,SEEK_SET);</span>
+
+    fread(students,<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">struct</span> Student) * <span class="hljs-number">3</span>, <span class="hljs-number">3</span>,file);
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">3</span>; i++)
+    &#123;
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;My name is %s and my id is %d.\n&quot;</span>, students[i].name, students[i].id);
+    &#125;
+
+    fclose(file);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+</code></pre>
 
 </div>
 

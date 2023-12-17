@@ -73,7 +73,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"><link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 <body>
 	<header id="header">
@@ -727,11 +727,23 @@
 <p><strong>Step 1：下载 IntellIJ IDEA 的压缩包并解压；</strong></p>
 <p><a target="_blank" rel="noopener" href="https://www.jetbrains.com/zh-cn/idea/download/#section=linux">https://www.jetbrains.com/zh-cn/idea/download/#section=linux</a></p>
 <p><strong>Step 2：在指定路径新建一个文件；</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/share/applications</span><br><span class="line">sudo touch idea.desktop</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">cd /usr/share/applications
+sudo touch idea.desktop
+</code></pre>
 <p><strong>Step 3：编辑文件内容，填写 IntellIJ IDEA 的路径。</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Name=IdeaIU</span><br><span class="line">Comment=IdeaIU</span><br><span class="line">Exec=/home/&lt;your_path&gt;/bin/idea.sh</span><br><span class="line">Icon=/home/&lt;your_path&gt;/bin/idea.png </span><br><span class="line">Terminal=true</span><br><span class="line">Type=Application</span><br><span class="line">Categories=Application;Gnome;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">[Desktop Entry]
+Name=IdeaIU
+Comment=IdeaIU
+Exec=/home/&lt;your_path&gt;/bin/idea.sh
+Icon=/home/&lt;your_path&gt;/bin/idea.png 
+Terminal=true
+Type=Application
+Categories=Application;Gnome;
+</code></pre>
 <p><strong>Step 4：修改权限</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod u+x idea.desktop</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">sudo chmod u+x idea.desktop
+</code></pre>
+
 </div>
 
 <!-- post-guide -->

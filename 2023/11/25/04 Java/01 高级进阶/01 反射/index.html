@@ -73,7 +73,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"><link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 <body>
 	<header id="header">
@@ -740,29 +740,48 @@
 <ol>
 <li>
 <p>已知类的情况下，使用 <code>.class</code> 语法获取对象的 Class 对象；</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class&lt;?&gt; clazz = MyClass.class;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java">Class&lt;?&gt; clazz = MyClass.class;
+</code></pre>
 </li>
 <li>
 <p>已知包名和类名的情况下，使用 <code>Class.forName()</code> 或者 <code>ClassLoader</code> 动态获取 Class 对象；</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Class.forName()</span></span><br><span class="line">Class&lt;?&gt; clazz = Class.forName(<span class="string">&quot;com.example.MyClass&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ClassLoader</span></span><br><span class="line"><span class="type">ClassLoader</span> <span class="variable">classLoader</span> <span class="operator">=</span> Thread.currentThread().getContextClassLoader();</span><br><span class="line">Class&lt;?&gt; clazz = classLoader.loadClass(<span class="string">&quot;com.example.MyClass&quot;</span>);</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-comment">// Class.forName()</span>
+Class&lt;?&gt; clazz = Class.forName(<span class="hljs-string">&quot;com.example.MyClass&quot;</span>);
+
+<span class="hljs-comment">// ClassLoader</span>
+<span class="hljs-type">ClassLoader</span> <span class="hljs-variable">classLoader</span> <span class="hljs-operator">=</span> Thread.currentThread().getContextClassLoader();
+Class&lt;?&gt; clazz = classLoader.loadClass(<span class="hljs-string">&quot;com.example.MyClass&quot;</span>);
+</code></pre>
 </li>
 <li>
 <p>已有实例化对象，通过 <code>getClass()</code> 获取 Class 对象；</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">MyClass</span> <span class="variable">obj</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyClass</span>();</span><br><span class="line">Class&lt;?&gt; clazz = obj.getClass();</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-type">MyClass</span> <span class="hljs-variable">obj</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">MyClass</span>();
+Class&lt;?&gt; clazz = obj.getClass();
+</code></pre>
 </li>
 </ol>
 <h2 id="获取类信息"><a class="markdownIt-Anchor" href="#获取类信息"></a> 获取类信息</h2>
 <p>通过 Class 对象可以获取类的字段、方法、构造函数等信息，以及类上的注解等元数据。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Field[] fields = clazz.getDeclaredFields(); <span class="comment">// 获取所有字段</span></span><br><span class="line">Method[] methods = clazz.getDeclaredMethods(); <span class="comment">// 获取所有方法</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java">Field[] fields = clazz.getDeclaredFields(); <span class="hljs-comment">// 获取所有字段</span>
+Method[] methods = clazz.getDeclaredMethods(); <span class="hljs-comment">// 获取所有方法</span>
+</code></pre>
 <h2 id="实例化对象"><a class="markdownIt-Anchor" href="#实例化对象"></a> 实例化对象</h2>
 <p>通过 Class 对象可以实例化对象，可以通过无参构造函数或带参构造函数来创建对象。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Object</span> <span class="variable">obj</span> <span class="operator">=</span> clazz.newInstance();</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-type">Object</span> <span class="hljs-variable">obj</span> <span class="hljs-operator">=</span> clazz.newInstance();
+</code></pre>
 <h2 id="调用方法"><a class="markdownIt-Anchor" href="#调用方法"></a> 调用方法</h2>
 <p>通过 Method 对象可以调用类的方法，包括公有、私有方法，静态方法等。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Method</span> <span class="variable">method</span> <span class="operator">=</span> clazz.getDeclaredMethod(<span class="string">&quot;methodName&quot;</span>, parameterTypes);</span><br><span class="line">method.setAccessible(<span class="literal">true</span>); <span class="comment">// 如果是私有方法，需要设置可访问性</span></span><br><span class="line"><span class="type">Object</span> <span class="variable">result</span> <span class="operator">=</span> method.invoke(obj, args); <span class="comment">// 调用方法并获取结果</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-type">Method</span> <span class="hljs-variable">method</span> <span class="hljs-operator">=</span> clazz.getDeclaredMethod(<span class="hljs-string">&quot;methodName&quot;</span>, parameterTypes);
+method.setAccessible(<span class="hljs-literal">true</span>); <span class="hljs-comment">// 如果是私有方法，需要设置可访问性</span>
+<span class="hljs-type">Object</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> method.invoke(obj, args); <span class="hljs-comment">// 调用方法并获取结果</span>
+</code></pre>
 <h2 id="访问和修改字段"><a class="markdownIt-Anchor" href="#访问和修改字段"></a> 访问和修改字段</h2>
 <p>通过Field对象可以读取和设置对象的字段，包括公有、私有字段，静态字段等。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Field</span> <span class="variable">field</span> <span class="operator">=</span> clazz.getDeclaredField(<span class="string">&quot;fieldName&quot;</span>);</span><br><span class="line">field.setAccessible(<span class="literal">true</span>); <span class="comment">// 如果是私有字段，需要设置可访问性</span></span><br><span class="line"><span class="type">Object</span> <span class="variable">value</span> <span class="operator">=</span> field.get(obj); <span class="comment">// 读取字段的值</span></span><br><span class="line">field.set(obj, newValue); <span class="comment">// 设置字段的值</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-type">Field</span> <span class="hljs-variable">field</span> <span class="hljs-operator">=</span> clazz.getDeclaredField(<span class="hljs-string">&quot;fieldName&quot;</span>);
+field.setAccessible(<span class="hljs-literal">true</span>); <span class="hljs-comment">// 如果是私有字段，需要设置可访问性</span>
+<span class="hljs-type">Object</span> <span class="hljs-variable">value</span> <span class="hljs-operator">=</span> field.get(obj); <span class="hljs-comment">// 读取字段的值</span>
+field.set(obj, newValue); <span class="hljs-comment">// 设置字段的值</span>
+</code></pre>
 <h1 id="动态代理"><a class="markdownIt-Anchor" href="#动态代理"></a> 动态代理</h1>
 <p>在 Java 中，动态代理的实现通常依赖于反射机制。动态代理是通过在运行时创建代理对象来实现的，而这些代理对象可以动态地拦截方法调用并执行额外的逻辑。为了实现这一功能，需要在运行时获取目标类的信息，包括方法和参数等。而反射机制正是提供了一种在运行时获取、检查和操作类的方法、字段、构造函数等的能力。</p>
 <p>动态代理的实现方式有两种：基于接口的动态代理和基于类的动态代理。</p>
@@ -776,10 +795,65 @@
 </ul>
 <h2 id="基于接口的动态代理"><a class="markdownIt-Anchor" href="#基于接口的动态代理"></a> 基于接口的动态代理</h2>
 <p>基于接口的动态代理需要目标类实现一个或多个接口，在运行时创建一个代理类的实例，该实例实现了目标类所实现的接口，并且可以拦截方法调用并执行额外的逻辑。Java 中提供了一个 Proxy 类，用于创建基于接口的动态代理对象。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">MyInterface</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">sayHello</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyInvocationHandler</span> <span class="keyword">implements</span> <span class="title class_">InvocationHandler</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Object target;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MyInvocationHandler</span><span class="params">(Object target)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.target = target;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Before calling sayHello() method&quot;</span>);</span><br><span class="line">        <span class="type">Object</span> <span class="variable">result</span> <span class="operator">=</span> method.invoke(target, args);</span><br><span class="line">        System.out.println(<span class="string">&quot;After calling sayHello() method&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyClass</span> <span class="keyword">implements</span> <span class="title class_">MyInterface</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sayHello</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建代理对象</span></span><br><span class="line"><span class="type">MyInterface</span> <span class="variable">proxy</span> <span class="operator">=</span> (MyInterface)Proxy.newProxyInstance(MyInterface.class.getClassLoader(),</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Class</span>&lt;?&gt;[] &#123; MyInterface.class &#125;, <span class="keyword">new</span> <span class="title class_">MyInvocationHandler</span>(<span class="keyword">new</span> <span class="title class_">MyClass</span>()));</span><br><span class="line"><span class="comment">// 调用代理对象的方法</span></span><br><span class="line">proxy.sayHello();</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">MyInterface</span> &#123;
+    <span class="hljs-keyword">void</span> <span class="hljs-title function_">sayHello</span><span class="hljs-params">()</span>;
+&#125;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyInvocationHandler</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">InvocationHandler</span> &#123;
+    <span class="hljs-keyword">private</span> Object target;
+    
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">MyInvocationHandler</span><span class="hljs-params">(Object target)</span> &#123;
+        <span class="hljs-built_in">this</span>.target = target;
+    &#125;
+    
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> Object <span class="hljs-title function_">invoke</span><span class="hljs-params">(Object proxy, Method method, Object[] args)</span> <span class="hljs-keyword">throws</span> Throwable &#123;
+        System.out.println(<span class="hljs-string">&quot;Before calling sayHello() method&quot;</span>);
+        <span class="hljs-type">Object</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> method.invoke(target, args);
+        System.out.println(<span class="hljs-string">&quot;After calling sayHello() method&quot;</span>);
+        <span class="hljs-keyword">return</span> result;
+    &#125;
+&#125;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">MyInterface</span> &#123;
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sayHello</span><span class="hljs-params">()</span> &#123;
+        System.out.println(<span class="hljs-string">&quot;Hello, world!&quot;</span>);
+    &#125;
+&#125;
+
+<span class="hljs-comment">// 创建代理对象</span>
+<span class="hljs-type">MyInterface</span> <span class="hljs-variable">proxy</span> <span class="hljs-operator">=</span> (MyInterface)Proxy.newProxyInstance(MyInterface.class.getClassLoader(),
+        <span class="hljs-keyword">new</span> <span class="hljs-title class_">Class</span>&lt;?&gt;[] &#123; MyInterface.class &#125;, <span class="hljs-keyword">new</span> <span class="hljs-title class_">MyInvocationHandler</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">MyClass</span>()));
+<span class="hljs-comment">// 调用代理对象的方法</span>
+proxy.sayHello();
+</code></pre>
 <h2 id="基于类的动态代理"><a class="markdownIt-Anchor" href="#基于类的动态代理"></a> 基于类的动态代理</h2>
 <p>基于类的动态代理不需要目标类实现接口，相反它创建一个目标类的子类，并重写父类中的方法来拦截方法调用并执行额外的逻辑。Java 中提供了一个 cglib 库，用于创建基于类的动态代理对象。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyTargetClass</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sayHello</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyMethodInterceptor</span> <span class="keyword">implements</span> <span class="title class_">MethodInterceptor</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">intercept</span><span class="params">(Object obj, Method method, Object[] args, MethodProxy proxy)</span> <span class="keyword">throws</span> Throwable &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Before calling sayHello() method&quot;</span>);</span><br><span class="line">        <span class="type">Object</span> <span class="variable">result</span> <span class="operator">=</span> proxy.invokeSuper(obj, args);</span><br><span class="line">        System.out.println(<span class="string">&quot;After calling sayHello() method&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建代理对象</span></span><br><span class="line"><span class="type">Enhancer</span> <span class="variable">enhancer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Enhancer</span>();</span><br><span class="line">enhancer.setSuperclass(MyTargetClass.class);</span><br><span class="line">enhancer.setCallback(<span class="keyword">new</span> <span class="title class_">MyMethodInterceptor</span>());</span><br><span class="line"><span class="type">MyTargetClass</span> <span class="variable">proxy</span> <span class="operator">=</span> (MyTargetClass)enhancer.create();</span><br><span class="line"><span class="comment">// 调用代理对象的方法</span></span><br><span class="line">proxy.sayHello();</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyTargetClass</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sayHello</span><span class="hljs-params">()</span> &#123;
+        System.out.println(<span class="hljs-string">&quot;Hello, world!&quot;</span>);
+    &#125;
+&#125;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyMethodInterceptor</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">MethodInterceptor</span> &#123;
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> Object <span class="hljs-title function_">intercept</span><span class="hljs-params">(Object obj, Method method, Object[] args, MethodProxy proxy)</span> <span class="hljs-keyword">throws</span> Throwable &#123;
+        System.out.println(<span class="hljs-string">&quot;Before calling sayHello() method&quot;</span>);
+        <span class="hljs-type">Object</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> proxy.invokeSuper(obj, args);
+        System.out.println(<span class="hljs-string">&quot;After calling sayHello() method&quot;</span>);
+        <span class="hljs-keyword">return</span> result;
+    &#125;
+&#125;
+
+<span class="hljs-comment">// 创建代理对象</span>
+<span class="hljs-type">Enhancer</span> <span class="hljs-variable">enhancer</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Enhancer</span>();
+enhancer.setSuperclass(MyTargetClass.class);
+enhancer.setCallback(<span class="hljs-keyword">new</span> <span class="hljs-title class_">MyMethodInterceptor</span>());
+<span class="hljs-type">MyTargetClass</span> <span class="hljs-variable">proxy</span> <span class="hljs-operator">=</span> (MyTargetClass)enhancer.create();
+<span class="hljs-comment">// 调用代理对象的方法</span>
+proxy.sayHello();
+</code></pre>
 
 </div>
 

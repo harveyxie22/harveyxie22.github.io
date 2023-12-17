@@ -73,7 +73,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"><link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 <body>
 	<header id="header">
@@ -762,7 +762,21 @@
 <h2 id="运行状态死亡状态"><a class="markdownIt-Anchor" href="#运行状态死亡状态"></a> 运行状态→死亡状态</h2>
 <p>当线程执行体执行完毕，或者在执行过程中发生异常，就会由运行状态切换至死亡状态。</p>
 <p>在实际的业务过程中，常常需要线程在特定的时机终止线程的执行，使其能快速的进入到死亡状态。目前比较常用的方式是，声明一个Boolean类型的全局变量，然后当条件满足时，使线程执行体快速地执行完毕。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyRunable</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="type">boolean</span> <span class="variable">needStop</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">while</span> (!needStop) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;The thread is running.&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setNeedStop</span><span class="params">(<span class="type">boolean</span> needStop)</span> &#123;</span><br><span class="line">            <span class="built_in">this</span>.needStop = needStop;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyRunable</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Runnable</span> &#123;
+        <span class="hljs-keyword">private</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">needStop</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> &#123;
+            <span class="hljs-keyword">while</span> (!needStop) &#123;
+                System.out.println(<span class="hljs-string">&quot;The thread is running.&quot;</span>);
+            &#125;
+        &#125;
+
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setNeedStop</span><span class="hljs-params">(<span class="hljs-type">boolean</span> needStop)</span> &#123;
+            <span class="hljs-built_in">this</span>.needStop = needStop;
+        &#125;
+    &#125;
+</code></pre>
 <h1 id="创建与启动"><a class="markdownIt-Anchor" href="#创建与启动"></a> 创建与启动</h1>
 <p>Java中线程的创建与启动常见的有三种基本形式：</p>
 <ol>
@@ -771,41 +785,209 @@
 <li>使用Callable和Future接口创建线程。</li>
 </ol>
 <h2 id="继承tread"><a class="markdownIt-Anchor" href="#继承tread"></a> 继承Tread</h2>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        startThread();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">startThread</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">MyThread</span> <span class="variable">thread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyThread</span>();</span><br><span class="line">        thread.start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">MyThread</span> <span class="keyword">extends</span> <span class="title class_">Thread</span> &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">                System.out.println(Thread.currentThread().getName() + <span class="string">&quot;#&quot;</span> + i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;
+        startThread();
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">startThread</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-type">MyThread</span> <span class="hljs-variable">thread</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">MyThread</span>();
+        thread.start();
+    &#125;
+
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Thread</span> &#123;
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) &#123;
+                System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;#&quot;</span> + i);
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
 <h2 id="实现runnable接口"><a class="markdownIt-Anchor" href="#实现runnable接口"></a> 实现Runnable接口</h2>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        startThread();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">startThread</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">MyRunnable</span> <span class="variable">r</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyRunnable</span>();</span><br><span class="line">        <span class="type">Thread</span> <span class="variable">thread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(r);</span><br><span class="line">        thread.start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">MyRunnable</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">                System.out.println(Thread.currentThread().getName() + <span class="string">&quot;#&quot;</span> + i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;
+        startThread();
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">startThread</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-type">MyRunnable</span> <span class="hljs-variable">r</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">MyRunnable</span>();
+        <span class="hljs-type">Thread</span> <span class="hljs-variable">thread</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(r);
+        thread.start();
+    &#125;
+
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyRunnable</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Runnable</span> &#123;
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) &#123;
+                System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;#&quot;</span> + i);
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
 <p>实现了Runnable接口，并重写该接口的run()方法，该run()方法同样是执行体，创建Runnable实现类的实例，并将其作为Thread类的target来创建Thread对象，该Thread类才是真正的线程对象。</p>
 <p>思考，下面的代码会怎么执行。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        startThread();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">startThread</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">MyRunnable</span> <span class="variable">r</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyRunnable</span>();</span><br><span class="line">        <span class="type">MyThread</span> <span class="variable">thread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyThread</span>(r);</span><br><span class="line">        thread.start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">MyRunnable</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">                System.out.println(Thread.currentThread().getName() + <span class="string">&quot;Runnable#&quot;</span> + i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">MyThread</span> <span class="keyword">extends</span> <span class="title class_">Thread</span> &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="title function_">MyThread</span><span class="params">(MyRunnable r)</span> &#123;</span><br><span class="line">            <span class="built_in">super</span>(r);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="built_in">super</span>.run();</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">                System.out.println(Thread.currentThread().getName() + <span class="string">&quot;Thread#&quot;</span> + i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;
+        startThread();
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">startThread</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-type">MyRunnable</span> <span class="hljs-variable">r</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">MyRunnable</span>();
+        <span class="hljs-type">MyThread</span> <span class="hljs-variable">thread</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">MyThread</span>(r);
+        thread.start();
+    &#125;
+
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyRunnable</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Runnable</span> &#123;
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) &#123;
+                System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;Runnable#&quot;</span> + i);
+            &#125;
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Thread</span> &#123;
+        <span class="hljs-keyword">public</span> <span class="hljs-title function_">MyThread</span><span class="hljs-params">(MyRunnable r)</span> &#123;
+            <span class="hljs-built_in">super</span>(r);
+        &#125;
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> &#123;
+            <span class="hljs-built_in">super</span>.run();
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) &#123;
+                System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;Thread#&quot;</span> + i);
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
 <p>首先，会执行到MyThread的run()方法，但是因为在MyThread的run()方法中调用了super.run()方法，所以会先执行MyRunnable中的run()方法，然后执行完再执行MyThread的run()方法。所以，打印就是：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Thread-0Runnable#0</span><br><span class="line">...</span><br><span class="line">Thread-0Thread#0</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">Thread-0Runnable#0
+...
+Thread-0Thread#0
+...
+</code></pre>
 <p>假如在MyThread中没有super.run()方法，那么就会执行MyThread的run()方法。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Thread-0Thread#0</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">Thread-0Thread#0
+...
+</code></pre>
 <h2 id="callable和future"><a class="markdownIt-Anchor" href="#callable和future"></a> Callable和Future</h2>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.Callable;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ExecutionException;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.FutureTask;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        startThread();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">startThread</span><span class="params">()</span> &#123;</span><br><span class="line">        Callable&lt;Integer&gt; myCallable = <span class="keyword">new</span> <span class="title class_">MyCallable</span>();</span><br><span class="line">        FutureTask&lt;Integer&gt; task = <span class="keyword">new</span> <span class="title class_">FutureTask</span>&lt;Integer&gt;(myCallable);</span><br><span class="line">        <span class="type">Thread</span> <span class="variable">thread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(task);</span><br><span class="line">        thread.start();</span><br><span class="line">        <span class="type">Integer</span> <span class="variable">integer</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//Get integer from call() in MyCallable</span></span><br><span class="line">            integer = task.get();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ExecutionException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(integer);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">MyCallable</span> <span class="keyword">implements</span> <span class="title class_">Callable</span>&lt;Integer&gt; &#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> Integer <span class="title function_">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">                System.out.println(Thread.currentThread().getName() + <span class="string">&quot; &quot;</span> + i);</span><br><span class="line">                sum += i;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> sum;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">import</span> java.util.concurrent.Callable;
+<span class="hljs-keyword">import</span> java.util.concurrent.ExecutionException;
+<span class="hljs-keyword">import</span> java.util.concurrent.FutureTask;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;
+        startThread();
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">startThread</span><span class="hljs-params">()</span> &#123;
+        Callable&lt;Integer&gt; myCallable = <span class="hljs-keyword">new</span> <span class="hljs-title class_">MyCallable</span>();
+        FutureTask&lt;Integer&gt; task = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FutureTask</span>&lt;Integer&gt;(myCallable);
+        <span class="hljs-type">Thread</span> <span class="hljs-variable">thread</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(task);
+        thread.start();
+        <span class="hljs-type">Integer</span> <span class="hljs-variable">integer</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">try</span> &#123;
+            <span class="hljs-comment">//Get integer from call() in MyCallable</span>
+            integer = task.get();
+        &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125; <span class="hljs-keyword">catch</span> (ExecutionException e) &#123;
+            e.printStackTrace();
+        &#125;
+        System.out.println(integer);
+    &#125;
+
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyCallable</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Callable</span>&lt;Integer&gt; &#123;
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-keyword">public</span> Integer <span class="hljs-title function_">call</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;
+            <span class="hljs-type">int</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) &#123;
+                System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot; &quot;</span> + i);
+                sum += i;
+            &#125;
+            <span class="hljs-keyword">return</span> sum;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
 <p>首先，我们发现在MyCallable中，不再是run()方法，取而代之的是call()方法，此call()方法作为线程的执行体，并且具有返回值。在创建新的线程时，通过FutrueTask来包装MyCallable对象，同时作为了Thread对象的target。我们深入到FutureTask的源码来看一下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FutureTask</span>&lt;V&gt; <span class="keyword">implements</span> <span class="title class_">RunnableFuture</span>&lt;V&gt; &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 省略部分代码</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">RunnableFuture</span>&lt;V&gt; <span class="keyword">extends</span> <span class="title class_">Runnable</span>, Future&lt;V&gt; &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Sets this Future to the result of its computation</span></span><br><span class="line"><span class="comment">     * unless it has been cancelled.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">FutureTask</span>&lt;V&gt; <span class="hljs-keyword">implements</span> <span class="hljs-title class_">RunnableFuture</span>&lt;V&gt; &#123;
+    <span class="hljs-comment">/**
+     * 省略部分代码
+     */</span>
+&#125;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">RunnableFuture</span>&lt;V&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Runnable</span>, Future&lt;V&gt; &#123;
+    <span class="hljs-comment">/**
+     * Sets this Future to the result of its computation
+     * unless it has been cancelled.
+     */</span>
+    <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span>;
+&#125;
+</code></pre>
 <p>于是，我们发现FutureTask类，实际上也是实现了Runable和Future接口。接下来，还有一个问题就是为什么我们调用task.get()方法，打印永远是在最后呢？这是因为task.get()方法获取子线程的call()方法的返回值时，当子线程方法还未执行完毕，task.get()方法会一直阻塞，直到call()方法执行完毕，才能有返回值。</p>
 <p>对于线程的启动而言，都是调用了start()方法，需要特别强调的是：不能对同一个线程对象进行两次调用start()方法。</p>
 <h1 id="threadlocal"><a class="markdownIt-Anchor" href="#threadlocal"></a> ThreadLocal</h1>
 <p>多线程环境下访问同一个共享变量，可能会出现现场安全的问题。为了保证线程安全，我们往往会在访问这个共享变量的时候加锁，以达到同步的效果。对共享变量加锁虽然能够保证线程的安全，但是却增加了开发人员对锁的使用量。如果锁使用不当，就会导致死锁等问题发生。ThreadLocal 能够做到在创建变量后，每个线程对变量访问时访问的是自己本地的变量。</p>
 <p>例如，我们使用ThreadLocal保存并打印相关的变量信息，程序如下所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ThreadLocalTest</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> ThreadLocal&lt;String&gt; sThreadLocal = <span class="keyword">new</span> <span class="title class_">ThreadLocal</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Thread</span> <span class="variable">threadA</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(() -&gt; &#123;</span><br><span class="line">            sThreadLocal.set(<span class="string">&quot;ThreadA:&quot;</span> + Thread.currentThread().getName());</span><br><span class="line">            System.out.println(<span class="string">&quot;线程A本地变量中的值为：&quot;</span> + sThreadLocal.get());</span><br><span class="line">            sThreadLocal.remove();</span><br><span class="line">            System.out.println(<span class="string">&quot;删除后，线程A本地变量中的值为：&quot;</span> + sThreadLocal.get());</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="type">Thread</span> <span class="variable">threadB</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(() -&gt; &#123;</span><br><span class="line">            sThreadLocal.set(<span class="string">&quot;ThreadB:&quot;</span> + Thread.currentThread().getName());</span><br><span class="line">            System.out.println(<span class="string">&quot;线程B本地变量中的值为：&quot;</span> + sThreadLocal.get());</span><br><span class="line">            System.out.println(<span class="string">&quot;没有删除，线程B本地变量中的值为：&quot;</span> + sThreadLocal.get());</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        threadA.start();</span><br><span class="line">        threadB.start();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ThreadLocalTest</span> &#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> ThreadLocal&lt;String&gt; sThreadLocal = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ThreadLocal</span>&lt;&gt;();
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;
+        <span class="hljs-type">Thread</span> <span class="hljs-variable">threadA</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(() -&gt; &#123;
+            sThreadLocal.set(<span class="hljs-string">&quot;ThreadA:&quot;</span> + Thread.currentThread().getName());
+            System.out.println(<span class="hljs-string">&quot;线程A本地变量中的值为：&quot;</span> + sThreadLocal.get());
+            sThreadLocal.remove();
+            System.out.println(<span class="hljs-string">&quot;删除后，线程A本地变量中的值为：&quot;</span> + sThreadLocal.get());
+
+        &#125;);
+        <span class="hljs-type">Thread</span> <span class="hljs-variable">threadB</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(() -&gt; &#123;
+            sThreadLocal.set(<span class="hljs-string">&quot;ThreadB:&quot;</span> + Thread.currentThread().getName());
+            System.out.println(<span class="hljs-string">&quot;线程B本地变量中的值为：&quot;</span> + sThreadLocal.get());
+            System.out.println(<span class="hljs-string">&quot;没有删除，线程B本地变量中的值为：&quot;</span> + sThreadLocal.get());
+        &#125;);
+
+        threadA.start();
+        threadB.start();
+
+    &#125;
+&#125;
+</code></pre>
 <p>运行的结果如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">线程B本地变量中的值为：ThreadB:Thread-1</span><br><span class="line">线程A本地变量中的值为：ThreadA:Thread-0</span><br><span class="line">没有删除，线程B本地变量中的值为：ThreadB:Thread-1</span><br><span class="line">删除后，线程A本地变量中的值为：null</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">线程B本地变量中的值为：ThreadB:Thread-1
+线程A本地变量中的值为：ThreadA:Thread-0
+没有删除，线程B本地变量中的值为：ThreadB:Thread-1
+删除后，线程A本地变量中的值为：null
+</code></pre>
 <p>通过上述程序我们可以看出，线程A和线程B存储在ThreadLocal的变量是相互不干扰的，线程A存储的变量只能由线程A访问，线程B存储的变量只能由线程B访问。</p>
 <h1 id="锁"><a class="markdownIt-Anchor" href="#锁"></a> 锁</h1>
 <p>锁作为并发共享数据保证一致性的工具，在Java中有多种实现。</p>
 <h2 id="synchronized"><a class="markdownIt-Anchor" href="#synchronized"></a> synchronized</h2>
 <p>Java线程中的共享互斥可以使用synchronized关键字来实现。synchronized在执行期间若遇到异常，会自动的释放锁。synchronized的声明位置可以在类方法、实例方法、方法内部。</p>
 <h3 id="类方法"><a class="markdownIt-Anchor" href="#类方法"></a> 类方法</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">method</span><span class="params">()</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">method</span><span class="hljs-params">()</span>&#123;&#125;
+</code></pre>
 <p>synchronized类方法采用类对象锁（即当前类的类对象）去完成线程的共享互斥。如上述代码示例中，采用类的class作为锁。</p>
 <h3 id="实例方法"><a class="markdownIt-Anchor" href="#实例方法"></a> 实例方法</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">method</span><span class="params">()</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">method</span><span class="hljs-params">()</span>&#123;&#125;
+</code></pre>
 <p>synchronized实例方法采用的当前对象作为锁（即this对象）去完成线程的共享互斥操作。</p>
 <h3 id="方法内部"><a class="markdownIt-Anchor" href="#方法内部"></a> 方法内部</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">method</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="keyword">synchronized</span>(<span class="built_in">this</span>)&#123;</span><br><span class="line">	</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">synchronized</span>(Something.class)&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">method</span><span class="hljs-params">()</span>&#123;
+    <span class="hljs-keyword">synchronized</span>(<span class="hljs-built_in">this</span>)&#123;
+	
+    &#125;
+
+    <span class="hljs-keyword">synchronized</span>(Something.class)&#123;
+
+    &#125;
+&#125;
+</code></pre>
 <p>synchronized声明可以采用任意锁，上述代码中采用了对象锁和类锁。</p>
 <h1 id="faqs"><a class="markdownIt-Anchor" href="#faqs"></a> FAQs</h1>
 <h2 id="run和start方法的区别"><a class="markdownIt-Anchor" href="#run和start方法的区别"></a> run()和start()方法的区别</h2>

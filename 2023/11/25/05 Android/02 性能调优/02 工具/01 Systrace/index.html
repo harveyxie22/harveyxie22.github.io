@@ -73,7 +73,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"><link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 <body>
 	<header id="header">
@@ -741,11 +741,14 @@
 <h2 id="命令行用法"><a class="markdownIt-Anchor" href="#命令行用法"></a> 命令行用法</h2>
 <p>对于运行 Android 4.3（API 级别 18）及更高版本的设备与运行 Android 4.2（API 级别 17）及更低版本的设备，Systrace 工具具有不同的命令行选项。 以下部分描述了每个版本的不同命令行选项。</p>
 <p>从命令行运行 Systrace 的一般语法如下。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python systrace.py [选项] [类别1] [类别2] ... [类别N]</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="外壳">$ python systrace.py [选项] [类别1] [类别2] ... [类别N]
+</code></pre>
 <p>有关 Systrace 会话示例，请参阅以下部分。</p>
 <h3 id="android-43-及更高版本选项"><a class="markdownIt-Anchor" href="#android-43-及更高版本选项"></a> Android 4.3 及更高版本选项</h3>
 <p>当您在运行 Android 4.3 及更高版本的设备上使用 Systrace 时，您可以省略跟踪类别标签以获取默认值，也可以手动指定要包含的标签。 以下是设置跟踪标记并从连接的设备生成跟踪的示例执行运行。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> android-sdk/platform-tools/systrace</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">python systrace.py --time=10 -o mynewtrace.html <span class="built_in">sched</span> gfx view wm</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash"><span class="hljs-built_in">cd</span> android-sdk/platform-tools/systrace</span>
+<span class="hljs-meta prompt_">$ </span><span class="language-bash">python systrace.py --time=10 -o mynewtrace.html <span class="hljs-built_in">sched</span> gfx view wm</span>
+</code></pre>
 <blockquote>
 <p>**提示：**如果您想在跟踪输出中查看任务名称，您<em>必须</em>在命令参数中包含 <code>sched</code> 类别。</p>
 </blockquote>
@@ -845,7 +848,15 @@
 </tbody>
 </table>
 <h1 id="命令示例"><a class="markdownIt-Anchor" href="#命令示例"></a> 命令示例</h1>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Example 1</span></span><br><span class="line">python systrace.py -t 5 -o trace.html am wm view res ss database freq power sched gfx \ </span><br><span class="line">input idle binder_driver binder_lock dalvik pagecache -b 30720</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Example 2</span></span><br><span class="line">python systrace.py -t 10 -o trace.html am wm view  res ss gfx  view hal bionic pm sched \</span><br><span class="line">irq freq idle sync binder_driver binder_lock disk mmc pagecache memreclaim dalvik input \</span><br><span class="line">-b 20480</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">Example 1</span>
+python systrace.py -t 5 -o trace.html am wm view res ss database freq power sched gfx \ 
+input idle binder_driver binder_lock dalvik pagecache -b 30720
+<span class="hljs-meta prompt_">
+# </span><span class="language-bash">Example 2</span>
+python systrace.py -t 10 -o trace.html am wm view  res ss gfx  view hal bionic pm sched \
+irq freq idle sync binder_driver binder_lock disk mmc pagecache memreclaim dalvik input \
+-b 20480
+</code></pre>
 
 </div>
 

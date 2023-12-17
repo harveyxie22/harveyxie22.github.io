@@ -73,7 +73,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"><link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 <body>
 	<header id="header">
@@ -757,18 +757,42 @@
 <h2 id="serializable"><a class="markdownIt-Anchor" href="#serializable"></a> Serializable</h2>
 <p>在 Java 中使用 <code>Serializable</code> 来声明一个对象是可以被序列化的。若忘记声明 <code>Serializable</code> 接口的话，会报<code>java.io.NotSerializableException</code>异常。</p>
 <p>首先，创建一个实现 <code>Serializable</code> 接口的类。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> score;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">(<span class="type">int</span> score, <span class="type">int</span> age, String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.score = score;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">import</span> java.io.Serializable;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Serializable</span> &#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> score;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> age;
+    <span class="hljs-keyword">private</span> String name;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Student</span><span class="hljs-params">(<span class="hljs-type">int</span> score, <span class="hljs-type">int</span> age, String name)</span> &#123;
+        <span class="hljs-built_in">this</span>.score = score;
+        <span class="hljs-built_in">this</span>.age = age;
+        <span class="hljs-built_in">this</span>.name = name;
+    &#125;
+&#125;
+</code></pre>
 <p>其次，使用 <code>ObjectOutputStream</code> 进行序列化操作。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">File</span> <span class="variable">file</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;Student.txt&quot;</span>);</span><br><span class="line">        <span class="type">ObjectOutputStream</span> <span class="variable">bos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(<span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(file));</span><br><span class="line">        <span class="type">Student</span> <span class="variable">student</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>(<span class="number">100</span>, <span class="number">18</span>, <span class="string">&quot;Hua Li&quot;</span>);</span><br><span class="line">        bos.writeObject(student);</span><br><span class="line">        bos.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Demo</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception &#123;
+        <span class="hljs-type">File</span> <span class="hljs-variable">file</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">File</span>(<span class="hljs-string">&quot;Student.txt&quot;</span>);
+        <span class="hljs-type">ObjectOutputStream</span> <span class="hljs-variable">bos</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectOutputStream</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">FileOutputStream</span>(file));
+        <span class="hljs-type">Student</span> <span class="hljs-variable">student</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Student</span>(<span class="hljs-number">100</span>, <span class="hljs-number">18</span>, <span class="hljs-string">&quot;Hua Li&quot;</span>);
+        bos.writeObject(student);
+        bos.close();
+    &#125;
+&#125;
+</code></pre>
 <p>执行完上述程序后，会在项目根路径下生成一个 <code>Student.txt</code> 文件。这个文件就是序列化后得到的产物。注意，在存在继承关系的类中，如果父类没有实现 <code>Serializable</code>，但是子类实现了 <code>Serializable</code>，此时子类是可以被序列化的。只不过在反序列化的时候，会先调用父类的无参构造函数（若父类没有无参构造则会抛出异常），然后再执行反序列化操作。这样做的目的是确保子类继承过来的成员变量能够先得到一次初始化。</p>
 <h3 id="transient"><a class="markdownIt-Anchor" href="#transient"></a> transient</h3>
 <p>在序列化过程中，我们通过使用 <code>transient</code> 关键字指定那些不需要序列化的成员变量。凡是被 <code>transient</code> 修饰的变量，不再参与序列化过程。<code>transient</code> 只能修饰成员变量，不能修饰局部变量，也不能修饰方法和类。对于静态成员不管是否有 <code>transient</code> 修饰，都不参与序列化过程，这是因为静态的成员变量归属于类，而非对象。例如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">transient</span> String name;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">transient</span> String name;
+</code></pre>
 <p><code>transient</code> 关键字只对实现了 <code>Serializable</code> 的接口生效，若实现的是 <code>Externalizable</code> 接口，则 <code>transient</code> 关键字失效。因为实现 <code>Externalizable</code> 接口的类型需要实现 <code>writeObject()</code> 和 <code>readObject()</code> 主动进行序列化和反序列操作。</p>
 <h3 id="serialversionuid"><a class="markdownIt-Anchor" href="#serialversionuid"></a> serialVersionUID</h3>
 <p>在进行序列化过程中，往往会添加一个私有静态成员变量 <code>serialVersionUID</code>，其目的是为了标记一个类，使其在序列化和反序列化过程中，保持类结构的稳定。其实就可以理解成：<code>serialVersionUID</code> 是序列化类的版本号，只有版本号相同的类才可以进行序列化和反序列化，否则就会报出 <code>SerializationFailedException</code> 异常。</p>
 <p>若没有声明该变量，那么虚拟机会在运行时根据类的结构计算得到一个默认的 <code>serialVersionUID</code>。因为虚拟机生成的版本号可能会在序列化和反序列化的时候不一致，因此官方强烈建议参与序列化的类应当主动的声明一个<code>serialVersionUID</code>。声明 <code>serialVersionUID</code> 可以自己随意写一个，例如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">long</span> <span class="variable">serialVersionUID</span> <span class="operator">=</span> <span class="number">1L</span>;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">long</span> <span class="hljs-variable">serialVersionUID</span> <span class="hljs-operator">=</span> <span class="hljs-number">1L</span>;
+</code></pre>
 <p>上述这种是不太稳妥的，因此官方提供了一个 <em>serialver.exe</em> 工具帮助开发者自动生成 <code>serialVersionUID</code>。使用该工具的方法是：</p>
 <ol>
 <li>
@@ -776,14 +800,18 @@
 </li>
 <li>
 <p>其次，对 <code>.java</code> 文件执行 <code>javac</code> 命令，得到一个 <code>.class</code> 文件。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac Student.java</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">javac Student.java
+</code></pre>
 </li>
 <li>
 <p>然后，使用<code>serialver -classpath \\Projects\\JavaProjects\\HelloWorld\\src data.Student</code>命令即可生成<code>serialVersionUID</code>。执行完毕后，控制台输出：</p>
 </li>
 <li>
 <p>然后使用 <code>servialver.exe</code> 生成 <code>serialVersionUID</code>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">serialver -classpath Student.class</span><br><span class="line"># 控制台输出</span><br><span class="line"># data.Student: private static final long serialVersionUID = 4674087742710036718L;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">serialver -classpath Student.class
+# 控制台输出
+# data.Student: private static final long serialVersionUID = 4674087742710036718L;
+</code></pre>
 </li>
 <li>
 <p>最后，把生成的 <code>serialVersionUID</code> 配置到类中。</p>
@@ -791,7 +819,31 @@
 </ol>
 <h2 id="externalizable"><a class="markdownIt-Anchor" href="#externalizable"></a> Externalizable</h2>
 <p><code>Externalizable</code> 继承自 <code>Serializable</code> 。当需要使用 <code>Externalizable</code> 时，必须实现 <code>writeExternal()</code> 和<code>readExternal() </code>方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> <span class="keyword">implements</span> <span class="title class_">Externalizable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> longserialVersionUID= <span class="number">4674087742710036718L</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> score;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">transient</span> String name;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">User</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">writeExternal</span><span class="params">(ObjectOutput out)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        out.writeInt(<span class="built_in">this</span>.score);</span><br><span class="line">        out.writeInt(<span class="built_in">this</span>.age);</span><br><span class="line">        out.writeObject(<span class="built_in">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">readExternal</span><span class="params">(ObjectInput in)</span> <span class="keyword">throws</span> IOException, ClassNotFoundException </span><br><span class="line">		&#123;</span><br><span class="line">        <span class="built_in">this</span>.score = in.readInt();</span><br><span class="line">        <span class="built_in">this</span>.age = in.readInt();</span><br><span class="line">        <span class="built_in">this</span>.name = ((String) in.readObject());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">User</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Externalizable</span> &#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> longserialVersionUID= <span class="hljs-number">4674087742710036718L</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> score;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> age;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">transient</span> String name;
+    
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">User</span><span class="hljs-params">()</span> &#123;
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">writeExternal</span><span class="hljs-params">(ObjectOutput out)</span> <span class="hljs-keyword">throws</span> IOException &#123;
+        out.writeInt(<span class="hljs-built_in">this</span>.score);
+        out.writeInt(<span class="hljs-built_in">this</span>.age);
+        out.writeObject(<span class="hljs-built_in">this</span>.name);
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">readExternal</span><span class="hljs-params">(ObjectInput in)</span> <span class="hljs-keyword">throws</span> IOException, ClassNotFoundException 
+		&#123;
+        <span class="hljs-built_in">this</span>.score = in.readInt();
+        <span class="hljs-built_in">this</span>.age = in.readInt();
+        <span class="hljs-built_in">this</span>.name = ((String) in.readObject());
+    &#125;
+&#125;
+</code></pre>
 <p>使用 <code>Externalizable </code>进行序列化的时，需要注意以下几点：</p>
 <ol>
 <li><code>writeExternal() </code>和 <code>readExternal()</code> 的写入和读取的顺序需要一致；</li>
@@ -799,15 +851,65 @@
 </ol>
 <h3 id="externalizable-的序列化原理"><a class="markdownIt-Anchor" href="#externalizable-的序列化原理"></a> Externalizable 的序列化原理</h3>
 <p>在序列化过程中，使用的是 <code>ObjectOutputStream</code> 类中的 <code>writeObject </code>方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title function_">writeObject</span><span class="params">(Object obj)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    <span class="keyword">if</span> (enableOverride) &#123; <span class="comment">//1. 调用有参构造函数时为false，调用无参构造时为true。无参构造外部无法调用到。</span></span><br><span class="line">        writeObjectOverride(obj);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        writeObject0(obj, <span class="literal">false</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException ex) &#123;</span><br><span class="line">        <span class="keyword">if</span> (depth == <span class="number">0</span>) &#123;</span><br><span class="line">            writeFatalException(ex);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">throw</span> ex;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">writeObject</span><span class="hljs-params">(Object obj)</span> <span class="hljs-keyword">throws</span> IOException &#123;
+    <span class="hljs-keyword">if</span> (enableOverride) &#123; <span class="hljs-comment">//1. 调用有参构造函数时为false，调用无参构造时为true。无参构造外部无法调用到。</span>
+        writeObjectOverride(obj);
+        <span class="hljs-keyword">return</span>;
+    &#125;
+    <span class="hljs-keyword">try</span> &#123;
+        writeObject0(obj, <span class="hljs-literal">false</span>);
+    &#125; <span class="hljs-keyword">catch</span> (IOException ex) &#123;
+        <span class="hljs-keyword">if</span> (depth == <span class="hljs-number">0</span>) &#123;
+            writeFatalException(ex);
+        &#125;
+        <span class="hljs-keyword">throw</span> ex;
+    &#125;
+&#125;
+</code></pre>
 <p>判断 <code>enableOverride</code> 的值，该值由构造函数进行初始化，如果使用的是无参构造创建 <code>ObjectOutputStream</code> 对象的话，值就是 <code>true</code>。否则，就需要传递一个 <code>OutputStream</code> 类型的参数来调用有参构造，这种情况下该值就是 <code>false</code>。当执行到 <code>writeObject</code> 方法的时候，只有为 <code>false</code> 的时候才会调用 <code>writeObject0</code> 方法。很明显，在上述案例中我们在构造的时候会传递一个 <code>FileOutputStream</code> 的参数，因此会走到 <code>writeObject0</code> 方法。</p>
 <blockquote>
 <p><code>ObjectOutputStream</code>的无参构造方法是一个 protected 的方法，外部无法调用到。</p>
 </blockquote>
 <p>在 <code>writeObject0</code> 方法中，会先进行一系列的检查操作，然后走到这一块核心代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// remaining cases</span></span><br><span class="line"><span class="keyword">if</span> (obj <span class="keyword">instanceof</span> String) &#123;</span><br><span class="line">    writeString((String) obj, unshared);</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (cl.isArray()) &#123;</span><br><span class="line">    writeArray(obj, desc, unshared);</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (obj <span class="keyword">instanceof</span> Enum) &#123;</span><br><span class="line">    writeEnum((Enum&lt;?&gt;) obj, desc, unshared);</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (obj <span class="keyword">instanceof</span> Serializable) &#123;</span><br><span class="line">    writeOrdinaryObject(obj, desc, unshared);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (extendedDebugInfo) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">NotSerializableException</span>(</span><br><span class="line">            cl.getName() + <span class="string">&quot;\n&quot;</span> + debugInfoStack.toString());</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">NotSerializableException</span>(cl.getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-comment">// remaining cases</span>
+<span class="hljs-keyword">if</span> (obj <span class="hljs-keyword">instanceof</span> String) &#123;
+    writeString((String) obj, unshared);
+&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (cl.isArray()) &#123;
+    writeArray(obj, desc, unshared);
+&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (obj <span class="hljs-keyword">instanceof</span> Enum) &#123;
+    writeEnum((Enum&lt;?&gt;) obj, desc, unshared);
+&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (obj <span class="hljs-keyword">instanceof</span> Serializable) &#123;
+    writeOrdinaryObject(obj, desc, unshared);
+&#125; <span class="hljs-keyword">else</span> &#123;
+    <span class="hljs-keyword">if</span> (extendedDebugInfo) &#123;
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">NotSerializableException</span>(
+            cl.getName() + <span class="hljs-string">&quot;\n&quot;</span> + debugInfoStack.toString());
+    &#125; <span class="hljs-keyword">else</span> &#123;
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">NotSerializableException</span>(cl.getName());
+    &#125;
+&#125;
+</code></pre>
 <p>如果是 String、Array 和枚举类型的，调用对应的方法进行序列化（这是因为这些类型默认实现了 <code>Serializable</code> 接口）。如果是 <code>Serializable</code> 类型的，调用 <code>writeOrdinaryObject()</code> 方法进行序列化。若都不是，则会报<code>NotSerializableException</code> 异常。<code>writeOrdinaryObject() </code>方法的代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">writeOrdinaryObject</span><span class="params">(Object obj, ObjectStreamClass desc, <span class="type">boolean</span> unshared)</span> <span class="keyword">throws</span> IOException&#123;</span><br><span class="line">    <span class="comment">//省略...</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        desc.checkSerialize(); <span class="comment">//1.检查是否可以序列化</span></span><br><span class="line"></span><br><span class="line">        bout.writeByte(TC_OBJECT); <span class="comment">//2.写入类型</span></span><br><span class="line">        writeClassDesc(desc, <span class="literal">false</span>); <span class="comment">//3.写入字节信息</span></span><br><span class="line">        handles.assign(unshared ? <span class="literal">null</span> : obj);</span><br><span class="line">        <span class="keyword">if</span> (desc.isExternalizable() &amp;&amp; !desc.isProxy()) &#123;<span class="comment">//4.判断该类是否实现了Externalizable接口</span></span><br><span class="line">            writeExternalData((Externalizable) obj);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            writeSerialData(obj, desc);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (extendedDebugInfo) &#123;</span><br><span class="line">            debugInfoStack.pop();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">writeOrdinaryObject</span><span class="hljs-params">(Object obj, ObjectStreamClass desc, <span class="hljs-type">boolean</span> unshared)</span> <span class="hljs-keyword">throws</span> IOException&#123;
+    <span class="hljs-comment">//省略...</span>
+    <span class="hljs-keyword">try</span> &#123;
+        desc.checkSerialize(); <span class="hljs-comment">//1.检查是否可以序列化</span>
+
+        bout.writeByte(TC_OBJECT); <span class="hljs-comment">//2.写入类型</span>
+        writeClassDesc(desc, <span class="hljs-literal">false</span>); <span class="hljs-comment">//3.写入字节信息</span>
+        handles.assign(unshared ? <span class="hljs-literal">null</span> : obj);
+        <span class="hljs-keyword">if</span> (desc.isExternalizable() &amp;&amp; !desc.isProxy()) &#123;<span class="hljs-comment">//4.判断该类是否实现了Externalizable接口</span>
+            writeExternalData((Externalizable) obj);
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            writeSerialData(obj, desc);
+        &#125;
+    &#125; <span class="hljs-keyword">finally</span> &#123;
+        <span class="hljs-keyword">if</span> (extendedDebugInfo) &#123;
+            debugInfoStack.pop();
+        &#125;
+    &#125;
+&#125;
+</code></pre>
 <p>在 <code>writeOrdinaryObject()</code> 方法中会依次：</p>
 <ol>
 <li>检查是否可以序列化；</li>
@@ -822,21 +924,187 @@
 </ol>
 <p>从第 4 步可以看出 <code>Externalizable</code> 的优先级要高于 <code>Serializable</code> 的，当一个类即实现了 <code>Externalizable</code> 又实现了 <code>Serializable</code>，那么会优先执行 <code>Externalizable</code> 的序列化方式。</p>
 <p>在 <code>writeSerialData</code> 方法中，不管怎么样都会执行 <code>obj.writeExternal(this);</code>，而这个方法调用的是在序列化类中必须重写的 <code>writeExternal</code> 方法，最终完成序列化工作。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">writeExternalData</span><span class="params">(Externalizable obj)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    <span class="type">PutFieldImpl</span> <span class="variable">oldPut</span> <span class="operator">=</span> curPut;</span><br><span class="line">    curPut = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (extendedDebugInfo) &#123;</span><br><span class="line">        debugInfoStack.push(<span class="string">&quot;writeExternal data&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">SerialCallbackContext</span> <span class="variable">oldContext</span> <span class="operator">=</span> curContext;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        curContext = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (protocol == PROTOCOL_VERSION_1) &#123;</span><br><span class="line">            obj.writeExternal(<span class="built_in">this</span>); <span class="comment">//1. 调用我们序列化类中重写的方法</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            bout.setBlockDataMode(<span class="literal">true</span>);</span><br><span class="line">            obj.writeExternal(<span class="built_in">this</span>); <span class="comment">//2. 调用我们序列化类中重写的方法</span></span><br><span class="line">            bout.setBlockDataMode(<span class="literal">false</span>);</span><br><span class="line">            bout.writeByte(TC_ENDBLOCKDATA);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        curContext = oldContext;</span><br><span class="line">        <span class="keyword">if</span> (extendedDebugInfo) &#123;</span><br><span class="line">            debugInfoStack.pop();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    curPut = oldPut;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">writeExternalData</span><span class="hljs-params">(Externalizable obj)</span> <span class="hljs-keyword">throws</span> IOException &#123;
+    <span class="hljs-type">PutFieldImpl</span> <span class="hljs-variable">oldPut</span> <span class="hljs-operator">=</span> curPut;
+    curPut = <span class="hljs-literal">null</span>;
+
+    <span class="hljs-keyword">if</span> (extendedDebugInfo) &#123;
+        debugInfoStack.push(<span class="hljs-string">&quot;writeExternal data&quot;</span>);
+    &#125;
+    <span class="hljs-type">SerialCallbackContext</span> <span class="hljs-variable">oldContext</span> <span class="hljs-operator">=</span> curContext;
+    <span class="hljs-keyword">try</span> &#123;
+        curContext = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">if</span> (protocol == PROTOCOL_VERSION_1) &#123;
+            obj.writeExternal(<span class="hljs-built_in">this</span>); <span class="hljs-comment">//1. 调用我们序列化类中重写的方法</span>
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            bout.setBlockDataMode(<span class="hljs-literal">true</span>);
+            obj.writeExternal(<span class="hljs-built_in">this</span>); <span class="hljs-comment">//2. 调用我们序列化类中重写的方法</span>
+            bout.setBlockDataMode(<span class="hljs-literal">false</span>);
+            bout.writeByte(TC_ENDBLOCKDATA);
+        &#125;
+    &#125; <span class="hljs-keyword">finally</span> &#123;
+        curContext = oldContext;
+        <span class="hljs-keyword">if</span> (extendedDebugInfo) &#123;
+            debugInfoStack.pop();
+        &#125;
+    &#125;
+
+    curPut = oldPut;
+&#125;
+</code></pre>
 <p>若实现了 <code>Serializable</code>的话，会执行到这个方法里：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">writeSerialData</span><span class="params">(Object obj, ObjectStreamClass desc)</span></span><br><span class="line">    <span class="keyword">throws</span> IOException</span><br><span class="line">&#123;</span><br><span class="line">    ObjectStreamClass.ClassDataSlot[] slots = desc.getClassDataLayout();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; slots.length; i++) &#123;</span><br><span class="line">        <span class="type">ObjectStreamClass</span> <span class="variable">slotDesc</span> <span class="operator">=</span> slots[i].desc;</span><br><span class="line">        <span class="keyword">if</span> (slotDesc.hasWriteObjectMethod()) &#123; <span class="comment">//1.判断是否存在writeObject()方法</span></span><br><span class="line">         	<span class="comment">//省略了一些代码...</span></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                curContext = <span class="keyword">new</span> <span class="title class_">SerialCallbackContext</span>(obj, slotDesc);</span><br><span class="line">                bout.setBlockDataMode(<span class="literal">true</span>);</span><br><span class="line">                slotDesc.invokeWriteObject(obj, <span class="built_in">this</span>); <span class="comment">//2.若有，则执行该方法。</span></span><br><span class="line">                bout.setBlockDataMode(<span class="literal">false</span>);</span><br><span class="line">                bout.writeByte(TC_ENDBLOCKDATA);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//省略了一些代码...</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            defaultWriteFields(obj, slotDesc);<span class="comment">//3.若没有则执行默认的defaultWriteFields()方法。</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">writeSerialData</span><span class="hljs-params">(Object obj, ObjectStreamClass desc)</span>
+    <span class="hljs-keyword">throws</span> IOException
+&#123;
+    ObjectStreamClass.ClassDataSlot[] slots = desc.getClassDataLayout();
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; slots.length; i++) &#123;
+        <span class="hljs-type">ObjectStreamClass</span> <span class="hljs-variable">slotDesc</span> <span class="hljs-operator">=</span> slots[i].desc;
+        <span class="hljs-keyword">if</span> (slotDesc.hasWriteObjectMethod()) &#123; <span class="hljs-comment">//1.判断是否存在writeObject()方法</span>
+         	<span class="hljs-comment">//省略了一些代码...</span>
+            <span class="hljs-keyword">try</span> &#123;
+                curContext = <span class="hljs-keyword">new</span> <span class="hljs-title class_">SerialCallbackContext</span>(obj, slotDesc);
+                bout.setBlockDataMode(<span class="hljs-literal">true</span>);
+                slotDesc.invokeWriteObject(obj, <span class="hljs-built_in">this</span>); <span class="hljs-comment">//2.若有，则执行该方法。</span>
+                bout.setBlockDataMode(<span class="hljs-literal">false</span>);
+                bout.writeByte(TC_ENDBLOCKDATA);
+            &#125;
+            <span class="hljs-comment">//省略了一些代码...</span>
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            defaultWriteFields(obj, slotDesc);<span class="hljs-comment">//3.若没有则执行默认的defaultWriteFields()方法。</span>
+        &#125;
+    &#125;
+&#125;
+</code></pre>
 <p>该方法会先判断序列化类中是否有 <code>writeObject()</code> 方法，若有，则会通过反射的方式调用。否则，就会执行<code>defaultWriteFields()</code> 方法，然后在 <code>defaultWriteFields()</code> 方法中把对象序列化到流中。</p>
 <h3 id="externalizable-的反序列原理"><a class="markdownIt-Anchor" href="#externalizable-的反序列原理"></a> Externalizable 的反序列原理</h3>
 <p>在反序列化过程中会通过 <code>ObjectInputStream</code> 类中的 <code>readObject()</code> 方法来完成反序列化操作。在<code>ObjectInputStream</code> 类中，会执行到 <code>readObject()</code> 方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Object <span class="title function_">readObject</span><span class="params">(Class&lt;?&gt; type)</span></span><br><span class="line">    <span class="keyword">throws</span> IOException, ClassNotFoundException</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (enableOverride) &#123;</span><br><span class="line">        <span class="keyword">return</span> readObjectOverride(); <span class="comment">//1. 调用有参构造函数时为false，调用无参构造时为true。无参构造外部无法调用到。</span></span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">//省略一些代码...</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">Object</span> <span class="variable">obj</span> <span class="operator">=</span> readObject0(type, <span class="literal">false</span>); <span class="comment">//2.继续完成反序列化操作。</span></span><br><span class="line">        handles.markDependency(outerHandle, passHandle);</span><br><span class="line">        <span class="type">ClassNotFoundException</span> <span class="variable">ex</span> <span class="operator">=</span> handles.lookupException(passHandle);</span><br><span class="line">        <span class="keyword">if</span> (ex != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> ex;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (depth == <span class="number">0</span>) &#123;</span><br><span class="line">            vlist.doCallbacks();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> obj;</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        passHandle = outerHandle;</span><br><span class="line">        <span class="keyword">if</span> (closed &amp;&amp; depth == <span class="number">0</span>) &#123;</span><br><span class="line">            clear();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Object <span class="hljs-title function_">readObject</span><span class="hljs-params">(Class&lt;?&gt; type)</span>
+    <span class="hljs-keyword">throws</span> IOException, ClassNotFoundException
+&#123;
+    <span class="hljs-keyword">if</span> (enableOverride) &#123;
+        <span class="hljs-keyword">return</span> readObjectOverride(); <span class="hljs-comment">//1. 调用有参构造函数时为false，调用无参构造时为true。无参构造外部无法调用到。</span>
+    &#125;
+	<span class="hljs-comment">//省略一些代码...</span>
+    <span class="hljs-keyword">try</span> &#123;
+        <span class="hljs-type">Object</span> <span class="hljs-variable">obj</span> <span class="hljs-operator">=</span> readObject0(type, <span class="hljs-literal">false</span>); <span class="hljs-comment">//2.继续完成反序列化操作。</span>
+        handles.markDependency(outerHandle, passHandle);
+        <span class="hljs-type">ClassNotFoundException</span> <span class="hljs-variable">ex</span> <span class="hljs-operator">=</span> handles.lookupException(passHandle);
+        <span class="hljs-keyword">if</span> (ex != <span class="hljs-literal">null</span>) &#123;
+            <span class="hljs-keyword">throw</span> ex;
+        &#125;
+        <span class="hljs-keyword">if</span> (depth == <span class="hljs-number">0</span>) &#123;
+            vlist.doCallbacks();
+        &#125;
+        <span class="hljs-keyword">return</span> obj;
+    &#125; <span class="hljs-keyword">finally</span> &#123;
+        passHandle = outerHandle;
+        <span class="hljs-keyword">if</span> (closed &amp;&amp; depth == <span class="hljs-number">0</span>) &#123;
+            clear();
+        &#125;
+    &#125;
+&#125;
+</code></pre>
 <p>与序列化一样，先判断 <code>enableOverride</code> 的值，该值由构造函数进行初始化，如果使用的是无参构造创建<code>ObjectInputStream </code>对象的话，值就是 <code>true</code>。否则，就需要传递一个 <code>InputputStream</code> 类型的参数调用有参构造创建对象，这种情况下该值就是 <code>false</code>。随后，会调用 <code>readObject0</code> 来完成反序列化操作。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Object <span class="title function_">readObject0</span><span class="params">(Class&lt;?&gt; type, <span class="type">boolean</span> unshared)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">  	<span class="comment">//省略一些代码...</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> (tc) &#123;</span><br><span class="line">            <span class="comment">//省略一些代码...</span></span><br><span class="line">            <span class="keyword">case</span> TC_STRING:</span><br><span class="line">            <span class="keyword">case</span> TC_LONGSTRING:</span><br><span class="line">                <span class="keyword">return</span> checkResolve(readString(unshared));</span><br><span class="line"></span><br><span class="line">            <span class="keyword">case</span> TC_ARRAY:</span><br><span class="line">                <span class="keyword">if</span> (type == String.class) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">ClassCastException</span>(<span class="string">&quot;Cannot cast an array to java.lang.String&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> checkResolve(readArray(unshared));</span><br><span class="line"></span><br><span class="line">            <span class="keyword">case</span> TC_ENUM:</span><br><span class="line">                <span class="keyword">if</span> (type == String.class) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">ClassCastException</span>(<span class="string">&quot;Cannot cast an enum to java.lang.String&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> checkResolve(readEnum(unshared));</span><br><span class="line"></span><br><span class="line">            <span class="keyword">case</span> TC_OBJECT: <span class="comment">//1. 序列化对象</span></span><br><span class="line">                <span class="keyword">if</span> (type == String.class) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">ClassCastException</span>(<span class="string">&quot;Cannot cast an object to java.lang.String&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> checkResolve(readOrdinaryObject(unshared));</span><br><span class="line">			<span class="comment">//省略一些代码...</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">StreamCorruptedException</span>(</span><br><span class="line">                    String.format(<span class="string">&quot;invalid type code: %02X&quot;</span>, tc));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        depth--;</span><br><span class="line">        bin.setBlockDataMode(oldMode);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">private</span> Object <span class="hljs-title function_">readObject0</span><span class="hljs-params">(Class&lt;?&gt; type, <span class="hljs-type">boolean</span> unshared)</span> <span class="hljs-keyword">throws</span> IOException &#123;
+  	<span class="hljs-comment">//省略一些代码...</span>
+    <span class="hljs-keyword">try</span> &#123;
+        <span class="hljs-keyword">switch</span> (tc) &#123;
+            <span class="hljs-comment">//省略一些代码...</span>
+            <span class="hljs-keyword">case</span> TC_STRING:
+            <span class="hljs-keyword">case</span> TC_LONGSTRING:
+                <span class="hljs-keyword">return</span> checkResolve(readString(unshared));
+
+            <span class="hljs-keyword">case</span> TC_ARRAY:
+                <span class="hljs-keyword">if</span> (type == String.class) &#123;
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ClassCastException</span>(<span class="hljs-string">&quot;Cannot cast an array to java.lang.String&quot;</span>);
+                &#125;
+                <span class="hljs-keyword">return</span> checkResolve(readArray(unshared));
+
+            <span class="hljs-keyword">case</span> TC_ENUM:
+                <span class="hljs-keyword">if</span> (type == String.class) &#123;
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ClassCastException</span>(<span class="hljs-string">&quot;Cannot cast an enum to java.lang.String&quot;</span>);
+                &#125;
+                <span class="hljs-keyword">return</span> checkResolve(readEnum(unshared));
+
+            <span class="hljs-keyword">case</span> TC_OBJECT: <span class="hljs-comment">//1. 序列化对象</span>
+                <span class="hljs-keyword">if</span> (type == String.class) &#123;
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ClassCastException</span>(<span class="hljs-string">&quot;Cannot cast an object to java.lang.String&quot;</span>);
+                &#125;
+                <span class="hljs-keyword">return</span> checkResolve(readOrdinaryObject(unshared));
+			<span class="hljs-comment">//省略一些代码...</span>
+
+            <span class="hljs-keyword">default</span>:
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StreamCorruptedException</span>(
+                    String.format(<span class="hljs-string">&quot;invalid type code: %02X&quot;</span>, tc));
+        &#125;
+    &#125; <span class="hljs-keyword">finally</span> &#123;
+        depth--;
+        bin.setBlockDataMode(oldMode);
+    &#125;
+&#125;
+</code></pre>
 <p>该方法提供了很多对象，诸如字符串、数组和枚举类型的反序列化操作，我们重点关注的是 <code>TC_OBJECT</code> 类型中会执行到的 <code>readOrdinaryObject</code> 方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Object <span class="title function_">readOrdinaryObject</span><span class="params">(<span class="type">boolean</span> unshared)</span></span><br><span class="line">    <span class="keyword">throws</span> IOException</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//省略一些代码...</span></span><br><span class="line">    <span class="keyword">if</span> (desc.isExternalizable()) &#123;</span><br><span class="line">        readExternalData((Externalizable) obj, desc); <span class="comment">//1.若是Externalizable执行readExternalData方法。</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        readSerialData(obj, desc);<span class="comment">//2.否则执行readSerialData方法。</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    handles.finish(passHandle);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (obj != <span class="literal">null</span> &amp;&amp;</span><br><span class="line">        handles.lookupException(passHandle) == <span class="literal">null</span> &amp;&amp;</span><br><span class="line">        desc.hasReadResolveMethod())  <span class="comment">//3.判断是否有readResolve()方法</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">Object</span> <span class="variable">rep</span> <span class="operator">=</span> desc.invokeReadResolve(obj);<span class="comment">//4.有的话就执行readResolve()方法</span></span><br><span class="line">       <span class="comment">//省略一些代码...</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">private</span> Object <span class="hljs-title function_">readOrdinaryObject</span><span class="hljs-params">(<span class="hljs-type">boolean</span> unshared)</span>
+    <span class="hljs-keyword">throws</span> IOException
+&#123;
+    <span class="hljs-comment">//省略一些代码...</span>
+    <span class="hljs-keyword">if</span> (desc.isExternalizable()) &#123;
+        readExternalData((Externalizable) obj, desc); <span class="hljs-comment">//1.若是Externalizable执行readExternalData方法。</span>
+    &#125; <span class="hljs-keyword">else</span> &#123;
+        readSerialData(obj, desc);<span class="hljs-comment">//2.否则执行readSerialData方法。</span>
+    &#125;
+
+    handles.finish(passHandle);
+
+    <span class="hljs-keyword">if</span> (obj != <span class="hljs-literal">null</span> &amp;&amp;
+        handles.lookupException(passHandle) == <span class="hljs-literal">null</span> &amp;&amp;
+        desc.hasReadResolveMethod())  <span class="hljs-comment">//3.判断是否有readResolve()方法</span>
+    &#123;
+        <span class="hljs-type">Object</span> <span class="hljs-variable">rep</span> <span class="hljs-operator">=</span> desc.invokeReadResolve(obj);<span class="hljs-comment">//4.有的话就执行readResolve()方法</span>
+       <span class="hljs-comment">//省略一些代码...</span>
+    &#125;
+
+    <span class="hljs-keyword">return</span> obj;
+&#125;
+</code></pre>
 <p>首先，还是一样的操作，先判断需要反序列化的类实现的是哪一种类型的接口。若是 <code>Externalizable</code> 的话，就执行 <code>readExternalData()</code> 方法，否则就执行 <code>readSerialData()</code> 方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">readExternalData</span><span class="params">(Externalizable obj, ObjectStreamClass desc)</span></span><br><span class="line">    <span class="keyword">throws</span> IOException</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="comment">//省略一些代码...</span></span><br><span class="line">        <span class="keyword">if</span> (obj != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                obj.readExternal(<span class="built_in">this</span>); <span class="comment">//1. 调用序列化类中重写的readExternel()方法。</span></span><br><span class="line">            &#125; </span><br><span class="line">      <span class="comment">//省略一些代码...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">readExternalData</span><span class="hljs-params">(Externalizable obj, ObjectStreamClass desc)</span>
+    <span class="hljs-keyword">throws</span> IOException
+&#123;
+    <span class="hljs-keyword">try</span> &#123;
+      <span class="hljs-comment">//省略一些代码...</span>
+        <span class="hljs-keyword">if</span> (obj != <span class="hljs-literal">null</span>) &#123;
+            <span class="hljs-keyword">try</span> &#123;
+                obj.readExternal(<span class="hljs-built_in">this</span>); <span class="hljs-comment">//1. 调用序列化类中重写的readExternel()方法。</span>
+            &#125; 
+      <span class="hljs-comment">//省略一些代码...</span>
+&#125;
+</code></pre>
 <p>在 <code>readSerialData() </code>方法中，先判断是否实现了 <code>readObject() </code>方法。若实现了则调用，否则就执行<code>defaultReadFields()</code> 方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">readSerialData</span><span class="params">(Object obj, ObjectStreamClass desc)</span></span><br><span class="line">        <span class="keyword">throws</span> IOException</span><br><span class="line">    &#123;</span><br><span class="line">        ObjectStreamClass.ClassDataSlot[] slots = desc.getClassDataLayout();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; slots.length; i++) &#123;</span><br><span class="line">            <span class="type">ObjectStreamClass</span> <span class="variable">slotDesc</span> <span class="operator">=</span> slots[i].desc;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (slots[i].hasData) &#123;</span><br><span class="line">                <span class="keyword">if</span> (obj == <span class="literal">null</span> || handles.lookupException(passHandle) != <span class="literal">null</span>) &#123;</span><br><span class="line">                    defaultReadFields(<span class="literal">null</span>, slotDesc); <span class="comment">// skip field values</span></span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (slotDesc.hasReadObjectMethod()) &#123;</span><br><span class="line">                    <span class="comment">//省略一些代码...</span></span><br><span class="line">                        slotDesc.invokeReadObject(obj, <span class="built_in">this</span>);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (ClassNotFoundException ex) &#123;</span><br><span class="line">                      <span class="comment">//省略一些代码...</span></span><br><span class="line">                    &#125; </span><br><span class="line">                      <span class="comment">//省略一些代码...         </span></span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    defaultReadFields(obj, slotDesc);</span><br><span class="line">                &#125;</span><br><span class="line">				<span class="comment">//省略一些代码...</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">readSerialData</span><span class="hljs-params">(Object obj, ObjectStreamClass desc)</span>
+        <span class="hljs-keyword">throws</span> IOException
+    &#123;
+        ObjectStreamClass.ClassDataSlot[] slots = desc.getClassDataLayout();
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; slots.length; i++) &#123;
+            <span class="hljs-type">ObjectStreamClass</span> <span class="hljs-variable">slotDesc</span> <span class="hljs-operator">=</span> slots[i].desc;
+
+            <span class="hljs-keyword">if</span> (slots[i].hasData) &#123;
+                <span class="hljs-keyword">if</span> (obj == <span class="hljs-literal">null</span> || handles.lookupException(passHandle) != <span class="hljs-literal">null</span>) &#123;
+                    defaultReadFields(<span class="hljs-literal">null</span>, slotDesc); <span class="hljs-comment">// skip field values</span>
+                &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (slotDesc.hasReadObjectMethod()) &#123;
+                    <span class="hljs-comment">//省略一些代码...</span>
+                        slotDesc.invokeReadObject(obj, <span class="hljs-built_in">this</span>);
+                    &#125; <span class="hljs-keyword">catch</span> (ClassNotFoundException ex) &#123;
+                      <span class="hljs-comment">//省略一些代码...</span>
+                    &#125; 
+                      <span class="hljs-comment">//省略一些代码...         </span>
+                &#125; <span class="hljs-keyword">else</span> &#123;
+                    defaultReadFields(obj, slotDesc);
+                &#125;
+				<span class="hljs-comment">//省略一些代码...</span>
+        &#125;
+&#125;
+</code></pre>
 <h2 id="serializable-和-externalizable-对比"><a class="markdownIt-Anchor" href="#serializable-和-externalizable-对比"></a> Serializable 和 Externalizable 对比</h2>
 <p>一般来说，假如没有特别的需求，可以优先选择使用实现 <code>Serializable</code>接口，其次是选择实现 <code>Externalizable</code> 接口。这是因为：</p>
 <ol>
@@ -847,15 +1115,57 @@
 <h1 id="反序列化"><a class="markdownIt-Anchor" href="#反序列化"></a> 反序列化</h1>
 <h2 id="反序列化过程"><a class="markdownIt-Anchor" href="#反序列化过程"></a> 反序列化过程</h2>
 <p>反序列化的过程中就是将还原已经序列化的对象。之前通过使用 <code>ObjectOutputStream</code> 输出对象序列化到本地，还原的时候可以使用 <code>ObjectInputStream</code> 。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">ObjectInputStream</span> <span class="variable">bis</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectInputStream</span>(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(file));</span><br><span class="line">        <span class="type">Student</span> <span class="variable">student2</span> <span class="operator">=</span> (Student) bis.readObject();</span><br><span class="line">		bis.close();</span><br><span class="line">        System.out.println(student2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Demo</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception &#123;
+        <span class="hljs-type">ObjectInputStream</span> <span class="hljs-variable">bis</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectInputStream</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">FileInputStream</span>(file));
+        <span class="hljs-type">Student</span> <span class="hljs-variable">student2</span> <span class="hljs-operator">=</span> (Student) bis.readObject();
+		bis.close();
+        System.out.println(student2);
+    &#125;
+&#125;
+</code></pre>
 <blockquote>
 <p>此时返回的对象和在之前序列化的对象不是同一个对象，也即 <code>student2 != student</code>。</p>
 </blockquote>
 <h2 id="单例模式"><a class="markdownIt-Anchor" href="#单例模式"></a> 单例模式</h2>
 <p>在进行反序列化过程中，反序列化后，获取到的可能不是单例对象。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">SingletonHolder</span> &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Singletonsingleton= <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> Singleton <span class="title function_">getSingleton</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> SingletonHolder.singleton;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">File</span> <span class="variable">file</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;Singleton.txt&quot;</span>);</span><br><span class="line">        <span class="type">ObjectOutputStream</span> <span class="variable">bos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(<span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(file));</span><br><span class="line">        <span class="type">Singleton</span> <span class="variable">singleton</span> <span class="operator">=</span> Singleton.getSingleton();</span><br><span class="line">        bos.writeObject(singleton);</span><br><span class="line">        bos.close();</span><br><span class="line"></span><br><span class="line">        <span class="type">ObjectInputStream</span> <span class="variable">bis</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectInputStream</span>(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(file));</span><br><span class="line">        <span class="type">Singleton</span> <span class="variable">singleton1</span> <span class="operator">=</span> (Singleton) bis.readObject();</span><br><span class="line">        System.out.println(singleton1 == singleton); # 输出结果：<span class="literal">false</span></span><br><span class="line">        System.out.println(singleton1 == Singleton.getSingleton()); # 输出结果：<span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Singleton</span> &#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-title function_">Singleton</span><span class="hljs-params">()</span> &#123;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SingletonHolder</span> &#123;
+        <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Singletonsingleton= <span class="hljs-keyword">new</span> <span class="hljs-title class_">Singleton</span>();
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">synchronized</span> Singleton <span class="hljs-title function_">getSingleton</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> SingletonHolder.singleton;
+    &#125;
+&#125;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Demo</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception &#123;
+        <span class="hljs-type">File</span> <span class="hljs-variable">file</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">File</span>(<span class="hljs-string">&quot;Singleton.txt&quot;</span>);
+        <span class="hljs-type">ObjectOutputStream</span> <span class="hljs-variable">bos</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectOutputStream</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">FileOutputStream</span>(file));
+        <span class="hljs-type">Singleton</span> <span class="hljs-variable">singleton</span> <span class="hljs-operator">=</span> Singleton.getSingleton();
+        bos.writeObject(singleton);
+        bos.close();
+
+        <span class="hljs-type">ObjectInputStream</span> <span class="hljs-variable">bis</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectInputStream</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">FileInputStream</span>(file));
+        <span class="hljs-type">Singleton</span> <span class="hljs-variable">singleton1</span> <span class="hljs-operator">=</span> (Singleton) bis.readObject();
+        System.out.println(singleton1 == singleton); # 输出结果：<span class="hljs-literal">false</span>
+        System.out.println(singleton1 == Singleton.getSingleton()); # 输出结果：<span class="hljs-literal">false</span>
+    &#125;
+&#125;
+</code></pre>
 <p>此时，说明单例模式获取到的对象并不是单例。为了解决这个问题，只需要在单例类中提供一个<code>readResolve()</code>方法。这是因为当反序列化从流中读取对象时，<code>readResolve()</code>方法会被调用，用其返回的对象代替反序列化产生的对象。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line">		<span class="comment">//省略其他...</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Object <span class="title function_">readResolve</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> SingletonHolder.singleton;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Singleton</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Serializable</span> &#123;
+		<span class="hljs-comment">//省略其他...</span>
+
+    <span class="hljs-keyword">private</span> Object <span class="hljs-title function_">readResolve</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> SingletonHolder.singleton;
+    &#125;
+&#125;
+</code></pre>
 
 </div>
 
@@ -864,9 +1174,9 @@
     <div class="post-guide">
         <div class="item left">
             
-              <a href="/2023/11/26/02%20C/02%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6/">
+              <a href="/2023/11/26/02%20C/01%20%E5%85%A5%E9%97%A8%E4%BB%8B%E7%BB%8D/">
                   <i class="fa fa-angle-left" aria-hidden="true"></i>
-                  数据类型与运算符
+                  入门介绍
               </a>
             
         </div>

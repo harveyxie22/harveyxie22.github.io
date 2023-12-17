@@ -73,7 +73,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"><link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 <body>
 	<header id="header">
@@ -733,13 +733,69 @@
 </ol>
 <h1 id="单例模式"><a class="markdownIt-Anchor" href="#单例模式"></a> 单例模式</h1>
 <h2 id="懒汉式单例模式"><a class="markdownIt-Anchor" href="#懒汉式单例模式"></a> 懒汉式单例模式</h2>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 私有化构造函数</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstance</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="literal">null</span>) &#123;</span><br><span class="line">            instance = <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Singleton</span> &#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Singleton instance;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-title function_">Singleton</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-comment">// 私有化构造函数</span>
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton <span class="hljs-title function_">getInstance</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">if</span> (instance == <span class="hljs-literal">null</span>) &#123;
+            instance = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Singleton</span>();
+        &#125;
+        <span class="hljs-keyword">return</span> instance;
+    &#125;
+&#125;
+</code></pre>
 <h2 id="饿汉式单例模式"><a class="markdownIt-Anchor" href="#饿汉式单例模式"></a> 饿汉式单例模式</h2>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Singleton</span> <span class="variable">instance</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 私有化构造函数</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstance</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Singleton</span> &#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Singleton</span> <span class="hljs-variable">instance</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Singleton</span>();
+
+    <span class="hljs-keyword">private</span> <span class="hljs-title function_">Singleton</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-comment">// 私有化构造函数</span>
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton <span class="hljs-title function_">getInstance</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> instance;
+    &#125;
+&#125;
+</code></pre>
 <h2 id="双重检查锁定单例模式"><a class="markdownIt-Anchor" href="#双重检查锁定单例模式"></a> 双重检查锁定单例模式</h2>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> Singleton instance;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 私有化构造函数</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstance</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (Singleton.class) &#123;</span><br><span class="line">                <span class="keyword">if</span> (instance == <span class="literal">null</span>) &#123;</span><br><span class="line">                    instance = <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Singleton</span> &#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">volatile</span> <span class="hljs-keyword">static</span> Singleton instance;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-title function_">Singleton</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-comment">// 私有化构造函数</span>
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton <span class="hljs-title function_">getInstance</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">if</span> (instance == <span class="hljs-literal">null</span>) &#123;
+            <span class="hljs-keyword">synchronized</span> (Singleton.class) &#123;
+                <span class="hljs-keyword">if</span> (instance == <span class="hljs-literal">null</span>) &#123;
+                    instance = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Singleton</span>();
+                &#125;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> instance;
+    &#125;
+&#125;
+</code></pre>
 <h2 id="静态内部类单例模式"><a class="markdownIt-Anchor" href="#静态内部类单例模式"></a> 静态内部类单例模式</h2>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 私有化构造函数</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">Holder</span> &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Singleton</span> <span class="variable">instance</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstance</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> Holder.instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Singleton</span> &#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-title function_">Singleton</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-comment">// 私有化构造函数</span>
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Holder</span> &#123;
+        <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Singleton</span> <span class="hljs-variable">instance</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Singleton</span>();
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton <span class="hljs-title function_">getInstance</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> Holder.instance;
+    &#125;
+&#125;
+</code></pre>
 <h1 id="优缺点"><a class="markdownIt-Anchor" href="#优缺点"></a> 优缺点</h1>
 <table>
 <thead>
@@ -778,13 +834,79 @@
 <h1 id="经典案例"><a class="markdownIt-Anchor" href="#经典案例"></a> 经典案例</h1>
 <h2 id="日志记录器"><a class="markdownIt-Anchor" href="#日志记录器"></a> 日志记录器</h2>
 <p>在大多数应用程序中，日志记录是一个重要的组件。通过使用单例模式的日志记录器，可以确保在整个应用程序中只有一个日志实例，并且可以方便地记录日志信息。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Logger</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Logger instance;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Logger</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 私有化构造函数</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> Logger <span class="title function_">getInstance</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="literal">null</span>) &#123;</span><br><span class="line">            instance = <span class="keyword">new</span> <span class="title class_">Logger</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">log</span><span class="params">(String message)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Logging: &quot;</span> + message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Logger</span> &#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Logger instance;
+    
+    <span class="hljs-keyword">private</span> <span class="hljs-title function_">Logger</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-comment">// 私有化构造函数</span>
+    &#125;
+    
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">synchronized</span> Logger <span class="hljs-title function_">getInstance</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">if</span> (instance == <span class="hljs-literal">null</span>) &#123;
+            instance = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Logger</span>();
+        &#125;
+        <span class="hljs-keyword">return</span> instance;
+    &#125;
+    
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">log</span><span class="hljs-params">(String message)</span> &#123;
+        System.out.println(<span class="hljs-string">&quot;Logging: &quot;</span> + message);
+    &#125;
+&#125;
+</code></pre>
 <h2 id="配置管理器"><a class="markdownIt-Anchor" href="#配置管理器"></a> 配置管理器</h2>
 <p>配置管理器常用于读取和管理应用程序的配置信息，例如数据库连接参数、日志级别等。使用单例模式的配置管理器可以确保全局范围内只有一个实例，并且可以轻松访问配置信息。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ConfigurationManager</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> ConfigurationManager instance;</span><br><span class="line">    <span class="keyword">private</span> Properties config;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">ConfigurationManager</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 私有化构造函数</span></span><br><span class="line">        config = loadConfig();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> ConfigurationManager <span class="title function_">getInstance</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="literal">null</span>) &#123;</span><br><span class="line">            instance = <span class="keyword">new</span> <span class="title class_">ConfigurationManager</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getProperty</span><span class="params">(String key)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> config.getProperty(key);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Properties <span class="title function_">loadConfig</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 加载配置信息的逻辑</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ConfigurationManager</span> &#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> ConfigurationManager instance;
+    <span class="hljs-keyword">private</span> Properties config;
+    
+    <span class="hljs-keyword">private</span> <span class="hljs-title function_">ConfigurationManager</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-comment">// 私有化构造函数</span>
+        config = loadConfig();
+    &#125;
+    
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">synchronized</span> ConfigurationManager <span class="hljs-title function_">getInstance</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">if</span> (instance == <span class="hljs-literal">null</span>) &#123;
+            instance = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ConfigurationManager</span>();
+        &#125;
+        <span class="hljs-keyword">return</span> instance;
+    &#125;
+    
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getProperty</span><span class="hljs-params">(String key)</span> &#123;
+        <span class="hljs-keyword">return</span> config.getProperty(key);
+    &#125;
+    
+    <span class="hljs-keyword">private</span> Properties <span class="hljs-title function_">loadConfig</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-comment">// 加载配置信息的逻辑</span>
+    &#125;
+&#125;
+</code></pre>
 <h2 id="数据库连接池"><a class="markdownIt-Anchor" href="#数据库连接池"></a> 数据库连接池</h2>
 <p>数据库连接池常用于提供高效的数据库连接管理，以便在需要时能够快速获取和释放数据库连接。使用单例模式的数据库连接池可以确保只有一个连接池实例，并且可以集中管理连接资源。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ConnectionPool</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> ConnectionPool instance;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Connection&gt; connections;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">ConnectionPool</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 私有化构造函数</span></span><br><span class="line">        connections = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> ConnectionPool <span class="title function_">getInstance</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="literal">null</span>) &#123;</span><br><span class="line">            instance = <span class="keyword">new</span> <span class="title class_">ConnectionPool</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> Connection <span class="title function_">getConnection</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 获取连接的逻辑</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">releaseConnection</span><span class="params">(Connection connection)</span> &#123;</span><br><span class="line">        <span class="comment">// 释放连接的逻辑</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ConnectionPool</span> &#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> ConnectionPool instance;
+    <span class="hljs-keyword">private</span> List&lt;Connection&gt; connections;
+    
+    <span class="hljs-keyword">private</span> <span class="hljs-title function_">ConnectionPool</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-comment">// 私有化构造函数</span>
+        connections = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+    &#125;
+    
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">synchronized</span> ConnectionPool <span class="hljs-title function_">getInstance</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">if</span> (instance == <span class="hljs-literal">null</span>) &#123;
+            instance = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ConnectionPool</span>();
+        &#125;
+        <span class="hljs-keyword">return</span> instance;
+    &#125;
+    
+    <span class="hljs-keyword">public</span> Connection <span class="hljs-title function_">getConnection</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-comment">// 获取连接的逻辑</span>
+    &#125;
+    
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">releaseConnection</span><span class="hljs-params">(Connection connection)</span> &#123;
+        <span class="hljs-comment">// 释放连接的逻辑</span>
+    &#125;
+&#125;
+</code></pre>
 
 </div>
 

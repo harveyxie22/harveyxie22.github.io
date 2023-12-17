@@ -73,7 +73,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"><link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 <body>
 	<header id="header">
@@ -809,13 +809,64 @@
 <p><img src="/images/uiautomator_3.png" alt="Android Test" /></p>
 <h2 id="开始编写测试"><a class="markdownIt-Anchor" href="#开始编写测试"></a> 开始编写测试</h2>
 <p>现在，我们使用 UI Automator 来模拟人工的输入邮箱、密码，最后点击按钮的操作。首先，在 <code>androidTest</code> 目录下创建一个 Java 文件 <code>LoginTest.java</code> 。同时，给该类添加一个注解 <code>@RunWith(AndroidJUnit4.class)</code> ，该注解是 JUnit 提供的，具体参看 <a target="_blank" rel="noopener" href="http://junit.org/junit4/">文档</a> 。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith(AndroidJUnit4.class)</span></span><br><span class="line"><span class="meta">@SdkSuppress(minSdkVersion = 18)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LoginTest</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@BeforeClass</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">setUp</span><span class="params">()</span> &#123;</span><br><span class="line">      </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testLoginFlow</span><span class="params">()</span> <span class="keyword">throws</span> UiObjectNotFoundException &#123;</span><br><span class="line">     </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-meta">@RunWith(AndroidJUnit4.class)</span>
+<span class="hljs-meta">@SdkSuppress(minSdkVersion = 18)</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LoginTest</span> &#123;
+
+    <span class="hljs-meta">@BeforeClass</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setUp</span><span class="hljs-params">()</span> &#123;
+      
+    &#125;
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testLoginFlow</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> UiObjectNotFoundException &#123;
+     
+    &#125;
+
+&#125;
+
+</code></pre>
 <p>然后，在 <code>build.gradle(Module)</code> 中添加 <code>uiautomator</code> 的依赖。根据项目的实际情况，可能会选择使用其他的版本，可以通过 <a target="_blank" rel="noopener" href="https://mvnrepository.com/artifact/com.android.support.test.uiautomator/uiautomator-v18">Maven</a> 仓库查看一些常见的版本。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">androidTestImplementation <span class="string">&#x27;com.android.support.test.uiautomator:uiautomator-v18:2.1.3&#x27;</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java">androidTestImplementation <span class="hljs-string">&#x27;com.android.support.test.uiautomator:uiautomator-v18:2.1.3&#x27;</span>
+</code></pre>
 <p>通过之前的查看器，先获取到该布局的一些信息。可以看到 <code>Email</code> 的输入框中的 <code>resouce-id</code> 是 <code>com.example.myuiautomator:id/username</code> 。同理，<code>Password</code> 的  <code>resouce-id</code>  是 <code>com.example.myuiautomator:id/password</code>，按钮的 <code>resouce-id</code>  是 <code>com.example.myuiautomator:id/login</code> 。</p>
 <p><img src="/images/uiautomator_4.png" alt="Android Test" /></p>
 <p>最后，编写 UI 界面的测试。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith(AndroidJUnit4.class)</span></span><br><span class="line"><span class="meta">@SdkSuppress(minSdkVersion = 18)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LoginTest</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> UiDevice uiDevice;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@BeforeClass</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">setUp</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 先获取到终端设备</span></span><br><span class="line">        uiDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 开启你的应用</span></span><br><span class="line">        <span class="type">Context</span> <span class="variable">context</span> <span class="operator">=</span> getApplicationContext();</span><br><span class="line">        <span class="type">Intent</span> <span class="variable">intent</span> <span class="operator">=</span> context.getPackageManager().getLaunchIntentForPackage(<span class="string">&quot;com.example.myuiautomator&quot;</span>);</span><br><span class="line">        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);</span><br><span class="line">        context.startActivity(intent);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testLoginFlow</span><span class="params">()</span> <span class="keyword">throws</span> UiObjectNotFoundException &#123;</span><br><span class="line">        <span class="comment">// 通过资源 ID 找到 Email 控件，然后给它设置邮箱</span></span><br><span class="line">        <span class="type">UiObject</span> <span class="variable">username</span> <span class="operator">=</span> uiDevice.findObject(<span class="keyword">new</span> <span class="title class_">UiSelector</span>().resourceId(<span class="string">&quot;com.example.myuiautomator:id/username&quot;</span>));</span><br><span class="line">        username.setText(<span class="string">&quot;wyblogs@outlook.com&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 通过资源 ID 找到 password 控件，然后给它设置密码</span></span><br><span class="line">        <span class="type">UiObject</span> <span class="variable">password</span> <span class="operator">=</span> uiDevice.findObject(<span class="keyword">new</span> <span class="title class_">UiSelector</span>().resourceId(<span class="string">&quot;com.example.myuiautomator:id/password&quot;</span>));</span><br><span class="line">        password.setText(<span class="string">&quot;12345678&quot;</span>);</span><br><span class="line">        </span><br><span class="line">		<span class="comment">// 最后点击按钮，完成操作</span></span><br><span class="line">        <span class="type">UiObject</span> <span class="variable">button</span> <span class="operator">=</span> uiDevice.findObject(<span class="keyword">new</span> <span class="title class_">UiSelector</span>().resourceId(<span class="string">&quot;com.example.myuiautomator:id/login&quot;</span>));</span><br><span class="line">        password.click();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-meta">@RunWith(AndroidJUnit4.class)</span>
+<span class="hljs-meta">@SdkSuppress(minSdkVersion = 18)</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LoginTest</span> &#123;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> UiDevice uiDevice;
+
+    <span class="hljs-meta">@BeforeClass</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setUp</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-comment">// 先获取到终端设备</span>
+        uiDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
+
+        <span class="hljs-comment">// 开启你的应用</span>
+        <span class="hljs-type">Context</span> <span class="hljs-variable">context</span> <span class="hljs-operator">=</span> getApplicationContext();
+        <span class="hljs-type">Intent</span> <span class="hljs-variable">intent</span> <span class="hljs-operator">=</span> context.getPackageManager().getLaunchIntentForPackage(<span class="hljs-string">&quot;com.example.myuiautomator&quot;</span>);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        context.startActivity(intent);
+    &#125;
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testLoginFlow</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> UiObjectNotFoundException &#123;
+        <span class="hljs-comment">// 通过资源 ID 找到 Email 控件，然后给它设置邮箱</span>
+        <span class="hljs-type">UiObject</span> <span class="hljs-variable">username</span> <span class="hljs-operator">=</span> uiDevice.findObject(<span class="hljs-keyword">new</span> <span class="hljs-title class_">UiSelector</span>().resourceId(<span class="hljs-string">&quot;com.example.myuiautomator:id/username&quot;</span>));
+        username.setText(<span class="hljs-string">&quot;wyblogs@outlook.com&quot;</span>);
+
+        <span class="hljs-comment">// 通过资源 ID 找到 password 控件，然后给它设置密码</span>
+        <span class="hljs-type">UiObject</span> <span class="hljs-variable">password</span> <span class="hljs-operator">=</span> uiDevice.findObject(<span class="hljs-keyword">new</span> <span class="hljs-title class_">UiSelector</span>().resourceId(<span class="hljs-string">&quot;com.example.myuiautomator:id/password&quot;</span>));
+        password.setText(<span class="hljs-string">&quot;12345678&quot;</span>);
+        
+		<span class="hljs-comment">// 最后点击按钮，完成操作</span>
+        <span class="hljs-type">UiObject</span> <span class="hljs-variable">button</span> <span class="hljs-operator">=</span> uiDevice.findObject(<span class="hljs-keyword">new</span> <span class="hljs-title class_">UiSelector</span>().resourceId(<span class="hljs-string">&quot;com.example.myuiautomator:id/login&quot;</span>));
+        password.click();
+    &#125;
+
+&#125;
+</code></pre>
 <p>在测试开始前，需要先手动开启应用，否则会出现控件无法获取到，或者会出现应用闪退的情况。编写完测试用例后，点击代码左边的绿色三角形就可以把测试用例跑起来了。</p>
 
 </div>

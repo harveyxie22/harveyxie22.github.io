@@ -73,7 +73,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"><link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 <body>
 	<header id="header">
@@ -743,13 +743,17 @@
 </li>
 <li>
 <p>可以访问外网就使用：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo init -u https://android.googlesource.com/platform/manifest -b android-12.1.0_r2</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">repo init -u https://android.googlesource.com/platform/manifest -b android-12.1.0_r2
+</code></pre>
 <p>否则就使用：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo init -u https://mirrors.tuna.tsinghua.edu.cn/git/AOSP/platform/manifest -b android-12.1.0_r2</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">repo init -u https://mirrors.tuna.tsinghua.edu.cn/git/AOSP/platform/manifest -b android-12.1.0_r2
+</code></pre>
 <p><code>-b</code>后面跟的参数是版本，可以通过 <a target="_blank" rel="noopener" href="https://source.android.com/setup/start/build-numbers#source-code-tags-and-builds">Codenames, Tags, and Build Numbers</a> 查询版本号。例如：需要下载<code>android-11.0.0_r48</code>的代码，使用的命令就是</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo init -u https://android.googlesource.com/platform/manifest -b android-11.0.0_r48</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">repo init -u https://android.googlesource.com/platform/manifest -b android-11.0.0_r48
+</code></pre>
 <p>或者：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo init -u https://mirrors.tuna.tsinghua.edu.cn/git/AOSP/platform/manifest -b android-11.0.0_r48</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">repo init -u https://mirrors.tuna.tsinghua.edu.cn/git/AOSP/platform/manifest -b android-11.0.0_r48
+</code></pre>
 </li>
 <li>
 <p>执行 <code>repo sync -c</code> 同步代码，等待同步完成大概需要 4~5 小时。</p>
@@ -763,7 +767,15 @@
 Settings -&gt; About Phone -&gt; Tap on Build Number several times -&gt; Go back to Settings -&gt; System -&gt; Developer Options -&gt; enable OEM unlocking &amp; USB Debugging</li>
 <li>Windows 命令：</li>
 </ol>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重启 bootloader</span></span><br><span class="line">adb reboot bootloader</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">根据提示选择Unlock the bootloader</span></span><br><span class="line">fastboot flashing unlock</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重启会擦除unlock bootloader之前的数据，并提示手机已经解锁bootloader</span></span><br><span class="line">fastboot reboot</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">重启 bootloader</span>
+adb reboot bootloader
+<span class="hljs-meta prompt_">
+# </span><span class="language-bash">根据提示选择Unlock the bootloader</span>
+fastboot flashing unlock
+<span class="hljs-meta prompt_">
+# </span><span class="language-bash">重启会擦除unlock bootloader之前的数据，并提示手机已经解锁bootloader</span>
+fastboot reboot
+</code></pre>
 <h1 id="刷机"><a class="markdownIt-Anchor" href="#刷机"></a> 刷机</h1>
 <p>可以使用 <a target="_blank" rel="noopener" href="https://flash.android.com/preview/dp1">Android Flash Tool</a> 对谷歌旗下的手机进行刷机。</p>
 

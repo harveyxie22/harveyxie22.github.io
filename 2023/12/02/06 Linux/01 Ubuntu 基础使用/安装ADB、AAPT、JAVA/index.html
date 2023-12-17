@@ -73,7 +73,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"><link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 <body>
 	<header id="header">
@@ -723,23 +723,32 @@
 <ol>
 <li>
 <p>解压文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip java-11-openjdk-amd64.zip</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">unzip java-11-openjdk-amd64.zip
+</code></pre>
 </li>
 <li>
 <p>拷贝文件到<code>/usr/bin/java</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp java-11-openjdk-amd64 /usr/lib/java -rf</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">cp java-11-openjdk-amd64 /usr/lib/java -rf
+</code></pre>
 </li>
 <li>
 <p>配置<code>/etc/profile</code>文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/profile</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">若没有 gedit 就使用 vi 或vim</span></span><br><span class="line">sudo vi /etc/profile</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">sudo gedit /etc/profile
+<span class="hljs-meta prompt_"># </span><span class="language-bash">若没有 gedit 就使用 vi 或vim</span>
+sudo vi /etc/profile
+</code></pre>
 </li>
 <li>
 <p>在文件的末尾添加</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/lib/java/java-11-openjdk-amd64</span><br><span class="line">export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH</span><br><span class="line">export CLASSPATH=$CLASSPATH:.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">export JAVA_HOME=/usr/lib/java/java-11-openjdk-amd64
+export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH
+export CLASSPATH=$CLASSPATH:.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib
+</code></pre>
 </li>
 <li>
 <p>更新文件或者重启电脑</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">source /etc/profile
+</code></pre>
 </li>
 </ol>
 <h1 id="搭建-adb-环境"><a class="markdownIt-Anchor" href="#搭建-adb-环境"></a> 搭建 ADB 环境</h1>
@@ -750,20 +759,25 @@
 <p><a target="_blank" rel="noopener" href="https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn">https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn</a></p>
 <h2 id="配置环境-2"><a class="markdownIt-Anchor" href="#配置环境-2"></a> 配置环境</h2>
 <p>先验证本地是否已经配置 ADB 服务：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb version</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">adb version
+</code></pre>
 <p>若控制台显示版本号说明当前环境已经安装 ADB，否则按照如下步骤按照：</p>
 <ol>
 <li>
 <p>解压文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uzip platform-tools_r33.0.2-windows.zip</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">uzip platform-tools_r33.0.2-windows.zip
+</code></pre>
 </li>
 <li>
 <p>拷贝 adb.exe 文件到指定目录</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp platform-tools_r33.0.2-windows.zip/adb.exe /usr/bin/</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">cp platform-tools_r33.0.2-windows.zip/adb.exe /usr/bin/
+</code></pre>
 </li>
 <li>
 <p>启动 adb 服务</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo adb kill-server</span><br><span class="line">sudo adb start-server</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">sudo adb kill-server
+sudo adb start-server
+</code></pre>
 </li>
 </ol>
 <h1 id="搭建-aapt-环境"><a class="markdownIt-Anchor" href="#搭建-aapt-环境"></a> 搭建 AAPT 环境</h1>
@@ -771,30 +785,42 @@
 <p>建议从 Android 的 <a target="_blank" rel="noopener" href="https://developer.android.google.cn/studio/command-line/aapt2?hl=zh-cn#download_aapt2">官方</a> 下载 AAPT 工具，但是在国内可能无法访问官网提供的方式。可以尝试访问这个网址下载：<a target="_blank" rel="noopener" href="https://androidaapt.com/">https://androidaapt.com/</a></p>
 <h2 id="配置环境-3"><a class="markdownIt-Anchor" href="#配置环境-3"></a> 配置环境</h2>
 <p>下载完成后，解压得到 AAPT 的文件，按照 ADB 的步骤，拷贝到 <code>/usr/bin</code> 路径下。最后修改一下权限：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 777 /usr/bin/aapt</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">sudo chmod 777 /usr/bin/aapt
+</code></pre>
 <p>若是发现运行 AAPT 实现不认识指令或者其他错误，可以先安装一些必要的库。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install lib32stdc++6</span><br><span class="line">sudo apt-get install lib32z1</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">sudo apt-get install lib32stdc++6
+sudo apt-get install lib32z1
+</code></pre>
 <h1 id="常见错误"><a class="markdownIt-Anchor" href="#常见错误"></a> 常见错误</h1>
 <h2 id="adb-no-permissions"><a class="markdownIt-Anchor" href="#adb-no-permissions"></a> adb no permissions</h2>
 <p>在一台新的 Linux 机器上，当执行 <code>adb devices</code> 的时候，会出现设备没有权限的情况。</p>
-   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb no permissions (user mi is not in the plugdev group)；</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">adb no permissions (user mi is not in the plugdev group)；
+</code></pre>
 <p>解决的办法是：</p>
-   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/udev/rules.d/android.rules</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">sudo vim /etc/udev/rules.d/android.rules
+</code></pre>
 <p>添加：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SUBSYSTEM==&quot;usb&quot;, ENV&#123;DEVTYPE&#125;==&quot;usb_device&quot;, MODE=&quot;0666&quot;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">SUBSYSTEM==&quot;usb&quot;, ENV&#123;DEVTYPE&#125;==&quot;usb_device&quot;, MODE=&quot;0666&quot;
+</code></pre>
 <h2 id="缺少-gcc"><a class="markdownIt-Anchor" href="#缺少-gcc"></a> 缺少 GCC</h2>
 <p>错误显示：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make: gcc: Command not found Makefile:85: recipe for target &#x27;obj/gemm.o&#x27; failed make:</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">make: gcc: Command not found Makefile:85: recipe for target 'obj/gemm.o' failed make:
+</code></pre>
 <p>说明当前机器没有安装 GCC，可以使用如下的命令安装：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install build-essential</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">sudo apt-get install build-essential
+</code></pre>
 <h2 id="缺少-usb0-的权限"><a class="markdownIt-Anchor" href="#缺少-usb0-的权限"></a> 缺少 USB0 的权限</h2>
 <p>错误显示：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">could not open port /dev/ttyUSB0: [Errno 13] Permission denied: ‘/dev/ttyUSB0‘</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">could not open port /dev/ttyUSB0: [Errno 13] Permission denied: ‘/dev/ttyUSB0‘
+</code></pre>
 <p>原因是只有 root 用户和属于 dialout 组的用户会有读写权限。解决方法两种：</p>
 <p>第一种：该方法重启就会失效</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod -R 777 /dev/ttyUSB0</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">sudo chmod -R 777 /dev/ttyUSB0
+</code></pre>
 <p>第二种：把自己的用户加入到 dialout 组</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -aG dialout user	//user替换为自己的用户名</span><br><span class="line">reboot							//必须要重启一下才会生效</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">sudo usermod -aG dialout user	//user替换为自己的用户名
+reboot							//必须要重启一下才会生效
+</code></pre>
 
 </div>
 

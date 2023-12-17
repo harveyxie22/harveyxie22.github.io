@@ -73,7 +73,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"><link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 <body>
 	<header id="header">
@@ -707,9 +707,12 @@
 <!-- content -->
 <div id="article-content">
 	<h1 id="查看端口占用"><a class="markdownIt-Anchor" href="#查看端口占用"></a> 查看端口占用</h1>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:8080</span><br><span class="line">ps -ef | grep java</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">lsof -i:8080
+ps -ef | grep java
+</code></pre>
 <h1 id="启动工程"><a class="markdownIt-Anchor" href="#启动工程"></a> 启动工程</h1>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup java -jar xxx.jar &gt; catalina.out  2&gt;&amp;1 &amp; </span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">nohup java -jar xxx.jar &gt; catalina.out  2&gt;&amp;1 &amp; 
+</code></pre>
 
 </div>
 
