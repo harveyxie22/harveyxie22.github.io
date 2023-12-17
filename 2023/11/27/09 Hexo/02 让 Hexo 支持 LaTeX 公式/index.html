@@ -8,6 +8,8 @@
 	<!-- title -->
 	
 	<title>
+	
+		让 Hexo 支持 LaTeX 公式 | 
 	 
 	Harvey&#39;s Notes
 	</title>
@@ -657,7 +659,7 @@
 							</ul>
 			
 							<ul>
-								<li class="file">
+								<li class="file active">
 									<a href="/2023/11/27/09%20Hexo/02%20%E8%AE%A9%20Hexo%20%E6%94%AF%E6%8C%81%20LaTeX%20%E5%85%AC%E5%BC%8F/">
                      
 										    02 让 Hexo 支持 LaTeX 公式
@@ -699,224 +701,162 @@
 
 	<!-- 引入正文 -->
 	<div id="content" class="content">
-		<div id="index">
-	
-		<div class="index-li">
-			<a href="/2023/11/25/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E6%9B%B4%E6%96%B0%E8%BD%AF%E4%BB%B6%E6%BA%90/">
-				<h2 class="index-title">
-					更新软件源
-				</h2>
-				<div class="index-brief">
-					Ubuntu 系统默认使用的是国外低软件源，导致在国内访问的时候会比较慢，因此需要将国外的软件源替换成国内的软件源。
- 操作步骤
-更新的步骤大致可以分成三步：
+		<h1 id="article-title">
+	让 Hexo 支持 LaTeX 公式
+</h1>
 
-先备份默认的软件源，避免出错后可以回退到之前的配置；
-修改软件源；
-更新系统软件源，使其生效。
+<!-- meta -->
+<div class="article-meta">
+	
 
- 具体步骤
-Step 1：先备份默认的软
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2023-11-25</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Ubuntu/">Ubuntu</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2023/11/25/03%20C++/hello-world/">
-				<h2 class="index-title">
-					Hello World
-				</h2>
-				<div class="index-brief">
-					Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2023-11-25</span>
-                    
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2023/11/25/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/01%20%E5%8F%8D%E5%B0%84/">
-				<h2 class="index-title">
-					反射
-				</h2>
-				<div class="index-brief">
-					反射是指在运行时动态地获取类的信息以及使用类的信息的机制。通过反射机制，可以在程序运行时检查类、接口、字段和方法，甚至在运行时实例化对象、调用方法、访问或修改字段，而这些操作通常是在编译时无法确定的。在 Java 中，每个类都对应一个 Class 对象，该对象包含了与类有关的元数据信息，如类的名称、
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2023-11-25</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Java/">Java</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2023/11/25/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/02%20%E6%B3%A8%E8%A7%A3/">
-				<h2 class="index-title">
-					注解
-				</h2>
-				<div class="index-brief">
-					注解（Annotation）也叫元数据、标注，本质是接口。注解是 JDK 1.5 以后引入的一个特性，与类、接口、枚举是同一个层次。它可以声明在包、类、字段、方法、局部变量、方法参数等前面，用来对元素进行说明、注释。
- 本质是接口
-可以通过反编译字节码文件的方式证明注解的本质是接口。先定义一个注解类
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2023-11-25</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Java/">Java</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2023/11/25/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/03%20%E6%B3%9B%E5%9E%8B/">
-				<h2 class="index-title">
-					泛型
-				</h2>
-				<div class="index-brief">
-					《编程思想》中提到泛型，其描述是：“有许多原因促成了泛型的出现，而最引人注目的一个原因，就是为了创造容器类”。泛型属于一种编译时类型安全检测机制，避免在运行时强转类型时报类型转化异常。从 JDK 1.5时，Java 引入了泛型的概念，泛型即“参数化类型”，使代码可以应用于多种类型。
-所谓的“参数化类
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2023-11-25</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Java/">Java</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2023/11/25/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/02%20%E5%B7%A5%E5%85%B7/01%20Systrace/">
-				<h2 class="index-title">
-					Systrace
-				</h2>
-				<div class="index-brief">
-					Systrace 工具通过捕获和显示应用程序进程和其他 Android 系统进程的执行时间来帮助分析应用程序的性能。 该工具结合了来自 Android 内核的数据，例如 CPU 调度程序、磁盘活动和应用程序线程，以生成 HTML 报告，显示给定时间段内 Android 设备系统进程的整体情况。Sys
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2023-11-25</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Android/">Android</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Android/性能调优工具/">性能调优工具</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2023/11/25/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/02%20%E5%B7%A5%E5%85%B7/02%20Simpleperf/">
-				<h2 class="index-title">
-					Simpleperf
-				</h2>
-				<div class="index-brief">
-					Simpleperf 是一个用于性能分析的命令行工具，它可以帮助开发人员在 Android 平台上进行性能优化和瓶颈分析。Simpleperf 提供了一系列功能，包括采集硬件计数器、采集堆栈跟踪、记录函数耗时等，以帮助开发人员找出应用或系统中的性能问题。
- 介绍
-Simpleperf 在 Andro
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2023-11-25</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Android/">Android</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Android/性能调优工具/">性能调优工具</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-	
-	<div id="index-paginator">
-		
-			<a class="extend prev" rel="prev" href="/archives/2023/page/3/">&lt;</a><a class="page-number" href="/archives/2023/">1</a><a class="page-number" href="/archives/2023/page/2/">2</a><a class="page-number" href="/archives/2023/page/3/">3</a><span class="page-number current">4</span>
-		
-	</div>
+	<span>Harvey Xie</span>
+	<span>2023-11-27 21:32:53</span>
+
+  <div id="article-categories">
+    
+		  <span>Categories：</span>
+      
+          
+              <span>
+                  <i class="fa fa-folder" aria-hidden="true">
+                  <a href="/categories/Hexo/">Hexo</a>
+                  </i>
+                
+              </span>
+          
+      
+    
+
+    
+		    <span>Tags：</span>
+        
+            
+                <span>
+                    <i class="fa fa-tag" aria-hidden="true">
+                    <a href="/tags/Hexo/">Hexo</a>
+                    </i>
+                </span>
+            
+        
+    
+  </div>
+
 </div>
 
+<!-- content -->
+<div id="article-content">
+	<blockquote>
+<p>文章转自：<a target="_blank" rel="noopener" href="https://blog.xiangfa.org/2020/09/let-hexo-support-latex-formulas/">让 Hexo 支持 LaTeX 公式</a></p>
+</blockquote>
+<p>通常情况下，你并不会去使用 LaTex 公式，但当你文章涉及数学公式时，你往往会在第一时间想到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mi>a</mi><mi>T</mi><mi>e</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">LaTex</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span></span></span></span> 公式。网上有比较多的文章告诉你如何在 Hexo 里使用 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mi>a</mi><mi>T</mi><mi>e</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">LaTex</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span></span></span></span> 公式，但大部分都是推荐使用 <code>hexo-math</code> 插件来实现，但 <code>hexo-math</code> 的兼容性并不好，并且和 Hexo 内置的 Markdown 渲染引擎存在冲突。因此我推荐使用另一种实现方案：通过增加 Hexo 主题脚本片段的方式实现  <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mi>a</mi><mi>T</mi><mi>e</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">LaTex</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span></span></span></span>  语法高亮。</p>
+<h2 id="让-hexo-主题使用-mathjax"><a class="markdownIt-Anchor" href="#让-hexo-主题使用-mathjax"></a> 让 Hexo 主题使用 Mathjax</h2>
+<p>你可以从主题文件的 <code>README.md</code> 确认你的 Hexo 主题是否已经引入了 <code>Mathjax</code>，如果已经引入，那你只要按照说明来开启 <code>Mathjax</code> 支持即可。如果你的主题并不支持 <code>Mathjax</code>，那你可以按照以下步骤使你的 Hexo 支持 <code>Mathjax</code>。</p>
+<p>Step 1：你需要在 <code>themes/YourThemeName/layout/</code> 下新建文件 <code>mathjax.ejs</code> 文件。</p>
+<pre class="highlight"><code class="ejs">&lt;% if (theme.mathjax.enable)&#123; %&gt;
+&lt;script type=&quot;text/x-mathjax-config&quot;&gt;
+  MathJax.Hub.Config(&#123;
+    tex2jax: &#123;
+      inlineMath: [ ['$','$'], [&quot;\\(&quot;,&quot;\\)&quot;] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    &#125;
+  &#125;);
+  MathJax.Hub.Queue(function() &#123;
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i &lt; all.length; i += 1) &#123;
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    &#125;
+  &#125;);
+&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;&lt;%- theme.mathjax.cdn %&gt;&quot;&gt;&lt;/script&gt;
+&lt;% &#125; %&gt;
+</code></pre>
+<p>Spte 2：你需要在 <code>themes/YourThemeName/_config.yml</code> 末尾追加：</p>
+<pre class="highlight"><code class="ejs"># MathJax Support
+mathjax:
+  enable: true
+  cdn: https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+</code></pre>
+<p>Step 3：修改 <code>themes/YourThemeName/layout/post.ejs</code> 文件，在中间添加：</p>
+<pre class="highlight"><code class="ejs">&lt;% if (theme.mathjax)&#123; %&gt;
+  &lt;%- partial('mathjax') %&gt;
+&lt;% &#125; %&gt;
+</code></pre>
+<p>Step 4：最好你需要在你用到 LaTex 公式的文章顶部配置里追加 Mathjax 配置：</p>
+<pre class="highlight"><code class="ejs">---
+title: 文章标题
+date: 2020-09-02 20:11:42
+mathjax: true
+---
+</code></pre>
+<p>至此，大功告成~</p>
+<p>你最后只需要重新生成一下文章就可以看到你的文章现在已经支持 LaTex 公式了。</p>
+<h2 id="测试"><a class="markdownIt-Anchor" href="#测试"></a> 测试</h2>
+<p>测试一下你的文章是否已经支持  <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mi>a</mi><mi>T</mi><mi>e</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">LaTex</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span></span></span></span>  公式：</p>
+<pre class="highlight"><code class="latex"><span class="hljs-built_in">$</span><span class="hljs-built_in">$</span> 
+J<span class="hljs-built_in">_</span><span class="hljs-keyword">\alpha</span>(x) = <span class="hljs-keyword">\sum</span><span class="hljs-built_in">_</span>&#123;m=0&#125;<span class="hljs-built_in">^</span><span class="hljs-keyword">\infty</span> <span class="hljs-keyword">\frac</span>&#123;(-1)<span class="hljs-built_in">^</span>m&#125;&#123;m! <span class="hljs-keyword">\Gamma</span> (m + <span class="hljs-keyword">\alpha</span> + 1)&#125; &#123;<span class="hljs-keyword">\left</span>(&#123; <span class="hljs-keyword">\frac</span>&#123;x&#125;&#123;2&#125; &#125;<span class="hljs-keyword">\right</span>)&#125;<span class="hljs-built_in">^</span>&#123;2m + <span class="hljs-keyword">\alpha</span>&#125;
+<span class="hljs-built_in">$</span><span class="hljs-built_in">$</span>
+</code></pre>
+<p>如果你的文章已经支持那么上面的 LaTex 语法将会有如下显示：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>J</mi><mi>α</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><munderover><mo>∑</mo><mrow><mi>m</mi><mo>=</mo><mn>0</mn></mrow><mi mathvariant="normal">∞</mi></munderover><mfrac><mrow><mo stretchy="false">(</mo><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mi>m</mi></msup></mrow><mrow><mi>m</mi><mo stretchy="false">!</mo><mi mathvariant="normal">Γ</mi><mo stretchy="false">(</mo><mi>m</mi><mo>+</mo><mi>α</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></mfrac><msup><mrow><mo fence="true">(</mo><mfrac><mi>x</mi><mn>2</mn></mfrac><mo fence="true">)</mo></mrow><mrow><mn>2</mn><mi>m</mi><mo>+</mo><mi>α</mi></mrow></msup></mrow><annotation encoding="application/x-tex">J_\alpha(x) = \sum_{m=0}^\infty \frac{(-1)^m}{m! \Gamma (m + \alpha + 1)} {\left({ \frac{x}{2} }\right)}^{2m + \alpha}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.09618em;">J</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.09618em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.0037em;">α</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.9185100000000004em;vertical-align:-1.267113em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000002em;"><span style="top:-1.882887em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">m</span><span class="mrel mtight">=</span><span class="mord mtight">0</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">∞</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.267113em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="mclose">!</span><span class="mord">Γ</span><span class="mopen">(</span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mopen">(</span><span class="mord">−</span><span class="mord">1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">m</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord"><span class="mord"><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size2">(</span></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.10756em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size2">)</span></span></span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.3540079999999999em;"><span style="top:-3.6029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mathnormal mtight">m</span><span class="mbin mtight">+</span><span class="mord mathnormal mtight" style="margin-right:0.0037em;">α</span></span></span></span></span></span></span></span></span></span></span></span></span></p>
+
+</div>
+
+<!-- post-guide -->
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2023/11/27/09%20Hexo/01%20Typora+Hexo%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%E5%8A%9E%E6%B3%95/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  Typora+Hexo图片处理办法
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2023/11/27/05%20Android/03%20%E6%B5%8B%E8%AF%95/UI%E6%B5%8B%E8%AF%95/">
+                UI 测试
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+<!-- comment - giscus -->
+
+
+
+	
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+        });
+        MathJax.Hub.Queue(function() {
+          var all = MathJax.Hub.getAllJax(), i;
+          for(i=0; i < all.length; i += 1) {
+              all[i].SourceElement().parentNode.className += ' has-jax';
+          }
+        });
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+<!-- comment - valine -->
+
+
+<script>
+	
+	
+</script>
 	</div>
 	<div id="footer">
 	<p>
