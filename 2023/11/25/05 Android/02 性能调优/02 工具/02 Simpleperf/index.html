@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		Simpleperf | 
+	 
+	Harvey&#39;s Notes
+	</title>
+	
+	<!-- keywords,description -->
+	
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+
+	
+	
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+	<header id="header">
+    <a id="title" href="/" class="logo">Harvey's Notes</a>
+
+	<ul id="menu">
+    
+      <li class="menu-item">
+        <a href="/about" class="menu-item-link">About</a>
+      </li>
+    
+
+    
+
+    
+
+    
+  
+    
+      <li class="menu-item">
+        <a href='https://harveyxie22.github.io' class="menu-item-link" target="_blank">
+          <i class="fa fa-github fa-2x"></i>
+        </a>
+      </li>
+    
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="Press Enter to search">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 计算机基础
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/01%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/01%20%E8%BF%9B%E5%88%B6%E6%95%B0%E5%92%8C%E5%AD%98%E5%82%A8%E5%8D%95%E4%BD%8D/">
+                     
+										    01 进制数和存储单位
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/01%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/02%20ASCII%20%E7%A0%81%E8%A1%A8/">
+                     
+										    02 ASCII 码表
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/01%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/03%20%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">
+                     
+										    03 开源协议
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 C
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/02%20C/01%20%E5%85%A5%E9%97%A8%E4%BB%8B%E7%BB%8D/">
+                     
+										    01 入门介绍
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/02%20C/02%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6/">
+                     
+										    02 数据类型与运算符
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/03%20%E6%95%B0%E7%BB%84/">
+                     
+										    03 数组
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/04%20%E6%8C%87%E9%92%88/">
+                     
+										    04 指针
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/05%20%E5%AE%8F%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%B8%B8%E9%87%8F/">
+                     
+										    05 宏定义与常量
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/06%20%E5%87%BD%E6%95%B0/">
+                     
+										    06 函数
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/07%20%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+                     
+										    07 字符串
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/19/02%20C/08%20%E7%BB%93%E6%9E%84%E4%BD%93/">
+                     
+										    08 结构体
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/16/02%20C/09%20%E6%96%87%E4%BB%B6/">
+                     
+										    09 文件
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/16/02%20C/10%20%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E4%B8%8E%E5%86%85%E5%AD%98%E5%9B%9B%E5%8C%BA/">
+                     
+										    10 编译过程与内存四区
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										03 C++
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/03%20C++/hello-world/">
+                     
+										    hello-world
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										04 Java
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 高级进阶
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/01%20%E5%8F%8D%E5%B0%84/">
+                     
+										    01 反射
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/02%20%E6%B3%A8%E8%A7%A3/">
+                     
+										    02 注解
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/03%20%E6%B3%9B%E5%9E%8B/">
+                     
+										    03 泛型
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/04%20%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">
+                     
+										    04 序列化和反序列化
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/05%20%E7%BA%BF%E7%A8%8B/">
+                     
+										    05 线程
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 设计模式
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/12/09/04%20Java/02%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/01%20%E5%BC%95%E8%A8%80/">
+                     
+										    01 引言
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/09/04%20Java/02%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/02%20%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+                     
+										    02 工厂模式
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/09/04%20Java/02%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/03%20%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
+                     
+										    03 单例模式
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										05 Android
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 Framework
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/05%20Android/01%20Framework/01%20%E4%B8%8B%E8%BD%BD%20AOSP%20%E6%BA%90%E7%A0%81/">
+                     
+										    01 下载 AOSP 源码
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/05%20Android/01%20Framework/02%20Android%E7%89%88%E6%9C%AC%E5%8F%B7/">
+                     
+										    02 Android版本号
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 性能调优
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 基础命令
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/12/17/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/01%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/01%20%E8%BF%9B%E5%85%A5%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+                     
+										    01 进入工厂模式
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/17/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/01%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/02%20%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF/">
+                     
+										    02 设备信息
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 工具
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/02%20%E5%B7%A5%E5%85%B7/01%20Systrace/">
+                     
+										    01 Systrace
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/2023/11/25/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/02%20%E5%B7%A5%E5%85%B7/02%20Simpleperf/">
+                     
+										    02 Simpleperf
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										03 测试
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/27/05%20Android/03%20%E6%B5%8B%E8%AF%95/UI%E6%B5%8B%E8%AF%95/">
+                     
+										    UI测试
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										06 Linux
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 Ubuntu 基础使用
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8%E6%A1%8C%E9%9D%A2%E5%9B%BE%E6%A0%87/">
+                     
+										    创建应用桌面图标
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E5%90%AF%E5%8A%A8Springboot%E5%B7%A5%E7%A8%8B/">
+                     
+										    启动Springboot工程
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E5%AE%89%E8%A3%85ADB%E3%80%81AAPT%E3%80%81JAVA/">
+                     
+										    安装ADB、AAPT、JAVA
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E6%9B%B4%E6%96%B0%E8%BD%AF%E4%BB%B6%E6%BA%90/">
+                     
+										    更新软件源
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										09 Hexo
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/27/09%20Hexo/Typora+Hexo%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%E5%8A%9E%E6%B3%95/">
+                     
+										    Typora+Hexo图片处理办法
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										11 读书笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/11%20%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E4%B8%BA%E4%BB%80%E4%B9%88%E7%B2%BE%E8%8B%B1%E9%83%BD%E6%98%AF%E6%97%B6%E9%97%B4%E6%8E%A7/">
+                     
+										    为什么精英都是时间控
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content" class="content">
+		<h1 id="article-title">
+	Simpleperf
+</h1>
+
+<!-- meta -->
+<div class="article-meta">
+	
+
+	<span>Harvey Xie</span>
+	<span>2023-11-25 11:51:14</span>
+
+  <div id="article-categories">
+    
+		  <span>Categories：</span>
+      
+          
+              <span>
+                  <i class="fa fa-folder" aria-hidden="true">
+                  <a href="/categories/Android/">Android</a>
+                  </i>
+                
+                  >
+                
+              </span>
+          
+      
+          
+              <span>
+                  <i class="fa fa-folder" aria-hidden="true">
+                  <a href="/categories/Android/性能调优工具/">性能调优工具</a>
+                  </i>
+                
+              </span>
+          
+      
+    
+
+    
+		    <span>Tags：</span>
+        
+            
+                <span>
+                    <i class="fa fa-tag" aria-hidden="true">
+                    <a href="/tags/Simpleperf/">Simpleperf</a>
+                    </i>
+                </span>
+            
+        
+    
+  </div>
+
+</div>
+
+<!-- content -->
+<div id="article-content">
+	<p>Simpleperf 是一个用于性能分析的命令行工具，它可以帮助开发人员在 Android 平台上进行性能优化和瓶颈分析。Simpleperf 提供了一系列功能，包括采集硬件计数器、采集堆栈跟踪、记录函数耗时等，以帮助开发人员找出应用或系统中的性能问题。</p>
+<h1 id="介绍"><a class="markdownIt-Anchor" href="#介绍"></a> 介绍</h1>
+<p>Simpleperf 在 Android 平台上具有广泛的用途，主要包括以下几个方面：</p>
+<ol>
+<li>性能分析：Simpleperf 可以用于分析 Android 应用程序的性能特征，包括 CPU 使用情况、内存访问模式、函数调用关系等。通过采集硬件计数器、堆栈跟踪等信息，开发人员可以了解应用程序的性能瓶颈所在，并进行针对性的优化。</li>
+<li>优化调试：Simpleperf 提供了丰富的性能数据采集功能，开发人员可以使用这些数据来进行代码优化和调试。比如，可以根据函数耗时记录对代码进行优化，也可以通过堆栈跟踪数据来理解代码执行路径，从而改进算法和数据结构。</li>
+<li>系统优化：除了应用程序的性能分析外，Simpleperf 也可用于分析 Android 系统本身的性能特征，帮助开发人员找出系统层面的性能问题，并提出优化建议。</li>
+<li>性能比较：Simpleperf 也可以用于不同版本或不同配置下应用程序性能的比较分析，帮助开发人员评估优化效果或进行性能对比。</li>
+</ol>
+<p>总之，Simpleperf 是一个强大的性能分析工具，可以帮助开发人员深入了解 Android 应用程序和系统的性能特征，找出性能瓶颈，并进行针对性的优化，从而提升应用程序的性能和用户体验。</p>
+<blockquote>
+<p>Simpleperf 可执行程序和 <code>linux-tools-perf</code> 有点相似，但是 Simpleperf 为 Android 的分析环境提供了一些特殊的功能。</p>
+</blockquote>
+<h1 id="获取-simpleperf"><a class="markdownIt-Anchor" href="#获取-simpleperf"></a> 获取 Simpleperf</h1>
+<p>获取 Simpleperf 工具的有如下三种，选择其中一种即可。</p>
+<ol>
+<li>下载 Simpleperf 源代码，本地编译可执行文件；</li>
+<li>Android 设备自带 Simpleperf 工具；</li>
+<li>下载 Android NDK，获取 Simpleperf 工具。</li>
+</ol>
+<p>推荐使用第 2 种和第 3 种方法。</p>
+<h2 id="下载-simpleperf-源代码"><a class="markdownIt-Anchor" href="#下载-simpleperf-源代码"></a> 下载 Simpleperf 源代码</h2>
+<p>直接下载的是 <a href="https://link.zhihu.com/?target=https%3A//android.googlesource.com/platform/system/extras/%2B/master/simpleperf/">Simpleperf</a> 的源代码，但是在操作过程中会发现缺少必要的可执行文件，因此这种方式不推荐。</p>
+<h2 id="android-设备自带-simpleperf-工具"><a class="markdownIt-Anchor" href="#android-设备自带-simpleperf-工具"></a> Android 设备自带 Simpleperf 工具</h2>
+<p>进入到 Shell 环境下，然后进入到 <code>system/bin/</code> 文件中，找到 Simpleperf 工具。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">adb shell</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> system/bin/</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf record -h <span class="comment">#查看帮助信息</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">exit</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="下载-android-ndk"><a class="markdownIt-Anchor" href="#下载-android-ndk"></a> 下载 Android NDK</h2>
+<p>点击下载 <a target="_blank" rel="noopener" href="https://developer.android.google.cn/ndk/downloads?hl=zh-cn">Android NDK</a>。在 Android NDK 中，可以直接获取到不同平台的 Simpleperf 工具。下载后的结构如下：</p>
+<ul>
+<li><code>bin</code> 文件夹：包含可执行文件和共享库；</li>
+<li><code>bin/android/$&#123;arch&#125;/simpleperf</code>：运行在设备中的静态 simpleperf 可执行文件；</li>
+<li><code>bin/$&#123;host&#125;/$&#123;arch&#125;/simpleperf</code>：运行在主机中的 simpleperf 可执行文件，仅支持生成报告；</li>
+<li><code>bin/$&#123;host&#125;/$&#123;arch&#125;/libsimpleperf_report.$&#123;so/dylib/dll&#125;</code>：主机使用的用于报告的共享库；</li>
+<li><code>*.py, inferno, purgatorio</code>：用于记录和报告的 Python 脚本。</li>
+</ul>
+<h1 id="基础使用"><a class="markdownIt-Anchor" href="#基础使用"></a> 基础使用</h1>
+<p>Simpleperf 工具包含三个重要的组成命令：<code>stat</code>、<code>record</code> 和 <code>report</code>：</p>
+<ol>
+<li><code>stat</code>：<code>simpleperf stat</code> 命令用于实时监控系统的性能统计信息，比如 CPU 使用率、内存占用等。通过 <code>stat</code> 命令可以方便地查看系统当前的性能情况，有助于快速定位性能瓶颈。</li>
+<li><code>record</code>：<code>simpleperf record</code> 命令用于启动性能数据的采集，可以指定要采集的事件和采样频率等参数。这个命令可以用来对应用程序或系统进行性能分析，收集各种性能数据以供后续分析和报告生成使用。</li>
+<li><code>report</code>：<code>simpleperf report</code> 命令用于生成采集到的性能数据的报告，包括各种统计信息、图表展示等。通过报告可以直观地了解性能数据的分布情况，帮助开发人员进行性能优化和问题排查。</li>
+</ol>
+<p>这三个命令构成了 Simpleperf 工具的核心功能，分别对应着实时性能监控、性能数据采集和性能报告生成等不同的阶段和功能。开发人员可以根据具体的需求和场景选择合适的命令来使用 Simpleperf 工具进行性能分析和优化。</p>
+<p>除此之外，Simpleperf 还提供了其他的命令：</p>
+<ol>
+<li><code>debug-unwind</code>：用于基于 DWARF 调试信息进行离线展开，用于调试 Simpleperf；</li>
+<li><code>dump</code>：用于在 perf.data 中转储内容，用于调试 Simpleperf；</li>
+<li><code>help</code>：打印其他命令的帮助信息；</li>
+<li><code>kmem</code>：用于收集内核内存分配信息（将被 Python 脚本取代）；</li>
+<li><code>list</code>：列出 Android 设备支持的所有事件类型；</li>
+<li><code>report-sample</code>：报告 perf.data 中的每个采样点，用于支持将 Simpleperf 集成到 Android Studio 中。</li>
+</ol>
+<h2 id="list"><a class="markdownIt-Anchor" href="#list"></a> list</h2>
+<p>Simpleperf 工具的 <code>list</code> 命令用于列出 Android 设备上支持的所有事件类型。这些事件类型包括 CPU 指令、缓存访问、缓存未命中、内存访问、硬件性能计数器等，开发人员可以利用这些事件类型进行精细化的性能分析。</p>
+<p>通过执行 <code>simpleperf list</code> 命令，可以获取到设备支持的所有事件类型的列表，并据此选择合适的事件类型进行性能分析和优化。这个命令对于深入了解设备支持的性能分析参数非常有用，有助于开发人员针对性能瓶颈进行更精准的分析和优化工作。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf list</span></span><br><span class="line">List of hw-cache events:</span><br><span class="line">  branch-loads</span><br><span class="line">  ...</span><br><span class="line">List of hardware events:</span><br><span class="line">  cpu-cycles</span><br><span class="line">  instructions</span><br><span class="line">  ...</span><br><span class="line">List of software events:</span><br><span class="line">  cpu-clock</span><br><span class="line">  task-clock</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
+<h2 id="stat"><a class="markdownIt-Anchor" href="#stat"></a> stat</h2>
+<p>Simpleperf 工具的 <code>stat</code> 命令用于实时监控系统的性能统计信息，可以快速了解系统当前的性能状况。通过执行 <code>simpleperf stat</code> 命令，您可以获取到诸如 CPU 使用率、内存占用等关键性能指标的实时数据，从而对系统的整体性能情况有一个直观的了解。</p>
+<p>这个命令对于及时发现系统性能问题、定位性能瓶颈以及进行快速调试非常有帮助。在开发过程中，通过 <code>simpleperf stat</code> 命令可以快速获取系统性能数据，帮助开发人员及时进行优化和调整，提升应用程序的性能和稳定性。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Stat using default events (cpu-cycles,instructions,...), and monitor process 7394 <span class="keyword">for</span> 10 seconds.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf <span class="built_in">stat</span> -p 7394 --duration 10</span></span><br><span class="line">Performance counter statistics:</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">        count  event_name                <span class="comment"># count / runtime</span></span></span><br><span class="line">     16,513,564  cpu-cycles                # 1.612904 GHz</span><br><span class="line">      4,564,133  stalled-cycles-frontend   # 341.490 M/sec</span><br><span class="line">      6,520,383  stalled-cycles-backend    # 591.666 M/sec</span><br><span class="line">      4,900,403  instructions              # 612.859 M/sec</span><br><span class="line">         47,821  branch-misses             # 6.085 M/sec</span><br><span class="line">  25.274251(ms)  task-clock                # 0.002520 cpus used</span><br><span class="line">              4  context-switches          # 158.264 /sec</span><br><span class="line">            466  page-faults               # 18.438 K/sec</span><br><span class="line"></span><br><span class="line">Total test time: 10.027923 seconds.</span><br></pre></td></tr></table></figure>
+<p>可以通过 <code>-e</code> 选择事件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Stat event cpu-cycles.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf <span class="built_in">stat</span> -e cpu-cycles -p 11904 --duration 10</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Stat event cache-references and cache-misses.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf <span class="built_in">stat</span> -e cache-references,cache-misses -p 11904 --duration 10</span></span><br></pre></td></tr></table></figure>
+<p>可以通过 <code>-p</code> 或者 <code>-t</code> 选择监控哪个进程或者线程。监控一个进程同时会监控该进程的所有进程。Simpleperf 也可以 fork 一个子进程来执行新的命令，然后监控子进程。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Stat process 11904 and 11905.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf <span class="built_in">stat</span> -p 11904,11905 --duration 10</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Stat processes with name containing <span class="string">&quot;chrome&quot;</span>.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf <span class="built_in">stat</span> -p chrome --duration 10</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Stat processes with name containing part matching regex <span class="string">&quot;chrome:(privileged|sandboxed)&quot;</span>.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf <span class="built_in">stat</span> -p <span class="string">&quot;chrome:(privileged|sandboxed)&quot;</span> --duration 10</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Stat thread 11904 and 11905.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf <span class="built_in">stat</span> -t 11904,11905 --duration 10</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Start a child process running `<span class="built_in">ls</span>`, and <span class="built_in">stat</span> it.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf <span class="built_in">stat</span> <span class="built_in">ls</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Stat the process of an Android application. On non-root devices, this only works <span class="keyword">for</span> debuggable</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">or profileable from shell apps.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf <span class="built_in">stat</span> --app simpleperf.example.cpp --duration 10</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Stat only selected thread 11904 <span class="keyword">in</span> an app.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf <span class="built_in">stat</span> --app simpleperf.example.cpp -t 11904 --duration 10</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Stat system wide using -a.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf <span class="built_in">stat</span> -a --duration 10</span></span><br></pre></td></tr></table></figure>
+<p>可以使用 <code>--duration</code> 来决定监控多长时间。当使用一个新命令监控一个子进程时，Simpleperf 监控直到子线程结束。在这种情况下，我们在任何时候可以使用 Ctrl-C 停止监控。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Stat process 11904 <span class="keyword">for</span> 10 seconds.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf <span class="built_in">stat</span> -p 11904 --duration 10</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Stat <span class="keyword">until</span> the child process running `<span class="built_in">ls</span>` finishes.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf <span class="built_in">stat</span> <span class="built_in">ls</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Stop monitoring using Ctrl-C.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf <span class="built_in">stat</span> -p 11904 --duration 10</span></span><br><span class="line">^C</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>想写一个脚本控制监控多长时间，你可以发送 SIGINT、SIGTERM 或者 SIGHUP 信息给 Simpleperf 来结束监控。</p>
+</blockquote>
+<p>可以使用 <code>--interval</code> 决定打印的间隔。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Print <span class="built_in">stat</span> <span class="keyword">for</span> process 11904 every 300ms.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf <span class="built_in">stat</span> -p 11904 --duration 10 --interval 300</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Print system wide <span class="built_in">stat</span> at interval of 300ms <span class="keyword">for</span> 10 seconds. Note that system wide profiling needs</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">root privilege.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">su 0 simpleperf <span class="built_in">stat</span> -a --duration 10 --interval 300</span></span><br></pre></td></tr></table></figure>
+<h2 id="record"><a class="markdownIt-Anchor" href="#record"></a> record</h2>
+<p>Simpleperf 工具的 <code>record</code> 命令用于对进程进行性能分析，并将分析数据存储在 perf.data 文件中。通过执行 <code>simpleperf record</code> 命令，您可以捕获程序的性能数据，包括 CPU 使用情况、函数调用情况、内存访问情况等，从而帮助您分析程序的性能特征和性能瓶颈。</p>
+<p>这个命令对于深入了解程序在执行过程中的性能表现非常有帮助，可以为开发人员提供详尽的性能分析数据，帮助他们进行优化和改进。通过对 <code>simpleperf record</code> 命令进行参数配置，可以实现针对特定问题或场景的性能分析，为程序的性能优化提供有力支持。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record on process 7394 <span class="keyword">for</span> 10 seconds, using default event (cpu-cycles), using default sample</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">frequency (4000 samples per second), writing records to perf.data.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf record -p 7394 --duration 10</span></span><br><span class="line">simpleperf I cmd_record.cpp:316] Samples recorded: 21430. Samples lost: 0.</span><br></pre></td></tr></table></figure>
+<p>可以使用 <code>-e</code> 选择事件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record using event instructions.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf record -e instructions -p 11904 --duration 10</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record using task-clock, <span class="built_in">which</span> shows the passed CPU time <span class="keyword">in</span> nanoseconds.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf record -e task-clock -p 11904 --duration 10</span></span><br></pre></td></tr></table></figure>
+<p>record 命令中选择目标的方式与 stat 命令类似。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record process 11904 and 11905.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf record -p 11904,11905 --duration 10</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record processes with name containing <span class="string">&quot;chrome&quot;</span>.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf record -p chrome --duration 10</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record processes with name containing part matching regex <span class="string">&quot;chrome:(privileged|sandboxed)&quot;</span>.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf record -p <span class="string">&quot;chrome:(privileged|sandboxed)&quot;</span> --duration 10</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record thread 11904 and 11905.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf record -t 11904,11905 --duration 10</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record a child process running `<span class="built_in">ls</span>`.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf record <span class="built_in">ls</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record the process of an Android application. On non-root devices, this only works <span class="keyword">for</span> debuggable</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">or profileable from shell apps.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf record --app simpleperf.example.cpp --duration 10</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record only selected thread 11904 <span class="keyword">in</span> an app.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf record --app simpleperf.example.cpp -t 11904 --duration 10</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record system wide.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf record -a --duration 10</span></span><br></pre></td></tr></table></figure>
+<p>可以通过 <code>-f</code> 或  <code>-c</code> 设置转储记录的频率。 例如，<code>-f 4000</code> 表示受监控线程运行时每秒转储大约 4000 条记录。 如果一个被监控的线程在一秒内运行了0.2s（在其他时间可以被抢占或阻塞），则 Simpleperf 每秒转储约 4000 * 0.2 / 1.0 = 800 条记录。 另一种方法是使用 <code>-c</code>。 例如，<code>-c 10000</code> 表示每当发生 10000 个事件时转储一条记录。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record with sample frequency 1000: sample 1000 <span class="built_in">times</span> every second running.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf record -f 1000 -p 11904,11905 --duration 10</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record with sample period 100000: sample 1 time every 100000 events.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf record -c 100000 -t 11904,11905 --duration 10</span></span><br></pre></td></tr></table></figure>
+<p>为了避免花费太多时间生成样本，内核 &gt;= 3.10 设置用于生成样本的 CPU 时间的最大百分比（默认为 25%），并在达到该限制时降低允许的最大样本频率。 Simpleperf 使用 <code>--cpu-percent</code> 选项来调整最大样本频率，但需要 root 权限或在 Android &gt;= Q 上。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record with sample frequency 10000, with max allowed cpu percent to be 50%.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf record -f 1000 -p 11904,11905 --duration 10 --cpu-percent 50</span></span><br></pre></td></tr></table></figure>
+<p>可以使用 <code>--duration</code> 监控多长时间。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record process 11904 <span class="keyword">for</span> 10 seconds.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf record -p 11904 --duration 10</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record <span class="keyword">until</span> the child process running `<span class="built_in">ls</span>` finishes.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf record <span class="built_in">ls</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Stop monitoring using Ctrl-C.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf record -p 11904 --duration 10</span></span><br><span class="line">^C</span><br></pre></td></tr></table></figure>
+<p>如果想写一个脚本来控制监控多长时间，可以向 Simpleperf 发送 SIGINT、SIGTERM、SIGHUP 信号之一来停止监控。</p>
+<p>默认情况下，Simpleperf 将分析数据存储在当前目录中的 perf.data 中。 但可以使用 <code>-o</code> 更改路径。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Write records to data/perf2.data.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf record -p 11904 -o data/perf2.data --duration 10</span></span><br></pre></td></tr></table></figure>
+<h2 id="report"><a class="markdownIt-Anchor" href="#report"></a> report</h2>
+<p><code>simpleperf report</code> 命令是 Simpleperf 工具提供的一个功能强大的命令，用于生成性能分析报告。该命令将 perf.data 文件中记录的性能数据进行解析，并生成易于阅读和理解的报告。</p>
+<p>以下是 <code>simpleperf report</code> 命令的一些常用选项：</p>
+<ul>
+<li><code>-i &lt;filename&gt;</code>：指定要分析的 perf.data 文件的路径。</li>
+<li><code>-g</code>：生成函数调用图，显示函数之间的调用关系。</li>
+<li><code>-t &lt;event&gt;</code>：指定要显示的事件类型。</li>
+<li><code>-v</code>：显示详细的分析信息，包括符号表、源代码等。</li>
+<li><code>-p &lt;pid&gt;</code>：指定要分析的进程 ID。</li>
+</ul>
+<p>例如，以下命令将生成 perf.data 文件的函数调用图：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">simpleperf report -i perf.data -g</span><br></pre></td></tr></table></figure>
+<p>另一个示例命令，该命令将显示 perf.data 文件中发生的所有事件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">simpleperf report -i perf.data -t all</span><br></pre></td></tr></table></figure>
+<h1 id="进阶使用"><a class="markdownIt-Anchor" href="#进阶使用"></a> 进阶使用</h1>
+<h2 id="stat-2"><a class="markdownIt-Anchor" href="#stat-2"></a> stat</h2>
+<h3 id="与-systrace-一起工作"><a class="markdownIt-Anchor" href="#与-systrace-一起工作"></a> 与 Systrace 一起工作</h3>
+<p>Simpleperf 也可以与 Systrace 工作，与 Systrace 一起使用来转储收集的跟踪中的计数器。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Capture instructions (kernel only) and cache misses with interval of 300 milliseconds <span class="keyword">for</span> 15</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">seconds.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">su 0 simpleperf <span class="built_in">stat</span> -e instructions:k,cache-misses -a --interval 300 --duration 15</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">On host launch systrace to collect trace <span class="keyword">for</span> 10 seconds.</span></span><br><span class="line"><span class="meta prompt_">(HOST)$ </span><span class="language-bash">external/chromium-trace/systrace.py --time=10 -o new.html <span class="built_in">sched</span> gfx view</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Open the collected new.html <span class="keyword">in</span> browser and perf counters will be shown up.</span></span><br></pre></td></tr></table></figure>
+<h3 id="显示每个核心的事件个数"><a class="markdownIt-Anchor" href="#显示每个核心的事件个数"></a> 显示每个核心的事件个数</h3>
+<p>默认情况下，stat 命令输出所有受监控 CPU 核心的事件计数总和。 但是，当使用 <code>--per-core</code> 参数时，stat 命令会输出每个核心的事件计数。 它可以用来查看事件如何分布在不同的核心上。 当使用 <code>--per-core</code> 参数声明非系统范围时，Simpleperf 会为每个核心上的每个受监视线程创建一个 perf 事件。 当线程处于运行状态时，所有核心上的 perf 事件都会启用，但只有运行该线程的核心上的 perf 事件处于运行状态。 因此百分比注释显示runtime_on_a_core / runtime_on_all_cores。 请注意，百分比仍然受到硬件计数器复用的影响。 检查 Simpleperf 日志输出以了解区分它的方法。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Print event counts <span class="keyword">for</span> each cpu running threads <span class="keyword">in</span> process 11904.</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">A percentage shows runtime_on_a_cpu / runtime_on_all_cpus.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf <span class="built_in">stat</span> -e cpu-cycles --per-core -p 1057 --duration 3</span></span><br><span class="line">Performance counter statistics:</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">cpu        count  event_name   <span class="comment"># count / runtime</span></span></span><br><span class="line">  0      1,667,660  cpu-cycles   # 1.571565 GHz</span><br><span class="line">  1      3,850,440  cpu-cycles   # 1.736958 GHz</span><br><span class="line">  2      2,463,792  cpu-cycles   # 1.701367 GHz</span><br><span class="line">  3      2,350,528  cpu-cycles   # 1.700841 GHz</span><br><span class="line">  5      7,919,520  cpu-cycles   # 2.377081 GHz</span><br><span class="line">  6    105,622,673  cpu-cycles   # 2.381331 GHz</span><br><span class="line"></span><br><span class="line">Total test time: 3.002703 seconds.</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Print event counts <span class="keyword">for</span> each cpu system wide.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">su 0 simpleperf <span class="built_in">stat</span> --per-core -a --duration 1</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Print cpu-cycle event counts <span class="keyword">for</span> each cpu <span class="keyword">for</span> each thread running <span class="keyword">in</span> the system.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">su 0 simpleperf <span class="built_in">stat</span> -e cpu-cycles -a --per-thread --per-core --duration 1</span></span><br></pre></td></tr></table></figure>
+<h3 id="监控不同核上的事件"><a class="markdownIt-Anchor" href="#监控不同核上的事件"></a> 监控不同核上的事件</h3>
+<p>Android 设备通常有大核和小核，不同的核支持不同的事件。可以使用 <code>--cpu</code> 参数。<code>--cpu</code> 参数选择不同的核监控不同的事件。<code>--cpu</code> 选项会影响以下所有事件，直到遇到另一个 <code>--cpu</code> 选项。 第一个 <code>--cpu</code> 选项也会影响它之前的所有事件。 以下是一些示例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">By default, cpu-cycles and instructions are monitored on all cpus.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">su 0 simpleperf <span class="built_in">stat</span> -e cpu-cycles,instructions -a --duration 1 --per-core</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Use one `--cpu` option to monitor cpu-cycles and instructions only on cpu 0-3,8.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">su 0 simpleperf <span class="built_in">stat</span> -e cpu-cycles --cpu 0-3,8 -e instructions -a --duration 1 --per-core</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Use two `--cpu` options to monitor raw-l3d-cache-refill-rd on cpu 0-3, and raw-l3d-cache-refill on</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">cpu 4-8.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">su 0 simpleperf <span class="built_in">stat</span> --cpu 0-3 -e raw-l3d-cache-refill-rd --cpu 4-8 -e raw-l3d-cache-refill \</span></span><br><span class="line"><span class="language-bash">  -a --duration 1 --per-core</span></span><br></pre></td></tr></table></figure>
+<h3 id="显示每个线程的事件个数"><a class="markdownIt-Anchor" href="#显示每个线程的事件个数"></a> 显示每个线程的事件个数</h3>
+<p>默认情况下，stat 命令输出所有受监控目标的事件计数总和。只有当使用 <code>--per-thread</code> 参数的时候，stat 命令才会输出每个被监控线程的事件计数。它可用于查找进程或系统范围内的繁忙线程。使用 <code>--per-thread</code> 选项，stat 命令为每个现有线程打开一个 perf_event_file。如果受监控的线程创建新线程，则默认情况下会将新线程的事件计数添加到受监控的线程中，如果还使用了 <code>--no-inherit</code>选项，则忽略该事件计数。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Print event counts <span class="keyword">for</span> each thread <span class="keyword">in</span> process 11904. Event counts <span class="keyword">for</span> threads created after</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">stat</span> cmd will be added to threads creating them.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf <span class="built_in">stat</span> --per-thread -p 11904 --duration 1</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Print event counts <span class="keyword">for</span> all threads running <span class="keyword">in</span> the system every 1s. Threads not running will not</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">be reported.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">su 0 simpleperf <span class="built_in">stat</span> --per-thread -a --interval 1000 --interval-only-values</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Print event counts <span class="keyword">for</span> all threads running <span class="keyword">in</span> the system every 1s. Event counts <span class="keyword">for</span> threads</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">created after <span class="built_in">stat</span> cmd will be omitted.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">su 0 simpleperf <span class="built_in">stat</span> --per-thread -a --interval 1000 --interval-only-values --no-inherit</span></span><br></pre></td></tr></table></figure>
+<h2 id="record-2"><a class="markdownIt-Anchor" href="#record-2"></a> record</h2>
+<h3 id="记录调用图"><a class="markdownIt-Anchor" href="#记录调用图"></a> 记录调用图</h3>
+<p>调用图是显示函数调用关系的树。调用图显示一个函数如何调用其他函数，而反向调用图显示一个函数如何被其他函数调用。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">main() &#123;</span><br><span class="line">    FunctionOne();</span><br><span class="line">    FunctionTwo();</span><br><span class="line">&#125;</span><br><span class="line">FunctionOne() &#123;</span><br><span class="line">    FunctionTwo();</span><br><span class="line">    FunctionThree();</span><br><span class="line">&#125;</span><br><span class="line">a call graph:</span><br><span class="line">    main-&gt; FunctionOne</span><br><span class="line">       |    |</span><br><span class="line">       |    |-&gt; FunctionTwo</span><br><span class="line">       |    |-&gt; FunctionThree</span><br><span class="line">       |</span><br><span class="line">       |-&gt; FunctionTwo</span><br></pre></td></tr></table></figure>
+<p>记录调用图有两种方法，一种是记录基于 dwarf 的调用图，另一种是记录基于堆栈帧的调用图。 记录基于 dwarf 的调用图需要本机二进制文件中调试信息的支持，而记录基于堆栈帧的调用图需要堆栈帧寄存器的支持。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record a dwarf based call graph</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf record -p 11904 -g --duration 10</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record a stack frame based call graph</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf record -p 11904 --call-graph fp --duration 10</span></span><br></pre></td></tr></table></figure>
+<h3 id="记录-cpu-运行时间和-cpu-关闭时间"><a class="markdownIt-Anchor" href="#记录-cpu-运行时间和-cpu-关闭时间"></a> 记录 CPU 运行时间和 CPU 关闭时间</h3>
+<p>Simpleperf 工具可以记录 on-CPU（CPU 上运行）和 off-CPU（CPU 空闲）的信息。on-CPU 表示处理器正在执行某个线程的代码，而 off-CPU 表示处理器处于空闲状态，没有执行任何线程的代码。</p>
+<p><img src="/images/simpleperf_on-off_cpu.png" alt="" /></p>
+<p>可以使用 <code>simpleperf record</code> 命令来记录 on-CPU 和 off-CPU 的信息。以下是一个示例命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">simpleperf record -e sched:sched_switch -e sched:sched_wakeup</span><br></pre></td></tr></table></figure>
+<p>在这个命令中，使用了两个事件 <code>-e</code> 参数来记录相关的调度事件：<code>sched_switch</code> 和 <code>sched_wakeup</code>。<code>sched_switch</code> 事件会在线程之间切换时触发，而 <code>sched_wakeup</code> 事件会在线程从等待状态唤醒时触发。通过记录这些事件，可以得到线程的 on-CPU 和 off-CPU 的信息。</p>
+<p>执行上述命令后，Simpleperf 将会生成一个 perf.data 文件，其中包含了记录的 on-CPU 和 off-CPU 的数据。可以使用其他 Simpleperf 命令进行数据分析和可视化，例如 <code>report</code> 命令用于生成报告。</p>
+<h2 id="report-2"><a class="markdownIt-Anchor" href="#report-2"></a> report</h2>
+<h3 id="设置查找二进制文件的路径"><a class="markdownIt-Anchor" href="#设置查找二进制文件的路径"></a> 设置查找二进制文件的路径</h3>
+<p>默认情况下，路径是受监控进程在记录时使用的可执行二进制文件。 但是，报告时这些二进制文件可能不存在，或者不包含符号表和调试信息。 所以我们可以使用 <code>--symfs</code> 来重定向路径。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">In this <span class="keyword">case</span>, when simpleperf wants to <span class="built_in">read</span> executable binary /A/b, it reads file <span class="keyword">in</span> /A/b.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf report</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">In this <span class="keyword">case</span>, when simpleperf wants to <span class="built_in">read</span> executable binary /A/b, it prefers file <span class="keyword">in</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">/debug_dir/A/b to file <span class="keyword">in</span> /A/b.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf report --symfs /debug_dir</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Read symbols <span class="keyword">for</span> system libraries built locally. Note that this is not needed since Android O,</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">which</span> ships symbols <span class="keyword">for</span> system libraries on device.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf report --symfs <span class="variable">$ANDROID_PRODUCT_OUT</span>/symbols</span></span><br></pre></td></tr></table></figure>
+<h3 id="过滤样本"><a class="markdownIt-Anchor" href="#过滤样本"></a> 过滤样本</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Report records <span class="keyword">in</span> threads having name sudogame.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf report --comms sudogame</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Report records <span class="keyword">in</span> process 7394 or 7395</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf report --pids 7394,7395</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Report records <span class="keyword">in</span> thread 7394 or 7395.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf report --tids 7394,7395</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Report records <span class="keyword">in</span> libsudo-game-jni.so.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">simpleperf report --dsos /data/app/com.example.sudogame-2/lib/arm64/libsudo-game-jni.so</span></span><br></pre></td></tr></table></figure>
+<h1 id="高级使用"><a class="markdownIt-Anchor" href="#高级使用"></a> 高级使用</h1>
+<p>Android 使用 Python 对 Simpleperf 进行二次封装。在 Android NDK 中有很多 <code>.py</code> 格式脚本，这些脚本大多数都是基于 Simpleperf 工具开发的应用程序性能分析工具。这些工具可以对 Android 应用程序的性能问题进行分析和定位。常使用的脚本见下表。</p>
+<table>
+<thead>
+<tr>
+<th>脚本名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>app_profiler.py</td>
+<td>记录 Android 应用程序或本地程序的 CPU 分析数据</td>
+</tr>
+<tr>
+<td>api_profiler.py</td>
+<td>用于在记录之前准备分析环境（上传 Simpleperf 到设备并启用分析）以及在记录之后在主机上收集记录数据。</td>
+</tr>
+<tr>
+<td>run_simpleperf_on_device.py</td>
+<td>将 Simpleperf 可执行文件推送到设备上，并在设备上运行 Simpleperf 命令。 它比手动运行 adb 命令更方便。</td>
+</tr>
+<tr>
+<td>run_simpleperf_without_usb_connection.py</td>
+<td>在未连接 USB 时进行数据分析</td>
+</tr>
+<tr>
+<td>binary_cache_builder.py</td>
+<td>将 perf.data 需要的二进制文件从设备拉取到 binary_cache 目录中。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://report.py">report.py</a></td>
+<td>为 Simpleperf report 命令提供图形界面。</td>
+</tr>
+<tr>
+<td>report_html.py</td>
+<td>用于生成 HTML 格式报告</td>
+</tr>
+<tr>
+<td>report_sample.py</td>
+<td>将分析数据文件转换为 linux-perf-tool 输出的 perf 脚本文本格式。</td>
+</tr>
+<tr>
+<td>inferno</td>
+<td>Inferno 是一个用于生成火焰图的工具</td>
+</tr>
+<tr>
+<td>purgatorio</td>
+<td>Purgatorio是一个用于简化simpleperf跟踪的可视化工具</td>
+</tr>
+<tr>
+<td>pprof_proto_generator.py</td>
+<td>将 perf.data 转换成可以被 pprof 工具识别的 pprof.profile 格式文件</td>
+</tr>
+<tr>
+<td>gecko_profile_generator.py</td>
+<td>将 perf.data 转换成 Firefox 性能工具可以识别的文件格式</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://stackcollapse.py">stackcollapse.py</a></td>
+<td>将 perf.data 转换成  Brendan Gregg 的 “Folded Stacks” 格式文件，然后被 FlameGraph 或者其他工具读取</td>
+</tr>
+<tr>
+<td>simpleperf_report_lib.py</td>
+<td>用于访问 perf.data 中的样本</td>
+</tr>
+</tbody>
+</table>
+<h2 id="app_profilerpy"><a class="markdownIt-Anchor" href="#app_profilerpy"></a> app_profiler.py</h2>
+<p>记录 Android 应用程序或本地程序的 CPU 分析数据。它会在设备上下载 Simpleperf 工具，并使用它来收集选定应用程序的分析数据， 然后将分析数据和相关二进制文件拉到主机上。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record an Android application.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./app_profiler.py -p simpleperf.example.cpp</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record an Android application with Java code compiled into native instructions.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./app_profiler.py -p simpleperf.example.cpp --compile_java_code</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record the launch of an Activity of an Android application.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./app_profiler.py -p simpleperf.example.cpp -a .SleepActivity</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record a native process.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./app_profiler.py -np surfaceflinger</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record a native process given its pid.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./app_profiler.py --pid 11324</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record a <span class="built_in">command</span>.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./app_profiler.py -cmd \</span></span><br><span class="line"><span class="language-bash">    <span class="string">&quot;dex2oat --dex-file=/data/local/tmp/app-debug.apk --oat-file=/data/local/tmp/a.oat&quot;</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record an Android application, and use -r to send custom options to the record <span class="built_in">command</span>.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./app_profiler.py -p simpleperf.example.cpp \</span></span><br><span class="line"><span class="language-bash">    -r <span class="string">&quot;-e cpu-clock -g --duration 30&quot;</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record both on CPU time and off CPU time.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./app_profiler.py -p simpleperf.example.cpp \</span></span><br><span class="line"><span class="language-bash">    -r <span class="string">&quot;-e task-clock -g -f 1000 --duration 10 --trace-offcpu&quot;</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Save profiling data <span class="keyword">in</span> a custom file (like perf_custom.data) instead of perf.data.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./app_profiler.py -p simpleperf.example.cpp -o perf_custom.data</span></span><br></pre></td></tr></table></figure>
+<h2 id="api_profilerpy"><a class="markdownIt-Anchor" href="#api_profilerpy"></a> api_profiler.py</h2>
+<p>它用于在记录之前准备分析环境（上传 Simpleperf 到设备并启用分析）以及在记录之后在主机上收集记录数据。<br />
+控制 Simpleperf 记录的步骤如下:</p>
+<ol>
+<li>将 Simpleperf Java API/C++ API 添加到应用程序的源代码中。并在用户代码中调用该 API；</li>
+<li>运行 <code>api_profiler.py prepare</code> 来准备分析环境；</li>
+<li>运行一次或多次应用程序以生成记录数据；</li>
+<li>运行 <code>api_profiler.py collect</code> 在主机上收集记录数据。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./api_profiler.py prepare</span><br><span class="line">./api_profiler.py collect</span><br></pre></td></tr></table></figure>
+<h2 id="run_simpleperf_on_devicepy"><a class="markdownIt-Anchor" href="#run_simpleperf_on_devicepy"></a> run_simpleperf_on_device.py</h2>
+<p>它会将 Simpleperf 下载到设备上的 /data/local/tmp 目录，并以提供的所有参数运行它。 这样做可以节省下载 Simpleperf 和直接使用 <code>adb shell</code> 的时间。</p>
+<h2 id="run_simpleperf_without_usb_connectionpy"><a class="markdownIt-Anchor" href="#run_simpleperf_without_usb_connectionpy"></a> run_simpleperf_without_usb_connection.py</h2>
+<p>支持以下步骤中的无需 USB 连接进行分析：</p>
+<ol>
+<li>通过 USB 连接启动 Simpleperf 记录；</li>
+<li>拔掉 USB 并运行想要分析的应用程序，同时 Simpleperf 的进程保持运行并收集样本；</li>
+<li>重新插入 USB 电缆，在主机上停止 Simpleperf 记录并拉取记录文件；</li>
+</ol>
+<p>请注意，一旦应用程序被终止，记录也会停止。因此，如果在分析期间重新启动应用程序，Simpleperf 只会记录第一次运行的数据。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./run_simpleperf_without_usb_connection.py start -p simpleperf.example.cpp</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">After the <span class="built_in">command</span> finishes successfully, unplug the USB cable, run the</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">SimpleperfExampleCpp app. After a few seconds, plug <span class="keyword">in</span> the USB cable.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./run_simpleperf_without_usb_connection.py stop</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">It may take a <span class="keyword">while</span> to stop recording. After that, the profiling data is collected <span class="keyword">in</span> perf.data</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">on host.</span></span><br></pre></td></tr></table></figure>
+<h2 id="binary_cache_builderpy"><a class="markdownIt-Anchor" href="#binary_cache_builderpy"></a> binary_cache_builder.py</h2>
+<p>binary_cache 目录是保存分析数据文件所需的二进制文件的目录。 二进制文件应该是未剥离的，具有调试信息和符号表。 报告脚本使用 binary_cache 目录来读取二进制文件的符号。 它也被 report_html.py 用来生成带注释的源代码和反汇编。</p>
+<p>默认情况下，app_profiler.py 在记录后构建 binary_cache 目录。 但我们也可以使用 binary_cache_builder.py为现有的分析数据文件构建 binary_cache。 当您直接使用 simpleperf record 记录分析数据时，它非常有用，可以在不连接 USB 电缆的情况下进行系统范围的分析或记录。</p>
+<p>binary_cache_builder.py 可以从 Android 设备中提取二进制文件，也可以在主机上的目录中查找二进制文件（通过 <code>-lib</code> 参数）。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Generate binary_cache <span class="keyword">for</span> perf.data, by pulling binaries from the device.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./binary_cache_builder.py</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Generate binary_cache, by pulling binaries from the device and finding binaries <span class="keyword">in</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">SimpleperfExampleCpp.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./binary_cache_builder.py -lib path_of_SimpleperfExampleCpp</span></span><br></pre></td></tr></table></figure>
+<h2 id="reportpy"><a class="markdownIt-Anchor" href="#reportpy"></a> <a target="_blank" rel="noopener" href="http://report.py">report.py</a></h2>
+<p>该脚本是对 <code>simpleperf report</code> 命令的封装，其作用有如下两点：</p>
+<ol>
+<li>
+<p>将原本应该传递给 <code>simpleperf report </code> 的参数传递给 <code>report.py</code>，由 <code>report.py</code> 来调用 <code>simpleperf report </code> 命令，生成报告和显示结果；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python report.py report_file</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>使用 <code>report.py</code> 来为已经生成的 <code>simpleperf report </code> 数据生成结果。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// The default options are: -i perf.data --sort comm,pid,tid,dso,symbol.</span><br><span class="line">python report.py -g // Report call graph</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="report_htmlpy"><a class="markdownIt-Anchor" href="#report_htmlpy"></a> report_html.py</h2>
+<p>用于生成 HTML 格式报告的 Python 脚本。它可以将 Simpleperf 的性能分析报告转换为交互式的 HTML 页面，方便用户浏览和分析性能数据。</p>
+<p>脚本的作用是读取 simpleperf 的报告文件（通常是 perf.data 文件），并使用模板和样式表将报告数据呈现为具有可视化图表和表格的 HTML 页面。这样，用户可以通过 Web 浏览器直接打开 HTML 报告，并以更直观和交互的方式查看和分析性能数据，例如函数调用图、火焰图、热点函数列表等。通过生成 HTML 格式的报告，<code>simpleperf report_html.py</code> 提供了一种方便的方式来可视化和分享 simpleperf 的分析结果，使得性能分析更加易于理解和共享。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Generate chart statistics, sample table and flamegraphs, based on perf.data.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./report_html.py</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Add <span class="built_in">source</span> code.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./report_html.py --add_source_code --source_dirs path_of_SimpleperfExampleCpp</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Add disassembly.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./report_html.py --add_disassembly</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Adding disassembly <span class="keyword">for</span> all binaries can cost a lot of time. So we can choose to only add</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">disassembly <span class="keyword">for</span> selected binaries.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./report_html.py --add_disassembly --binary_filter libgame.so</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">report_html.py accepts more than one recording data file.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./report_html.py -i perf1.data perf2.data</span></span><br></pre></td></tr></table></figure>
+<p>Java 符号可能会被 ProGuard 混淆。 要恢复报告中的原始符号，我们可以通过 --proguard-mapping-file 将 Proguard 映射文件传递给报告脚本或 report-sample 命令。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./report_html.py --proguard-mapping-file proguard_mapping_file.txt</span></span><br></pre></td></tr></table></figure>
+<h2 id="inferno"><a class="markdownIt-Anchor" href="#inferno"></a> inferno</h2>
+<p>Inferno 是一个用于生成 Android 程序火焰图的工具。它最初是为了分析 SurfaceFlinger（Android组合器）的性能而编写的，但也可以用于其他 C++ 程序。它使用 Simpleperf 来收集数据。程序必须使用帧指针进行编译，这暂时排除了基于 ART 的程序。</p>
+<p>它的工作原理如下：</p>
+<ol>
+<li>通过 Simpleperf 开始数据收集，并将其作为 perf.data本地保存；</li>
+<li>解析原始格式，合并调用栈以形成火焰图数据结构；</li>
+<li>使用数据结构生成嵌入在 HTML 页面中的 SVG 火焰图；</li>
+<li>注入 JavaScript 代码以实现火焰图导航、搜索和着色模型。</li>
+</ol>
+<p>因此，Inferno 工具可以帮助分析和优化 Android 应用程序的性能问题，提高应用程序的响应速度和用户体验。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Generate flamegraph based on perf.data.</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">On Windows, use inferno.bat instead of ./inferno.sh.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./inferno.sh -sc --record_file perf.data</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record a native program and generate flamegraph.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./inferno.sh -np surfaceflinger</span></span><br></pre></td></tr></table></figure>
+<h2 id="purgatorio"><a class="markdownIt-Anchor" href="#purgatorio"></a> purgatorio</h2>
+<p>Purgatorio 是一个用于简化 Simpleperf 跟踪的可视化工具。它基于 libsimpleperf，Bokeh 和 D3火焰图。</p>
+<p>与 Inferno 的主要区别在于，Purgatorio 专注于在按时间组织的序列上可视化系统范围的跟踪（使用 <code>-a</code> 参数），并允许用户通过缩放、悬停在样本上以及可视化特定样本的火焰图（可以通过时间间隔、线程集合或其他子集限制）与图形进行交互。</p>
+<p>例如，需要抓取 Camera 的热启动，可以按照如下的步骤：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">adb shell simpleperf record --trace-offcpu --call-graph fp -o /data/local/camera_warm_launch.data -a</span></span><br><span class="line">[launch camera here, then press ctrl + c]</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">adb pull /data/local/camera_warm_launch.data</span></span><br></pre></td></tr></table></figure>
+<p>然后执行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 purgatorio.py camera_warm_launch.data</span><br></pre></td></tr></table></figure>
+<p>如果看到很多 <code>Failed to read symbols</code> 的信息，可以传递符号缓存来解决：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 purgatorio.py camera_warm_launch.data -u [symbols cache]</span><br></pre></td></tr></table></figure>
+<h2 id="pprof_proto_generatorpy"><a class="markdownIt-Anchor" href="#pprof_proto_generatorpy"></a> pprof_proto_generator.py</h2>
+<p>读取perf.data并生成pprof.profile，可以供pprof使用。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python app_profiler.py</span><br><span class="line">python pprof_proto_generator.py</span><br><span class="line">pprof -text pprof.profile</span><br></pre></td></tr></table></figure>
+<h2 id="gecko_profile_generatorpy"><a class="markdownIt-Anchor" href="#gecko_profile_generatorpy"></a> gecko_profile_generator.py</h2>
+<p>将 perf.data 转换成 Gecko 格式的文件。转换后的文件可以被 <a target="_blank" rel="noopener" href="https://profiler.firefox.com/">Firefox 的性能分析工具</a> 读取。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python app_profiler.py</span><br><span class="line">python gecko_profile_generator.py | gzip &gt; gecko-profile.json.gz</span><br></pre></td></tr></table></figure>
+<h2 id="stackcollapsepy"><a class="markdownIt-Anchor" href="#stackcollapsepy"></a> <a target="_blank" rel="noopener" href="http://stackcollapse.py">stackcollapse.py</a></h2>
+<p><a target="_blank" rel="noopener" href="http://stackcollapse.py">stackcollapse.py</a> 将分析数据文件 perf.data 转换为 Brendan Gregg 的 Folded Stacks 格式。折叠堆栈是由分号分隔的堆栈帧行，从根到叶，后跟该堆栈中采样的事件计数，例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BusyThread;__start_thread;__pthread_start(void*);java.lang.Thread.run 17889729</span><br></pre></td></tr></table></figure>
+<p>所有类似的堆栈都会被聚合，并且样本时间戳不会被使用。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Record a profile to perf.data</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./app_profiler.py &lt;args&gt;</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Convert to Folded Stacks format</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./stackcollapse.py --kernel --jit | gzip &gt; profile.folded.gz</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Visualise with FlameGraph with Java Stacks and nanosecond <span class="built_in">times</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> https://github.com/brendangregg/FlameGraph.git</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gunzip -c profile.folded.gz \</span></span><br><span class="line"><span class="language-bash">    | FlameGraph/flamegraph.pl --color=java --countname=ns \</span></span><br><span class="line"><span class="language-bash">    &gt; profile.svg</span></span><br></pre></td></tr></table></figure>
+<h2 id="simpleperf_report_libpy"><a class="markdownIt-Anchor" href="#simpleperf_report_libpy"></a> simpleperf_report_lib.py</h2>
+<p>simpleperf_report_lib.py 是 Simpleperf 工具中的一个 Python 模块，提供了对 libsimpleperf_report.so 库的 Python 封装，用于访问和处理 perf.data 中的采样数据。通过使用该模块可以方便地将 perf.data 文件中的采样数据读取到 Python 环境中，并进行二次开发、分析和可视化等操作。</p>
+<h1 id="分析应用性能"><a class="markdownIt-Anchor" href="#分析应用性能"></a> 分析应用性能</h1>
+<p>Simpleperf 只能够分析以下三种环境下的 release 的正式应用：</p>
+<ol>
+<li>Android 版本在 10.0 及其以上，可以在 AndroidManifest.xml 中添加 profileableFromShell 标志位。这使得已发布的应用可以通过预安装的分析工具进行分析。在这种情况下，adb 下载的 Simpleperf 将调用系统镜像中预安装的 Simpleperf 来分析应用程序。</li>
+</ol>
+   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;manifest ...&gt;</span><br><span class="line">    &lt;application ...&gt;</span><br><span class="line">      &lt;profileable android:shell=&quot;true&quot; /&gt;</span><br><span class="line">    &lt;/application&gt;</span><br><span class="line">&lt;/manifest&gt;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>
+<p>添加 <code>android::debuggable=&quot;true&quot;</code> 到 AndroidManifest.xml 文件中；</p>
+</li>
+<li>
+<p>root 的设备可以分析任何应用程序。</p>
+</li>
+</ol>
+<h2 id="准备分析环境"><a class="markdownIt-Anchor" href="#准备分析环境"></a> 准备分析环境</h2>
+<p>以分析  <a href="https://link.zhihu.com/?target=https%3A//android.googlesource.com/platform/system/extras/%2B/main/simpleperf/demo/SimpleperfExampleCpp">SimpleperfExampleCpp</a>，构建一个 app-debug.apk 应用分析为例。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> https://android.googlesource.com/platform/system/extras</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> extras/simpleperf/demo</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Open SimpleperfExampleCpp project with Android studio, and build this project</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">successfully, otherwise the `./gradlew` <span class="built_in">command</span> below will fail.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> SimpleperfExampleCpp</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">On windows, use <span class="string">&quot;gradlew&quot;</span> instead.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./gradlew clean assemble</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">adb install -r app/build/outputs/apk/debug/app-debug.apk</span></span><br></pre></td></tr></table></figure>
+<h2 id="开始分析"><a class="markdownIt-Anchor" href="#开始分析"></a> 开始分析</h2>
+<p>使用 <a target="_blank" rel="noopener" href="http://app-profile.py">app-profile.py</a> 分析 Android 应用程序。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Cd to the directory of simpleperf scripts. Record perf.data.</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-p option selects the profiled app using its package name.</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">--compile_java_code option compiles Java code into native instructions, <span class="built_in">which</span> isn<span class="string">&#x27;t needed on</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">Android &gt;= P.</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">-a option selects the Activity to profile.</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">-lib option gives the directory to find debug native libraries.</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="string">./app_profiler.py -p simpleperf.example.cpp -a .MixActivity -lib path_of_SimpleperfExampleCpp</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">Start simpleperf recording, then start the Activity to profile.</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="string">./app_profiler.py -p simpleperf.example.cpp -a .MainActivity</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">We can also start the Activity on the device manually.</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">1. Make sure the application isn&#x27;</span>t running or one of the recent apps.</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">2. Start simpleperf recording.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./app_profiler.py -p simpleperf.example.cpp</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">3. Start the app manually on the device.</span></span><br></pre></td></tr></table></figure>
+<p>上述命令将收集到的分析数据保存到当前目录的 perf.data 中以及将相关 Native 二进制文件保存到 binary_cache/ 中。然后使用 <code>report.py </code> 生成查看分析结果：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Report perf.data <span class="keyword">in</span> stdio interface.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./report.py</span></span><br><span class="line">Cmdline: /data/data/simpleperf.example.cpp/simpleperf record ...</span><br><span class="line">Arch: arm64</span><br><span class="line">Event: task-clock:u (type 1, config 1)</span><br><span class="line">Samples: 10023</span><br><span class="line">Event count: 10023000000</span><br><span class="line"></span><br><span class="line">Overhead  Command     Pid   Tid   Shared Object              Symbol</span><br><span class="line">27.04%    BusyThread  5703  5729  /system/lib64/libart.so    art::JniMethodStart(art::Thread*)</span><br><span class="line">25.87%    BusyThread  5703  5729  /system/lib64/libc.so      long StrToI&lt;long, ...</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>如果结果中存在大量未知符号，可以通过添加源代码的方式解决：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./report_html.py --add_source_code --source_dirs path_of_SimpleperfExampleCpp \</span><br><span class="line">      --add_disassembly</span><br></pre></td></tr></table></figure>
+<h2 id="生成火焰图"><a class="markdownIt-Anchor" href="#生成火焰图"></a> 生成火焰图</h2>
+<p>使用 inferno 直接展示火焰图。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">On Windows, use inferno.bat instead of ./inferno.sh.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./inferno.sh -sc</span></span><br></pre></td></tr></table></figure>
+<p>使用  <a href="https://link.zhihu.com/?target=https%3A//github.com/brendangregg/FlameGraph">FlameGraph</a> 构建火焰图。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> https://github.com/brendangregg/FlameGraph.git</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./report_sample.py --symfs binary_cache &gt;out.perf</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">FlameGraph/stackcollapse-perf.pl out.perf &gt;out.folded</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">FlameGraph/flamegraph.pl out.folded &gt;a.svg</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>使用 FlameGraph 需要确保已经安装 Perl 环境。</p>
+</blockquote>
+<p>生成后的火焰图在国内网络环境下，可能存在加载不出来的情况。解决办法有三种：</p>
+<ul>
+<li>
+<p>方法1：科学上网；</p>
+</li>
+<li>
+<p>方法2：更换 JavaScript CDN 路径（一次性有效）：使用 Notepad++ 软件打开生成的 report.html 文件，然后看到前几行的 JavaScript 替换成国内可以访问到的 CDN 路径：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span><span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">link</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">link</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.1.2/js/bootstrap.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://www.gstatic.com/charts/loader.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>方法3：更换 JavaScript CDN 路径（永久有效）：在生成的 html 文件中，每次替换都很麻烦，要想永久有效，可以直接修改 report_html.py 脚本，找到 902 行到 911 行，将其更改为：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">URLS = &#123;</span><br><span class="line">    &#x27;jquery&#x27;: &#x27;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js&#x27;,</span><br><span class="line">    &#x27;bootstrap4-css&#x27;: &#x27;https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css&#x27;,</span><br><span class="line">    &#x27;bootstrap4-popper&#x27;:</span><br><span class="line">        &#x27;https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js&#x27;,</span><br><span class="line">    &#x27;bootstrap4&#x27;: &#x27;https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.1.2/js/bootstrap.min.js&#x27;,</span><br><span class="line">    &#x27;dataTable&#x27;: &#x27;https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js&#x27;,</span><br><span class="line">    &#x27;dataTable-bootstrap4&#x27;: &#x27;https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js&#x27;,</span><br><span class="line">    &#x27;dataTable-css&#x27;: &#x27;https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css&#x27;,</span><br><span class="line">    &#x27;gstatic-charts&#x27;: &#x27;https://www.gstatic.com/charts/loader.js&#x27;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="生成差分火焰图"><a class="markdownIt-Anchor" href="#生成差分火焰图"></a> 生成差分火焰图</h2>
+<p>当对两个火焰图进行对比时，可以考虑生成差分火焰图。生成差分火焰图需要借助 <a href="https://link.zhihu.com/?target=https%3A//github.com/brendangregg/FlameGraph">FlameGraph</a>工具。FlameGraph 工具生成差分火焰图的步骤如下：</p>
+<ol>
+<li>
+<p>先获取到两份原始数据，假设这两份原始数据文件名为：<code>a_perf.data</code> 和 <code>b_perf.data</code>；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python .\app_profiler.py -p com.android.settings -a .Settings -o D:\Temp\a_perf.data</span><br><span class="line">python .\app_profiler.py -p com.android.settings -a .Settings -o D:\Temp\b_perf.data</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>分别将这两份文件转换成 <code>.folded</code>格式的文件；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">方法1：stackcollapse.py</span> </span><br><span class="line">python stackcollapse.py -i D:\Temp\perf.data  &gt; D:\Temp\perf.folded</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">方法2：stackcollapse-perf.p</span></span><br><span class="line">python .\report_sample.py -i D:\Temp\perf.data &gt; D:\Temp\perf.perf</span><br><span class="line">perl stackcollapse-perf.pl D:\Temp\perf.perf  &gt; D:\Temp\perf.folded</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>最后使用 FlameGraph 中的 <a target="_blank" rel="noopener" href="http://difffolded.pl">difffolded.pl</a> 工具做差分，生成差分火焰图。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">perl difffolded.pl D:\Temp\a.folded  D:\Temp\b.folded | perl flamegraph.pl --negate &gt; D:\Temp\diff1.svg</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>使用 FlameGraph 需要确保已经安装 Perl 环境。</p>
+</blockquote>
+<h2 id="记录-on-cpu-和-off-cpu-的时间"><a class="markdownIt-Anchor" href="#记录-on-cpu-和-off-cpu-的时间"></a> 记录 On-CPU 和 Off-CPU 的时间</h2>
+<p>我们可以同时记录 On-CPU 时间和 Off-CPU 时间。首先，检查设备是否支持 trace-offcpu 属性：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./run_simpleperf_on_device.py list --show-features</span></span><br><span class="line">dwarf-based-call-graph</span><br><span class="line">trace-offcpu</span><br></pre></td></tr></table></figure>
+<p>如果设备支持 trace-offcpu，它会显示在属性列表中。然后，我们可以尝试使用它。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./app_profiler.py -p simpleperf.example.cpp -a .SleepActivity \</span></span><br><span class="line"><span class="language-bash">    -r <span class="string">&quot;-g -e task-clock:u -f 1000 --duration 10 --trace-offcpu&quot;</span> \</span></span><br><span class="line"><span class="language-bash">    -lib path_of_SimpleperfExampleCpp</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./report_html.py --add_disassembly --add_source_code \</span></span><br><span class="line"><span class="language-bash">    --source_dirs path_of_SimpleperfExampleCpp</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>On-CPU 时间：线程花费在 CPU 上运行的时间。<br />
+Off-CPU 时间：在 I/O、锁、计时器、分页/交换等上阻塞时，花费在等待上的 CPU 时间。</p>
+</blockquote>
+<h1 id="分析平台性能"><a class="markdownIt-Anchor" href="#分析平台性能"></a> 分析平台性能</h1>
+<p>有时，当特殊情况发生时，我们希望对流程/系统范围内的情况进行分析。在这种情况下，我们可以在检测到情况的位置添加从 Simpleperf 开始的代码。</p>
+<ol>
+<li>
+<p>关闭 SElinux <code>adb shell setenforce 0</code> 。因为 SELinux 仅允许 Simpleperf 运行在 Shell 或者是可以 debug 和可分析的应用中；</p>
+</li>
+<li>
+<p>在检测到情况的位置，添加如下代码：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">  // for capability check</span><br><span class="line">  Os.prctl(OsConstants.PR_CAP_AMBIENT, OsConstants.PR_CAP_AMBIENT_RAISE,</span><br><span class="line">           OsConstants.CAP_SYS_PTRACE, 0, 0);</span><br><span class="line">  // Write to /data instead of /data/local/tmp. Because /data can be written by system user.</span><br><span class="line">  Runtime.getRuntime().exec(&quot;/system/bin/simpleperf record -g -p &quot; + String.valueOf(Process.myPid())</span><br><span class="line">            + &quot; -o /data/perf.data --duration 30 --log-to-android-buffer --log verbose&quot;);</span><br><span class="line">&#125; catch (Exception e) &#123;</span><br><span class="line">  Slog.e(TAG, &quot;error while running simpleperf&quot;);</span><br><span class="line">  e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="分析设备启动"><a class="markdownIt-Anchor" href="#分析设备启动"></a> 分析设备启动</h1>
+<p>在 userdebug/eng 设备上，我们可以通过 Simpleperf 获取 boot-time 的配置。步骤如下所示：</p>
+<ol>
+<li>
+<p>先 root 设备，设置录制 boot-time 参数。Simpleperf 存储这些参数到 persist 属性值 <code>persist.simpleperf.boot_record</code> 。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">simpleperf boot-record --<span class="built_in">enable</span> <span class="string">&quot;-a -g --duration 10 --exclude-perf&quot;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>重启设备。当重启设备时，init 查询到这个 persist 属性已经设置的话，它就会 fork 一个后台进程执行 Simpleperf 录制 boot-time 的 profile。init 启动 Simpleperf 在 zygote-start 阶段（即 zygote 启动后）。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">adb reboot</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>在重启后，boot-time 的 profile 文件被存储在 <code>/data/simpleperf_boot_data</code> 路径下。然后，我们可以 pull 这个文件到主机进行分析。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">adb shell <span class="built_in">ls</span> /data/simpleperf_boot_data</span></span><br><span class="line">perf-20220126-11-47-51.data</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="深入学习-simpleperf"><a class="markdownIt-Anchor" href="#深入学习-simpleperf"></a> 深入学习 Simpleperf</h1>
+<h2 id="simpleperf-是如何工作的"><a class="markdownIt-Anchor" href="#simpleperf-是如何工作的"></a> Simpleperf 是如何工作的</h2>
+<p>现代的 CPU 有一个硬件组件叫做性能监控单元（Performance Monitoring Unit，PMU）。PMU 是一种硬件组件，是现代处理器中的一个重要部分。PMU 用于监测和记录处理器的性能相关指标，如指令执行次数、缓存命中率、分支预测等。PMU 可以通过配置硬件计数器来收集和记录不同的性能事件。每个计数器可以计算一个特定的事件，如指令执行、缓存访问、分支预测错误等。PMU 还提供了访问这些计数器值的接口，以便软件程序可以读取和利用这些信息。通过使用 PMU，开发者可以实时监测处理器的性能，并获取关键的性能指标。这些指标可以用于性能分析、瓶颈识别和优化应用程序的性能。PMU 的功能和接口在不同的处理器架构上可能会有所差异，但其基本原理和作用都是相似的。</p>
+<p>Linux Kernel 把这些硬件的计数器包含在了硬件的 perf events 中。Linux Kernel 也提供独立的硬件独立的软件事件和 tracepoint 事件。Linux Kernel 通过 perf_event_open 系统调用，将所有的事件暴露到用户空间，这就被 Simpleperf 使用到。</p>
+<p><img src="/images/simpleperf_how_to_work.png" alt="" /></p>
+<p>Simpleperf 的 stat 命令获取计数器的数值：</p>
+<p><img src="/images/simpleperf_stat.png" alt="" /></p>
+<p>Simpleperf 的 record 命令生成带样本的分析数据：</p>
+<p><img src="/images/simpleper_record.png" alt="" /></p>
+<h2 id="格式转换"><a class="markdownIt-Anchor" href="#格式转换"></a> 格式转换</h2>
+<p>在 Android 性能分析过程中，会使用 Simpleperf 抓取原始数据（使用 <code>.data</code>文件后缀表示它们），然后通过 Simpleperf 工具中的 Python 脚本进行分析，比如生成火焰图，函数调用堆栈等。Simpleperf 中提供了相关的脚本，可以把原始数据转换成其他工具（比如 Android Studio、PProf、FlameGrap等）能够识别的数据格式，从而在其他性能分析工具平台上展示它们。</p>
+<p>下图是使用 Simpleperf 工具生成数据文件的流向图。通常，不同的性能分析工具只能打开特定格式的数据文件，但是由于 <code>.perf</code> 格式在 Linux 中得到了<a href="https://link.zhihu.com/?target=https%3A//www.brendangregg.com/perf.html">广泛的支持和使用</a>，因此很多工具可以直接打开 <code>.perf</code> 格式的文件。<code>.perf</code>格式的文件宛如 Linux 端性能分析的万金油文件。</p>
+<p><img src="/images/simpleperf_format.png" alt="simpleperf_format" /></p>
+
+</div>
+
+<!-- post-guide -->
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2023/11/25/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/02%20%E5%B7%A5%E5%85%B7/01%20Systrace/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  Systrace
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+        </div>
+    </div>
+
+
+<!-- comment - giscus -->
+
+
+<!-- comment - valine -->
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©<span id="footerYear-start"></span>-<span id="footerYear-end"></span>
+
+	
+	    <a href="/">Harvey Xie</a>
+	
+	
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+<!-- 	by <a href="//wujun.me" target="_blank">Wu Jun</a> -->
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+
+
+<script type="text/javascript">
+	document.getElementById('footerYear-start').innerHTML = new Date().getFullYear() + '';
+</script>
+
+<script type="text/javascript">
+	document.getElementById('footerYear-end').innerHTML = new Date().getFullYear() + '';
+</script>
+
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

@@ -293,7 +293,7 @@ a {
 	line-height: 45px;
 	margin: 15px 0 10px;
 	font-size: 25px;
-	padding-left: 10px;
+	/*padding-left: 10px;*/
 	border-bottom: 1px solid #ddd;
 }
 #article-content h3 {

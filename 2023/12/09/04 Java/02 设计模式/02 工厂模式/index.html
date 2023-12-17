@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		工厂模式 | 
+	 
+	Harvey&#39;s Notes
+	</title>
+	
+	<!-- keywords,description -->
+	
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+
+	
+	
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+	<header id="header">
+    <a id="title" href="/" class="logo">Harvey's Notes</a>
+
+	<ul id="menu">
+    
+      <li class="menu-item">
+        <a href="/about" class="menu-item-link">About</a>
+      </li>
+    
+
+    
+
+    
+
+    
+  
+    
+      <li class="menu-item">
+        <a href='https://harveyxie22.github.io' class="menu-item-link" target="_blank">
+          <i class="fa fa-github fa-2x"></i>
+        </a>
+      </li>
+    
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="Press Enter to search">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 计算机基础
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/01%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/01%20%E8%BF%9B%E5%88%B6%E6%95%B0%E5%92%8C%E5%AD%98%E5%82%A8%E5%8D%95%E4%BD%8D/">
+                     
+										    01 进制数和存储单位
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/01%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/02%20ASCII%20%E7%A0%81%E8%A1%A8/">
+                     
+										    02 ASCII 码表
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/01%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/03%20%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">
+                     
+										    03 开源协议
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 C
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/02%20C/01%20%E5%85%A5%E9%97%A8%E4%BB%8B%E7%BB%8D/">
+                     
+										    01 入门介绍
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/02%20C/02%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6/">
+                     
+										    02 数据类型与运算符
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/03%20%E6%95%B0%E7%BB%84/">
+                     
+										    03 数组
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/04%20%E6%8C%87%E9%92%88/">
+                     
+										    04 指针
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/05%20%E5%AE%8F%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%B8%B8%E9%87%8F/">
+                     
+										    05 宏定义与常量
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/06%20%E5%87%BD%E6%95%B0/">
+                     
+										    06 函数
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/07%20%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+                     
+										    07 字符串
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/19/02%20C/08%20%E7%BB%93%E6%9E%84%E4%BD%93/">
+                     
+										    08 结构体
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/16/02%20C/09%20%E6%96%87%E4%BB%B6/">
+                     
+										    09 文件
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/16/02%20C/10%20%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E4%B8%8E%E5%86%85%E5%AD%98%E5%9B%9B%E5%8C%BA/">
+                     
+										    10 编译过程与内存四区
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										03 C++
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/03%20C++/hello-world/">
+                     
+										    hello-world
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										04 Java
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 高级进阶
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/01%20%E5%8F%8D%E5%B0%84/">
+                     
+										    01 反射
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/02%20%E6%B3%A8%E8%A7%A3/">
+                     
+										    02 注解
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/03%20%E6%B3%9B%E5%9E%8B/">
+                     
+										    03 泛型
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/04%20%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">
+                     
+										    04 序列化和反序列化
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/05%20%E7%BA%BF%E7%A8%8B/">
+                     
+										    05 线程
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 设计模式
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/12/09/04%20Java/02%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/01%20%E5%BC%95%E8%A8%80/">
+                     
+										    01 引言
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/2023/12/09/04%20Java/02%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/02%20%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+                     
+										    02 工厂模式
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/09/04%20Java/02%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/03%20%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
+                     
+										    03 单例模式
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										05 Android
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 Framework
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/05%20Android/01%20Framework/01%20%E4%B8%8B%E8%BD%BD%20AOSP%20%E6%BA%90%E7%A0%81/">
+                     
+										    01 下载 AOSP 源码
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/05%20Android/01%20Framework/02%20Android%E7%89%88%E6%9C%AC%E5%8F%B7/">
+                     
+										    02 Android版本号
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 性能调优
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 基础命令
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/12/17/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/01%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/01%20%E8%BF%9B%E5%85%A5%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+                     
+										    01 进入工厂模式
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/17/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/01%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/02%20%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF/">
+                     
+										    02 设备信息
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 工具
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/02%20%E5%B7%A5%E5%85%B7/01%20Systrace/">
+                     
+										    01 Systrace
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/02%20%E5%B7%A5%E5%85%B7/02%20Simpleperf/">
+                     
+										    02 Simpleperf
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										03 测试
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/27/05%20Android/03%20%E6%B5%8B%E8%AF%95/UI%E6%B5%8B%E8%AF%95/">
+                     
+										    UI测试
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										06 Linux
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 Ubuntu 基础使用
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8%E6%A1%8C%E9%9D%A2%E5%9B%BE%E6%A0%87/">
+                     
+										    创建应用桌面图标
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E5%90%AF%E5%8A%A8Springboot%E5%B7%A5%E7%A8%8B/">
+                     
+										    启动Springboot工程
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E5%AE%89%E8%A3%85ADB%E3%80%81AAPT%E3%80%81JAVA/">
+                     
+										    安装ADB、AAPT、JAVA
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E6%9B%B4%E6%96%B0%E8%BD%AF%E4%BB%B6%E6%BA%90/">
+                     
+										    更新软件源
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										09 Hexo
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/27/09%20Hexo/Typora+Hexo%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%E5%8A%9E%E6%B3%95/">
+                     
+										    Typora+Hexo图片处理办法
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										11 读书笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/11%20%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E4%B8%BA%E4%BB%80%E4%B9%88%E7%B2%BE%E8%8B%B1%E9%83%BD%E6%98%AF%E6%97%B6%E9%97%B4%E6%8E%A7/">
+                     
+										    为什么精英都是时间控
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content" class="content">
+		<h1 id="article-title">
+	工厂模式
+</h1>
+
+<!-- meta -->
+<div class="article-meta">
+	
+
+	<span>Harvey Xie</span>
+	<span>2023-12-09 15:30:00</span>
+
+  <div id="article-categories">
+    
+		  <span>Categories：</span>
+      
+          
+              <span>
+                  <i class="fa fa-folder" aria-hidden="true">
+                  <a href="/categories/Java/">Java</a>
+                  </i>
+                
+              </span>
+          
+      
+    
+
+    
+		    <span>Tags：</span>
+        
+            
+                <span>
+                    <i class="fa fa-tag" aria-hidden="true">
+                    <a href="/tags/设计模式/">设计模式</a>
+                    </i>
+                </span>
+            
+        
+    
+  </div>
+
+</div>
+
+<!-- content -->
+<div id="article-content">
+	<p>工厂模式（Factory Pattern）是 Java 中最常用的设计模式之一，有时该模式也被称为简单工厂模式。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。在工厂模式中，我们在创建对象时不会对客户端暴露创建逻辑，并且是通过使用一个共同的接口来指向新创建的对象。</p>
+<p>在 Java 中，有三种常见的工厂模式：</p>
+<ol>
+<li>简单工厂模式：是最基本的工厂模式，它通过一个工厂类来创建不同类型的对象。客户端只需要传递一个参数给工厂类，就可以获得所需的对象。</li>
+<li>工厂方法模式：通过定义一个工厂接口来创建对象，每个具体的工厂类都实现该接口并负责创建自己的对象。这样可以让一个类的实例化延迟到其子类中，并且封装了实例化的过程。</li>
+<li>抽象工厂模式：是最复杂的一种工厂模式，它通过定义一个抽象工厂接口来创建一组相关或相互依赖的对象。每个具体的工厂类都实现该接口并负责创建属于自己的对象。</li>
+</ol>
+<h1 id="工厂模式"><a class="markdownIt-Anchor" href="#工厂模式"></a> 工厂模式</h1>
+<h2 id="简单工厂模式"><a class="markdownIt-Anchor" href="#简单工厂模式"></a> 简单工厂模式</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">draw</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现接口的具体类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Circle</span> <span class="keyword">implements</span> <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">draw</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Circle.draw()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现接口的具体类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Rectangle</span> <span class="keyword">implements</span> <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">draw</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Rectangle.draw()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现工厂类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ShapeFactory</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Shape <span class="title function_">getShape</span><span class="params">(String shapeType)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (shapeType == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (shapeType.equalsIgnoreCase(<span class="string">&quot;CIRCLE&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Circle</span>();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (shapeType.equalsIgnoreCase(<span class="string">&quot;RECTANGLE&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Rectangle</span>();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 客户端调用</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Client</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Shape</span> <span class="variable">circle</span> <span class="operator">=</span> ShapeFactory.getShape(<span class="string">&quot;Circle&quot;</span>);</span><br><span class="line">        circle.draw();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="工厂方法模式"><a class="markdownIt-Anchor" href="#工厂方法模式"></a> 工厂方法模式</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">draw</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现接口的具体类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Circle</span> <span class="keyword">implements</span> <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">draw</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Circle.draw()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现接口的具体类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Rectangle</span> <span class="keyword">implements</span> <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">draw</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Rectangle.draw()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个工厂接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">ShapeFactory</span> &#123;</span><br><span class="line">    Shape <span class="title function_">getShape</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现工厂接口的具体类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CircleFactory</span> <span class="keyword">implements</span> <span class="title class_">ShapeFactory</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Shape <span class="title function_">getShape</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Circle</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现工厂接口的具体类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RectangleFactory</span> <span class="keyword">implements</span> <span class="title class_">ShapeFactory</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Shape <span class="title function_">getShape</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Rectangle</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="抽象工厂模式"><a class="markdownIt-Anchor" href="#抽象工厂模式"></a> 抽象工厂模式</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义形状接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">draw</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现形状接口的具体类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Circle</span> <span class="keyword">implements</span> <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">draw</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Circle.draw()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现形状接口的具体类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Rectangle</span> <span class="keyword">implements</span> <span class="title class_">Shape</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">draw</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Rectangle.draw()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义颜色接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Color</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">fill</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现颜色接口的具体类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Red</span> <span class="keyword">implements</span> <span class="title class_">Color</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">fill</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Red.fill()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现颜色接口的具体类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Blue</span> <span class="keyword">implements</span> <span class="title class_">Color</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">fill</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Blue.fill()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义抽象工厂接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">AbstractFactory</span> &#123;</span><br><span class="line">    Shape <span class="title function_">getShape</span><span class="params">(String shapeType)</span>;</span><br><span class="line">    Color <span class="title function_">getColor</span><span class="params">(String colorType)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现抽象工厂接口的具体类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ShapeFactory</span> <span class="keyword">implements</span> <span class="title class_">AbstractFactory</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Shape <span class="title function_">getShape</span><span class="params">(String shapeType)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (shapeType.equalsIgnoreCase(<span class="string">&quot;CIRCLE&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Circle</span>();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (shapeType.equalsIgnoreCase(<span class="string">&quot;RECTANGLE&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Rectangle</span>();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Color <span class="title function_">getColor</span><span class="params">(String colorType)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现抽象工厂接口的具体类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ColorFactory</span> <span class="keyword">implements</span> <span class="title class_">AbstractFactory</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Shape <span class="title function_">getShape</span><span class="params">(String shapeType)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Color <span class="title function_">getColor</span><span class="params">(String colorType)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (colorType.equalsIgnoreCase(<span class="string">&quot;RED&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Red</span>();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (colorType.equalsIgnoreCase(<span class="string">&quot;BLUE&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Blue</span>();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 客户端调用</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Client</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">AbstractFactory</span> <span class="variable">shapeFactory</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ShapeFactory</span>();</span><br><span class="line">        <span class="type">Shape</span> <span class="variable">circle</span> <span class="operator">=</span> shapeFactory.getShape(<span class="string">&quot;Circle&quot;</span>);</span><br><span class="line">        circle.draw();</span><br><span class="line"></span><br><span class="line">        <span class="type">AbstractFactory</span> <span class="variable">colorFactory</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ColorFactory</span>();</span><br><span class="line">        <span class="type">Color</span> <span class="variable">red</span> <span class="operator">=</span> colorFactory.getColor(<span class="string">&quot;Red&quot;</span>);</span><br><span class="line">        red.fill();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="优缺点"><a class="markdownIt-Anchor" href="#优缺点"></a> 优缺点</h1>
+<table>
+<thead>
+<tr>
+<th>特点\模式</th>
+<th>简单工厂模式</th>
+<th>工厂方法模式</th>
+<th>抽象工厂模式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>优点</td>
+<td>1. 简单工厂模式的实现简单，客户端可以通过工厂类来获取所需的对象，而不需要知道具体的创建逻辑；<br/>2. 对象的创建和使用被分离，客户端只需要知道接口和工厂类即可，降低了耦合度。</td>
+<td>1. 工厂方法模式符合开闭原则，当需要增加新的产品时，只需要添加新的工厂类即可，不需要修改现有的代码；<br/>2. 每个具体的工厂类负责创建自己的对象，遵循了单一职责原则，降低了代码的耦合度。</td>
+<td>1. 抽象工厂模式可以创建一组相关或相互依赖的对象，适用于复杂的产品族场景。<br/>2. 客户端可以完全抽象地使用产品，不需要知道具体的工厂和产品。</td>
+</tr>
+<tr>
+<td>缺点</td>
+<td>1. 随着产品类型的增多，工厂方法可能会变得比较复杂，违背了开闭原则；<br/>2. 工厂类集中了所有产品的创建逻辑，一旦出现问题，会影响所有产品的创建。</td>
+<td>1. 需要为每个产品定义一个具体的工厂类，会导致类的数量增加。 <br/>2. 客户端需要知道所需产品的具体工厂类，增加了客户端与具体工厂的依赖。</td>
+<td>1. 当需要增加新的产品时，需要修改抽象工厂接口以及所有的具体工厂类，违背了开闭原则。 <br/>2. 增加新的产品族会导致抽象工厂接口和所有具体工厂类的修改，系统变得复杂。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="经典案例"><a class="markdownIt-Anchor" href="#经典案例"></a> 经典案例</h1>
+<h2 id="javautilcalendar"><a class="markdownIt-Anchor" href="#javautilcalendar"></a> java.util.Calendar</h2>
+<p>在 Java 中，<code>java.util.Calendar</code> 类使用了工厂方法模式来创建和获取特定的日历实例。这个工厂方法是 <code>Calendar.getInstance()</code>。</p>
+<p>该方法是一个静态方法，它根据当前的时区和区域设置返回一个特定类型的日历对象。具体返回的日历对象类型取决于不同的条件，如时区、区域设置等。</p>
+<p>工厂方法的设计思想是将对象的创建逻辑封装在一个工厂类中，通过调用工厂方法来创建对象，而不是直接使用构造函数。这样做的好处是客户端代码不需要知道具体的创建逻辑，降低了代码的耦合度。</p>
+<p>在 <code>Calendar</code> 类中，通过使用工厂方法 <code>getInstance()</code> 来获取日历实例，代码示例如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Calendar;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Calendar</span> <span class="variable">calendar</span> <span class="operator">=</span> Calendar.getInstance(); <span class="comment">// 获取默认的日历对象</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 可以根据不同的时区和区域设置获取特定的日历实例</span></span><br><span class="line">        <span class="comment">// 例如：</span></span><br><span class="line">        <span class="comment">// Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone(&quot;GMT+8&quot;));</span></span><br><span class="line">        <span class="comment">// Calendar calendar = Calendar.getInstance(Locale.CHINA);</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用日历对象进行操作</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">year</span> <span class="operator">=</span> calendar.get(Calendar.YEAR);</span><br><span class="line">        <span class="type">int</span> <span class="variable">month</span> <span class="operator">=</span> calendar.get(Calendar.MONTH) + <span class="number">1</span>; <span class="comment">// 月份从 0 开始，需要加 1</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">dayOfMonth</span> <span class="operator">=</span> calendar.get(Calendar.DAY_OF_MONTH);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;当前日期：&quot;</span> + year + <span class="string">&quot;-&quot;</span> + month + <span class="string">&quot;-&quot;</span> + dayOfMonth);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过调用 <code>Calendar.getInstance()</code> 方法，我们无需关注具体的日历对象是如何创建的，而是通过工厂方法来获取了一个特定的日历实例。这使得代码更加简洁、可读性更好，并且在不同的环境中可以根据配置灵活地返回不同类型的日历实例。</p>
+<h2 id="log4j-日志框架中的-logger-类"><a class="markdownIt-Anchor" href="#log4j-日志框架中的-logger-类"></a> Log4j 日志框架中的 <code>Logger</code> 类</h2>
+<p>Log4j 日志框架中的 <code>Logger</code> 类使用了工厂模式来创建和获取日志记录器对象。这个工厂方法是 <code>Logger.getLogger()</code>。</p>
+<p>工厂方法模式将对象的创建逻辑封装在一个工厂类中，通过调用工厂方法来创建对象，而不是直接使用构造函数。在 Log4j 中，<code>Logger</code> 类充当了工厂类的角色，<code>getLogger()</code> 方法是工厂方法，用于创建和获取日志记录器对象。</p>
+<p><code>Logger.getLogger()</code> 方法接受一个字符串参数，用于指定要创建的日志记录器对象的名称。通常，我们会使用类的全限定名作为日志记录器对象的名称，以便在日志输出中能够准确地识别和定位日志来源。</p>
+<p>以下是使用 Log4j 的示例代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">javaCopy Codeimport org.apache.log4j.Logger;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Logger</span> <span class="variable">logger</span> <span class="operator">=</span> Logger.getLogger(Main.class);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 使用日志记录器对象输出日志信息</span></span><br><span class="line">        logger.debug(<span class="string">&quot;Debug message&quot;</span>);</span><br><span class="line">        logger.info(<span class="string">&quot;Info message&quot;</span>);</span><br><span class="line">        logger.warn(<span class="string">&quot;Warning message&quot;</span>);</span><br><span class="line">        logger.error(<span class="string">&quot;Error message&quot;</span>);</span><br><span class="line">        logger.fatal(<span class="string">&quot;Fatal message&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上述代码中，通过 <code>Logger.getLogger(Main.class)</code> 方法获取了一个名为 “Main” 的日志记录器对象。然后，我们可以使用该日志记录器对象调用不同级别的日志输出方法，如 <code>debug()</code>、<code>info()</code>、<code>warn()</code> 等，来输出对应级别的日志信息。</p>
+<p>Log4j 会根据配置文件中的日志级别设置来决定是否输出特定级别的日志信息。通过工厂方法获取日志记录器对象，我们可以在整个应用程序中共享和复用同一个日志记录器，方便地进行统一的日志管理和控制。</p>
+<h2 id="android-中的-layoutinflater-类"><a class="markdownIt-Anchor" href="#android-中的-layoutinflater-类"></a> Android 中的 <code>LayoutInflater</code> 类</h2>
+<p>Android 中的 <code>LayoutInflater</code> 类使用了工厂模式来动态地创建视图对象。<code>LayoutInflater</code> 是用于将 XML 布局文件解析为相应的视图对象的类。</p>
+<p>在 Android 中，我们通常使用 XML 布局文件来定义应用程序的用户界面。<code>LayoutInflater</code> 类充当了一个工厂类的角色，<code>inflate()</code> 方法是工厂方法，用于根据布局文件创建视图对象。</p>
+<p><code>inflate()</code> 方法接受两个参数：要解析的布局文件的资源 ID 和可选的父视图。它会解析指定的布局文件，并将其转换为对应的视图对象。如果提供了可选的父视图参数，那么解析出来的视图对象将被添加到该父视图中。</p>
+<p>以下是使用 <code>LayoutInflater</code> 的示例代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">javaCopy Codeimport android.content.Context;</span><br><span class="line"><span class="keyword">import</span> android.view.LayoutInflater;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"><span class="keyword">import</span> android.view.ViewGroup;</span><br><span class="line"><span class="keyword">import</span> androidx.appcompat.app.AppCompatActivity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainActivity</span> <span class="keyword">extends</span> <span class="title class_">AppCompatActivity</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取 LayoutInflater 实例</span></span><br><span class="line">        <span class="type">LayoutInflater</span> <span class="variable">inflater</span> <span class="operator">=</span> (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 解析布局文件并创建视图对象</span></span><br><span class="line">        <span class="type">View</span> <span class="variable">rootView</span> <span class="operator">=</span> inflater.inflate(R.layout.custom_view, (ViewGroup) findViewById(R.id.container), <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 将视图对象添加到父视图中</span></span><br><span class="line">        <span class="type">ViewGroup</span> <span class="variable">parentView</span> <span class="operator">=</span> findViewById(R.id.container);</span><br><span class="line">        parentView.addView(rootView);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上述代码中，我们首先通过 <code>getSystemService()</code> 方法获取系统服务 <code>LayoutInflater</code> 的实例。然后，通过调用 <code>inflate()</code> 方法，传入要解析的布局文件的资源 ID 和可选的父视图，来创建一个视图对象。</p>
+<p>最后，我们可以将创建的视图对象添加到指定的父视图中，以在用户界面中显示出来。</p>
+<p>通过使用 <code>LayoutInflater</code> 类的工厂方法 <code>inflate()</code>，我们可以在运行时动态地创建视图对象，使得应用程序的界面更加灵活和可扩展。</p>
+
+</div>
+
+<!-- post-guide -->
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2023/12/09/04%20Java/02%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/01%20%E5%BC%95%E8%A8%80/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  引言
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2023/12/09/04%20Java/02%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/03%20%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
+                单例模式
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+<!-- comment - giscus -->
+
+
+<!-- comment - valine -->
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©<span id="footerYear-start"></span>-<span id="footerYear-end"></span>
+
+	
+	    <a href="/">Harvey Xie</a>
+	
+	
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+<!-- 	by <a href="//wujun.me" target="_blank">Wu Jun</a> -->
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+
+
+<script type="text/javascript">
+	document.getElementById('footerYear-start').innerHTML = new Date().getFullYear() + '';
+</script>
+
+<script type="text/javascript">
+	document.getElementById('footerYear-end').innerHTML = new Date().getFullYear() + '';
+</script>
+
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

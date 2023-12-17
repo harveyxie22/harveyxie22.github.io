@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		进制数、存储单位 | 
+	 
+	Harvey&#39;s Notes
+	</title>
+	
+	<!-- keywords,description -->
+	
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+
+	
+	
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+	<header id="header">
+    <a id="title" href="/" class="logo">Harvey's Notes</a>
+
+	<ul id="menu">
+    
+      <li class="menu-item">
+        <a href="/about" class="menu-item-link">About</a>
+      </li>
+    
+
+    
+
+    
+
+    
+  
+    
+      <li class="menu-item">
+        <a href='https://harveyxie22.github.io' class="menu-item-link" target="_blank">
+          <i class="fa fa-github fa-2x"></i>
+        </a>
+      </li>
+    
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="Press Enter to search">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 计算机基础
+									</a>
+									
+							<ul>
+								<li class="file active">
+									<a href="/2023/11/26/01%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/01%20%E8%BF%9B%E5%88%B6%E6%95%B0%E5%92%8C%E5%AD%98%E5%82%A8%E5%8D%95%E4%BD%8D/">
+                     
+										    01 进制数和存储单位
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/01%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/02%20ASCII%20%E7%A0%81%E8%A1%A8/">
+                     
+										    02 ASCII 码表
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/01%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/03%20%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">
+                     
+										    03 开源协议
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 C
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/02%20C/01%20%E5%85%A5%E9%97%A8%E4%BB%8B%E7%BB%8D/">
+                     
+										    01 入门介绍
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/02%20C/02%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6/">
+                     
+										    02 数据类型与运算符
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/03%20%E6%95%B0%E7%BB%84/">
+                     
+										    03 数组
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/04%20%E6%8C%87%E9%92%88/">
+                     
+										    04 指针
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/05%20%E5%AE%8F%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%B8%B8%E9%87%8F/">
+                     
+										    05 宏定义与常量
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/06%20%E5%87%BD%E6%95%B0/">
+                     
+										    06 函数
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/07%20%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+                     
+										    07 字符串
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/19/02%20C/08%20%E7%BB%93%E6%9E%84%E4%BD%93/">
+                     
+										    08 结构体
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/16/02%20C/09%20%E6%96%87%E4%BB%B6/">
+                     
+										    09 文件
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/16/02%20C/10%20%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E4%B8%8E%E5%86%85%E5%AD%98%E5%9B%9B%E5%8C%BA/">
+                     
+										    10 编译过程与内存四区
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										03 C++
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/03%20C++/hello-world/">
+                     
+										    hello-world
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										04 Java
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 高级进阶
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/01%20%E5%8F%8D%E5%B0%84/">
+                     
+										    01 反射
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/02%20%E6%B3%A8%E8%A7%A3/">
+                     
+										    02 注解
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/03%20%E6%B3%9B%E5%9E%8B/">
+                     
+										    03 泛型
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/04%20%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">
+                     
+										    04 序列化和反序列化
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/05%20%E7%BA%BF%E7%A8%8B/">
+                     
+										    05 线程
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 设计模式
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/12/09/04%20Java/02%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/01%20%E5%BC%95%E8%A8%80/">
+                     
+										    01 引言
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/09/04%20Java/02%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/02%20%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+                     
+										    02 工厂模式
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/09/04%20Java/02%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/03%20%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
+                     
+										    03 单例模式
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										05 Android
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 Framework
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/05%20Android/01%20Framework/01%20%E4%B8%8B%E8%BD%BD%20AOSP%20%E6%BA%90%E7%A0%81/">
+                     
+										    01 下载 AOSP 源码
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/05%20Android/01%20Framework/02%20Android%E7%89%88%E6%9C%AC%E5%8F%B7/">
+                     
+										    02 Android版本号
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 性能调优
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 基础命令
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/12/17/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/01%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/01%20%E8%BF%9B%E5%85%A5%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+                     
+										    01 进入工厂模式
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/17/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/01%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/02%20%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF/">
+                     
+										    02 设备信息
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 工具
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/02%20%E5%B7%A5%E5%85%B7/01%20Systrace/">
+                     
+										    01 Systrace
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/02%20%E5%B7%A5%E5%85%B7/02%20Simpleperf/">
+                     
+										    02 Simpleperf
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										03 测试
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/27/05%20Android/03%20%E6%B5%8B%E8%AF%95/UI%E6%B5%8B%E8%AF%95/">
+                     
+										    UI测试
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										06 Linux
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 Ubuntu 基础使用
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8%E6%A1%8C%E9%9D%A2%E5%9B%BE%E6%A0%87/">
+                     
+										    创建应用桌面图标
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E5%90%AF%E5%8A%A8Springboot%E5%B7%A5%E7%A8%8B/">
+                     
+										    启动Springboot工程
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E5%AE%89%E8%A3%85ADB%E3%80%81AAPT%E3%80%81JAVA/">
+                     
+										    安装ADB、AAPT、JAVA
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E6%9B%B4%E6%96%B0%E8%BD%AF%E4%BB%B6%E6%BA%90/">
+                     
+										    更新软件源
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										09 Hexo
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/27/09%20Hexo/Typora+Hexo%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%E5%8A%9E%E6%B3%95/">
+                     
+										    Typora+Hexo图片处理办法
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										11 读书笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/11%20%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E4%B8%BA%E4%BB%80%E4%B9%88%E7%B2%BE%E8%8B%B1%E9%83%BD%E6%98%AF%E6%97%B6%E9%97%B4%E6%8E%A7/">
+                     
+										    为什么精英都是时间控
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content" class="content">
+		<h1 id="article-title">
+	进制数、存储单位
+</h1>
+
+<!-- meta -->
+<div class="article-meta">
+	
+
+	<span>Harvey Xie</span>
+	<span>2023-11-26 15:26:00</span>
+
+  <div id="article-categories">
+    
+		  <span>Categories：</span>
+      
+          
+              <span>
+                  <i class="fa fa-folder" aria-hidden="true">
+                  <a href="/categories/计算机基础/">计算机基础</a>
+                  </i>
+                
+              </span>
+          
+      
+    
+
+    
+		    <span>Tags：</span>
+        
+            
+                <span>
+                    <i class="fa fa-tag" aria-hidden="true">
+                    <a href="/tags/计算机基础/">计算机基础</a>
+                    </i>
+                </span>
+            
+        
+    
+  </div>
+
+</div>
+
+<!-- content -->
+<div id="article-content">
+	<p>进制也就是进位计数制，是人为定义的带进位的计数方法。对于任何一个进制，表示的含义是每逢多少进1位。例如十进制表示的含义就是每逢十进一，十六进制就是每逢十六进一。</p>
+<p>在计算机中，常见的进制数有二进制、八进制、十进制和十六进制。二进制是计算机唯一能够直接识别的进制数，十进制是现实日常生活中最常用的进制数。八进制的出现是由于二进制的不方便，早期在小型机中引入八进制。随着计算机的发展，八进制后来表示的数字也太长，于是出现了十六进制。</p>
+<h1 id="进制表"><a class="markdownIt-Anchor" href="#进制表"></a> 进制表</h1>
+<p>每一种进制数都由特定的字母（元素）组成。</p>
+<table>
+<thead>
+<tr>
+<th>进制</th>
+<th>组成元素</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>二进制（Binary）</td>
+<td>0、1</td>
+</tr>
+<tr>
+<td>八进制（Octonary）</td>
+<td>0、1、2、3、4、5、6、7</td>
+</tr>
+<tr>
+<td>十进制（Decimal）</td>
+<td>0、1、2、3、4、5、6、7、8、9</td>
+</tr>
+<tr>
+<td>十六进制（Hexadecimal）</td>
+<td>0、1、2、3、4、5、6、7、8、9、A、B、C、D、E、F</td>
+</tr>
+</tbody>
+</table>
+<p>二进制、八进制、十进制和十六进制的对应关系表。</p>
+<table>
+<thead>
+<tr>
+<th>十进制</th>
+<th>二进制</th>
+<th>八进制</th>
+<th>十六进制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>10</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>11</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>100</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>101</td>
+<td>5</td>
+<td>5</td>
+</tr>
+<tr>
+<td>6</td>
+<td>110</td>
+<td>6</td>
+<td>6</td>
+</tr>
+<tr>
+<td>7</td>
+<td>111</td>
+<td>7</td>
+<td>7</td>
+</tr>
+<tr>
+<td>8</td>
+<td>1000</td>
+<td>10</td>
+<td>8</td>
+</tr>
+<tr>
+<td>9</td>
+<td>1001</td>
+<td>11</td>
+<td>9</td>
+</tr>
+<tr>
+<td>10</td>
+<td>1010</td>
+<td>12</td>
+<td>A</td>
+</tr>
+<tr>
+<td>11</td>
+<td>1011</td>
+<td>13</td>
+<td>B</td>
+</tr>
+<tr>
+<td>12</td>
+<td>1100</td>
+<td>14</td>
+<td>C</td>
+</tr>
+<tr>
+<td>13</td>
+<td>1101</td>
+<td>15</td>
+<td>D</td>
+</tr>
+<tr>
+<td>14</td>
+<td>1110</td>
+<td>16</td>
+<td>E</td>
+</tr>
+<tr>
+<td>15</td>
+<td>1111</td>
+<td>17</td>
+<td>F</td>
+</tr>
+<tr>
+<td>16</td>
+<td>10000</td>
+<td>20</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<h1 id="进制转换"><a class="markdownIt-Anchor" href="#进制转换"></a> 进制转换</h1>
+<p>十进制转任意进制的方法是“基数取余，反向输出法”。二进制的基数是2，八进制的基数是8，十六进制的基数是16。十进制转成它们的时候，只需要把十进制的数字除以基数，取余后继续除基数，直到余数小于基数，最后反向输出即可。例如，把十进制的100分别转换成二进制、八进制和十六进制的过程是：</p>
+<p><img src="/images/1684681810243-95571185-fb17-4938-bb0c-91e60220fad6.png" alt="img" /></p>
+<ol>
+<li>十进制转二进制<br />
+100 ÷ 2 = 50…0; 50 ÷ 2 = 25…0; 25 ÷ 2 = 12…1; …直到除尽，最后把余数反向输出就是十进制100转二进制的结果1100100。</li>
+<li>十进制转八进制<br />
+100 ÷ 8 = 12…4; 12 ÷ 8 = 1…4; 最后把余数反向输出就是十进制100转八进制的结果144。</li>
+<li>十进制转十六进制<br />
+100 ÷ 16 = 6…4; 最后把余数反向输出就是十进制100转十六进制的结果64。</li>
+</ol>
+<p>十进制转任意进制，主要能够确定进制的基数，就可以模仿上述的方式进行计算。</p>
+<h3 id="任意进制转十进制"><a class="markdownIt-Anchor" href="#任意进制转十进制"></a> 任意进制转十进制</h3>
+<p>任意进制转十进制的方法是“权（基数）自右向左，按权（基数）求和”。例如把二进制1100100、八进制144和十六进制64转换成十进制的过程是：</p>
+<p><img src="/images/1684681850472-e9d52679-5e97-434e-a6fa-2d15a2dbaf31.png" alt="img" /></p>
+<ol>
+<li>二进制转十进制<br />
+自右向左，分别是基数的0次方、1次方、2次方、3次方，然后与二进制的每一位一一对应，最后把二进制乘以基数次方，全部相加的结果就是二进制1100100转换成十进制的结果100。</li>
+<li>八进制转十进制<br />
+原理与二进制转十进制相同。</li>
+<li>十六进制转十进制<br />
+原理与二进制转十进制相同。</li>
+</ol>
+<p>任意进制转十进制，主要能够确定进制的基数，就可以模仿上述的方式进行计算。</p>
+<h3 id="二进制转八和十六进制"><a class="markdownIt-Anchor" href="#二进制转八和十六进制"></a> 二进制转八和十六进制</h3>
+<p>二进制、八进制和十六进制之间的转换可以依靠中间的十进制过渡计算，也可以向将它们全部转成二进制，通过二进制过渡进行计算。若选择使用二进制过渡，则需要记住：八进制三位一隔开，十六进制四位一隔开。因为八进制最多使用3位二进制数（23=8）就可以全部表示，十六进制最多使用4位二进制数（24=16）就可以全部表示。例如二进制1100100分别转换成八进制和十六进制的过程如下：</p>
+<p><img src="/images/1684681870767-63517601-21f3-4048-ab27-49a7816c0c82.png" alt="img" /></p>
+<h3 id="八和十六进制转二进制"><a class="markdownIt-Anchor" href="#八和十六进制转二进制"></a> 八和十六进制转二进制</h3>
+<p>与二进制转八和十六进制类似，将上述的过程逆过来即可。</p>
+<h1 id="存储单位"><a class="markdownIt-Anchor" href="#存储单位"></a> 存储单位</h1>
+<p>在计算机内部，信息都是釆用二进制的形式进行存储、运算、处理和传输的。信息存储单位有位、字节和字等几种。各种存储设备存储容量单位有KB、MB、GB和TB等几种。</p>
+<ul>
+<li>位（bit）：二进制数中的一个数位，可以是0或者1，是计算机中数据的最小单位。</li>
+<li>字节（Byte，B）：计算机中数据的基本单位，每8位组成一个字节。各种信息在计算机中存储、处理至少需要一个字节。例如，一个ASCII码用一个字节表示，一个汉字用两个字节表示。</li>
+<li>字（Word）：两个字节称为一个字。汉字的存储单位都是一个字。</li>
+</ul>
+<h2 id="存储换算"><a class="markdownIt-Anchor" href="#存储换算"></a> 存储换算</h2>
+<table>
+<thead>
+<tr>
+<th>存储换算</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 Byte = 8 bits 有时候也写成：1B = 8b</td>
+</tr>
+<tr>
+<td>1 KB = 1024 B</td>
+</tr>
+<tr>
+<td>1 MB = 1024 KB</td>
+</tr>
+<tr>
+<td>1 GB = 1024 MB</td>
+</tr>
+<tr>
+<td>1 TB = 1024 GB</td>
+</tr>
+</tbody>
+</table>
+<h1 id="原码-反码-补码"><a class="markdownIt-Anchor" href="#原码-反码-补码"></a> 原码、反码、补码</h1>
+<p>计算机底层存储数据时使用的是二进制，但是这个二进制并不是该数字的直接二进制，而是存储该数字的二进制补码。再了解补码之前，需要先了解什么是原码和反码。</p>
+<h2 id="原码"><a class="markdownIt-Anchor" href="#原码"></a> 原码</h2>
+<p>原码的表示与实际的数字是一样的，只不过使用最高位表示符号位，其他位表示数值大小。正数的符号位是0，负数的符号位是1。例如十进制100和-100的原码表示是：</p>
+<p>十进制100：0110 0100</p>
+<p>十进制-100：1110 0100</p>
+<h2 id="反码"><a class="markdownIt-Anchor" href="#反码"></a> 反码</h2>
+<p>正数的反码是其本身，负数的反码在原码的基础上，符号位不变，其余各位取反。正数的符号位是0，负数的符号位是1。例如十进制100和-100的反码表示是：</p>
+<p>十进制100：0110 0100</p>
+<p>十进制-100：1001 1011</p>
+<h2 id="补码"><a class="markdownIt-Anchor" href="#补码"></a> 补码</h2>
+<p>正数的补码是其本身，负数的补码在原码的基础上，符号位不变，其余各位取反后加1。也即：负数的补码在反码的基础上直接加1。例如十进制100和-100的补码表示是：</p>
+<p>十进制100：0110 0100</p>
+<p>十进制-100：1001 1100</p>
+<h2 id="深入理解三者关系"><a class="markdownIt-Anchor" href="#深入理解三者关系"></a> 深入理解三者关系</h2>
+<p>要想深入的理解原码、反码和补码的关系，可以参考 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhangziqiu/archive/2011/03/30/ComputerCode.html">张子秋</a> 同学发表的一篇博文。对于正数而言，不管是原码、反码还是补码，编码得到的结果都是一样的。但是对于负数而言，例如-1的原码、反码和补码就会不一样：</p>
+<p>[-1] 十进制 = [10000001]原码 = [11111110]反码 = [11111111]补码</p>
+<p>为什么会选择以补码作为计算机二进制最终的存储方式，其主要考虑到了两点：</p>
+<ol>
+<li>计算机硬件<br />
+计算机的计算能力是由一个一个的元器件构成的，由于原码、反码和补码的最高位都涉及到了符号位，所以在计算过程中要考虑到符号位的处理会增加计算机额外的电路设计。因此，在原码、反码和补码的基础上，尽可能地让符号位一同参与到计算过程中，并能够得到正确的结果，是最佳的方式。</li>
+<li>临界点的处理<br />
+原码、反码和补码，计算机最终选择了使用补码的方式存储，这是因为原码和反码在处理一些临界点值的时候会存在歧义。我们可以使用反证法来证明。<br />
+假设计算使用原码来存储二进制，需要同时满足符号位参与运算，要求全部使用加法运算（为了电路设计简单），那么：<br />
+1 - 1 = 1 + (-1) =  [00000001]原码 +[10000001]原码 = [10000010]原码 = -2<br />
+显然，若要同时满足上述两个要求，使用原码计算是结果是不正确的。接下来，证明反码是否可行：<br />
+1 - 1 = 1 + (-1) =  [00000001]反码 +[11111110]反码 = [11111111]反码 = [10000000]原码 = -0<br />
+虽然使用反码进行计算得到的数值结果是0，但是符号位存在问题。对于0这个数字而言，没有正负号。因此，反码也不能满足要求。最后，来看看补码是否可行：<br />
+1 - 1 = 1 + (-1) =  [00000001]补码 +[11111111]补码 = [00000000]补码 = [00000000]原码 = 0<br />
+第二个等式，计算得到的超出8位，舍弃掉超出的位数，因此得到的结果是0。使用补码还解决了 [10000000]补码的数值问题，因为 [10000000]补码 = [11111111]反码 = [10000000]原码 = 128。使用补码, 不仅仅修复了0的符号以及存在两个编码的问题, 而且还能够多表示一个最低数。这就是为什么8位二进制，使用原码或反码表示的范围为[-127, +127]，而使用补码表示的范围为[-128, 127]。</li>
+</ol>
+<p>因此，最终计算机选择了使用补码的方式来存储二进制数。</p>
+
+</div>
+
+<!-- post-guide -->
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2023/11/27/05%20Android/03%20%E6%B5%8B%E8%AF%95/UI%E6%B5%8B%E8%AF%95/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  UI 测试
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2023/11/26/01%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/02%20ASCII%20%E7%A0%81%E8%A1%A8/">
+                ASCII 码表
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+<!-- comment - giscus -->
+
+
+<!-- comment - valine -->
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©<span id="footerYear-start"></span>-<span id="footerYear-end"></span>
+
+	
+	    <a href="/">Harvey Xie</a>
+	
+	
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+<!-- 	by <a href="//wujun.me" target="_blank">Wu Jun</a> -->
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+
+
+<script type="text/javascript">
+	document.getElementById('footerYear-start').innerHTML = new Date().getFullYear() + '';
+</script>
+
+<script type="text/javascript">
+	document.getElementById('footerYear-end').innerHTML = new Date().getFullYear() + '';
+</script>
+
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

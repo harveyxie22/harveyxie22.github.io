@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		函数 | 
+	 
+	Harvey&#39;s Notes
+	</title>
+	
+	<!-- keywords,description -->
+	
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+
+	
+	
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+	<header id="header">
+    <a id="title" href="/" class="logo">Harvey's Notes</a>
+
+	<ul id="menu">
+    
+      <li class="menu-item">
+        <a href="/about" class="menu-item-link">About</a>
+      </li>
+    
+
+    
+
+    
+
+    
+  
+    
+      <li class="menu-item">
+        <a href='https://harveyxie22.github.io' class="menu-item-link" target="_blank">
+          <i class="fa fa-github fa-2x"></i>
+        </a>
+      </li>
+    
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="Press Enter to search">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 计算机基础
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/01%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/01%20%E8%BF%9B%E5%88%B6%E6%95%B0%E5%92%8C%E5%AD%98%E5%82%A8%E5%8D%95%E4%BD%8D/">
+                     
+										    01 进制数和存储单位
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/01%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/02%20ASCII%20%E7%A0%81%E8%A1%A8/">
+                     
+										    02 ASCII 码表
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/01%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/03%20%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">
+                     
+										    03 开源协议
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 C
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/02%20C/01%20%E5%85%A5%E9%97%A8%E4%BB%8B%E7%BB%8D/">
+                     
+										    01 入门介绍
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/02%20C/02%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6/">
+                     
+										    02 数据类型与运算符
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/03%20%E6%95%B0%E7%BB%84/">
+                     
+										    03 数组
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/04%20%E6%8C%87%E9%92%88/">
+                     
+										    04 指针
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/05%20%E5%AE%8F%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%B8%B8%E9%87%8F/">
+                     
+										    05 宏定义与常量
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/2023/12/10/02%20C/06%20%E5%87%BD%E6%95%B0/">
+                     
+										    06 函数
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/07%20%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+                     
+										    07 字符串
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/19/02%20C/08%20%E7%BB%93%E6%9E%84%E4%BD%93/">
+                     
+										    08 结构体
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/16/02%20C/09%20%E6%96%87%E4%BB%B6/">
+                     
+										    09 文件
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/16/02%20C/10%20%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E4%B8%8E%E5%86%85%E5%AD%98%E5%9B%9B%E5%8C%BA/">
+                     
+										    10 编译过程与内存四区
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										03 C++
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/03%20C++/hello-world/">
+                     
+										    hello-world
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										04 Java
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 高级进阶
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/01%20%E5%8F%8D%E5%B0%84/">
+                     
+										    01 反射
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/02%20%E6%B3%A8%E8%A7%A3/">
+                     
+										    02 注解
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/03%20%E6%B3%9B%E5%9E%8B/">
+                     
+										    03 泛型
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/04%20%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">
+                     
+										    04 序列化和反序列化
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/05%20%E7%BA%BF%E7%A8%8B/">
+                     
+										    05 线程
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 设计模式
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/12/09/04%20Java/02%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/01%20%E5%BC%95%E8%A8%80/">
+                     
+										    01 引言
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/09/04%20Java/02%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/02%20%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+                     
+										    02 工厂模式
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/09/04%20Java/02%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/03%20%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
+                     
+										    03 单例模式
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										05 Android
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 Framework
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/05%20Android/01%20Framework/01%20%E4%B8%8B%E8%BD%BD%20AOSP%20%E6%BA%90%E7%A0%81/">
+                     
+										    01 下载 AOSP 源码
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/05%20Android/01%20Framework/02%20Android%E7%89%88%E6%9C%AC%E5%8F%B7/">
+                     
+										    02 Android版本号
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 性能调优
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 基础命令
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/12/17/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/01%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/01%20%E8%BF%9B%E5%85%A5%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+                     
+										    01 进入工厂模式
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/17/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/01%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/02%20%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF/">
+                     
+										    02 设备信息
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 工具
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/02%20%E5%B7%A5%E5%85%B7/01%20Systrace/">
+                     
+										    01 Systrace
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/02%20%E5%B7%A5%E5%85%B7/02%20Simpleperf/">
+                     
+										    02 Simpleperf
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										03 测试
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/27/05%20Android/03%20%E6%B5%8B%E8%AF%95/UI%E6%B5%8B%E8%AF%95/">
+                     
+										    UI测试
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										06 Linux
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 Ubuntu 基础使用
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8%E6%A1%8C%E9%9D%A2%E5%9B%BE%E6%A0%87/">
+                     
+										    创建应用桌面图标
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E5%90%AF%E5%8A%A8Springboot%E5%B7%A5%E7%A8%8B/">
+                     
+										    启动Springboot工程
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E5%AE%89%E8%A3%85ADB%E3%80%81AAPT%E3%80%81JAVA/">
+                     
+										    安装ADB、AAPT、JAVA
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E6%9B%B4%E6%96%B0%E8%BD%AF%E4%BB%B6%E6%BA%90/">
+                     
+										    更新软件源
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										09 Hexo
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/27/09%20Hexo/Typora+Hexo%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%E5%8A%9E%E6%B3%95/">
+                     
+										    Typora+Hexo图片处理办法
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										11 读书笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/11%20%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E4%B8%BA%E4%BB%80%E4%B9%88%E7%B2%BE%E8%8B%B1%E9%83%BD%E6%98%AF%E6%97%B6%E9%97%B4%E6%8E%A7/">
+                     
+										    为什么精英都是时间控
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content" class="content">
+		<h1 id="article-title">
+	函数
+</h1>
+
+<!-- meta -->
+<div class="article-meta">
+	
+
+	<span>Harvey Xie</span>
+	<span>2023-12-10 11:43:00</span>
+
+  <div id="article-categories">
+    
+		  <span>Categories：</span>
+      
+          
+              <span>
+                  <i class="fa fa-folder" aria-hidden="true">
+                  <a href="/categories/C/">C</a>
+                  </i>
+                
+              </span>
+          
+      
+    
+
+    
+		    <span>Tags：</span>
+        
+            
+                <span>
+                    <i class="fa fa-tag" aria-hidden="true">
+                    <a href="/tags/语言基础/">语言基础</a>
+                    </i>
+                </span>
+            
+        
+    
+  </div>
+
+</div>
+
+<!-- content -->
+<div id="article-content">
+	<p>C 语言是一门典型的面向过程的编程语言。在面向过程中，会在代码代码中大量的使用到函数。函数也可以称为方法、程式等。在 C 语言中，每个 C 程序有且只有一个 <code>main</code> 主函数，所有的代码都从主函数开始执行。函数是程序的基本模块，用于将特定的功能聚合到一块，以便提高程序的模块化和可复用性。</p>
+<h1 id="系统函数和自定义函数"><a class="markdownIt-Anchor" href="#系统函数和自定义函数"></a> 系统函数和自定义函数</h1>
+<p>从函数的定义角度划分，函数可以分成系统函数和自定义函数两种：</p>
+<ul>
+<li>
+<p>系统函数</p>
+<p>也称为库函数。由编译器系统提供的函数，用户先导入头文件后，可以直接使用它们，不需要额外的定义。这类函数的头文件通常使用尖括号 <code>&lt; &gt;</code>来 导入，例如：<code>#include &lt;stdio.h&gt;</code>。</p>
+</li>
+<li>
+<p>自定义函数</p>
+<p>用户为了实现某些功能，自己定义和封装的函数。这类函数的头文件通常使用双引号 <code>&quot; &quot;</code> 来导入，例如<code>#include &quot;mytools.h&quot;</code>，其中 <code>mytools</code> 是用户自定义的一个头文件。</p>
+</li>
+</ul>
+<h1 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义</h1>
+<p>在 C 语言中，定义一个函数的一般形式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">return_type function_name( parameter list )</span><br><span class="line">&#123;</span><br><span class="line">   body of the function</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>函数由一个函数头和一个函数主体组成。下面列出一个函数的所有组成部分：</p>
+<ul>
+<li>返回类型：一个函数可以返回一个值。return_type 是函数返回的值的数据类型。有些函数执行所需的操作而不返回值，在这种情况下，return_type 是关键字 void。函数返回类型决定返回值的类型，对于数值数据，编译器会隐式转换。若隐式转换失败，则报异常。</li>
+<li>函数名称：这是函数的实际名称。函数名和参数列表一起构成了函数签名。</li>
+<li>形参列表：形参列表就像是占位符。当函数被调用时，您向参数传递一个值，这个值被称为实际参数。参数列表包括函数参数的类型、顺序、数量。参数是可选的，也就是说，函数可能不包含参数。也就是说形参列表为空的话，可以什么都不写，也可以写一个 void，例如<code>void max(void)</code>。</li>
+<li>函数主体：函数主体包含一组定义函数执行任务的语句。</li>
+</ul>
+<h1 id="声明"><a class="markdownIt-Anchor" href="#声明"></a> 声明</h1>
+<p>与其他编程语言有区别的是，C 语言中，如果使用自定义的函数，并且该函数与主函数不在同一个文件中，或者函数定义的位置在主函数以后，那么必须在调用此函数之前对被调用的函数进行声明。所谓函数声明，就是在函数尚在未定义的情况下，事先将该函数的有关信息通知编译系统，相当于告诉编译器，函数在后面定义，以便使编译能正常进行。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//这里就是函数的声明</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">sub</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;sum:%d\n&quot;</span>, add(<span class="number">5</span>, <span class="number">3</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;value:%d\n&quot;</span>, sub(<span class="number">5</span>, <span class="number">3</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">sub</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>一个函数只能被定义一次，但是可以声明多次。</p>
+</blockquote>
+<p>函数声明与函数定义的区别：</p>
+<ol>
+<li>函数的定义是对函数的功能的确定，确定的过程包括函数名、函数类型、形参列表、函数体等。函数的定义是一个完整的、独立的函数单位；</li>
+<li>函数的声明的作用是把函数的名字、函数的类型以及形参列表等（不包括函数体）告知编译系统，以便在对包含的函数编译的时候，进行对照检查。</li>
+</ol>
+<h1 id="调用"><a class="markdownIt-Anchor" href="#调用"></a> 调用</h1>
+<p>函数定义完成后，可以在程序适当的位置进行函数的调用。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;sum:%d\n&quot;</span>, add(<span class="number">5</span>, <span class="number">3</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="头文件"><a class="markdownIt-Anchor" href="#头文件"></a> 头文件</h1>
+<p>当函数很多时候，需要把一个文件拆分成多个文件，那么此时就需要引用其他函数的头文件。例如：</p>
+<p>头文件 <code>methods.h</code>：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;methods.c&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">max</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span>;</span><br></pre></td></tr></table></figure>
+<p>函数实现文件 <code>methods.c</code>：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">max</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> x &gt; y ? x : y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>主函数文件 <code>Max.c</code>：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;methods.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, max(<span class="number">5</span>, <span class="number">10</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>当一个项目比较大时，往往都是分文件，这时候有可能不小心把同一个头文件 include 多次，或者头文件嵌套包含。此时编译的时候，就会报错。因此，为了避免同一个文件被 include 多次，有两种方式解决该问题：第一种是<code>#ifndef</code> 方式，另外一种是 <code>#pragma once</code> 方式。</p>
+<ol>
+<li>
+<p><code>#ifndef</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> YOUR_HEADER_FILE_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> YOUR_HEADER_FILE_H</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 声明语句</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<p>这种方式利用了条件编译预处理指令，当 <code>YOUR_HEADER_FILE_H</code> 未定义时，执行 <code>#define</code> 定义该标识符，并包含头文件内容；当 <code>YOUR_HEADER_FILE_H</code> 已经定义时，跳过头文件内容。这样可以避免同一个头文件被多次包含。</p>
+</li>
+<li>
+<p><code>#pragma once</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> once</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 声明语句</span></span><br></pre></td></tr></table></figure>
+<p>使用 #pragma once 可以简化防止头文件被多次包含的操作，但是需要注意的是，它并非标准的 C/C++ 语法，因此在跨平台开发时可能会存在兼容性问题。</p>
+</li>
+</ol>
+<p>总的来说，两种方式都可以有效地避免同一个头文件被多次包含。<code>#ifndef</code> 方式是标准的 C/C++ 语法，在所有编译器中都能够使用；而 <code>#pragma once</code> 方式在一些编译器中也被广泛支持，但不属于官方的 C/C++ 标准。</p>
+<h1 id="全局函数和静态函数"><a class="markdownIt-Anchor" href="#全局函数和静态函数"></a> 全局函数和静态函数</h1>
+<p>根据函数的类型，可以成为：全局函数和静态函数。</p>
+<p>在 C 语言中，函数默认都是全局的，只有使用了关键字 static 修饰的函数才是静态函数。静态函数的作用域在该函数所在的文件中有效，无法在其他文件中调用，即使在其他文件中声明这个函数也无法使用。</p>
+<p>所有的函数默认都是全局的，意味着所有的函数都不能重名，但如果是静态函数，那么作用域是文件级的，所以不同的文件 static 函数名是可以相同的。</p>
+<h1 id="输入输出函数"><a class="markdownIt-Anchor" href="#输入输出函数"></a> 输入输出函数</h1>
+<p>C语言中常见的输入输出函数有：<code>putchar</code>、<code>getchar</code>、<code>printf</code> 和 <code>scanf</code>。</p>
+<h2 id="putchar"><a class="markdownIt-Anchor" href="#putchar"></a> putchar</h2>
+<p><code>putchar</code> 函数是字符输出函数，其作用是在终端控制台输出单个字符。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">&#x27;A&#x27;</span>);</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">&#x27;B&#x27;</span>);</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="getchar"><a class="markdownIt-Anchor" href="#getchar"></a> getchar</h2>
+<p><code>getchar</code>函数的功能是接收用户从键盘上输入的一个字符。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> input = getchar();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%c\n&quot;</span>, input);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="printf"><a class="markdownIt-Anchor" href="#printf"></a> printf</h2>
+<p><code>printf</code>函数也叫做格式输出函数，其作用是按照指定的格式输出数据到终端控制台。</p>
+<table>
+<thead>
+<tr>
+<th>格式符</th>
+<th>解释说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%c</td>
+<td>输出单个字符</td>
+</tr>
+<tr>
+<td>%s</td>
+<td>输出字符串。从字符串的第一个字符开始，直到<code>\0</code>结束</td>
+</tr>
+<tr>
+<td>%d</td>
+<td>以十进制形式输出带符号整数(正数不输出符号)</td>
+</tr>
+<tr>
+<td>%f</td>
+<td>以小数形式输出单、双精度实数</td>
+</tr>
+<tr>
+<td>%u</td>
+<td>以十进制形式输出无符号整数</td>
+</tr>
+<tr>
+<td>%e或%E</td>
+<td>以指数形式输出单、双精度实数</td>
+</tr>
+<tr>
+<td>%x或%X</td>
+<td>以十六进制形式输出无符号整数(不输出前缀Ox)</td>
+</tr>
+<tr>
+<td>%o</td>
+<td>以八进制形式输出无符号整数(不输出前缀0)</td>
+</tr>
+<tr>
+<td>%%</td>
+<td>显示一个%。 转义字符’' 对 % 转义无效</td>
+</tr>
+<tr>
+<td>%m.n</td>
+<td>格式化输出浮点型。一共有 m 位(整数、小数、小数点)，n位小数</td>
+</tr>
+<tr>
+<td>%<a target="_blank" rel="noopener" href="http://0m.nf">0m.nf</a></td>
+<td>格式化输出浮点型。一共有 m 位(整数、小数、小数点)，n位小数。 0：表示不足 m 位时，用0凑够m位</td>
+</tr>
+<tr>
+<td>%Ns</td>
+<td>显示N个字符的字符串。不足N用空格向左填充。</td>
+</tr>
+<tr>
+<td>%0Ns</td>
+<td>显示N个字符的字符串。不足N用0向左填充。</td>
+</tr>
+<tr>
+<td>%-Ns</td>
+<td>显示N个字符的字符串。不足N用空格向右填充。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="scanf"><a class="markdownIt-Anchor" href="#scanf"></a> scanf</h2>
+<p><code>scanf</code>函数格式化输入函数，其作用是按照指定的格式，从键盘上读取数据，输入到对应的变量中。使用这个函数时，需要注意几点：</p>
+<ol>
+<li>可以指定数据的宽度，但是不能指定数据的精度；</li>
+<li>long类型数据使用<code>%ld</code>，double类型的数据使用<code>%lf</code>或<code>%le</code>。</li>
+</ol>
+<p>其输入的格式与<code>printf</code>类似。<code>scanf</code>函数还可以与正则表达式一起使用。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> a;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%c&quot;</span>, &amp;a);</span><br><span class="line"></span><br><span class="line">    <span class="type">double</span> b;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%lf&quot;</span>, &amp;b);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;a = %c\n&quot;</span>, a);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;b = %f\n&quot;</span>, b);</span><br><span class="line">    </span><br><span class="line">    <span class="type">char</span> str[<span class="number">5</span>];</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%[^\n]&quot;</span>,str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>使用<code>scanf</code>函数获取字符串的时候，需要保证字符串的空间足够大，避免溢出。</p>
+</blockquote>
+<h2 id="gets"><a class="markdownIt-Anchor" href="#gets"></a> gets</h2>
+<p><code>gets</code>函数从键盘获取一个字符串，返回字符串的首地址，该函数可以获取带有空格的字符串。不推荐使用<code>gets</code>函数，因为该函数存在越界的风险。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> str[<span class="number">5</span>];</span><br><span class="line">    gets(str);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Input:%s&quot;</span>, str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="fgets"><a class="markdownIt-Anchor" href="#fgets"></a> fgets</h2>
+<p><code>fgets</code>函数从标准输入<code>stdin</code>中获取一个字符串，预留<code>\0</code>的存储空间，当空间足够的时候，读取输入最后的换行符<code>\n</code>，空间不足的时候舍弃<code>\n</code>。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> str[<span class="number">5</span>];</span><br><span class="line">    fgets(str, <span class="number">5</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Input:%s&quot;</span>, str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="puts"><a class="markdownIt-Anchor" href="#puts"></a> puts</h2>
+<p><code>puts</code>函数将一个字符串写到屏幕，输出的字符串会自动添加换行符<code>\n</code>。</p>
+ <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> str[<span class="number">6</span>] = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">    <span class="built_in">puts</span>(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="fputs"><a class="markdownIt-Anchor" href="#fputs"></a> fputs</h2>
+<p><code>fputs</code>函数将一个字符串写到标准出<code>stdout</code>中，输出的字符串不会自动添加换行符<code>\n</code>。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> str[<span class="number">6</span>] = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">    <span class="built_in">fputs</span>(str, <span class="built_in">stdout</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</div>
+
+<!-- post-guide -->
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2023/12/10/02%20C/05%20%E5%AE%8F%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%B8%B8%E9%87%8F/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  宏定义与常量
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2023/12/10/02%20C/07%20%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+                字符串
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+<!-- comment - giscus -->
+
+
+<!-- comment - valine -->
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©<span id="footerYear-start"></span>-<span id="footerYear-end"></span>
+
+	
+	    <a href="/">Harvey Xie</a>
+	
+	
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+<!-- 	by <a href="//wujun.me" target="_blank">Wu Jun</a> -->
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+
+
+<script type="text/javascript">
+	document.getElementById('footerYear-start').innerHTML = new Date().getFullYear() + '';
+</script>
+
+<script type="text/javascript">
+	document.getElementById('footerYear-end').innerHTML = new Date().getFullYear() + '';
+</script>
+
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

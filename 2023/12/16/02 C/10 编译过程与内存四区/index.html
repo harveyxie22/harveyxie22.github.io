@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		编译过程与内存四区 | 
+	 
+	Harvey&#39;s Notes
+	</title>
+	
+	<!-- keywords,description -->
+	
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+
+	
+	
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+	<header id="header">
+    <a id="title" href="/" class="logo">Harvey's Notes</a>
+
+	<ul id="menu">
+    
+      <li class="menu-item">
+        <a href="/about" class="menu-item-link">About</a>
+      </li>
+    
+
+    
+
+    
+
+    
+  
+    
+      <li class="menu-item">
+        <a href='https://harveyxie22.github.io' class="menu-item-link" target="_blank">
+          <i class="fa fa-github fa-2x"></i>
+        </a>
+      </li>
+    
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="Press Enter to search">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 计算机基础
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/01%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/01%20%E8%BF%9B%E5%88%B6%E6%95%B0%E5%92%8C%E5%AD%98%E5%82%A8%E5%8D%95%E4%BD%8D/">
+                     
+										    01 进制数和存储单位
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/01%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/02%20ASCII%20%E7%A0%81%E8%A1%A8/">
+                     
+										    02 ASCII 码表
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/01%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/03%20%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">
+                     
+										    03 开源协议
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 C
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/02%20C/01%20%E5%85%A5%E9%97%A8%E4%BB%8B%E7%BB%8D/">
+                     
+										    01 入门介绍
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/02%20C/02%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6/">
+                     
+										    02 数据类型与运算符
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/03%20%E6%95%B0%E7%BB%84/">
+                     
+										    03 数组
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/04%20%E6%8C%87%E9%92%88/">
+                     
+										    04 指针
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/05%20%E5%AE%8F%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%B8%B8%E9%87%8F/">
+                     
+										    05 宏定义与常量
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/06%20%E5%87%BD%E6%95%B0/">
+                     
+										    06 函数
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/07%20%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+                     
+										    07 字符串
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/19/02%20C/08%20%E7%BB%93%E6%9E%84%E4%BD%93/">
+                     
+										    08 结构体
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/16/02%20C/09%20%E6%96%87%E4%BB%B6/">
+                     
+										    09 文件
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/2023/12/16/02%20C/10%20%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E4%B8%8E%E5%86%85%E5%AD%98%E5%9B%9B%E5%8C%BA/">
+                     
+										    10 编译过程与内存四区
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										03 C++
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/03%20C++/hello-world/">
+                     
+										    hello-world
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										04 Java
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 高级进阶
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/01%20%E5%8F%8D%E5%B0%84/">
+                     
+										    01 反射
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/02%20%E6%B3%A8%E8%A7%A3/">
+                     
+										    02 注解
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/03%20%E6%B3%9B%E5%9E%8B/">
+                     
+										    03 泛型
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/04%20%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">
+                     
+										    04 序列化和反序列化
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/05%20%E7%BA%BF%E7%A8%8B/">
+                     
+										    05 线程
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 设计模式
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/12/09/04%20Java/02%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/01%20%E5%BC%95%E8%A8%80/">
+                     
+										    01 引言
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/09/04%20Java/02%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/02%20%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+                     
+										    02 工厂模式
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/09/04%20Java/02%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/03%20%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
+                     
+										    03 单例模式
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										05 Android
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 Framework
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/05%20Android/01%20Framework/01%20%E4%B8%8B%E8%BD%BD%20AOSP%20%E6%BA%90%E7%A0%81/">
+                     
+										    01 下载 AOSP 源码
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/05%20Android/01%20Framework/02%20Android%E7%89%88%E6%9C%AC%E5%8F%B7/">
+                     
+										    02 Android版本号
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 性能调优
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 基础命令
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/12/17/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/01%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/01%20%E8%BF%9B%E5%85%A5%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+                     
+										    01 进入工厂模式
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/17/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/01%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/02%20%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF/">
+                     
+										    02 设备信息
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 工具
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/02%20%E5%B7%A5%E5%85%B7/01%20Systrace/">
+                     
+										    01 Systrace
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/02%20%E5%B7%A5%E5%85%B7/02%20Simpleperf/">
+                     
+										    02 Simpleperf
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										03 测试
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/27/05%20Android/03%20%E6%B5%8B%E8%AF%95/UI%E6%B5%8B%E8%AF%95/">
+                     
+										    UI测试
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										06 Linux
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 Ubuntu 基础使用
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8%E6%A1%8C%E9%9D%A2%E5%9B%BE%E6%A0%87/">
+                     
+										    创建应用桌面图标
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E5%90%AF%E5%8A%A8Springboot%E5%B7%A5%E7%A8%8B/">
+                     
+										    启动Springboot工程
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E5%AE%89%E8%A3%85ADB%E3%80%81AAPT%E3%80%81JAVA/">
+                     
+										    安装ADB、AAPT、JAVA
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E6%9B%B4%E6%96%B0%E8%BD%AF%E4%BB%B6%E6%BA%90/">
+                     
+										    更新软件源
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										09 Hexo
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/27/09%20Hexo/Typora+Hexo%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%E5%8A%9E%E6%B3%95/">
+                     
+										    Typora+Hexo图片处理办法
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										11 读书笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/11%20%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E4%B8%BA%E4%BB%80%E4%B9%88%E7%B2%BE%E8%8B%B1%E9%83%BD%E6%98%AF%E6%97%B6%E9%97%B4%E6%8E%A7/">
+                     
+										    为什么精英都是时间控
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content" class="content">
+		<h1 id="article-title">
+	编译过程与内存四区
+</h1>
+
+<!-- meta -->
+<div class="article-meta">
+	
+
+	<span>Harvey Xie</span>
+	<span>2023-12-16 17:00:00</span>
+
+  <div id="article-categories">
+    
+		  <span>Categories：</span>
+      
+          
+              <span>
+                  <i class="fa fa-folder" aria-hidden="true">
+                  <a href="/categories/C/">C</a>
+                  </i>
+                
+              </span>
+          
+      
+    
+
+    
+		    <span>Tags：</span>
+        
+            
+                <span>
+                    <i class="fa fa-tag" aria-hidden="true">
+                    <a href="/tags/语言基础/">语言基础</a>
+                    </i>
+                </span>
+            
+        
+    
+  </div>
+
+</div>
+
+<!-- content -->
+<div id="article-content">
+	<h1 id="编译过程"><a class="markdownIt-Anchor" href="#编译过程"></a> 编译过程</h1>
+<p>C 语言的编译过程一般包括以下几个步骤：</p>
+<ol>
+<li>预处理（Preprocessing）：在源代码被编译前，预处理器会对源代码进行处理，例如替换宏定义、展开头文件等操作。预处理器生成的代码通常以 <code>.i</code> 或 <code>.ii</code> 为扩展名，称为预处理后的源代码。</li>
+<li>编译（Compilation）：编译器将预处理后的源代码翻译成汇编语言，生成一个或多个汇编代码文件（通常以 <code>.s</code> 为扩展名），每个汇编代码文件对应一个源代码文件。</li>
+<li>汇编（Assembly）：汇编器将汇编代码转化成机器指令，生成一个或多个目标文件（通常以 <code>.o</code> 为扩展名），每个目标文件对应一个汇编代码文件。</li>
+<li>链接（Linking）：链接器将所有的目标文件和库文件合并成一个可执行文件。链接器还会对目标文件中的符号进行解析和重定位，以生成最终的可执行文件。</li>
+</ol>
+<p>不同的编译器可能采用不同的实现方式，但基本流程大致相同。在编辑器中进行编译时，这些步骤通常被自动化处理，编译器会自动按照这些步骤对源代码进行处理，并生成可执行文件。</p>
+<p><img src="/images/c-compilation-process.png" alt="" /></p>
+<h2 id="命令"><a class="markdownIt-Anchor" href="#命令"></a> 命令</h2>
+<p>C语言的每一个编译过程使用的命令是不一样的。</p>
+<h3 id="预处理阶段"><a class="markdownIt-Anchor" href="#预处理阶段"></a> 预处理阶段</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -E HelloWorld.c -o HelloWorld.i</span><br></pre></td></tr></table></figure>
+<p>参数<code>-E</code>只进行预处理。参数<code>-o</code>指定输出文件名。</p>
+<h3 id="编译阶段"><a class="markdownIt-Anchor" href="#编译阶段"></a> 编译阶段</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -S HelloWorld.i -o HelloWorld.s</span><br></pre></td></tr></table></figure>
+<p>参数<code>-S</code>只进行预处理和编译。参数<code>-o</code>指定输出文件名。</p>
+<h3 id="汇编阶段"><a class="markdownIt-Anchor" href="#汇编阶段"></a> 汇编阶段</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -c HelloWorld.s -o HelloWorld.o</span><br></pre></td></tr></table></figure>
+<p>参数<code>-c</code>只进行预处理、编译和汇编。参数<code>-o</code>指定输出文件名。</p>
+<h3 id="链接阶段"><a class="markdownIt-Anchor" href="#链接阶段"></a> 链接阶段</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc HelloWorld.o -o HelloWorld</span><br></pre></td></tr></table></figure>
+<h2 id="实际开发"><a class="markdownIt-Anchor" href="#实际开发"></a> 实际开发</h2>
+<p>实际的开发中，我们可以使用：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc HelloWorld.c -o HelloWorld</span><br></pre></td></tr></table></figure>
+<p>一步到位完成上述四个阶段的全部操作。</p>
+<h1 id="内存四区"><a class="markdownIt-Anchor" href="#内存四区"></a> 内存四区</h1>
+<p>C 语言经过预处理、编译、汇编和链接四个步骤后可以生成一个可执行文件。在操作系统下，可以查询到该执行文件的基本情况。假设存在一个 HelloWorld.c 的文件，那么：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc HelloWorld.c -o helloworld.exe</span><br></pre></td></tr></table></figure>
+<p>得到一个可执行文件后，执行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">file helloworld.exe</span><br><span class="line">helloworld.exe: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically</span><br><span class="line">linked, interpreter /lib64/ld-linux-x86-64.so.2, </span><br><span class="line">BuildID[sha1]=e2c48a9abae67a215e8c98a7765a67792c0bd1b1, for GNU/Linux 3.2.0, not stripped</span><br></pre></td></tr></table></figure>
+<p>最后，通过 size 查看可执行文件的结构情况：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">size helloworld.exe</span><br><span class="line">   text	   data	    bss	    dec	    hex	filename</span><br><span class="line">   1623	    600	      8	   2231	    8b7	helloworld.exe</span><br></pre></td></tr></table></figure>
+<p>上述字段的含义如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>代码区</td>
+</tr>
+<tr>
+<td>data</td>
+<td>静态数据或全局初始化数据区</td>
+</tr>
+<tr>
+<td>bss</td>
+<td>未初始化数据区</td>
+</tr>
+<tr>
+<td>dec</td>
+<td>十进制总和</td>
+</tr>
+<tr>
+<td>hex</td>
+<td>十六进制总和</td>
+</tr>
+<tr>
+<td>filename</td>
+<td>文件名</td>
+</tr>
+</tbody>
+</table>
+<p>也就是说，当一个可执行文件在没有加载到内存之前，已经被分成了三段信息：代码区（text）、数据区（data）和未初始化数据区（bss）。</p>
+<p>程序在加载到内存前，代码区和全局区（data和bss）的大小是固定的，程序运行期间不能够改变。然后当程序可运行的时候，系统会把程序加载到内存，除了代码区、数据区和未初始化的数据区以外，还会额外新增栈区和堆区。</p>
+<p><img src="/images/memory.png" alt="" /></p>
+<p><strong>代码区</strong>用于存放 CPU  执行的机器指令。通常代码区是可共享的（即另外的执行程序可以调用它），使其可共享的目的是对于频繁被执行的程序，只需要在内存中有一份代码即可。代码区通常是只读的，使其只读的原因是防止程序意外地修改了它的指令。另外，代码区还规划了局部变量的相关信息。简单来说：程序员所写的所有代码都会放入到代码区中，代码区的特点是共享和只读。</p>
+<p><strong>全局区</strong>中主要存放的数据有：全局变量、静态变量、常量（如字符串常量）。全局区的叫法有很多：全局区、静态区、数据区、全局静态区、静态全局区。这部分可以细分为 data 区和 bss 区。</p>
+<ul>
+<li>data区：主要存放的是已经初始化的全局变量、静态变量和常量；</li>
+<li>bss区：主要存放的是未初始化的全局变量、静态变量，这些未初始化的数据在程序执行前会自动被系统初始化为0或者NULL；</li>
+<li>常量区：是全局区中划分的一个小区域，里面存放的是常量，如const修饰的全局变量、字符串常量等。</li>
+</ul>
+<p><strong>栈区</strong>是一种先进后出的内存结构，由编译器自动分配释放，存放函数的参数值、返回值、局部变量等。在程序运行过程中实时加载和释放，因此，局部变量的生存周期为申请到释放该段栈空间。</p>
+<p><strong>堆区</strong>是一个大容器，它的容量要远远大于栈，但没有栈那样先进后出的顺序。用于动态内存分配。堆在内存中位于BSS 区和栈区之间。一般由程序员分配和释放，若程序员不释放，程序结束时由操作系统回收。</p>
+<h2 id="作用域与内存"><a class="markdownIt-Anchor" href="#作用域与内存"></a> 作用域与内存</h2>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>作用域</th>
+<th>生命周期</th>
+<th>存储位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auto变量</td>
+<td>一对{}内</td>
+<td>当前函数</td>
+<td>栈区</td>
+</tr>
+<tr>
+<td>static局部变量</td>
+<td>一对{}内</td>
+<td>整个程序运行期</td>
+<td>初始化在data段，未初始化在BSS段</td>
+</tr>
+<tr>
+<td>extern变量</td>
+<td>整个程序</td>
+<td>整个程序运行期</td>
+<td>初始化在data段，未初始化在BSS段</td>
+</tr>
+<tr>
+<td>static全局变量</td>
+<td>当前文件</td>
+<td>整个程序运行期</td>
+<td>初始化在data段，未初始化在BSS段</td>
+</tr>
+<tr>
+<td>extern函数</td>
+<td>整个程序</td>
+<td>整个程序运行期</td>
+<td>代码区</td>
+</tr>
+<tr>
+<td>static函数</td>
+<td>当前文件</td>
+<td>整个程序运行期</td>
+<td>代码区</td>
+</tr>
+<tr>
+<td>register变量</td>
+<td>一对{}内</td>
+<td>当前函数</td>
+<td>运行时存储在CPU寄存器</td>
+</tr>
+<tr>
+<td>全局变量</td>
+<td>整个程序</td>
+<td>整个程序运行期</td>
+<td>data段</td>
+</tr>
+</tbody>
+</table>
+<h2 id="堆内存"><a class="markdownIt-Anchor" href="#堆内存"></a> 堆内存</h2>
+<p>堆的存储空间要比栈大很多，当数据很大的时候，就可以考虑把数据存放到堆中。向堆申请一块内存空间可以使用函数<code>malloc()</code>，当空间使用完毕后，可以调用 <code>free()</code> 释放该空间。</p>
+<ol>
+<li>
+<p>malloc</p>
+<p>该函数的声明<code>void *malloc(size_t size);</code>。作用是在内存的动态存储区（堆区）中分配一块长度为size字节的连续区域，用来存放类型说明符指定的类型。分配的内存空间内容不确定，一般使用memset初始化。若申请成功返回值是分配空间的起始地址，若失败返回NULL。</p>
+</li>
+<li>
+<p>free</p>
+<p>该函数的声明<code>void free(void *ptr)</code>。作用是释放ptr所指向的一块内存空间，ptr是一个任意类型的指针变量，指向被释放区域的首地址。对同一内存空间多次释放会出错。注意，被释放区应是由malloc函数所分配的区域。</p>
+</li>
+</ol>
+<p>以下是一个在堆内存中申请内存的例子：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 1.向堆申请一块10个大小的int类型的空间</span></span><br><span class="line">    <span class="type">int</span> *<span class="built_in">array</span> = (<span class="type">int</span> *)<span class="built_in">malloc</span>(<span class="number">10</span> * <span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">array</span> == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;ERROR!&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.把申请到的内存空间清0</span></span><br><span class="line">    <span class="built_in">memset</span>(<span class="built_in">array</span>, <span class="number">0</span>, <span class="keyword">sizeof</span>(<span class="type">int</span>) * <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.向申请到的数据添加数据</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">array</span>[i] = i;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4.打印数据</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, <span class="built_in">array</span>[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5.释放申请的空间</span></span><br><span class="line">    <span class="built_in">free</span>(<span class="built_in">array</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="内存分区与代码分析"><a class="markdownIt-Anchor" href="#内存分区与代码分析"></a> 内存分区与代码分析</h2>
+<h3 id="返回栈区地址"><a class="markdownIt-Anchor" href="#返回栈区地址"></a> 返回栈区地址</h3>
+<p>当函数返回栈区中的地址时，会报错。这是因为栈区当函数执行完毕后会被释放。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> *<span class="title function_">fun</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> &amp;a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> *p = <span class="literal">NULL</span>;</span><br><span class="line">    p = fun();</span><br><span class="line">    *p = <span class="number">100</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="返回data区地址"><a class="markdownIt-Anchor" href="#返回data区地址"></a> 返回data区地址</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> *<span class="title function_">fun</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">static</span> <span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">return</span> &amp;a; <span class="comment">//函数调用完毕，a不释放</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> *p = <span class="literal">NULL</span>;</span><br><span class="line">	p = fun();</span><br><span class="line">	*p = <span class="number">100</span>; <span class="comment">//ok</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;*p = %d\n&quot;</span>, *p);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="返回堆区地址"><a class="markdownIt-Anchor" href="#返回堆区地址"></a> 返回堆区地址</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> *<span class="title function_">fun</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> *tmp = <span class="literal">NULL</span>;</span><br><span class="line">	tmp = (<span class="type">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">	*tmp = <span class="number">100</span>;</span><br><span class="line">	<span class="keyword">return</span> tmp;<span class="comment">//返回堆区地址，函数调用完毕，不释放</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> *p = <span class="literal">NULL</span>;</span><br><span class="line">	p = fun();</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;*p = %d\n&quot;</span>, *p);<span class="comment">//ok</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//堆区空间，使用完毕，手动释放</span></span><br><span class="line">	<span class="keyword">if</span> (p != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">free</span>(p);</span><br><span class="line">		p = <span class="literal">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="值传递"><a class="markdownIt-Anchor" href="#值传递"></a> 值传递</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">fun1</span><span class="params">(<span class="type">int</span> *tmp)</span></span><br><span class="line">&#123;</span><br><span class="line">    *tmp = <span class="number">100</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">fun2</span><span class="params">(<span class="type">int</span> *tmp)</span></span><br><span class="line">&#123;</span><br><span class="line">    tmp = (<span class="type">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">    *tmp = <span class="number">100</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> *p = <span class="literal">NULL</span>;</span><br><span class="line">    p = (<span class="type">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line"></span><br><span class="line">    fun1(p);                 <span class="comment">//值传递</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;*p = %d\n&quot;</span>, *p); <span class="comment">// ok，*p为100</span></span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> *q = <span class="literal">NULL</span>;</span><br><span class="line">    fun2(q);                 <span class="comment">//值传递，形参修改不会影响实参</span></span><br><span class="line">    <span class="comment">//printf(&quot;*p = %d\n&quot;, *q); // ERROR，操作空指针指向的内存</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h2>
+<p>在理解 C/C++ 内存分区时，常会碰到如下术语：数据区，堆，栈，静态区，常量区，全局区，字符串常量区，文字常量区，代码区等等，初学者被搞得云里雾里。在这里，尝试捋清楚以上分区的关系：</p>
+<ul>
+<li>数据区包括：堆，栈，全局/静态存储区。</li>
+<li>全局/静态存储区包括：常量区，全局区、静态区。</li>
+<li>常量区包括：字符串常量区、常变量区。</li>
+<li>代码区：存放程序编译后的二进制代码，不可寻址区。</li>
+</ul>
+<p>可以说，C/C++ 内存分区其实只有两个，即代码区和数据区。</p>
+
+</div>
+
+<!-- post-guide -->
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2023/12/17/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/01%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/02%20%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  设备信息
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2023/12/16/02%20C/09%20%E6%96%87%E4%BB%B6/">
+                文件
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+<!-- comment - giscus -->
+
+
+<!-- comment - valine -->
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©<span id="footerYear-start"></span>-<span id="footerYear-end"></span>
+
+	
+	    <a href="/">Harvey Xie</a>
+	
+	
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+<!-- 	by <a href="//wujun.me" target="_blank">Wu Jun</a> -->
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+
+
+<script type="text/javascript">
+	document.getElementById('footerYear-start').innerHTML = new Date().getFullYear() + '';
+</script>
+
+<script type="text/javascript">
+	document.getElementById('footerYear-end').innerHTML = new Date().getFullYear() + '';
+</script>
+
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>
