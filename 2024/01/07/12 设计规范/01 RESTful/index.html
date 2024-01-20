@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		RESTful API | 
+	 
+	Harvey&#39;s Notes
+	</title>
+	
+	<!-- keywords,description -->
+	
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+
+	
+	
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"><link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
+
+<body>
+	<header id="header">
+    <a id="title" href="/" class="logo">Harvey's Notes</a>
+
+	<ul id="menu">
+    
+      <li class="menu-item">
+        <a href="/about" class="menu-item-link">About</a>
+      </li>
+    
+
+    
+
+    
+
+    
+  
+    
+      <li class="menu-item">
+        <a href='https://harveyxie22.github.io' class="menu-item-link" target="_blank">
+          <i class="fa fa-github fa-2x"></i>
+        </a>
+      </li>
+    
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="Press Enter to search">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 计算机基础
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/01%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/01%20%E8%BF%9B%E5%88%B6%E6%95%B0%E5%92%8C%E5%AD%98%E5%82%A8%E5%8D%95%E4%BD%8D/">
+                     
+										    01 进制数和存储单位
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/01%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/02%20ASCII%20%E7%A0%81%E8%A1%A8/">
+                     
+										    02 ASCII 码表
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/01%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/03%20%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">
+                     
+										    03 开源协议
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 C
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/02%20C/01%20%E5%85%A5%E9%97%A8%E4%BB%8B%E7%BB%8D/">
+                     
+										    01 入门介绍
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/02%20C/02%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6/">
+                     
+										    02 数据类型与运算符
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/03%20%E6%95%B0%E7%BB%84/">
+                     
+										    03 数组
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/04%20%E6%8C%87%E9%92%88/">
+                     
+										    04 指针
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/05%20%E5%AE%8F%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%B8%B8%E9%87%8F/">
+                     
+										    05 宏定义与常量
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/06%20%E5%87%BD%E6%95%B0/">
+                     
+										    06 函数
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/07%20%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+                     
+										    07 字符串
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/19/02%20C/08%20%E7%BB%93%E6%9E%84%E4%BD%93/">
+                     
+										    08 结构体
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/16/02%20C/09%20%E6%96%87%E4%BB%B6/">
+                     
+										    09 文件
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/16/02%20C/10%20%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E4%B8%8E%E5%86%85%E5%AD%98%E5%9B%9B%E5%8C%BA/">
+                     
+										    10 编译过程与内存四区
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/17/02%20C/20%20C%20%E8%AF%AD%E8%A8%80%E7%BB%8F%E5%85%B8100%E4%BE%8B/">
+                     
+										    20 C 语言经典100例
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										03 C++
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/03%20C++/hello-world/">
+                     
+										    hello-world
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										04 Java
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 高级进阶
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/01%20%E5%8F%8D%E5%B0%84/">
+                     
+										    01 反射
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/02%20%E6%B3%A8%E8%A7%A3/">
+                     
+										    02 注解
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/03%20%E6%B3%9B%E5%9E%8B/">
+                     
+										    03 泛型
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/04%20%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">
+                     
+										    04 序列化和反序列化
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/05%20%E7%BA%BF%E7%A8%8B/">
+                     
+										    05 线程
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 设计模式
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/12/09/04%20Java/02%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/01%20%E5%BC%95%E8%A8%80/">
+                     
+										    01 引言
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/09/04%20Java/02%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/02%20%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+                     
+										    02 工厂模式
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/09/04%20Java/02%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/03%20%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
+                     
+										    03 单例模式
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										05 Android
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 Framework
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/05%20Android/01%20Framework/01%20%E4%B8%8B%E8%BD%BD%20AOSP%20%E6%BA%90%E7%A0%81/">
+                     
+										    01 下载 AOSP 源码
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/05%20Android/01%20Framework/02%20Android%E7%89%88%E6%9C%AC%E5%8F%B7/">
+                     
+										    02 Android版本号
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 性能调优
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 基础命令
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/12/17/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/01%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/01%20%E8%BF%9B%E5%85%A5%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+                     
+										    01 进入工厂模式
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/17/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/01%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/02%20%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF/">
+                     
+										    02 设备信息
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 工具
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/02%20%E5%B7%A5%E5%85%B7/01%20Systrace/">
+                     
+										    01 Systrace
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/02%20%E5%B7%A5%E5%85%B7/02%20Simpleperf/">
+                     
+										    02 Simpleperf
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										03 测试
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/27/05%20Android/03%20%E6%B5%8B%E8%AF%95/01%20UI%20Automator/">
+                     
+										    01 UI Automator
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										06 Linux
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 Ubuntu 基础使用
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8%E6%A1%8C%E9%9D%A2%E5%9B%BE%E6%A0%87/">
+                     
+										    创建应用桌面图标
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E5%90%AF%E5%8A%A8Springboot%E5%B7%A5%E7%A8%8B/">
+                     
+										    启动Springboot工程
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E5%AE%89%E8%A3%85ADB%E3%80%81AAPT%E3%80%81JAVA/">
+                     
+										    安装ADB、AAPT、JAVA
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E6%9B%B4%E6%96%B0%E8%BD%AF%E4%BB%B6%E6%BA%90/">
+                     
+										    更新软件源
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										09 Hexo
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/27/09%20Hexo/01%20Typora+Hexo%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%E5%8A%9E%E6%B3%95/">
+                     
+										    01 Typora+Hexo图片处理办法
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/27/09%20Hexo/02%20%E8%AE%A9%20Hexo%20%E6%94%AF%E6%8C%81%20LaTeX%20%E5%85%AC%E5%BC%8F/">
+                     
+										    02 让 Hexo 支持 LaTeX 公式
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										11 工具
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2024/01/07/11%20%E5%B7%A5%E5%85%B7/01%20Postman/">
+                     
+										    01 Postman
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										12 设计规范
+									</a>
+									
+							<ul>
+								<li class="file active">
+									<a href="/2024/01/07/12%20%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83/01%20RESTful/">
+                     
+										    01 RESTful
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										13 读书笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/13%20%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/01%20%E4%B8%BA%E4%BB%80%E4%B9%88%E7%B2%BE%E8%8B%B1%E9%83%BD%E6%98%AF%E6%97%B6%E9%97%B4%E6%8E%A7/">
+                     
+										    01 为什么精英都是时间控
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content" class="content">
+		<h1 id="article-title">
+	RESTful API
+</h1>
+
+<!-- meta -->
+<div class="article-meta">
+	
+
+	<span>Harvey Xie</span>
+	<span>2024-01-07 15:00:00</span>
+
+  <div id="article-categories">
+    
+		  <span>Categories：</span>
+      
+          
+              <span>
+                  <i class="fa fa-folder" aria-hidden="true">
+                  <a href="/categories/设计规范/">设计规范</a>
+                  </i>
+                
+              </span>
+          
+      
+    
+
+    
+		    <span>Tags：</span>
+        
+            
+                <span>
+                    <i class="fa fa-tag" aria-hidden="true">
+                    <a href="/tags/RESTful/">RESTful</a>
+                    </i>
+                </span>
+            
+        
+    
+  </div>
+
+</div>
+
+<!-- content -->
+<div id="article-content">
+	<h1 id="restful-概述"><a class="markdownIt-Anchor" href="#restful-概述"></a> RESTful 概述</h1>
+<h2 id="什么是-restful-api"><a class="markdownIt-Anchor" href="#什么是-restful-api"></a> 什么是 RESTful API</h2>
+<p>RESTful API （REpresentational State Transfer，简称 REST）是一种基于 HTTP 协议设计的应用程序编程接口（API）风格。它遵循一系列的设计原则，以提供可伸缩性、可扩展性和可维护性的 Web 服务。RESTful API 的核心概念是资源（Resources），每个资源都有一个唯一的标识符（URI）进行访问。客户端通过发送 HTTP 请求（GET、POST、PUT、DELETE 等）来操作服务器上的资源。服务器则通过 HTTP 响应返回结果给客户端。</p>
+<p><strong>通俗地说，使用了 RESTful API 接口设计规范后，看到 URL 就知道要什么，看到 HTTP method 就知道干什么，看到 HTTP Status code 就知道结果如何。</strong></p>
+<h2 id="restful-api-的特点"><a class="markdownIt-Anchor" href="#restful-api-的特点"></a> RESTful API 的特点</h2>
+<ol>
+<li>基于标准的HTTP协议：RESTful API使用HTTP协议作为通信协议，利用HTTP的各种方法（GET、POST、PUT、DELETE等）对资源进行操作。</li>
+<li>无状态性（Stateless）：服务器不会存储客户端的任何状态信息，每个请求都是独立的。客户端必须提供完整的请求信息，包括认证和权限验证，以便服务器正确处理请求。</li>
+<li>资源导向（Resource-oriented）：RESTful API将系统中的实体（资源）视为主要的设计元素，每个资源都有一个唯一的URI作为标识符，并通过HTTP方法对其进行操作。</li>
+<li>统一的接口（Uniform Interface）：RESTful API使用统一的接口规范，包括使用标准的HTTP方法来操作资源，使用HTTP状态码来表示操作结果，使用合适的数据格式（如JSON、XML）进行数据交换。</li>
+<li>可缓存性（Cachable）：RESTful API通过使用缓存机制来提高性能和可扩展性。服务器可以使用HTTP头部信息来指示哪些响应可以被缓存，客户端可以使用缓存减少对服务器的请求。</li>
+<li>分层系统（Layered System）：RESTful API支持系统的分层架构，每个层都具有特定的功能和责任。这种分层结构可以提高系统的可扩展性和灵活性。</li>
+</ol>
+<h2 id="restful-api-和传统-api-的对比"><a class="markdownIt-Anchor" href="#restful-api-和传统-api-的对比"></a> RESTful API 和传统 API 的对比</h2>
+<p>RESTful API 更加简洁、灵活，更符合 Web 的原生设计，易于理解和使用。它利用 HTTP 协议和标准的接口规范，提供了一种统一、可伸缩的方式来构建和集成 Web 服务。传统 API 在某些场景下可能仍然有其优势，如强类型、面向对象的编程环境中。选择使用哪种 API 取决于具体的需求和技术栈。RESTful API 和传统 API 在设计和使用方式上存在一些区别，下面是它们之间的对比：</p>
+<ol>
+<li>通信协议：传统 API 通常使用自定义的协议或者 SOAP（Simple Object Access Protocol）作为通信协议，而 RESTful API 使用 HTTP作为通信协议。RESTful API 借助 HTTP 的优势，如广泛支持、缓存机制等。</li>
+<li>接口风格：传统API通常基于RPC（Remote Procedure Call）方式，通过方法调用来进行操作。而RESTful API基于资源导向的设计理念，通过HTTP方法对资源进行操作，更符合Web的原生思维。</li>
+<li>数据交换格式：传统API通常使用XML作为数据交换格式，而RESTful API可以使用多种格式，如JSON、XML、HTML等。JSON已经成为RESTful API中最常用的数据交换格式，因其轻量、易读性好。</li>
+<li>路径设计：传统API的路径通常是基于动词和名词组合（如/api/getUser），而RESTful API的路径应该是基于名词（资源）的层级结构（如/api/users）。</li>
+<li>状态管理：传统API通常在服务端存储状态信息，需要维护会话（Session）状态。而RESTful API是无状态的，每个请求都包含完整的信息，服务器不需要存储任何状态。</li>
+<li>错误处理：传统API通常使用自定义的错误码和错误信息来表示错误情况，而RESTful API使用HTTP状态码来表示不同的操作结果和错误类型。</li>
+<li>安全性：传统API通常使用自定义的安全机制，如基于令牌（Token）的认证。而RESTful API可以使用HTTP的标准认证机制，如基本认证（Basic Authentication）或者OAuth 2.0。</li>
+</ol>
+<h1 id="restful-设计原则"><a class="markdownIt-Anchor" href="#restful-设计原则"></a> RESTful 设计原则</h1>
+<h2 id="资源和-uri-的设计"><a class="markdownIt-Anchor" href="#资源和-uri-的设计"></a> 资源和 URI 的设计</h2>
+<p>在RESTful架构中，资源是系统中的核心概念，URI（Uniform Resource Identifier）用于唯一标识和定位这些资源。以下是关于资源和URI设计的一些建议：</p>
+<ol>
+<li>使用名词作为URI的路径：URI应该使用名词来表示资源，而不是动词。例如，对于用户资源，可以使用&quot;/users&quot;作为URI。</li>
+<li>使用复数形式：为了保持一致性，建议使用资源的复数形式作为URI的路径，以表示该资源是一个集合。例如，&quot;/users&quot;表示所有用户资源。</li>
+<li>使用层次结构的URI路径：如果资源具有层次结构关系，可以在URI中使用层级路径来表示。例如，&quot;/users/{userId}/posts&quot;表示特定用户的所有帖子资源。</li>
+<li>避免使用动词或操作在URI中：RESTful API的操作应该使用HTTP方法来表示，而不是在URI中使用动词。例如，使用HTTP POST方法在&quot;/users&quot; URI上创建新用户，而不是使用&quot;/createUser&quot;。</li>
+<li>使用URI参数进行过滤和排序：如果需要对资源进行过滤、排序或分页，可以使用URI参数来传递相应的选项。例如，&quot;/users?status=active&amp;sort=name&quot;表示获取状态为活跃且按姓名排序的用户列表。</li>
+<li>保持URI的简洁和可读性：尽量保持URI短小简洁，避免在URI中包含过多的冗余信息。同时，也要考虑URI的可读性，使其易于理解和记忆。</li>
+</ol>
+<h2 id="http-方法的使用"><a class="markdownIt-Anchor" href="#http-方法的使用"></a> HTTP 方法的使用</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">HTTP Verb=HTTP Method=HTTP方法</th>
+<th style="text-align:left">操作类型=CRUD</th>
+<th style="text-align:left">可能返回的状态码</th>
+<th style="text-align:left">是否幂等Idempotent</th>
+<th style="text-align:left">是否安全Safe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">OPTIONS</td>
+<td style="text-align:left">询问该接口/端点支持哪些方法</td>
+<td style="text-align:left">200 OK</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">是</td>
+</tr>
+<tr>
+<td style="text-align:left">POST</td>
+<td style="text-align:left">Create创建</td>
+<td style="text-align:left">- 正常201 (Created)<br />- 异常404 (Not Found)<br />- 409 (Conflict)</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">否</td>
+</tr>
+<tr>
+<td style="text-align:left">GET</td>
+<td style="text-align:left">Read读取</td>
+<td style="text-align:left">- 正常：200 (OK)<br />- 异常：404 (Not Found)</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">是</td>
+</tr>
+<tr>
+<td style="text-align:left">HEAD</td>
+<td style="text-align:left">同GET但是返回BODY为空</td>
+<td style="text-align:left">同 GET</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">是</td>
+</tr>
+<tr>
+<td style="text-align:left">PUT</td>
+<td style="text-align:left">Replace替换</td>
+<td style="text-align:left">- 正常：200 (OK)<br />- 异常405 (Method Not Allowed)<br />- 204 (No Content)<br />- 404 (Not Found)</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">否</td>
+</tr>
+<tr>
+<td style="text-align:left">PATCH</td>
+<td style="text-align:left">Update/Modify更新</td>
+<td style="text-align:left">- 正常：200 (OK)<br />- 异常405 (Method Not Allowed)<br />- 204 (No Content)<br />- 404 (Not Found)</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">否</td>
+</tr>
+<tr>
+<td style="text-align:left">DELETE</td>
+<td style="text-align:left">Delete删除</td>
+<td style="text-align:left">- 正常：200 (OK)<br />- 204 (No Content)异常<br />- 404 (Not Found)<br />- 405 (Method Not Allowed)</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">否</td>
+</tr>
+</tbody>
+</table>
+<h2 id="状态码的使用"><a class="markdownIt-Anchor" href="#状态码的使用"></a> 状态码的使用</h2>
+<p>在RESTful架构中，HTTP状态码是表示请求处理结果的标准化代码。使用适当的状态码可以提供关于请求状态和错误情况的有用信息，帮助客户端和服务器进行适当的处理。下面是一些常见的HTTP状态码及其使用场景：</p>
+<table>
+<thead>
+<tr>
+<th>状态码</th>
+<th>含义</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+<td>表示请求成功，并且返回了请求的资源。这是最常见的状态码之一</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td>表示请求成功，并且服务器已经创建了新的资源。通常在创建资源的POST请求成功后返回</td>
+</tr>
+<tr>
+<td>204</td>
+<td>No Content</td>
+<td>表示请求成功，但响应中不包含任何内容。通常在删除资源的DELETE请求成功后返回</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Bad Request</td>
+<td>表示请求有语法错误或参数错误，服务器无法理解。客户端应该修改请求后再次发送</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td>表示请求需要身份验证，但客户端未提供有效的身份验证信息。客户端应该提供有效的身份验证凭据后再次发送请求</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td>表示服务器理解请求，但拒绝执行。通常表示客户端没有访问请求资源的权限</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td>表示请求的资源不存在或未找到。客户端请求的资源在服务器上不存在</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed</td>
+<td>表示请求的HTTP方法不被允许。例如，对于只允许GET请求的资源，如果客户端发送了POST请求，则可以返回405状态码</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error</td>
+<td>表示服务器内部错误，无法完成请求。这通常表示服务器端发生了一些意外错误</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable</td>
+<td>表示服务器当前无法处理请求，通常是由于过载或维护导致的临时性不可用</td>
+</tr>
+</tbody>
+</table>
+<p>以上只是一些常见的HTTP状态码，还有其他状态码可供使用。在设计RESTful API时，应根据具体情况选择适当的状态码来准确表示请求结果，并提供有用的信息给客户端。同时，还需遵循HTTP协议的规范和标准使用状态码。</p>
+<h2 id="数据格式和内容协商"><a class="markdownIt-Anchor" href="#数据格式和内容协商"></a> 数据格式和内容协商</h2>
+<p>在 RESTful 架构中，数据格式和内容协商是指客户端和服务器之间根据请求的 Accept 头部字段和服务器的 Content-Type 头部字段来确定传输的数据格式。以下是关于 RESTful 数据格式和内容协商的一些指导原则：</p>
+<ol>
+<li>数据格式：
+<ul>
+<li>JSON（JavaScript Object Notation）：JSON 是一种轻量级的数据交换格式，易于阅读和编写，并且广泛用于 Web API 的数据传输。</li>
+<li>XML（eXtensible Markup Language）：XML 是一种标记语言，可用于结构化数据的传输和存储，虽然较为冗长，但具有良好的扩展性。</li>
+</ul>
+</li>
+<li>Accept 头部字段：客户端可以使用 Accept 头部字段来指定它所期望的响应数据格式。例如，Accept: application/json 表示客户端希望接收 JSON 格式的响应数据。</li>
+<li>Content-Type 头部字段：服务器使用 Content-Type 头部字段来通知客户端所返回的响应数据格式。例如，Content-Type: application/json 表示服务器返回的数据是 JSON 格式。</li>
+<li>内容协商方式：
+<ul>
+<li>媒体类型优先（Media Type Prior）：服务器根据客户端的 Accept 头部字段，选择最适合的媒体类型作为响应数据格式。</li>
+<li>URI 扩展名（URI Extension）：通过在 URI 中使用文件扩展名来指定数据格式，例如 “/users.json” 表示返回 JSON 格式的用户数据。</li>
+<li>查询参数（Query Parameter）：通过在 URI 中使用查询参数来指定数据格式，例如 “/users?format=json” 表示返回 JSON 格式的用户数据。</li>
+<li>请求头部字段（Request Header）：客户端将期望的数据格式直接放在请求头部字段中，例如 “X-Accept: application/json” 表示期望返回 JSON 格式的响应数据。</li>
+</ul>
+</li>
+<li>默认数据格式：如果客户端没有明确指定 Accept 头部字段，则服务器可以选择默认的数据格式作为响应数据的格式。</li>
+</ol>
+<p>在设计 RESTful API 时，应该支持常见的数据格式，并允许客户端通过适当的方式指定所需的数据格式。这样可以提高灵活性和互操作性，使得不同类型的客户端可以根据自身需求进行数据交互。同时，还需要在 API 文档中清晰地说明支持的数据格式和内容协商方式，以便客户端开发人员能够正确使用和处理数据。</p>
+<h2 id="安全和认证机制"><a class="markdownIt-Anchor" href="#安全和认证机制"></a> 安全和认证机制</h2>
+<p>RESTful 接口的安全和认证机制主要包括以下方面：</p>
+<ol>
+<li>HTTPS：通过使用 HTTPS 协议来保护传输过程中的数据安全，防止数据被窃听或篡改。</li>
+<li>认证：在 RESTful 接口中，常用的认证方式有基本认证（Basic Authentication）、令牌认证（Token Authentication）等。其中，基本认证是一种最简单的认证方式，需要在请求头中添加 Authorization 字段，并将用户名和密码进行 Base64 编码后传输。令牌认证则需要生成一个令牌，并在每次请求时将令牌放入请求头或参数中进行验证。</li>
+<li>授权：授权是指对用户进行访问控制，确保用户只能访问其具有权限的资源。在 RESTful 接口中，常用的授权方式有基于角色的访问控制（Role-based Access Control）和基于资源的访问控制（Resource-based Access Control）等。</li>
+<li>防止 CSRF：CSRF（Cross-Site Request Forgery）是一种跨站点请求伪造攻击，攻击者通过伪造用户的请求向服务器发送恶意请求。为了防止 CSRF 攻击，可以在每个请求中添加 CSRF Token，并在服务器端进行验证。</li>
+<li>防止 XSS：XSS（Cross-Site Scripting）是一种跨站点脚本攻击，攻击者通过注入恶意脚本代码，来获取用户的敏感信息。为了防止 XSS 攻击，可以对用户输入的内容进行过滤和转义。</li>
+</ol>
+<p>在实际开发中，应该根据具体需求和安全风险等级，选择合适的安全和认证机制，并采取适当的措施来加强防护和保护。同时，还需要定期进行安全评估和漏洞扫描，及时修复和升级系统，提高系统的安全性和可靠性。</p>
+<h1 id="restful-api-文档的基本结构"><a class="markdownIt-Anchor" href="#restful-api-文档的基本结构"></a> RESTful API 文档的基本结构</h1>
+<p>制作 RESTful API 文档时需要考虑到文档的目标受众，以及 API 的具体需求和特点。在编写文档时，需要对 API 进行充分的了解，并根据实际情况进行补充和完善。同时，为了提高文档的可读性和可维护性，还需要遵循一些通用的文档编写规范和标准。</p>
+<p>当需要编写一篇 RESTful API 文档时，建议包含如下这些内容：</p>
+<ol>
+<li>概述和背景；</li>
+<li>接口列表和说明；</li>
+<li>接口参数和请求方式；</li>
+<li>请求/响应示例；</li>
+<li>错误处理和状态码说明；</li>
+<li>参考文档和链接。</li>
+</ol>
+<p>以下是针对上述的内容进行详细介绍。</p>
+<h2 id="概述和背景"><a class="markdownIt-Anchor" href="#概述和背景"></a> 概述和背景</h2>
+<p>编写 RESTful API 文档的概述和背景是为了向读者介绍 API 的基本信息和背景，让他们对该 API 有一个整体的了解。下面是一个编写 RESTful 文档概述和背景的示例：</p>
+<blockquote>
+<h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1>
+<p>本文档描述了 <strong>[API名称]</strong> 的 RESTful API 接口。<strong>[API名称]</strong> 是一个提供 <strong>[功能]</strong> 的服务，通过该 API，用户可以实现 <strong>[具体功能]</strong>。</p>
+<h1 id="背景"><a class="markdownIt-Anchor" href="#背景"></a> 背景</h1>
+<p>随着互联网的发展，越来越多的应用程序需要通过接口进行数据交互和业务处理。RESTful API 是一种常用的架构风格，它基于 HTTP 协议，使用统一的资源定位符（URL）来访问和操作数据。相比于传统的 SOAP 等协议，RESTful API 更加简单、灵活、易于理解和使用。</p>
+<p><strong>[API名称]</strong> 作为一个 <strong>[功能描述]</strong> 的服务，为了满足不同应用场景的需求，设计了一套符合 RESTful 风格的 API 接口。这些接口通过标准的 HTTP 方法（GET、POST、PUT、DELETE）和 URL 进行访问，使用 JSON 格式进行数据传输，提供了灵活且易于集成的方式，方便开发者快速构建应用并与服务进行交互。</p>
+<p>本文档将详细介绍每个接口的使用方法、参数说明、返回值格式和可能出现的错误码。通过阅读本文档，开发者可以快速理解和使用 <strong>[API名称]</strong> 的 RESTful 接口，实现对 <strong>[功能]</strong> 的集成和调用。</p>
+<p>以上是一个编写 RESTful API 文档概述和背景的示例，根据实际情况，你可以根据项目的特点和需求进行适当的修改和补充。重点是清晰地介绍 API 的概述、作用以及为什么选择使用 RESTful 架构风格。</p>
+</blockquote>
+<h2 id="接口列表和说明"><a class="markdownIt-Anchor" href="#接口列表和说明"></a> 接口列表和说明</h2>
+<p>编写接口列表和说明，可以参考如下格式：</p>
+<ol>
+<li>
+<p>获取用户信息接口</p>
+<p>请求方式：GET</p>
+<p>请求 URL：/users/:id</p>
+<p>请求参数：id（必填）- 用户 ID</p>
+<p>响应参数：user_id、username、email、phone、gender、birthday等用户信息</p>
+<p>响应示例：<code>&#123;&quot;[user_id&quot;:1,&quot;username&quot;:&quot;jerry&quot;,&quot;email&quot;:&quot;jerry@xxx.com](mailto:user_id&quot;:1,&quot;username&quot;:&quot;jerry&quot;,&quot;email&quot;:&quot;jerry@xxx.com)&quot;,&quot;phone&quot;:&quot;13888888888&quot;,&quot;gender&quot;:&quot;male&quot;,&quot;birthday&quot;:&quot;1990-01-01&quot;&#125;</code></p>
+</li>
+<li>
+<p>更新用户信息接口</p>
+<p>请求方式：PUT</p>
+<p>请求 URL：/users/:id</p>
+<p>请求参数：id（必填）- 用户 ID；username、email、phone、gender、birthday等用户信息（选填）</p>
+<p>响应参数：user_id、username、email、phone、gender、birthday等用户信息</p>
+<p>响应示例：<code>&#123;&quot;[user_id&quot;:1,&quot;username&quot;:&quot;jerry&quot;,&quot;email&quot;:&quot;jerry@xxx.com](mailto:user_id&quot;:1,&quot;username&quot;:&quot;jerry&quot;,&quot;email&quot;:&quot;jerry@xxx.com)&quot;,&quot;phone&quot;:&quot;13888888888&quot;,&quot;gender&quot;:&quot;male&quot;,&quot;birthday&quot;:&quot;1990-01-01&quot;&#125;</code></p>
+</li>
+<li>
+<p>删除用户接口</p>
+<p>请求方式：DELETE</p>
+<p>请求 URL：/users/:id</p>
+<p>请求参数：id（必填）- 用户 ID</p>
+<p>响应参数：status（状态码）、message（操作结果信息）</p>
+<p>响应示例：<code>&#123;&quot;status&quot;:&quot;success&quot;,&quot;message&quot;:&quot;用户删除成功！&quot;&#125;</code></p>
+</li>
+<li>
+<p>创建订单接口</p>
+<p>请求方式：POST</p>
+<p>请求 URL：/orders</p>
+<p>请求参数：user_id（必填）- 用户 ID；product_id（必填）- 商品 ID；quantity（必填）- 商品数量</p>
+<p>响应参数：order_id、user_id、product_id、quantity、create_time、update_time等订单信息</p>
+<p>响应示例：<code>&#123;&quot;order_id&quot;:1,&quot;user_id&quot;:1,&quot;product_id&quot;:1,&quot;quantity&quot;:2,&quot;create_time&quot;:&quot;2024-01-07 14:30:00&quot;,&quot;update_time&quot;:&quot;2024-01-07 14:30:00&quot;&#125;</code></p>
+</li>
+<li>
+<p>获取订单列表接口</p>
+<p>请求方式：GET</p>
+<p>请求 URL：/orders</p>
+<p>请求参数：user_id（选填）- 用户 ID；product_id（选填）- 商品 ID；status（选填）- 订单状态</p>
+<p>响应参数：order_id、user_id、product_id、quantity、create_time、update_time等订单信息</p>
+<p>响应示例：<code>[&#123;&quot;order_id&quot;:1,&quot;user_id&quot;:1,&quot;product_id&quot;:1,&quot;quantity&quot;:2,&quot;create_time&quot;:&quot;2024-01-07 14:30:00&quot;,&quot;update_time&quot;:&quot;2024-01-07 14:30:00&quot;&#125;,&#123;&quot;order_id&quot;:2,&quot;user_id&quot;:2,&quot;product_id&quot;:3,&quot;quantity&quot;:1,&quot;create_time&quot;:&quot;2024-01-07 15:00:00&quot;,&quot;update_time&quot;:&quot;2024-01-07 15:00:00&quot;&#125;]</code></p>
+</li>
+</ol>
+<h2 id="接口参数和请求方式"><a class="markdownIt-Anchor" href="#接口参数和请求方式"></a> 接口参数和请求方式</h2>
+<h3 id="请求方式http-方法"><a class="markdownIt-Anchor" href="#请求方式http-方法"></a> 请求方式（HTTP 方法）：</h3>
+<ul>
+<li>GET：用于获取资源，不会对服务器产生副作用。</li>
+<li>POST：用于创建新资源或提交数据，可能会对服务器产生副作用。</li>
+<li>PUT：用于更新已存在的资源，要求提供完整的资源信息。</li>
+<li>PATCH：用于更新已存在的资源，只需要提供需要更新的字段。</li>
+<li>DELETE：用于删除指定的资源。</li>
+</ul>
+<h3 id="参数传递方式"><a class="markdownIt-Anchor" href="#参数传递方式"></a> 参数传递方式：</h3>
+<ul>
+<li>查询参数（Query Parameters）：通过 URL 的查询字符串传递参数，一般用于 GET 请求。例如：<code>/users?name=John&amp;age=25</code></li>
+<li>路径参数（Path Parameters）：将参数嵌入到 URL 的路径中，用于标识资源的唯一性。例如：<code>/users/1</code></li>
+<li>请求体（Request Body）：将参数包含在请求体中，通常用于 POST、PUT 和 PATCH 请求，可以使用 JSON、XML 等格式进行数据传输。</li>
+</ul>
+<h3 id="参数类型"><a class="markdownIt-Anchor" href="#参数类型"></a> 参数类型：</h3>
+<ul>
+<li>必填参数：必须提供的参数，请求无法正常执行或返回错误。</li>
+<li>可选参数：不是必须提供的参数，根据业务需求来决定是否提供。</li>
+</ul>
+<h3 id="参数说明"><a class="markdownIt-Anchor" href="#参数说明"></a> 参数说明：</h3>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数类型</th>
+<th>参数描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>路径参数</td>
+<td>用户ID，用于标识特定用户</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>整数</td>
+<td>用户ID</td>
+</tr>
+<tr>
+<td>username</td>
+<td>字符串</td>
+<td>用户名</td>
+</tr>
+<tr>
+<td>email</td>
+<td>字符串</td>
+<td>电子邮件</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>字符串</td>
+<td>手机号码</td>
+</tr>
+</tbody>
+</table>
+<h2 id="请求响应示例"><a class="markdownIt-Anchor" href="#请求响应示例"></a> 请求/响应示例</h2>
+<h3 id="获取用户信息接口"><a class="markdownIt-Anchor" href="#获取用户信息接口"></a> 获取用户信息接口</h3>
+<ul>
+<li>请求方式：GET</li>
+<li>请求 URL：/users/:id</li>
+<li>请求参数：
+<ul>
+<li>id（必填）- 用户 ID</li>
+</ul>
+</li>
+<li>响应参数：user_id、username、email、phone、gender、birthday等用户信息</li>
+<li>响应示例：<code>&#123;&quot;user_id&quot;:1,&quot;username&quot;:&quot;jerry&quot;,&quot;email&quot;:&quot;jerry@xxx.com&quot;,&quot;phone&quot;:&quot;13888888888&quot;,&quot;gender&quot;:&quot;male&quot;,&quot;birthday&quot;:&quot;1990-01-01&quot;&#125;</code></li>
+</ul>
+<h3 id="更新用户信息接口"><a class="markdownIt-Anchor" href="#更新用户信息接口"></a> 更新用户信息接口</h3>
+<ul>
+<li>请求方式：PUT</li>
+<li>请求 URL：/users/:id</li>
+<li>请求参数：
+<ul>
+<li>id（必填）- 用户 ID</li>
+<li>username、email、phone、gender、birthday等用户信息（选填）</li>
+</ul>
+</li>
+<li>响应参数：user_id、username、email、phone、gender、birthday等用户信息</li>
+<li>响应示例：<code>&#123;&quot;user_id&quot;:1,&quot;username&quot;:&quot;jerry&quot;,&quot;email&quot;:&quot;jerry@xxx.com&quot;,&quot;phone&quot;:&quot;13888888888&quot;,&quot;gender&quot;:&quot;male&quot;,&quot;birthday&quot;:&quot;1990-01-01&quot;&#125;</code></li>
+</ul>
+<h3 id="删除用户接口"><a class="markdownIt-Anchor" href="#删除用户接口"></a> 删除用户接口</h3>
+<ul>
+<li>请求方式：DELETE</li>
+<li>请求 URL：/users/:id</li>
+<li>请求参数：
+<ul>
+<li>id（必填）- 用户 ID</li>
+</ul>
+</li>
+<li>响应参数：status（状态码）、message（操作结果信息）</li>
+<li>响应示例：<code>&#123;&quot;status&quot;:&quot;success&quot;,&quot;message&quot;:&quot;用户删除成功！&quot;&#125;</code></li>
+</ul>
+<h3 id="创建订单接口"><a class="markdownIt-Anchor" href="#创建订单接口"></a> 创建订单接口</h3>
+<ul>
+<li>请求方式：POST</li>
+<li>请求 URL：/orders</li>
+<li>请求参数：
+<ul>
+<li>user_id（必填）- 用户 ID</li>
+<li>product_id（必填）- 商品 ID</li>
+<li>quantity（必填）- 商品数量</li>
+</ul>
+</li>
+<li>响应参数：order_id、user_id、product_id、quantity、create_time、update_time等订单信息</li>
+<li>响应示例：<code>&#123;&quot;order_id&quot;:1,&quot;user_id&quot;:1,&quot;product_id&quot;:1,&quot;quantity&quot;:2,&quot;create_time&quot;:&quot;2024-01-07 14:30:00&quot;,&quot;update_time&quot;:&quot;2024-01-07 14:30:00&quot;&#125;</code></li>
+</ul>
+<h3 id="获取订单列表接口"><a class="markdownIt-Anchor" href="#获取订单列表接口"></a> 获取订单列表接口</h3>
+<ul>
+<li>请求方式：GET</li>
+<li>请求 URL：/orders</li>
+<li>请求参数：
+<ul>
+<li>user_id（选填）- 用户 ID</li>
+<li>product_id（选填）- 商品 ID</li>
+<li>status（选填）- 订单状态</li>
+</ul>
+</li>
+<li>响应参数：order_id、user_id、product_id、quantity、create_time、update_time等订单信息</li>
+<li>响应示例：<code>[&#123;&quot;order_id&quot;:1,&quot;user_id&quot;:1,&quot;product_id&quot;:1,&quot;quantity&quot;:2,&quot;create_time&quot;:&quot;2024-01-07 14:30:00&quot;,&quot;update_time&quot;:&quot;2024-01-07 14:30:00&quot;&#125;,&#123;&quot;order_id&quot;:2,&quot;user_id&quot;:2,&quot;product_id&quot;:3,&quot;quantity&quot;:1,&quot;create_time&quot;:&quot;2024-01-07 15:00:00&quot;,&quot;update_time&quot;:&quot;2024-01-07 15:00:00&quot;&#125;]</code></li>
+</ul>
+<h2 id="错误处理和状态码说明"><a class="markdownIt-Anchor" href="#错误处理和状态码说明"></a> 错误处理和状态码说明</h2>
+<p>在 RESTful API 中，错误处理和状态码是非常重要的组成部分。对于错误处理，可以返回一个包含错误信息的 JSON 对象，例如：</p>
+<pre class="highlight"><code class="">jsonCopy Code&#123;
+  &quot;error&quot;: &quot;Invalid input&quot;,
+  &quot;message&quot;: &quot;The request body is missing required fields.&quot;
+&#125;
+</code></pre>
+<p>或者使用自定义的错误代码和描述，例如：</p>
+<pre class="highlight"><code class="">jsonCopy Code&#123;
+  &quot;code&quot;: 1001,
+  &quot;message&quot;: &quot;Invalid input: The request body is missing required fields.&quot;
+&#125;
+</code></pre>
+<p>通过合适的状态码和清晰的错误信息，客户端可以更好地理解发生了什么问题，并采取适当的措施进行处理。</p>
+<h2 id="参考文档和链接"><a class="markdownIt-Anchor" href="#参考文档和链接"></a> 参考文档和链接</h2>
+<p>RESTful 文档中使用或者参考了其他的文档，建议给出参考文档的名称或者链接。</p>
+<h1 id="restful-api文档工具和平台"><a class="markdownIt-Anchor" href="#restful-api文档工具和平台"></a> RESTful API文档工具和平台</h1>
+<h2 id="swagger和openapi规范"><a class="markdownIt-Anchor" href="#swagger和openapi规范"></a> Swagger和OpenAPI规范</h2>
+<p>Swagger和OpenAPI规范是用于描述和定义RESTful API的工具和规范。</p>
+<ul>
+<li>
+<p>Swagger最初是一个开源项目，它提供了一种简洁、易读的方式来描述API的各种信息，包括请求和响应的参数、数据类型、路径、HTTP方法等。Swagger可以生成可交互的API文档，使开发者能够轻松理解和使用API。</p>
+</li>
+<li>
+<p>OpenAPI规范则是Swagger规范的演化版本，它由OpenAPI Initiative（OAI）维护。OpenAPI规范基于JSON或YAML格式，提供了一种标准化的方式来描述和定义API的结构、操作和参数。它不仅可以生成API文档，还可以用于生成客户端代码、服务器存根、数据验证等。</p>
+</li>
+</ul>
+<p>通过Swagger和OpenAPI规范，开发者能够更好地理解和使用API，同时也能够促进API的交互性和可重用性。许多开发工具和框架都支持Swagger和OpenAPI规范，使得API的开发和集成更加方便和高效。</p>
+<h2 id="postman和insomnia测试工具"><a class="markdownIt-Anchor" href="#postman和insomnia测试工具"></a> Postman和Insomnia测试工具</h2>
+<p>Postman和Insomnia都是常用的API测试工具。</p>
+<ul>
+<li>
+<p>Postman是一个功能强大、易于使用的API测试和开发工具。它提供了一个可视化界面，使得开发者能够快速、轻松地创建和发送HTTP请求，并查看响应结果。Postman还支持请求集合的管理、自动化测试、环境变量等功能，可以大大提高开发效率。</p>
+</li>
+<li>
+<p>Insomnia也是一个跨平台的API测试和开发工具。它提供了一个清晰、直观的用户界面，支持多种HTTP方法、请求参数和响应格式。Insomnia还支持请求和响应的截图、代码生成、环境变量等功能，可以帮助开发者更好地理解和测试API。</p>
+</li>
+</ul>
+<p>两者虽然功能类似，但在使用中还是有一些区别。例如，Postman提供了在线API文档、协作和团队管理等功能，在多人协作的场景下更加方便。而Insomnia则更注重界面的美观和易用性。</p>
+<h2 id="gitbook-readme和confluence文档平台"><a class="markdownIt-Anchor" href="#gitbook-readme和confluence文档平台"></a> Gitbook、Readme和Confluence文档平台</h2>
+<p>GitBook、README和Confluence都是常用的文档平台，用于编写和分享技术文档。</p>
+<ul>
+<li>
+<p>GitBook是一个开源的文档平台，它使用Markdown格式来编写文档，并提供了强大的版本控制和协作功能。通过GitBook，你可以将文档存储在Git仓库中，并与团队成员共享和协作编辑。GitBook还支持自动生成漂亮的HTML或PDF格式的文档，方便阅读和分享。</p>
+</li>
+<li>
+<p>README是一种简单的文档格式，通常用于描述项目的基本信息和使用方法。README文件通常以纯文本形式存在于项目的根目录下，它可以包含项目的介绍、安装指南、使用示例等内容。README文件通常直接存储在代码仓库中，与代码一同被版本控制管理。</p>
+</li>
+<li>
+<p>Confluence是一个企业级的协作文档平台，它提供了丰富的文档编辑和组织功能。Confluence支持团队成员协作编辑、讨论、评论等，可以方便地创建和维护复杂的技术文档。Confluence还提供了强大的搜索和权限控制功能，适用于大型团队和企业内部的知识管理和文档协作。</p>
+</li>
+</ul>
+<p>根据具体的需求和使用场景，选择合适的文档平台很重要。GitBook适合开源项目或小团队，强调版本控制和协作编辑；README适用于简单的项目文档，方便与代码一同管理；Confluence则适合大型团队和企业，提供全面的协作和管理功能。</p>
+<h1 id="restful-api文档实践案例"><a class="markdownIt-Anchor" href="#restful-api文档实践案例"></a> RESTful API文档实践案例</h1>
+<ul>
+<li>腾讯会议 API 文档：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/document/product/1095/42417">https://cloud.tencent.com/document/product/1095/42417</a></li>
+</ul>
+<h1 id="参考文档"><a class="markdownIt-Anchor" href="#参考文档"></a> 参考文档</h1>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://crifan.github.io/http_restful_api/website/restful_rule/rule.html">RESTful API - Crifan</a></li>
+</ol>
+
+</div>
+
+<!-- post-guide -->
+
+    <div class="post-guide">
+        <div class="item left">
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2024/01/07/11%20%E5%B7%A5%E5%85%B7/01%20Postman/">
+                Postman
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+<!-- comment - giscus -->
+
+
+
+	
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+        });
+        MathJax.Hub.Queue(function() {
+          var all = MathJax.Hub.getAllJax(), i;
+          for(i=0; i < all.length; i += 1) {
+              all[i].SourceElement().parentNode.className += ' has-jax';
+          }
+        });
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+<!-- comment - valine -->
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©<span id="footerYear-start"></span>-<span id="footerYear-end"></span>
+
+	
+	    <a href="/">Harvey Xie</a>
+	
+	
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+<!-- 	by <a href="//wujun.me" target="_blank">Wu Jun</a> -->
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+
+
+<script type="text/javascript">
+	document.getElementById('footerYear-start').innerHTML = new Date().getFullYear() + '';
+</script>
+
+<script type="text/javascript">
+	document.getElementById('footerYear-end').innerHTML = new Date().getFullYear() + '';
+</script>
+
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>
