@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		JUnit | 
+	 
+	Harvey&#39;s Notes
+	</title>
+	
+	<!-- keywords,description -->
+	
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+
+	
+	
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"><link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
+
+<body>
+	<header id="header">
+    <a id="title" href="/" class="logo">Harvey's Notes</a>
+
+	<ul id="menu">
+    
+      <li class="menu-item">
+        <a href="/about" class="menu-item-link">About</a>
+      </li>
+    
+
+    
+
+    
+
+    
+  
+    
+      <li class="menu-item">
+        <a href='https://harveyxie22.github.io' class="menu-item-link" target="_blank">
+          <i class="fa fa-github fa-2x"></i>
+        </a>
+      </li>
+    
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="Press Enter to search">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 计算机基础
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/01%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/01%20%E8%BF%9B%E5%88%B6%E6%95%B0%E5%92%8C%E5%AD%98%E5%82%A8%E5%8D%95%E4%BD%8D/">
+                     
+										    01 进制数和存储单位
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/01%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/02%20ASCII%20%E7%A0%81%E8%A1%A8/">
+                     
+										    02 ASCII 码表
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/01%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/03%20%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/">
+                     
+										    03 开源协议
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 C
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/02%20C/01%20%E5%85%A5%E9%97%A8%E4%BB%8B%E7%BB%8D/">
+                     
+										    01 入门介绍
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/02%20C/02%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6/">
+                     
+										    02 数据类型与运算符
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/03%20%E6%95%B0%E7%BB%84/">
+                     
+										    03 数组
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/04%20%E6%8C%87%E9%92%88/">
+                     
+										    04 指针
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/05%20%E5%AE%8F%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%B8%B8%E9%87%8F/">
+                     
+										    05 宏定义与常量
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/06%20%E5%87%BD%E6%95%B0/">
+                     
+										    06 函数
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/10/02%20C/07%20%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+                     
+										    07 字符串
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/19/02%20C/08%20%E7%BB%93%E6%9E%84%E4%BD%93/">
+                     
+										    08 结构体
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/16/02%20C/09%20%E6%96%87%E4%BB%B6/">
+                     
+										    09 文件
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/16/02%20C/10%20%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E4%B8%8E%E5%86%85%E5%AD%98%E5%9B%9B%E5%8C%BA/">
+                     
+										    10 编译过程与内存四区
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/17/02%20C/20%20C%20%E8%AF%AD%E8%A8%80%E7%BB%8F%E5%85%B8100%E4%BE%8B/">
+                     
+										    20 C 语言经典100例
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										03 C++
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/03%20C++/hello-world/">
+                     
+										    hello-world
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										04 Java
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 高级进阶
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/01%20%E5%8F%8D%E5%B0%84/">
+                     
+										    01 反射
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/02%20%E6%B3%A8%E8%A7%A3/">
+                     
+										    02 注解
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/03%20%E6%B3%9B%E5%9E%8B/">
+                     
+										    03 泛型
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/04%20%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">
+                     
+										    04 序列化和反序列化
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/26/04%20Java/01%20%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/05%20%E7%BA%BF%E7%A8%8B/">
+                     
+										    05 线程
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 设计模式
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/12/09/04%20Java/02%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/01%20%E5%BC%95%E8%A8%80/">
+                     
+										    01 引言
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/09/04%20Java/02%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/02%20%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+                     
+										    02 工厂模式
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/09/04%20Java/02%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/03%20%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
+                     
+										    03 单例模式
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										05 Android
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 Framework
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/05%20Android/01%20Framework/01%20%E4%B8%8B%E8%BD%BD%20AOSP%20%E6%BA%90%E7%A0%81/">
+                     
+										    01 下载 AOSP 源码
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/05%20Android/01%20Framework/02%20Android%E7%89%88%E6%9C%AC%E5%8F%B7/">
+                     
+										    02 Android版本号
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 性能调优
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 基础命令
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/12/17/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/01%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/01%20%E8%BF%9B%E5%85%A5%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+                     
+										    01 进入工厂模式
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/17/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/01%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/02%20%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF/">
+                     
+										    02 设备信息
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 工具
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/02%20%E5%B7%A5%E5%85%B7/01%20Systrace/">
+                     
+										    01 Systrace
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/05%20Android/02%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/02%20%E5%B7%A5%E5%85%B7/02%20Simpleperf/">
+                     
+										    02 Simpleperf
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										03 测试
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/27/05%20Android/03%20%E6%B5%8B%E8%AF%95/01%20UI%20Automator/">
+                     
+										    01 UI Automator
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/2023/11/27/05%20Android/03%20%E6%B5%8B%E8%AF%95/02%20JUnit/">
+                     
+										    02 JUnit
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										06 Linux
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 Ubuntu 基础使用
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8%E6%A1%8C%E9%9D%A2%E5%9B%BE%E6%A0%87/">
+                     
+										    创建应用桌面图标
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E5%90%AF%E5%8A%A8Springboot%E5%B7%A5%E7%A8%8B/">
+                     
+										    启动Springboot工程
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/12/02/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E5%AE%89%E8%A3%85ADB%E3%80%81AAPT%E3%80%81JAVA/">
+                     
+										    安装ADB、AAPT、JAVA
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/06%20Linux/01%20Ubuntu%20%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E6%9B%B4%E6%96%B0%E8%BD%AF%E4%BB%B6%E6%BA%90/">
+                     
+										    更新软件源
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										09 Hexo
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/27/09%20Hexo/01%20Typora+Hexo%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%E5%8A%9E%E6%B3%95/">
+                     
+										    01 Typora+Hexo图片处理办法
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2023/11/27/09%20Hexo/02%20%E8%AE%A9%20Hexo%20%E6%94%AF%E6%8C%81%20LaTeX%20%E5%85%AC%E5%BC%8F/">
+                     
+										    02 让 Hexo 支持 LaTeX 公式
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										11 工具
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2024/01/07/11%20%E5%B7%A5%E5%85%B7/01%20Postman/">
+                     
+										    01 Postman
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										12 设计规范
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2024/01/07/12%20%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83/01%20RESTful/">
+                     
+										    01 RESTful
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										13 读书笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/11/25/13%20%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/01%20%E4%B8%BA%E4%BB%80%E4%B9%88%E7%B2%BE%E8%8B%B1%E9%83%BD%E6%98%AF%E6%97%B6%E9%97%B4%E6%8E%A7/">
+                     
+										    01 为什么精英都是时间控
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content" class="content">
+		<h1 id="article-title">
+	JUnit
+</h1>
+
+<!-- meta -->
+<div class="article-meta">
+	
+
+	<span>Harvey Xie</span>
+	<span>2023-11-27 21:02:34</span>
+
+  <div id="article-categories">
+    
+		  <span>Categories：</span>
+      
+          
+              <span>
+                  <i class="fa fa-folder" aria-hidden="true">
+                  <a href="/categories/Android/">Android</a>
+                  </i>
+                
+              </span>
+          
+      
+    
+
+    
+		    <span>Tags：</span>
+        
+            
+                <span>
+                    <i class="fa fa-tag" aria-hidden="true">
+                    <a href="/tags/JUnit/">JUnit</a>
+                    </i>
+                </span>
+            
+        
+    
+  </div>
+
+</div>
+
+<!-- content -->
+<div id="article-content">
+	<h1 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h1>
+<h2 id="junit-概述"><a class="markdownIt-Anchor" href="#junit-概述"></a> JUnit 概述</h2>
+<p>JUnit 是 Java 编程语言的一个单元测试框架。该框架广泛应用于各种 Java 项目中，主要用于测试代码的正确性和稳定性。JUnit 提供了一些方便实用的断言方法和测试运行器，使得开发人员可以轻松编写和执行单元测试。</p>
+<p>JUnit 最初由 Erich Gamma 和 Kent Beck 在 1997 年共同开发，目前已经成为 Java 社区中最流行的单元测试框架之一。JUnit 可以和各种 Java 开发工具和构建工具集成使用，例如 Eclipse、IntelliJ IDEA、Maven、Gradle 等。JUnit 也是 Test-Driven Development（TDD）和 Behavior-Driven Development（BDD）方法论的重要工具之一。</p>
+<h2 id="junit-特性"><a class="markdownIt-Anchor" href="#junit-特性"></a> JUnit 特性</h2>
+<p>JUnit 的特性包括：</p>
+<ul>
+<li>提供了丰富的断言方法，如 assertEquals、assertTrue、assertFalse 等，用于比较和验证返回值、异常和对象等。</li>
+<li>支持测试运行器，如 @RunWith 注解、Suite 类和 Parameterized 类等，用于控制测试用例的执行顺序、过滤和参数化等。</li>
+<li>可以扩展 JUnit，通过自定义测试运行器和规则（Rule）来增强测试框架的功能。</li>
+<li>JUnit5 引入了新的注解和 API，如 @BeforeEach、@AfterEach、@BeforeAll、@AfterAll 等，提供更多的灵活性和可读性。</li>
+<li>JUnit4 和 JUnit5 都支持多线程测试和并发测试，可以使用 @Test(timeout) 注解来限制执行时间。</li>
+</ul>
+<p>JUnit 将单元测试作为软件开发过程中重要的组成部分，可以帮助开发人员快速发现和修复代码中的错误，提高软件质量和可维护性。</p>
+<h2 id="junit-历史"><a class="markdownIt-Anchor" href="#junit-历史"></a> JUnit 历史</h2>
+<p>JUnit 的历史可以追溯到 1997 年，当时 Erich Gamma 和 Kent Beck 开发了 JUnit1。JUnit1 使用 Java 编写，是一个基于框架式的单元测试工具，被广泛应用于 Java 领域。JUnit1 提供了 Test 类和 Assert 类，并且在 Test 类中定义了一系列的测试方法。使用 JUnit1 进行单元测试需要手动编写测试代码，这在当时是相当麻烦的。</p>
+<p>2000 年，JUnit2 问世。JUnit2 添加了新的测试运行器和自动化测试工具，对测试用例进行了更好的管理。JUnit2 中的新特性包括：使用 setUP() 方法初始化测试数据；使用 tearDown() 方法清理测试环境；使用 TestResult 类来管理测试结果等。JUnit2 还支持了多线程测试，提供了更多的灵活性和可读性。</p>
+<p>2005 年，JUnit3 发布。JUnit3 对测试运行器和断言方法进行了升级，增强了测试框架的扩展性和可维护性。JUnit3 引入了一些新的注解，如 @Before、@After、@Test 等，用于控制测试方法的执行顺序和条件。JUnit3 还添加了大量的工具类，如 TestCase 类、TestSuite 类、TestListener 接口等，使得测试代码的编写和管理更加方便。</p>
+<p>2017 年，JUnit5 正式发布。JUnit5 是 JUnit 历史上的一次重大升级，引入了新的注解和 API，提供了更多的灵活性和可读性。JUnit5 中新增了 @BeforeEach、@AfterEach、@BeforeAll、@AfterAll 等注解，支持多个扩展点和自定义测试引擎，还引入了 Jupiter Test Engine 和 Vintage Test Engine 两种测试引擎，兼容了 JUnit4 和 JUnit3 的测试用例。同时，JUnit5 还提供了一个全新的架构，使得测试框架更加模块化和易于扩展。</p>
+<h1 id="junit5"><a class="markdownIt-Anchor" href="#junit5"></a> JUnit5</h1>
+<p>与以前的 JUnit 版本不同，JUnit 5 由三个不同子项目中的几个不同模块组成：</p>
+<p><strong>JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage</strong></p>
+<p>JUnit Platform 作为在 JVM 上启动测试框架的基础，并定义了 TestEngine API 用于开发在平台上运行的测试框架。此外，平台提供了 Console Launcher，以从命令行启动平台和 JUnit Platform Suite Engine，在平台上使用一个或多个测试引擎来运行自定义测试套件。流行的 IDE（如 IntelliJ IDEA、Eclipse、NetBeans 和 Visual Studio Code）和构建工具（如 Gradle、Maven 和 Ant）也支持 JUnit Platform。</p>
+<p>JUnit Jupiter 是在 JUnit 5 中编写测试和扩展的编程模型和扩展模型的组合。Jupiter 子项目提供了一个 TestEngine，用于在平台上运行基于 Jupiter 的测试。</p>
+<p>JUnit Vintage 提供了一个 TestEngine，用于在平台上运行基于 JUnit 3 和 JUnit 4 的测试。它需要在类路径或模块路径上存在 JUnit 4.12 或更高版本。</p>
+<h1 id="相关依赖"><a class="markdownIt-Anchor" href="#相关依赖"></a> 相关依赖</h1>
+<p>在 <a target="_blank" rel="noopener" href="https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter">Maven Repository</a> 中，可以找到 JUnit Jupiter 的依赖配置，通常引入  JUnit Jupiter  就可以满足大多数测试场景。</p>
+<h3 id="maven"><a class="markdownIt-Anchor" href="#maven"></a> Maven</h3>
+<pre class="highlight"><code class="xml"><span class="hljs-comment">&lt;!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.junit.jupiter<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>junit-jupiter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>5.10.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</code></pre>
+<h3 id="gradle"><a class="markdownIt-Anchor" href="#gradle"></a> Gradle</h3>
+<pre class="highlight"><code class="groovy"><span class="hljs-comment">// https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter</span>
+testImplementation <span class="hljs-string">&#x27;org.junit.jupiter:junit-jupiter:5.10.1&#x27;</span>
+</code></pre>
+<h1 id="快速入门"><a class="markdownIt-Anchor" href="#快速入门"></a> 快速入门</h1>
+<p>假设存在一个 Calculator 类。该类中存在一个 <code>add</code> 方法。</p>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Calculator</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">add</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> &#123;
+        <span class="hljs-keyword">return</span> a + b;
+    &#125;
+&#125;
+</code></pre>
+<p>为 <code>add</code> 方法使用 JUnit5 编写的测试用例如下：</p>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CalculatorTest</span> &#123;
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testAddition</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-type">Calculator</span> <span class="hljs-variable">calculator</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Calculator</span>();
+        <span class="hljs-type">int</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> calculator.add(<span class="hljs-number">3</span>, <span class="hljs-number">5</span>);
+        Assert.assertEquals(<span class="hljs-number">8</span>, result);
+    &#125;
+&#125;
+</code></pre>
+<p>点击运行，可看到运行结果为 PASS。</p>
+<h1 id="断言"><a class="markdownIt-Anchor" href="#断言"></a> 断言</h1>
+<h2 id="什么是断言"><a class="markdownIt-Anchor" href="#什么是断言"></a> 什么是断言</h2>
+<p>在软件测试中，断言（assertion）是一种用于验证测试结果的机制。它通常是一个布尔表达式，该表达式应该在测试过程中返回 true，否则测试将被视为失败。</p>
+<p>在 JUnit 5 中，断言是实现测试用例的重要部分。测试用例是通过调用被测代码并检查实际结果与预期结果之间的差异来验证程序行为的方法。断言方法用于在测试中验证预期结果与实际结果是否相等或符合预期。</p>
+<h2 id="断言方法"><a class="markdownIt-Anchor" href="#断言方法"></a> 断言方法</h2>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>assertEquals(expected, actual)</td>
+<td>验证两个值是否相等</td>
+</tr>
+<tr>
+<td>assertTrue(condition)</td>
+<td>验证条件是否为真</td>
+</tr>
+<tr>
+<td>assertFalse(condition)</td>
+<td>验证条件是否为假</td>
+</tr>
+<tr>
+<td>assertNull(object)</td>
+<td>验证对象是否为 null</td>
+</tr>
+<tr>
+<td>assertNotNull(object)</td>
+<td>验证对象是否不为 null</td>
+</tr>
+<tr>
+<td>assertSame(expected, actual)</td>
+<td>验证两个对象引用是否指向同一个对象</td>
+</tr>
+<tr>
+<td>assertNotSame(expected, actual)</td>
+<td>验证两个对象引用是否指向不同的对象</td>
+</tr>
+<tr>
+<td>assertArrayEquals(expectedArray, actualArray)</td>
+<td>验证两个数组是否相等</td>
+</tr>
+<tr>
+<td>assertIterableEquals(expected, actual)</td>
+<td>验证两个可迭代对象是否相等</td>
+</tr>
+<tr>
+<td>assertThrows(exceptionType, executable)</td>
+<td>验证代码块是否抛出了指定类型的异常</td>
+</tr>
+<tr>
+<td>assertTimeout(duration, executable)</td>
+<td>验证代码块在指定时间内是否完成执行</td>
+</tr>
+</tbody>
+</table>
+<h1 id="注解"><a class="markdownIt-Anchor" href="#注解"></a> 注解</h1>
+<p>JUnit 5 提供了一系列的注解来标记测试类和测试方法，以指示它们的功能和行为。以下是 JUnit 5 中常用的一些注解：</p>
+<table>
+<thead>
+<tr>
+<th>注解</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@Test</td>
+<td>用于标记测试方法，表示该方法是一个测试用例</td>
+</tr>
+<tr>
+<td>@ParameterizedTest</td>
+<td>用于标记参数化测试方法，表示该方法是一个参数化的测试用例</td>
+</tr>
+<tr>
+<td>@RepeatedTest</td>
+<td>用于标记重复测试方法，表示该方法将被重复运行多次</td>
+</tr>
+<tr>
+<td>@DisplayName</td>
+<td>用于为测试类或测试方法指定自定义显示名称</td>
+</tr>
+<tr>
+<td>@BeforeEach</td>
+<td>用于标记在每个测试方法之前执行的方法</td>
+</tr>
+<tr>
+<td>@AfterEach</td>
+<td>用于标记在每个测试方法之后执行的方法</td>
+</tr>
+<tr>
+<td>@BeforeAll</td>
+<td>用于标记在所有测试方法之前执行的方法</td>
+</tr>
+<tr>
+<td>@AfterAll</td>
+<td>用于标记在所有测试方法之后执行的方法</td>
+</tr>
+<tr>
+<td>@Disabled</td>
+<td>用于标记禁用的测试类或测试方法，表示该测试将被忽略</td>
+</tr>
+<tr>
+<td>@Nested</td>
+<td>用于标记内嵌测试类，允许在一个测试类中创建更细粒度的测试组织结构</td>
+</tr>
+<tr>
+<td>@Timeout</td>
+<td>设置测试方法的超时时间</td>
+</tr>
+<tr>
+<td>@Tag</td>
+<td>为测试类或测试方法添加标签</td>
+</tr>
+</tbody>
+</table>
+<h2 id="test"><a class="markdownIt-Anchor" href="#test"></a> @Test</h2>
+<p><code>@Test</code> 是最常用的一个注解，用于标记一个测试方法。当运行测试时，JUnit5 会自动识别被 <code>@Test</code> 注解标记的方法，并执行其中的测试逻辑。</p>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">import</span> org.junit.jupiter.api.Test;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.junit.jupiter.api.Assertions.assertEquals;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyTest</span> &#123;
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-keyword">void</span> <span class="hljs-title function_">testAddition</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-type">int</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span> + <span class="hljs-number">3</span>;
+        assertEquals(<span class="hljs-number">5</span>, result);
+    &#125;
+&#125;
+</code></pre>
+<h2 id="parameterizedtest"><a class="markdownIt-Anchor" href="#parameterizedtest"></a> @ParameterizedTest</h2>
+<p><code>@ParameterizedTest</code> 用于标记参数化测试方法。参数化测试允许我们使用不同的参数运行相同的测试方法，以验证代码在不同输入情况下的行为。使用 <code>@ParameterizedTest</code> 注解时，需要结合其他注解来提供测试参数。常用的参数源注解包括：</p>
+<table>
+<thead>
+<tr>
+<th>注解</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@ValueSource</td>
+<td>提供单个值作为参数源</td>
+</tr>
+<tr>
+<td>@EnumSource</td>
+<td>提供枚举类型的值作为参数源</td>
+</tr>
+<tr>
+<td>@MethodSource</td>
+<td>提供方法返回值作为参数源</td>
+</tr>
+<tr>
+<td>@CsvSource</td>
+<td>提供逗号分隔的值作为参数源</td>
+</tr>
+<tr>
+<td>@CsvFileSource</td>
+<td>从 CSV 文件中读取值作为参数源</td>
+</tr>
+<tr>
+<td>@ArgumentsSource</td>
+<td>提供自定义参数源</td>
+</tr>
+</tbody>
+</table>
+<h3 id="valuesource"><a class="markdownIt-Anchor" href="#valuesource"></a> @ValueSource</h3>
+<p>提供单个值作为参数源。</p>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CalculatorTest</span> &#123;
+    <span class="hljs-meta">@ParameterizedTest</span>
+    <span class="hljs-meta">@ValueSource(ints = &#123;1, 3, 5, -3&#125;)</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testIsOdd</span><span class="hljs-params">(<span class="hljs-type">int</span> number)</span> &#123;
+        assertTrue(number % <span class="hljs-number">2</span> != <span class="hljs-number">0</span>);
+    &#125;
+&#125;
+</code></pre>
+<h3 id="enumsource"><a class="markdownIt-Anchor" href="#enumsource"></a> @EnumSource</h3>
+<p>提供枚举类型的值作为参数源。</p>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> <span class="hljs-title class_">Size</span> &#123;
+    SMALL,
+    BIG
+&#125;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MySizeTest</span> &#123;
+    <span class="hljs-meta">@ParameterizedTest</span>
+    <span class="hljs-meta">@EnumSource</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sizeTest1</span><span class="hljs-params">(Size size)</span> &#123;
+        System.out.println(size);
+    &#125;
+
+    <span class="hljs-meta">@ParameterizedTest</span>
+    <span class="hljs-meta">@EnumSource(names = &#123;&quot;SMALL&quot;&#125;)</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sizeTest2</span><span class="hljs-params">(Size size)</span> &#123;
+        System.out.println(size);
+    &#125;
+&#125;
+</code></pre>
+<h3 id="methodsource"><a class="markdownIt-Anchor" href="#methodsource"></a> @MethodSource</h3>
+<p>提供方法返回值作为参数源，允许引用测试类或外部类中的一个或多个工厂方法。在测试类内部的工厂方法必须是静态的，除非测试类使用了 <code>@TestInstance(Lifecycle.PER_CLASS)</code> 注解，而在外部类中的工厂方法则必须始终是静态的。此外，这些工厂方法不能接受任何参数。</p>
+<p>每个工厂方法必须生成一组参数的流，而流中的每组参数将作为注解 <code>@ParameterizedTest</code> 方法的实际参数进行单独调用。一般来说，这可以被翻译成一个参数流（即 <code>Stream&lt;Arguments&gt;</code>），但实际的具体返回类型可以有很多形式。在这个上下文中，“流” 可以是 JUnit 可靠地转换为 Stream 的任何东西，例如 Stream、DoubleStream、LongStream、IntStream、Collection、Iterator、Iterable、对象数组或基本类型数组。流中的 “参数” 可以作为 Arguments 实例、对象数组（例如 Object[]）或单个值提供，如果参数化测试方法接受单个参数。</p>
+<p>如果只需要一个参数，可以返回一个参数类型的实例流，如下面的示例所示：</p>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">static</span> Stream&lt;String&gt; <span class="hljs-title function_">stringProvider</span><span class="hljs-params">()</span> &#123;
+    <span class="hljs-keyword">return</span> Stream.of(<span class="hljs-string">&quot;foo&quot;</span>, <span class="hljs-string">&quot;bar&quot;</span>);
+&#125;
+
+<span class="hljs-meta">@ParameterizedTest</span>
+<span class="hljs-meta">@MethodSource(&quot;stringProvider&quot;)</span>
+<span class="hljs-keyword">void</span> <span class="hljs-title function_">testWithSimpleMethodSource</span><span class="hljs-params">(String argument)</span> &#123;
+    assertNotNull(argument);
+&#125;
+</code></pre>
+<p>如果没有通过 <code>@MethodSource</code> 显式提供工厂方法的名称，JUnit Jupiter 将按照约定搜索与当前 <code>@ParameterizedTest</code> 方法同名的工厂方法。下面的示例演示了这一点：</p>
+<pre class="highlight"><code class="java"><span class="hljs-meta">@ParameterizedTest</span>
+<span class="hljs-meta">@MethodSource</span>
+<span class="hljs-keyword">void</span> <span class="hljs-title function_">testWithSimpleMethodSourceHavingNoValue</span><span class="hljs-params">(String argument)</span> &#123;
+    assertNotNull(argument);
+&#125;
+
+<span class="hljs-keyword">static</span> Stream&lt;String&gt; <span class="hljs-title function_">testWithSimpleMethodSourceHavingNoValue</span><span class="hljs-params">()</span> &#123;
+    <span class="hljs-keyword">return</span> Stream.of(<span class="hljs-string">&quot;foo&quot;</span>, <span class="hljs-string">&quot;bar&quot;</span>);
+&#125;
+</code></pre>
+<p>下面的示例展示了对基本类型（<code>DoubleStream</code>、<code>IntStream</code> 和 <code>LongStream</code>）的流的支持。</p>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">static</span> IntStream <span class="hljs-title function_">range</span><span class="hljs-params">()</span> &#123;
+    <span class="hljs-keyword">return</span> IntStream.range(<span class="hljs-number">0</span>, <span class="hljs-number">20</span>).skip(<span class="hljs-number">10</span>);
+&#125;
+
+<span class="hljs-meta">@ParameterizedTest</span>
+<span class="hljs-meta">@MethodSource(&quot;range&quot;)</span>
+<span class="hljs-keyword">void</span> <span class="hljs-title function_">testWithRangeMethodSource</span><span class="hljs-params">(<span class="hljs-type">int</span> argument)</span>&#123;
+    assertNotEquals(<span class="hljs-number">9</span>,argument);
+&#125;
+</code></pre>
+<p>如果参数化测试方法声明了多个参数，您需要返回一个 Arguments 实例的集合、流或数组，或者返回一个对象数组，如下所示。注意，<code>Arguments</code> 接口中定义了一个静态工厂方法 <code>arguments(Object…)</code>。此外，<code>Arguments.of(Object…)</code> 可以用作 <code>arguments(Object…)</code> 的替代方法。</p>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">static</span> Stream&lt;Arguments&gt; <span class="hljs-title function_">stringIntAndListProvider</span><span class="hljs-params">()</span> &#123;
+    <span class="hljs-keyword">return</span> Stream.of(
+            arguments(<span class="hljs-string">&quot;foo&quot;</span>, <span class="hljs-number">1</span>, Arrays.asList(<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>)),
+            arguments(<span class="hljs-string">&quot;bar&quot;</span>, <span class="hljs-number">2</span>, Arrays.asList(<span class="hljs-string">&quot;x&quot;</span>, <span class="hljs-string">&quot;y&quot;</span>))
+    );
+&#125;
+
+<span class="hljs-meta">@ParameterizedTest</span>
+<span class="hljs-meta">@MethodSource(&quot;stringIntAndListProvider&quot;)</span>
+<span class="hljs-keyword">void</span> <span class="hljs-title function_">testWithMultiArgMethodSource</span><span class="hljs-params">(String str, <span class="hljs-type">int</span> num, List&lt;String&gt; list)</span> &#123;
+    assertEquals(<span class="hljs-number">3</span>, str.length());
+    assertTrue(num &gt;= <span class="hljs-number">1</span> &amp;&amp; num &lt;= <span class="hljs-number">2</span>);
+    assertEquals(<span class="hljs-number">2</span>, list.size());
+&#125;
+</code></pre>
+<p>可以通过提供其完全限定的方法名来引用外部的静态工厂方法，如下面的示例所示：</p>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">package</span> example;
+
+<span class="hljs-keyword">import</span> java.util.stream.Stream;
+
+<span class="hljs-keyword">import</span> org.junit.jupiter.params.ParameterizedTest;
+<span class="hljs-keyword">import</span> org.junit.jupiter.params.provider.MethodSource;
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">ExternalMethodSourceDemo</span> &#123;
+
+    <span class="hljs-meta">@ParameterizedTest</span>
+    <span class="hljs-meta">@MethodSource(&quot;example.StringsProviders#tinyStrings&quot;)</span>
+    <span class="hljs-keyword">void</span> <span class="hljs-title function_">testWithExternalMethodSource</span><span class="hljs-params">(String tinyString)</span> &#123;
+        <span class="hljs-comment">// test with tiny string</span>
+    &#125;
+&#125;
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">StringsProviders</span> &#123;
+
+    <span class="hljs-keyword">static</span> Stream&lt;String&gt; <span class="hljs-title function_">tinyStrings</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> Stream.of(<span class="hljs-string">&quot;.&quot;</span>, <span class="hljs-string">&quot;oo&quot;</span>, <span class="hljs-string">&quot;OOO&quot;</span>);
+    &#125;
+&#125;
+</code></pre>
+<h3 id="csvsource"><a class="markdownIt-Anchor" href="#csvsource"></a> @CsvSource</h3>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CalculatorTest</span> &#123;
+    <span class="hljs-meta">@ParameterizedTest</span>
+    <span class="hljs-meta">@CsvSource(&#123;&quot;5,3&quot;, &quot;4,4&quot;, &quot;1,7&quot;&#125;)</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testAddition</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> &#123;
+        assertEquals(<span class="hljs-number">8</span>, a + b);
+    &#125;
+&#125;
+</code></pre>
+<h3 id="csvfilesource"><a class="markdownIt-Anchor" href="#csvfilesource"></a> @CsvFileSource</h3>
+<p>在 test 文件夹下创建一个 resources 目录，然后新建一个 numbers.csv 文件：</p>
+<pre class="highlight"><code class="text"># The sum is 8.
+1,7
+2,6
+3,5
+4,4
+</code></pre>
+<p>编写测试用例：</p>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CalculatorTest</span> &#123;
+    <span class="hljs-meta">@ParameterizedTest</span>
+    <span class="hljs-meta">@CsvFileSource(resources = &quot;/numbers.csv&quot;, numLinesToSkip = 1)</span> <span class="hljs-comment">// numLinesToSkip 跳过第一行头文件</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testAddition</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> &#123;
+        assertEquals(<span class="hljs-number">8</span>, a + b);
+    &#125;
+&#125;
+</code></pre>
+<h3 id="argumentssource"><a class="markdownIt-Anchor" href="#argumentssource"></a> @ArgumentsSource</h3>
+<p><code>@ArgumentsSource</code>  用于指定自定义的 <code>ArgumentsProvider</code>。<code>ArgumentsProvider</code> 是一个接口，用于提供参数化测试方法的参数。</p>
+<pre class="highlight"><code class="java"><span class="hljs-meta">@ParameterizedTest</span>
+<span class="hljs-meta">@ArgumentsSource(MyArgumentsProvider.class)</span>
+<span class="hljs-keyword">void</span> <span class="hljs-title function_">testWithArgumentsSource</span><span class="hljs-params">(String argument)</span> &#123;
+    assertNotNull(argument);
+&#125;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyArgumentsProvider</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">ArgumentsProvider</span> &#123;
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> Stream&lt;? <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Arguments</span>&gt; provideArguments(ExtensionContext extensionContext)&#123;
+        <span class="hljs-keyword">return</span> Stream.of(<span class="hljs-string">&quot;foo&quot;</span>, <span class="hljs-string">&quot;bar&quot;</span>).map(Arguments::of);
+    &#125;
+&#125;
+</code></pre>
+<h2 id="repeatedtest"><a class="markdownIt-Anchor" href="#repeatedtest"></a> @RepeatedTest</h2>
+<p><code>@RepeatedTest</code> 用于创建可重复的测试模板。该注解表示一个方法是可重复测试的测试模板，Jupiter 将会执行该方法指定次数的测试并记录每次测试的结果。使用 <code>@RepeatedTest</code> 注解时，可以指定测试的重复次数，例如：</p>
+<pre class="highlight"><code class="java"><span class="hljs-meta">@RepeatedTest(3)</span>
+<span class="hljs-keyword">void</span> <span class="hljs-title function_">myRepeatedTest</span><span class="hljs-params">()</span> &#123;
+    <span class="hljs-comment">// 测试逻辑</span>
+&#125;
+</code></pre>
+<p><code>myRepeatedTest</code> 方法被 <code>@RepeatedTest(3)</code> 注解标记，表示该方法将被重复执行 3 次。</p>
+<blockquote>
+<p><code>@RepeatedTest</code> 注解不能单独使用，必须与其他测试注解（如 <code>@Test</code>）一起使用。当 Jupiter 执行带有 <code>@RepeatedTest</code> 注解的测试方法时，它将依次执行该方法指定次数的测试，并为每次测试记录结果。</p>
+</blockquote>
+<h2 id="displayname"><a class="markdownIt-Anchor" href="#displayname"></a> @DisplayName</h2>
+<p><code>@DisplayName</code> 用于为测试类、测试方法或测试模板指定一个自定义的显示名称。通过使用 <code>@DisplayName</code> 注解，您可以为测试类、测试方法或测试模板指定有意义的名称，以便更清晰地表示其目的或功能。在测试报告中，这些自定义的显示名称将被用于标识和报告测试结果。这有助于提高测试代码的可读性和可维护性。</p>
+<pre class="highlight"><code class="java"><span class="hljs-meta">@Test</span>
+<span class="hljs-meta">@DisplayName(&quot;My Test Method&quot;)</span>
+<span class="hljs-keyword">void</span> <span class="hljs-title function_">myTestMethod</span><span class="hljs-params">()</span> &#123;
+    <span class="hljs-comment">// 测试逻辑...</span>
+&#125;
+</code></pre>
+<h2 id="beforeeach"><a class="markdownIt-Anchor" href="#beforeeach"></a> @BeforeEach</h2>
+<p><code>@BeforeEach</code> 用于指定在<strong>每个测试方法执行之前</strong>应该运行的方法。这可以用于在每个测试方法之前进行一些共同的准备工作，例如初始化对象、设置测试环境或重置状态等。</p>
+<h2 id="aftereach"><a class="markdownIt-Anchor" href="#aftereach"></a> @AfterEach</h2>
+<p><code>@AfterEach</code> 用于指定在<strong>每个测试方法执行之后</strong>应该运行的方法。这可以用于在每个测试方法之后进行一些共同的清理工作，例如释放资源、恢复状态或打印日志等。</p>
+<h2 id="beforeall"><a class="markdownIt-Anchor" href="#beforeall"></a> @BeforeAll</h2>
+<p><code>@BeforeAll</code> 用于指定在<strong>所有测试方法执行之前</strong>应该运行的方法。这可以用于在测试套件启动之前执行一些共同的准备工作，例如初始化共享资源、加载配置文件或启动 Web 服务器等。</p>
+<h2 id="afterall"><a class="markdownIt-Anchor" href="#afterall"></a> @AfterAll</h2>
+<p><code>@AfterAll</code> 用于指定在<strong>所有测试方法执行之后</strong>应该运行的方法。这可以用于在测试套件结束之后执行一些共同的清理工作，例如释放资源、关闭连接或停止 Web 服务器等。</p>
+<h2 id="disabled"><a class="markdownIt-Anchor" href="#disabled"></a> @Disabled</h2>
+<p><code>@Disabled</code> 是 JUnit Jupiter 提供的一个注解，用于将测试方法标记为禁用或忽略。这可以用于暂时禁用某个测试方法，或者标记某个测试方法需要进一步修复才能通过测试。</p>
+<h2 id="nested"><a class="markdownIt-Anchor" href="#nested"></a> @Nested</h2>
+<p><code>@Nested</code> 用于创建嵌套测试类。</p>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyNestedClassTest</span> &#123;
+    <span class="hljs-meta">@Nested</span>
+    <span class="hljs-keyword">class</span> <span class="hljs-title class_">NestedTestClass1</span> &#123;
+        <span class="hljs-meta">@Test</span>
+        <span class="hljs-keyword">void</span> <span class="hljs-title function_">testMethod</span><span class="hljs-params">()</span> &#123;
+
+        &#125;
+    &#125;
+
+    <span class="hljs-meta">@Nested</span>
+    <span class="hljs-keyword">class</span> <span class="hljs-title class_">NestedTestClass2</span> &#123;
+        <span class="hljs-meta">@Test</span>
+        <span class="hljs-keyword">void</span> <span class="hljs-title function_">testMethod</span><span class="hljs-params">()</span> &#123;
+
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h2 id="timeout"><a class="markdownIt-Anchor" href="#timeout"></a> @Timeout</h2>
+<p><code>@Timeout</code> 用于设置测试方法的超时时间。在测试方法上使用 <code>@Timeout</code> 注解时，可以指定测试方法的最大执行时间。如果测试方法的执行时间超过了指定的超时时间，则测试将被标记为失败。</p>
+<pre class="highlight"><code class="java"><span class="hljs-meta">@Test</span>
+<span class="hljs-meta">@Timeout(5)</span> <span class="hljs-comment">// 设置超时时间为 5 秒</span>
+<span class="hljs-keyword">void</span> <span class="hljs-title function_">testSomething</span><span class="hljs-params">()</span> &#123;
+    <span class="hljs-comment">// 可能会耗时较长的测试逻辑</span>
+&#125;
+</code></pre>
+<h2 id="tag"><a class="markdownIt-Anchor" href="#tag"></a> @Tag</h2>
+<p><code>@Tag</code> 用于给测试方法打标签。这些标签可以是任何字符串，通常用于区分不同类型的测试、测试环境等等。</p>
+<pre class="highlight"><code class="java"><span class="hljs-meta">@Test</span>
+<span class="hljs-meta">@Tag(&quot;fast&quot;)</span>
+<span class="hljs-keyword">void</span> <span class="hljs-title function_">testSomething</span><span class="hljs-params">()</span> &#123;
+    <span class="hljs-comment">// 测试逻辑</span>
+&#125;
+</code></pre>
+<h1 id="运行器"><a class="markdownIt-Anchor" href="#运行器"></a> 运行器</h1>
+<h2 id="什么运行器"><a class="markdownIt-Anchor" href="#什么运行器"></a> 什么运行器</h2>
+<p><code>@RunWith</code> 是 JUnit 4 提供的一个注解，用于指定运行测试的运行器（Runner）。在 JUnit 4 中，测试运行器是负责执行测试的主要组件。通过使用 <code>@RunWith</code> 注解，可以将特定的运行器与测试类关联起来，以定义测试的执行方式。</p>
+<p>以下是一个示例用法：</p>
+<pre class="highlight"><code class="java"><span class="hljs-meta">@RunWith(SomeRunner.class)</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyTestClass</span> &#123;
+    <span class="hljs-comment">// 测试方法和逻辑</span>
+&#125;
+</code></pre>
+<p>在上述示例中，<code>@RunWith</code> 注解将 <code>SomeRunner.class</code> 与 <code>MyTestClass</code> 关联起来。<code>SomeRunner</code> 是自定义的测试运行器，它将负责执行 <code>MyTestClass</code> 中的测试方法。</p>
+<p>需要注意的是，<code>@RunWith</code> 注解是用于 JUnit 4 的，而在 JUnit Jupiter（JUnit 5）中，不再使用 <code>@RunWith</code> 注解。JUnit Jupiter 使用扩展模型（Extension Model）来替代运行器的概念，并提供了更灵活、可扩展的测试扩展机制。</p>
+<p>在 JUnit Jupiter 中，可以使用 <code>@ExtendWith</code> 注解来应用测试扩展，以实现类似于运行器的功能。</p>
+<pre class="highlight"><code class="java"><span class="hljs-meta">@ExtendWith(SomeExtension.class)</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyTestClass</span> &#123;
+    <span class="hljs-comment">// 测试方法和逻辑</span>
+&#125;
+</code></pre>
+<p>在上述示例中，<code>@ExtendWith</code> 注解将 <code>SomeExtension.class</code> 应用于 <code>MyTestClass</code>，以实现类似于 <code>@RunWith</code> 注解的功能。<code>SomeExtension</code> 是自定义的测试扩展，它将负责执行 <code>MyTestClass</code> 中的测试方法。</p>
+<h2 id="常见运行器"><a class="markdownIt-Anchor" href="#常见运行器"></a> 常见运行器</h2>
+<p>在 JUnit 4 中，常见的测试运行器包括：</p>
+<ol>
+<li><code>BlockJUnit4ClassRunner</code>：默认的运行器，用于运行单元测试；</li>
+<li><code>Parameterized</code>：用于支持参数化测试，即多次使用相同的测试方法并传入不同的参数进行测试；</li>
+<li><code>Suite</code>：用于运行多个测试类，将它们组合成一个测试套件；</li>
+<li><code>SpringJUnit4ClassRunner</code>：用于运行基于 Spring 的测试。</li>
+</ol>
+<p>在 JUnit Jupiter 中，由于引入了扩展模型，测试扩展可以以更灵活和可扩展的方式来实现测试逻辑。因此，JUnit Jupiter 中没有严格意义上的测试运行器。取而代之的是，JUnit Jupiter 提供了一系列的测试扩展，如下所示：</p>
+<ol>
+<li><code>@BeforeEach</code> 和 <code>@AfterEach</code>：在每个测试方法执行前和执行后都会运行的扩展；</li>
+<li><code>@BeforeAll</code> 和 <code>@AfterAll</code>：在所有测试方法执行前和执行后都会运行的扩展；</li>
+<li><code>@ExtendWith</code>：用于将指定的测试扩展应用于测试类或测试方法；</li>
+<li><code>ParameterResolver</code>：用于支持参数化测试，类似于 JUnit 4 中的 <code>Parameterized</code> 运行器。</li>
+</ol>
+<p>除了上述常见的测试扩展之外，JUnit Jupiter 还支持自定义测试扩展，使得您可以根据需要实现特定的测试逻辑或者集成其他框架。</p>
+<h2 id="测试套件的使用"><a class="markdownIt-Anchor" href="#测试套件的使用"></a> 测试套件的使用</h2>
+<p>在 JUnit 4中，我们可以使用 <code>@RunWith</code> 注解来运行测试套件（Suite）。测试套件是将多个测试类组合在一起运行的一种方式，通常用于对整个应用程序或模块进行集成测试。</p>
+<p>在JUnit 5中，测试套件的概念被简化并与扩展模型（Extension Model）集成。JUnit 5提供了 <code>@SelectPackages</code> 和 <code>@SelectClasses</code> 注解来选择要包含在测试套件中的测试类或测试包，并使用 <code>@ExtendWith</code> 注解将测试套件扩展应用于测试类或测试方法。</p>
+<p>以下是一个使用测试套件的示例：</p>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">import</span> org.junit.jupiter.api.extension.ExtendWith;
+<span class="hljs-keyword">import</span> org.junit.platform.runner.JUnitPlatform;
+<span class="hljs-keyword">import</span> org.junit.platform.suite.api.SelectClasses;
+<span class="hljs-keyword">import</span> org.junit.platform.suite.api.SelectPackages;
+<span class="hljs-keyword">import</span> org.junit.runner.RunWith;
+
+<span class="hljs-meta">@RunWith(JUnitPlatform.class)</span>
+<span class="hljs-meta">@SelectPackages(&quot;com.example.tests&quot;)</span>
+<span class="hljs-meta">@SelectClasses(&#123;MyIntegrationTest.class, MyLoadTest.class&#125;)</span>
+<span class="hljs-meta">@ExtendWith(MyCustomExtension.class)</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyTestSuite</span> &#123;
+    <span class="hljs-comment">// 这里没有测试方法</span>
+&#125;
+</code></pre>
+<p>上面的代码定义了一个名为 <code>MyTestSuite</code> 的测试套件，其中包括了测试包 <code>com.example.tests</code> 中的所有测试类，以及<code>MyIntegrationTest</code> 和 <code>MyLoadTest</code> 两个测试类。此外，还应用了一个自定义扩展 <code>MyCustomExtension</code>。</p>
+<p>在此测试套件中，不需要定义任何测试方法。当我们运行 <code>MyTestSuite</code> 时，JUnit 5 将运行所有包含在测试套件中的测试类和扩展。注意，JUnit 5 支持多级测试套件嵌套，即可以将一个测试套件作为另一个测试套件的一部分。可以通过在测试套件中使用 <code>@Suite</code>注解来实现这一点。</p>
+<h2 id="自定义运行器"><a class="markdownIt-Anchor" href="#自定义运行器"></a> 自定义运行器</h2>
+<p>在 JUnit 4中，我们可以通过自定义测试运行器（Runner）来扩展和定制测试框架的行为。但是在  JUnit 5（JUnit Jupiter）中，不再使用传统的运行器模型。</p>
+<p>JUnit 5 引入了扩展模型（Extension Model），通过实现特定的接口或使用注解，我们可以编写自定义的扩展来定制测试框架的行为。这种方式提供了更灵活、可组合和可扩展的方式来自定义测试逻辑。</p>
+<p>以下是在 JUnit 5中自定义扩展的一般步骤：</p>
+<ol>
+<li>创建一个类并实现<code>Extension</code>接口，或者使用自定义注解标记一个类作为扩展；</li>
+<li>在扩展类中实现需要的逻辑，例如在测试方法前后执行特定的操作、修改测试报告等；</li>
+<li>使用<code>@ExtendWith</code>注解将自定义的扩展应用于测试类或测试方法。</li>
+</ol>
+<p>下面是一个简单的示例，展示如何自定义一个扩展来记录测试方法的执行时间：</p>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">import</span> org.junit.jupiter.api.extension.ExtensionContext;
+<span class="hljs-keyword">import</span> org.junit.jupiter.api.extension.TestExecutionExceptionHandler;
+<span class="hljs-keyword">import</span> org.junit.jupiter.api.extension.TestExtensionContext;
+<span class="hljs-keyword">import</span> org.junit.jupiter.api.extension.TestWatcher;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CustomExtension</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">TestExecutionExceptionHandler</span>, TestWatcher &#123;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">handleTestExecutionException</span><span class="hljs-params">(TestExtensionContext context, Throwable throwable)</span> <span class="hljs-keyword">throws</span> Throwable &#123;
+        <span class="hljs-comment">// 异常处理逻辑</span>
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testAborted</span><span class="hljs-params">(ExtensionContext context, Throwable cause)</span> &#123;
+        <span class="hljs-comment">// 测试中止时的逻辑</span>
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testSuccessful</span><span class="hljs-params">(ExtensionContext context)</span> &#123;
+        <span class="hljs-comment">// 测试成功时的逻辑</span>
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testFailed</span><span class="hljs-params">(ExtensionContext context, Throwable cause)</span> &#123;
+        <span class="hljs-comment">// 测试失败时的逻辑</span>
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">beforeTestExecution</span><span class="hljs-params">(ExtensionContext context)</span> &#123;
+        <span class="hljs-comment">// 在测试方法执行前的逻辑</span>
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">afterTestExecution</span><span class="hljs-params">(ExtensionContext context)</span> &#123;
+        <span class="hljs-comment">// 在测试方法执行后的逻辑</span>
+    &#125;
+&#125;
+</code></pre>
+<p>然后，我们可以在测试类或测试方法上使用<code>@ExtendWith</code>注解将自定义扩展应用：</p>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">import</span> org.junit.jupiter.api.Test;
+<span class="hljs-keyword">import</span> org.junit.jupiter.api.extension.ExtendWith;
+
+<span class="hljs-meta">@ExtendWith(CustomExtension.class)</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyTestClass</span> &#123;
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-keyword">void</span> <span class="hljs-title function_">myTestMethod</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-comment">// 测试逻辑</span>
+    &#125;
+&#125;
+</code></pre>
+<p>通过这种方式，我们可以根据需要编写自定义扩展，并将其应用于测试类或测试方法，以定制和扩展JUnit 5的行为。请注意，这只是一个简单的示例，实际应用中可以更复杂和强大。</p>
+<h1 id="异常测试"><a class="markdownIt-Anchor" href="#异常测试"></a> 异常测试</h1>
+<p>在 JUnit 4中，我们可以使用 <code>@Test(expected=xxx)</code> 注解来进行异常测试。该注解允许我们指定一个预期的异常类，如果测试方法执行时抛出了指定的异常，则测试通过；如果没有抛出异常或者抛出了其他类型的异常，则测试失败。</p>
+<p>以下是一个使用 <code>@Test(expected=xxx)</code> 注解进行异常测试的示例：</p>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">import</span> org.junit.Test;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ExceptionTest</span> &#123;
+
+    <span class="hljs-meta">@Test(expected = ArithmeticException.class)</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testException</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-comment">// 定义测试逻辑，这里假设我们有一个方法 divide(int a, int b) 用于除法运算</span>
+
+        <span class="hljs-comment">// 预期代码会抛出 ArithmeticException 异常</span>
+        divide(<span class="hljs-number">10</span>, <span class="hljs-number">0</span>);
+    &#125;
+
+    <span class="hljs-comment">// 实际的除法运算方法</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-title function_">divide</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> &#123;
+        <span class="hljs-keyword">return</span> a / b;
+    &#125;
+&#125;
+</code></pre>
+<p>使用<code>@Test(expected = xxx)</code>注解进行异常测试时，无法对异常的具体内容进行验证。它只能验证代码是否抛出了指定的异常类型，而无法判断异常的具体信息。如果需要对异常的具体信息进行验证，建议使用<code>assertThrows()</code>方法或其他更灵活的方式进行异常测试。</p>
+<p><code>@Test(expected = xxx)</code>注解在 JUnit 5 中已被废弃，不再推荐使用。在 JUnit 5 中，建议使用 <code>assertThrows()</code>方法或其他更灵活的方式来进行异常测试。</p>
+<h1 id="rule"><a class="markdownIt-Anchor" href="#rule"></a> @Rule</h1>
+<p>在JUnit 4中，我们可以使用<code>@Rule</code>注解来扩展测试的行为。通过使用<code>@Rule</code>注解，我们可以在测试执行期间应用一些规则，例如管理资源，修改测试环境等。<code>@Rule</code>注解需要与实现了<code>TestRule</code>接口的规则类一起使用。这些规则类可以提供在测试运行期间添加额外行为的功能。以下是一个使用<code>@Rule</code>注解的示例：</p>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">import</span> org.junit.Rule;
+<span class="hljs-keyword">import</span> org.junit.Test;
+<span class="hljs-keyword">import</span> org.junit.rules.TestRule;
+<span class="hljs-keyword">import</span> org.junit.rules.Timeout;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">RuleTest</span> &#123;
+
+    <span class="hljs-comment">// 使用Timeout规则，在测试方法执行超时时终止测试</span>
+    <span class="hljs-meta">@Rule</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">TestRule</span> <span class="hljs-variable">timeout</span> <span class="hljs-operator">=</span> Timeout.seconds(<span class="hljs-number">1</span>);
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testTimeout</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> InterruptedException &#123;
+        <span class="hljs-comment">// 模拟一个耗时操作</span>
+        Thread.sleep(<span class="hljs-number">2000</span>);
+    &#125;
+&#125;
+</code></pre>
+<p>在上面的示例中，我们使用<code>@Rule</code>注解将<code>Timeout</code>规则应用于测试方法。<code>Timeout</code>规则会限制测试方法的执行时间，如果测试方法执行时间超过指定的时间（这里是1秒），则测试将失败。</p>
+<p>需要注意的是，<code>@Rule</code>注解的目标字段必须是实现了<code>TestRule</code>接口的规则类。在上面的示例中，我们使用了<code>Timeout</code>规则类实例作为目标字段。</p>
+<p>除了<code>Timeout</code>规则，JUnit还提供了其他一些内置的规则，例如<code>ExpectedException</code>规则用于验证预期的异常，<code>TemporaryFolder</code>规则用于在测试运行期间创建临时文件夹等。此外，您还可以自定义实现<code>TestRule</code>接口的规则类，以扩展测试的行为。</p>
+<h1 id="覆盖率"><a class="markdownIt-Anchor" href="#覆盖率"></a> 覆盖率</h1>
+<p>代码覆盖率（Code coverage）和测试覆盖率（Test coverage）是软件测试中常用的两个指标，用于衡量测试对代码的覆盖情况。它们可以帮助我们评估测试的质量，并发现潜在的测试漏洞或未覆盖的代码。</p>
+<h2 id="代码覆盖率"><a class="markdownIt-Anchor" href="#代码覆盖率"></a> 代码覆盖率</h2>
+<p>代码覆盖率（Code coverage）是指测试用例执行期间覆盖了代码中的哪些部分。它是一个百分比值，表示<strong>被测试用例执行的代码占总代码量的比例</strong>。常见的代码覆盖率指标包括：语句覆盖率（Statement coverage）、分支覆盖率（Branch coverage）、条件覆盖率（Condition coverage）等。</p>
+<p>语句覆盖率表示被执行的语句占总语句数量的比例。分支覆盖率表示每个条件语句的两个可能分支都至少被执行一次。条件覆盖率表示每个条件表达式的所有可能取值至少被执行一次。</p>
+<p>较高的代码覆盖率通常意味着测试用例执行了更多的代码路径，但并不代表测试用例能够捕获所有的错误。</p>
+<h2 id="测试覆盖率"><a class="markdownIt-Anchor" href="#测试覆盖率"></a> 测试覆盖率</h2>
+<p>测试覆盖率（Test coverage）是指测试用例对代码中的哪些部分进行了测试。它是一个百分比值，表示<strong>被测试用例覆盖的需求占总需求量的比例</strong>。测试覆盖率可以用来评估测试是否足够全面，是否覆盖了各种不同的情况和边界条件。</p>
+<h2 id="cobertura"><a class="markdownIt-Anchor" href="#cobertura"></a> Cobertura</h2>
+<p>Cobertura 是一个流行的开源代码覆盖率工具，用于衡量测试用例对 Java 代码的覆盖情况。它可以生成详细的代码覆盖率报告，帮助开发团队评估测试质量并发现未覆盖的代码部分。</p>
+<h2 id="jacoco"><a class="markdownIt-Anchor" href="#jacoco"></a> JaCoCo</h2>
+<p>JaCoCo 是一个开源的Java代码覆盖率工具，它提供了全面的指标和报告来衡量测试用例对 Java 代码的覆盖情况。JaCoCo 支持多种覆盖率指标，包括行覆盖率、分支覆盖率、方法覆盖率和类覆盖率。</p>
+<h1 id="mock-测试"><a class="markdownIt-Anchor" href="#mock-测试"></a> Mock 测试</h1>
+<p>Mock 测试是一种测试方法，其中模拟对象（mock object）替代了真实对象，以验证代码是否按照预期工作。Mock对象通常是一个虚拟的、模拟的对象，它可以模拟真实对象的行为和属性，并在测试过程中替代真实对象，以便更好地控制测试环境并减少测试成本。</p>
+<p>Mock 测试的主要目的是解决外部依赖问题。在软件开发中，通常会依赖于其他类、库、数据库等组件。这些外部依赖可能会影响测试的可靠性、稳定性和可重复性。Mock 测试通过模拟这些外部依赖，使得测试过程不再依赖于外部组件，从而使得测试变得更加可靠、稳定和可重复。</p>
+<h2 id="基本步骤"><a class="markdownIt-Anchor" href="#基本步骤"></a> 基本步骤</h2>
+<p>Mock测试通常由以下步骤组成：</p>
+<ol>
+<li>定义一个模拟对象：使用模拟框架（如Mockito、EasyMock）来定义一个模拟对象，并设置其所需的行为和属性。</li>
+<li>注入模拟对象：将模拟对象注入到被测试对象中，以便在测试过程中使用。</li>
+<li>执行测试用例：执行测试用例，并验证被测试对象是否按照预期工作。</li>
+<li>验证模拟对象：通过模拟框架提供的验证方法，验证模拟对象是否被正确调用。</li>
+</ol>
+<h2 id="优缺点"><a class="markdownIt-Anchor" href="#优缺点"></a> 优缺点</h2>
+<p>Mock测试的优点包括：</p>
+<ol>
+<li>解除对外部依赖的依赖：通过模拟外部依赖，Mock测试可以使得测试变得更加可靠、稳定和可重复，从而减少了对外部依赖的依赖。</li>
+<li>提高测试效率：Mock 测试可以模拟外部依赖的行为和属性，使得测试过程更加灵活和高效。</li>
+<li>简化测试环境：Mock 测试可以使得测试环境更加简单，因为测试不再依赖于外部依赖，从而避免了一些不必要的部署和配置过程。</li>
+</ol>
+<p>Mock 测试也有一些缺点：</p>
+<ol>
+<li>可能会失去一些真实环境的信息：模拟对象可能无法完全模拟真实环境的行为和属性，从而失去了一些真实环境的信息。</li>
+<li>可能会增加代码复杂性：在某些情况下，Mock测试可能会增加代码的复杂性，特别是在需要模拟大量外部依赖的情况下。</li>
+</ol>
+<h2 id="mockito-框架"><a class="markdownIt-Anchor" href="#mockito-框架"></a> Mockito 框架</h2>
+<p>Mockito 是一个流行的 Java 模拟框架，用于 Mock 测试和单元测试。Mockito 可以帮助开发人员创建和管理模拟对象，并提供各种验证方法来检查 Mock 对象的行为和属性。</p>
+<h2 id="easymock-框架"><a class="markdownIt-Anchor" href="#easymock-框架"></a> EasyMock 框架</h2>
+<p>EasyMock 是另一个流行的 Java 模拟框架，用于Mock测试和单元测试。与 Mockito 类似，EasyMock 也可以帮助开发人员创建和管理模拟对象，并提供各种验证方法来检查 Mock 对象的行为和属性。</p>
+<h2 id="powermock-框架"><a class="markdownIt-Anchor" href="#powermock-框架"></a> PowerMock 框架</h2>
+<p>PowerMock 是一个 Java 模拟框架，它扩展了 Mockito 和 EasyMock，并提供了更强大的功能，用于处理一些传统模拟框架无法处理的场景。PowerMock 可以帮助开发人员进行更复杂的Mock测试和单元测试。</p>
+<h1 id="junit4-和-junit5-的区别"><a class="markdownIt-Anchor" href="#junit4-和-junit5-的区别"></a> JUnit4 和 JUnit5 的区别</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>JUnit4</th>
+<th>JUnit5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>编程模型</td>
+<td>注解</td>
+<td>注解和接口的组合</td>
+</tr>
+<tr>
+<td>扩展模型</td>
+<td>第三方库支持，需要使用第三方库（如JUnitParams、Mockito等）来实现更高级的扩展功能</td>
+<td>官方支持的扩展模型。包括自定义注解、条件测试（Conditional Test）、参数化测试（Parameterized Test）等，使得扩展更加方便和灵活</td>
+</tr>
+<tr>
+<td>断言</td>
+<td>JUnit4 提供了一组基本的断言方法，例如<code>assertEquals()</code>、<code>assertTrue()</code>等</td>
+<td>在断言方面进行了改进，引入了新的断言库（如<code>assertThat()</code>、<code>assertAll()</code>），提供了更丰富的断言功能和可读性更强的错误消息</td>
+</tr>
+<tr>
+<td>并发测试</td>
+<td>有限支持</td>
+<td>通过引入<code>@RepeatedTest</code>和<code>@ParallelTest</code>等新的注解，提供了更好的并发测试支持</td>
+</tr>
+<tr>
+<td>生命周期管理</td>
+<td>使用<code>@Before</code>和<code>@After</code>等注解来标记在每个测试方法之前和之后执行的方法。</td>
+<td>引入了新的生命周期方法注解，例如<code>@BeforeEach</code>、<code>@AfterEach</code>等，以提供更细粒度的生命周期管理</td>
+</tr>
+<tr>
+<td>嵌套测试</td>
+<td>不支持</td>
+<td>支持嵌套测试</td>
+</tr>
+<tr>
+<td>执行顺序</td>
+<td>默认按照名称字典顺序执行</td>
+<td>引入了新的注解<code>@TestMethodOrder</code>，可以自定义测试方法的执行顺序</td>
+</tr>
+</tbody>
+</table>
+<h1 id="最佳实践"><a class="markdownIt-Anchor" href="#最佳实践"></a> 最佳实践</h1>
+<h2 id="命名规范"><a class="markdownIt-Anchor" href="#命名规范"></a> 命名规范</h2>
+<ol>
+<li>测试类命名：
+<ul>
+<li>测试类的命名应以被测试的类名为基础，加上<code>Test</code>后缀。例如，如果要测试的类是<code>Calculator</code>，则测试类的命名可以是<code>CalculatorTest</code>。</li>
+<li>可以使用<code>*Test</code>通配符来表示一组相关的测试类，例如<code>*Tests</code>或<code>*TestCase</code>。</li>
+</ul>
+</li>
+<li>测试方法命名：
+<ul>
+<li>测试方法的命名应描述清楚被测试的行为或功能，并使用驼峰式命名法。</li>
+<li>建议使用动词开头，如<code>testAdd()</code>、<code>testMultiply()</code>等，以表达测试方法的目的。</li>
+<li>可以使用<code>should</code>或<code>shouldReturn</code>等前缀来更清晰地描述预期结果，例如<code>shouldReturnCorrectSum()</code>。</li>
+</ul>
+</li>
+<li>参数化测试方法命名：
+<ul>
+<li>参数化测试方法的命名应包含<code>ParameterizedTest</code>后缀，以明确标识该方法用于参数化测试。</li>
+<li>可以在方法名中使用变量名来表示具体的参数值，以增加可读性。例如，<code>testAddition(int a, int b, int expectedSum)</code>。</li>
+</ul>
+</li>
+<li>生命周期方法命名：
+<ul>
+<li>生命周期方法的命名应以<code>@BeforeEach</code>、<code>@AfterEach</code>等注解为前缀，并使用驼峰式命名法。例如，<code>@BeforeEach</code>方法可以命名为<code>setUp()</code>。</li>
+</ul>
+</li>
+</ol>
+<h2 id="避免测试依赖"><a class="markdownIt-Anchor" href="#避免测试依赖"></a> 避免测试依赖</h2>
+<p>避免测试依赖是编写高质量测试的重要方面之一。测试依赖是指测试用例对于外部资源或其他测试的依赖，例如数据库、网络连接或其他测试用例的执行结果。依赖会导致测试不可靠、不可重复和难以调试，因此应该尽可能避免它们。</p>
+<p>下面是一些避免测试依赖的实践方法：</p>
+<ol>
+<li>使用模拟（Mock）或桩（Stub）代替依赖：
+<ul>
+<li>如果测试需要访问某个外部资源，例如数据库或网络接口，可以使用模拟或桩来代替它们。</li>
+<li>模拟和桩是一种虚拟的实现，可以模仿所需的行为和响应，而无需依赖实际的外部资源。这可以提高测试速度和可靠性。</li>
+</ul>
+</li>
+<li>避免在测试中修改共享状态：
+<ul>
+<li>如果多个测试用例共享同一个状态或资源，例如文件或数据库表，应该避免在测试中修改它们。</li>
+<li>如果必须修改共享状态，则需要在每个测试用例之间进行清理操作，以确保测试之间的独立性。</li>
+</ul>
+</li>
+<li>使用隔离技术：
+<ul>
+<li>隔离技术可以将测试用例与其他测试用例或外部资源分离，以确保测试的独立性和可重复性。</li>
+<li>例如，可以使用Docker容器或虚拟机来隔离测试环境，以确保每个测试用例都在相同的环境中运行。</li>
+</ul>
+</li>
+<li>编写自包含的测试用例：
+<ul>
+<li>编写自包含的测试用例可以减少测试之间的依赖关系，提高测试的可靠性和可重复性。</li>
+<li>每个测试用例应该独立地设置测试环境，并在测试结束后清理所需的资源。</li>
+</ul>
+</li>
+</ol>
+<p>避免测试依赖可以帮助测试更加可靠、可重复和易于维护。在编写测试时，应该始终考虑测试依赖并采取适当的措施来减少它们的影响。</p>
+<h2 id="异常处理"><a class="markdownIt-Anchor" href="#异常处理"></a> 异常处理</h2>
+<p>在编写测试代码时，异常处理是一个非常重要的方面。在测试过程中，我们需要确保测试代码能够正确地处理各种异常情况，并且不会因为未处理的异常而导致测试失败。以下是一些处理异常的最佳实践：</p>
+<ol>
+<li>使用try-catch块：
+<ul>
+<li>在可能抛出异常的代码块周围使用try-catch块来捕获和处理异常。</li>
+<li>通过捕获异常并向测试框架报告错误来确保测试不会因为异常而失败。</li>
+</ul>
+</li>
+<li>使用JUnit的assertThrows()方法：
+<ul>
+<li>JUnit 5提供了assertThrows()方法，用于验证方法是否抛出了预期的异常。</li>
+<li>使用assertThrows()方法可以简化异常处理，并确保测试能够正确处理异常情况。</li>
+</ul>
+</li>
+<li>避免捕获所有异常：
+<ul>
+<li>不应该使用catch(Exception e)来捕获所有异常。这种方法会屏蔽可能的错误，并且无法区分不同类型的异常。</li>
+<li>应该只捕获必要的异常，并且应该尽可能具体地指定要捕获的异常类型。</li>
+</ul>
+</li>
+<li>在finally块中清理资源：
+<ul>
+<li>如果在try块中打开了文件、数据库连接或其他资源，则应该在finally块中关闭或释放它们。</li>
+<li>这可以确保资源不会因为异常而被遗留在打开状态，从而影响后续的测试。</li>
+</ul>
+</li>
+<li>编写具有描述性的异常消息：
+<ul>
+<li>在抛出异常时，应该提供一个具有描述性的错误消息，以便在测试失败时能够快速定位问题。</li>
+<li>错误消息应该包含有关发生错误的上下文信息，并且应该简明扼要地描述问题。</li>
+</ul>
+</li>
+</ol>
+<p>异常处理是测试代码编写中的一个重要方面。正确地处理异常可以确保测试代码能够稳定、可靠地运行，并且确保测试结果准确无误。</p>
+
+</div>
+
+<!-- post-guide -->
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2023/11/27/05%20Android/03%20%E6%B5%8B%E8%AF%95/01%20UI%20Automator/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  UI Automator
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2023/11/26/01%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/01%20%E8%BF%9B%E5%88%B6%E6%95%B0%E5%92%8C%E5%AD%98%E5%82%A8%E5%8D%95%E4%BD%8D/">
+                进制数、存储单位
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+<!-- comment - giscus -->
+
+
+
+	
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+        });
+        MathJax.Hub.Queue(function() {
+          var all = MathJax.Hub.getAllJax(), i;
+          for(i=0; i < all.length; i += 1) {
+              all[i].SourceElement().parentNode.className += ' has-jax';
+          }
+        });
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+<!-- comment - valine -->
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©<span id="footerYear-start"></span>-<span id="footerYear-end"></span>
+
+	
+	    <a href="/">Harvey Xie</a>
+	
+	
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+<!-- 	by <a href="//wujun.me" target="_blank">Wu Jun</a> -->
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+
+
+<script type="text/javascript">
+	document.getElementById('footerYear-start').innerHTML = new Date().getFullYear() + '';
+</script>
+
+<script type="text/javascript">
+	document.getElementById('footerYear-end').innerHTML = new Date().getFullYear() + '';
+</script>
+
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

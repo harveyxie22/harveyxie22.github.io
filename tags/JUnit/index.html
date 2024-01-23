@@ -8,8 +8,6 @@
 	<!-- title -->
 	
 	<title>
-	
-		单例模式 | 
 	 
 	Harvey&#39;s Notes
 	</title>
@@ -413,7 +411,7 @@
 							</ul>
 			
 							<ul>
-								<li class="file active">
+								<li class="file">
 									<a href="/2023/12/09/04%20Java/02%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/03%20%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
                      
 										    03 单例模式
@@ -756,291 +754,43 @@
 
 	<!-- 引入正文 -->
 	<div id="content" class="content">
-		<h1 id="article-title">
-	单例模式
-</h1>
-
-<!-- meta -->
-<div class="article-meta">
+		<div id="index">
 	
-
-	<span>Harvey Xie</span>
-	<span>2023-12-09 15:30:00</span>
-
-  <div id="article-categories">
-    
-		  <span>Categories：</span>
-      
-          
-              <span>
-                  <i class="fa fa-folder" aria-hidden="true">
-                  <a href="/categories/Java/">Java</a>
-                  </i>
-                
-              </span>
-          
-      
-    
-
-    
-		    <span>Tags：</span>
-        
-            
-                <span>
-                    <i class="fa fa-tag" aria-hidden="true">
-                    <a href="/tags/设计模式/">设计模式</a>
-                    </i>
-                </span>
-            
-        
-    
-  </div>
-
+		<div class="index-li">
+			<a href="/2023/11/27/05%20Android/03%20%E6%B5%8B%E8%AF%95/02%20JUnit/">
+				<h2 class="index-title">
+					JUnit
+				</h2>
+				<div class="index-brief">
+					 简介
+ JUnit 概述
+JUnit 是 Java 编程语言的一个单元测试框架。该框架广泛应用于各种 Java 项目中，主要用于测试代码的正确性和稳定性。JUnit 提供了一些方便实用的断言方法和测试运行器，使得开发人员可以轻松编写和执行单元测试。
+JUnit 最初由 Erich Gamma 和 
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2023-11-27</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Android/">Android</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+	
+	<div id="index-paginator">
+		
+	</div>
 </div>
 
-<!-- content -->
-<div id="article-content">
-	<p>在 Java 中，单例模式（Singleton Pattern）是非常常见的设计模式之一。它确保一个类只有一个实例，并提供全局访问点来获取该实例。</p>
-<p>在 Java 中，有四种常见的单例模式：</p>
-<ol>
-<li>懒汉式单例模式（Lazy Initialization）：这种方式在首次使用时才创建实例。线程不安全，需要考虑线程同步问题；</li>
-<li>饿汉式单例模式（Eager Initialization）：这种方式在类加载时就创建了实例。线程安全，但可能会造成不必要的实例化；</li>
-<li>双重检查锁定单例模式（Double-Checked Locking）：这种方式在懒汉式的基础上增加了线程安全的检查；</li>
-<li>静态内部类单例模式（Static Inner Class）：这种方式使用静态内部类来延迟初始化实例，并且实现了线程安全。</li>
-</ol>
-<h1 id="单例模式"><a class="markdownIt-Anchor" href="#单例模式"></a> 单例模式</h1>
-<h2 id="懒汉式单例模式"><a class="markdownIt-Anchor" href="#懒汉式单例模式"></a> 懒汉式单例模式</h2>
-<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Singleton</span> &#123;
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Singleton instance;
-
-    <span class="hljs-keyword">private</span> <span class="hljs-title function_">Singleton</span><span class="hljs-params">()</span> &#123;
-        <span class="hljs-comment">// 私有化构造函数</span>
-    &#125;
-
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton <span class="hljs-title function_">getInstance</span><span class="hljs-params">()</span> &#123;
-        <span class="hljs-keyword">if</span> (instance == <span class="hljs-literal">null</span>) &#123;
-            instance = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Singleton</span>();
-        &#125;
-        <span class="hljs-keyword">return</span> instance;
-    &#125;
-&#125;
-</code></pre>
-<h2 id="饿汉式单例模式"><a class="markdownIt-Anchor" href="#饿汉式单例模式"></a> 饿汉式单例模式</h2>
-<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Singleton</span> &#123;
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Singleton</span> <span class="hljs-variable">instance</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Singleton</span>();
-
-    <span class="hljs-keyword">private</span> <span class="hljs-title function_">Singleton</span><span class="hljs-params">()</span> &#123;
-        <span class="hljs-comment">// 私有化构造函数</span>
-    &#125;
-
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton <span class="hljs-title function_">getInstance</span><span class="hljs-params">()</span> &#123;
-        <span class="hljs-keyword">return</span> instance;
-    &#125;
-&#125;
-</code></pre>
-<h2 id="双重检查锁定单例模式"><a class="markdownIt-Anchor" href="#双重检查锁定单例模式"></a> 双重检查锁定单例模式</h2>
-<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Singleton</span> &#123;
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">volatile</span> <span class="hljs-keyword">static</span> Singleton instance;
-
-    <span class="hljs-keyword">private</span> <span class="hljs-title function_">Singleton</span><span class="hljs-params">()</span> &#123;
-        <span class="hljs-comment">// 私有化构造函数</span>
-    &#125;
-
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton <span class="hljs-title function_">getInstance</span><span class="hljs-params">()</span> &#123;
-        <span class="hljs-keyword">if</span> (instance == <span class="hljs-literal">null</span>) &#123;
-            <span class="hljs-keyword">synchronized</span> (Singleton.class) &#123;
-                <span class="hljs-keyword">if</span> (instance == <span class="hljs-literal">null</span>) &#123;
-                    instance = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Singleton</span>();
-                &#125;
-            &#125;
-        &#125;
-        <span class="hljs-keyword">return</span> instance;
-    &#125;
-&#125;
-</code></pre>
-<h2 id="静态内部类单例模式"><a class="markdownIt-Anchor" href="#静态内部类单例模式"></a> 静态内部类单例模式</h2>
-<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Singleton</span> &#123;
-    <span class="hljs-keyword">private</span> <span class="hljs-title function_">Singleton</span><span class="hljs-params">()</span> &#123;
-        <span class="hljs-comment">// 私有化构造函数</span>
-    &#125;
-
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Holder</span> &#123;
-        <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Singleton</span> <span class="hljs-variable">instance</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Singleton</span>();
-    &#125;
-
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton <span class="hljs-title function_">getInstance</span><span class="hljs-params">()</span> &#123;
-        <span class="hljs-keyword">return</span> Holder.instance;
-    &#125;
-&#125;
-</code></pre>
-<h1 id="优缺点"><a class="markdownIt-Anchor" href="#优缺点"></a> 优缺点</h1>
-<table>
-<thead>
-<tr>
-<th>特点\模式</th>
-<th>懒汉式单例模式</th>
-<th>饿汉式单例模式</th>
-<th>双重检查锁定单例模式</th>
-<th>静态内部类单例模式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>优点</td>
-<td>延迟初始化，只有在需要时才创建实例。</td>
-<td>1. 在类加载时就创建实例，保证了线程安全；<br/>2. 获取实例的性能较好。</td>
-<td>1. 延迟初始化，只有在需要时才创建实例；<br/>2. 使用双重检查锁定机制，在保证线程安全的同时，减少了同步操作次数，提高了性能。</td>
-<td>1. 延迟初始化，只有在需要时才创建实例；<br/>2. 利用类加载机制，保证了线程安全；<br/>3. 性能较好，获取实例的开销很小。</td>
-</tr>
-<tr>
-<td>缺点</td>
-<td>1. 线程不安全，多线程环境下可能会出现并发访问问题，需要进行线程同步处理；<br/>2. 每次获取实例都需要进行同步，性能较差。</td>
-<td>不管是否使用，都会实例化对象，可能造成不必要的资源浪费。</td>
-<td>1. 代码相对复杂，容易出错；<br/>2.  对于早期的JDK版本，双重检查锁定可能存在问题，需要使用volatile关键字来修饰实例变量。</td>
-<td>无法传递参数给私有化构造函数。</td>
-</tr>
-</tbody>
-</table>
-<p>根据上述描述，可以总结如下：</p>
-<ul>
-<li>如果不考虑线程安全和性能问题，可选择懒汉式单例模式。</li>
-<li>如果需要保证线程安全且能够在类加载时就创建实例，可选择饿汉式单例模式。</li>
-<li>如果需要延迟初始化、保证线程安全且性能较好，可选择双重检查锁定单例模式。</li>
-<li>如果需要延迟初始化、保证线程安全且性能最优，可选择静态内部类单例模式。</li>
-</ul>
-<h1 id="经典案例"><a class="markdownIt-Anchor" href="#经典案例"></a> 经典案例</h1>
-<h2 id="日志记录器"><a class="markdownIt-Anchor" href="#日志记录器"></a> 日志记录器</h2>
-<p>在大多数应用程序中，日志记录是一个重要的组件。通过使用单例模式的日志记录器，可以确保在整个应用程序中只有一个日志实例，并且可以方便地记录日志信息。</p>
-<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Logger</span> &#123;
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Logger instance;
-    
-    <span class="hljs-keyword">private</span> <span class="hljs-title function_">Logger</span><span class="hljs-params">()</span> &#123;
-        <span class="hljs-comment">// 私有化构造函数</span>
-    &#125;
-    
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">synchronized</span> Logger <span class="hljs-title function_">getInstance</span><span class="hljs-params">()</span> &#123;
-        <span class="hljs-keyword">if</span> (instance == <span class="hljs-literal">null</span>) &#123;
-            instance = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Logger</span>();
-        &#125;
-        <span class="hljs-keyword">return</span> instance;
-    &#125;
-    
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">log</span><span class="hljs-params">(String message)</span> &#123;
-        System.out.println(<span class="hljs-string">&quot;Logging: &quot;</span> + message);
-    &#125;
-&#125;
-</code></pre>
-<h2 id="配置管理器"><a class="markdownIt-Anchor" href="#配置管理器"></a> 配置管理器</h2>
-<p>配置管理器常用于读取和管理应用程序的配置信息，例如数据库连接参数、日志级别等。使用单例模式的配置管理器可以确保全局范围内只有一个实例，并且可以轻松访问配置信息。</p>
-<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ConfigurationManager</span> &#123;
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> ConfigurationManager instance;
-    <span class="hljs-keyword">private</span> Properties config;
-    
-    <span class="hljs-keyword">private</span> <span class="hljs-title function_">ConfigurationManager</span><span class="hljs-params">()</span> &#123;
-        <span class="hljs-comment">// 私有化构造函数</span>
-        config = loadConfig();
-    &#125;
-    
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">synchronized</span> ConfigurationManager <span class="hljs-title function_">getInstance</span><span class="hljs-params">()</span> &#123;
-        <span class="hljs-keyword">if</span> (instance == <span class="hljs-literal">null</span>) &#123;
-            instance = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ConfigurationManager</span>();
-        &#125;
-        <span class="hljs-keyword">return</span> instance;
-    &#125;
-    
-    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getProperty</span><span class="hljs-params">(String key)</span> &#123;
-        <span class="hljs-keyword">return</span> config.getProperty(key);
-    &#125;
-    
-    <span class="hljs-keyword">private</span> Properties <span class="hljs-title function_">loadConfig</span><span class="hljs-params">()</span> &#123;
-        <span class="hljs-comment">// 加载配置信息的逻辑</span>
-    &#125;
-&#125;
-</code></pre>
-<h2 id="数据库连接池"><a class="markdownIt-Anchor" href="#数据库连接池"></a> 数据库连接池</h2>
-<p>数据库连接池常用于提供高效的数据库连接管理，以便在需要时能够快速获取和释放数据库连接。使用单例模式的数据库连接池可以确保只有一个连接池实例，并且可以集中管理连接资源。</p>
-<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ConnectionPool</span> &#123;
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> ConnectionPool instance;
-    <span class="hljs-keyword">private</span> List&lt;Connection&gt; connections;
-    
-    <span class="hljs-keyword">private</span> <span class="hljs-title function_">ConnectionPool</span><span class="hljs-params">()</span> &#123;
-        <span class="hljs-comment">// 私有化构造函数</span>
-        connections = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
-    &#125;
-    
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">synchronized</span> ConnectionPool <span class="hljs-title function_">getInstance</span><span class="hljs-params">()</span> &#123;
-        <span class="hljs-keyword">if</span> (instance == <span class="hljs-literal">null</span>) &#123;
-            instance = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ConnectionPool</span>();
-        &#125;
-        <span class="hljs-keyword">return</span> instance;
-    &#125;
-    
-    <span class="hljs-keyword">public</span> Connection <span class="hljs-title function_">getConnection</span><span class="hljs-params">()</span> &#123;
-        <span class="hljs-comment">// 获取连接的逻辑</span>
-    &#125;
-    
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">releaseConnection</span><span class="hljs-params">(Connection connection)</span> &#123;
-        <span class="hljs-comment">// 释放连接的逻辑</span>
-    &#125;
-&#125;
-</code></pre>
-
-</div>
-
-<!-- post-guide -->
-
-    <div class="post-guide">
-        <div class="item left">
-            
-              <a href="/2023/12/09/04%20Java/02%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/01%20%E5%BC%95%E8%A8%80/">
-                  <i class="fa fa-angle-left" aria-hidden="true"></i>
-                  引言
-              </a>
-            
-        </div>
-        <div class="item right">
-            
-              <a href="/2023/12/09/04%20Java/02%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/02%20%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
-                工厂模式
-                <i class="fa fa-angle-right" aria-hidden="true"></i>
-              </a>
-            
-        </div>
-    </div>
-
-
-<!-- comment - giscus -->
-
-
-
-	
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-          tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-          }
-        });
-        MathJax.Hub.Queue(function() {
-          var all = MathJax.Hub.getAllJax(), i;
-          for(i=0; i < all.length; i += 1) {
-              all[i].SourceElement().parentNode.className += ' has-jax';
-          }
-        });
-    </script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-
-
-<!-- comment - valine -->
-
-
-<script>
-	
-	
-</script>
 	</div>
 	<div id="footer">
 	<p>
